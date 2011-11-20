@@ -23,16 +23,16 @@ Add items using default service name (=bundle identifer).
 Or specify the service name.
 
 ```objective-c
-[UICKeyChainStore setString:@"kishikawakatsumi" forKey:@"username" service:@"com.kishikawakatsumi" accessGroup:nil];
-[UICKeyChainStore setString:@"katsumi6100" forKey:@"password" service:@"com.kishikawakatsumi" accessGroup:nil];
+[UICKeyChainStore setString:@"kishikawakatsumi" forKey:@"username" service:@"com.kishikawakatsumi"];
+[UICKeyChainStore setString:@"katsumi6100" forKey:@"password" service:@"com.kishikawakatsumi"];
 ```
 
 ---
 Remove items.
 
 ```objective-c
-[UICKeyChainStore removeItemForKey:@"username" service:@"com.kishikawakatsumi" accessGroup:nil];
-[UICKeyChainStore removeItemForKey:@"password" service:@"com.kishikawakatsumi" accessGroup:nil];
+[UICKeyChainStore removeItemForKey:@"username" service:@"com.kishikawakatsumi"];
+[UICKeyChainStore removeItemForKey:@"password" service:@"com.kishikawakatsumi"];
 ```
 
 =====
