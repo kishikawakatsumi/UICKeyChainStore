@@ -56,7 +56,7 @@ Add items and save.
 [store setString:@"kishikawakatsumi@mac.com" forKey:@"username"];
 [store setString:@"katsumi6100" forKey:@"password"];
 
-[store synchronize];
+[store synchronize]; // Write to keychain.
 ```
 
 Remove items.
@@ -65,7 +65,7 @@ Remove items.
 [store removeItemForKey:@"username"];
 [store removeItemForKey:@"password"];
 
-[store synchronize];
+[store synchronize]; // Write to keychain.
 ```
 
 ---
