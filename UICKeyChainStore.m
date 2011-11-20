@@ -57,8 +57,12 @@ static NSString *defaultService;
 }
 
 + (NSData *)dataForKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup {
-	if (!key || !service) {
+	if (!key) {
+        NSAssert(NO, @"key must not be nil.");
 		return nil;
+	}
+	if (!service) {
+        service = defaultService;
 	}
     
 	NSMutableDictionary* query = [NSMutableDictionary dictionary];
@@ -92,8 +96,12 @@ static NSString *defaultService;
 }
 
 + (void)setData:(NSData *)data forKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup {
-	if (!key || !service) {
+	if (!key) {
+        NSAssert(NO, @"key must not be nil.");
 		return;
+	}
+	if (!service) {
+        service = defaultService;
 	}
 	
 	NSMutableDictionary *query = [NSMutableDictionary dictionary];
@@ -146,8 +154,12 @@ static NSString *defaultService;
 }
 
 + (void)removeItemForKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup {
-	if (!key || !service) {
+	if (!key) {
+        NSAssert(NO, @"key must not be nil.");
 		return;
+	}
+	if (!service) {
+        service = defaultService;
 	}
 	
 	NSMutableDictionary *itemToDelete = [NSMutableDictionary dictionary];
@@ -168,8 +180,8 @@ static NSString *defaultService;
 }
 
 + (NSArray *)itemsForService:(NSString *)service accessGroup:(NSString *)accessGroup {
-	if (service == nil) {
-		return nil;
+	if (!service) {
+        service = defaultService;
 	}
 	
 	NSMutableDictionary *query = [NSMutableDictionary dictionary];
@@ -241,8 +253,11 @@ static NSString *defaultService;
 - (id)initWithService:(NSString *)s accessGroup:(NSString *)group {
     self = [super init];
     if (self) {
-       service = [s copy];
-       accessGroup = [group copy];
+        if (!s) {
+            s = defaultService;
+        }
+        service = [s copy];
+        accessGroup = [group copy];
         if (accessGroup) {
 #if !TARGET_IPHONE_SIMULATOR
             [itemsToUpdate setObject:accessGroup forKey:(id)kSecAttrAccessGroup];
