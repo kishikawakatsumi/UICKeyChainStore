@@ -57,7 +57,7 @@ Add items and save.
 
 ```objective-c
 [store setString:@"kishikawakatsumi@mac.com" forKey:@"username"];
-[store setString:@"katsumi6100" forKey:@"password"];
+[store setString:@"password1234" forKey:@"password"];
 
 [store synchronize]; // Write to keychain.
 ```
