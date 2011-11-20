@@ -9,7 +9,7 @@ UICKeyChainStore is a simple wrapper for Keychain on iOS. Makes using Keychain A
 
 ## Usage
 
-###Convienient class methods
+### Using convienient class methods
 
 Add items using default service name (=bundle identifer).
 
@@ -27,6 +27,7 @@ Or specify the service name.
 [UICKeyChainStore setString:@"katsumi6100" forKey:@"password" service:@"com.kishikawakatsumi" accessGroup:nil];
 ```
 
+---
 Remove items.
 
 ```objective-c
@@ -34,7 +35,8 @@ Remove items.
 [UICKeyChainStore removeItemForKey:@"password" service:@"com.kishikawakatsumi" accessGroup:nil];
 ```
 
-###Instantiate store object
+=====
+### Using store object, easy to edit multiple items.
 
 ```objective-c
 UICKeyChainStore *store = [UICKeyChainStore keyChain];
@@ -49,19 +51,20 @@ UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithService:@"com.kishi
 Add items and save.
 
 ```objective-c
-    [store setString:@"kishikawakatsumi@mac.com" forKey:@"username"];
-    [store setString:@"katsumi6100" forKey:@"password"];
+[store setString:@"kishikawakatsumi@mac.com" forKey:@"username"];
+[store setString:@"katsumi6100" forKey:@"password"];
 
-    [store synchronize];
+[store synchronize];
 ```
 
 Remove items.
-```objective-c
-    [store removeItemForKey:@"username"];
-    [store removeItemForKey:@"password"];
 
-    [store synchronize];
+```objective-c
+[store removeItemForKey:@"username"];
+[store removeItemForKey:@"password"];
+
+[store synchronize];
 ```
 
-
+---
 Easy as that. (See [UICKeyChainStore.h](https://github.com/kishikawakatsumi/UICKeyChainStore/blob/master/UICKeyChainStore.h) for all of the methods.)
