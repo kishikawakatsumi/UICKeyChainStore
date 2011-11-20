@@ -2,6 +2,9 @@
 
 UICKeyChainStore is a simple wrapper for Keychain on iOS. Makes using Keychain APIs as easy as NSUserDefaults.
 
+## License
+MIT License
+
 ## Adding to your project
 
 1. Add `Security.framework` to your target
