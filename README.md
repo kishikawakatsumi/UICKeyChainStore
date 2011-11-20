@@ -27,7 +27,7 @@ Or specify the service name.
 
 ```objective-c
 [UICKeyChainStore setString:@"kishikawakatsumi" forKey:@"username" service:@"com.kishikawakatsumi"];
-[UICKeyChainStore setString:@"katsumi6100" forKey:@"password" service:@"com.kishikawakatsumi"];
+[UICKeyChainStore setString:@"password1234" forKey:@"password" service:@"com.kishikawakatsumi"];
 ```
 
 ---
