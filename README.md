@@ -38,11 +38,13 @@ Remove items.
 =====
 ### Using store object, easy to edit multiple items.
 
+Instantiate store object with default service name.
+
 ```objective-c
 UICKeyChainStore *store = [UICKeyChainStore keyChain];
 ```
 
-or,
+Or specify the service name.
 
 ```objective-c
 UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithService:@"com.kishikawakatsumi"];
