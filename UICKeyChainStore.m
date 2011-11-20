@@ -16,7 +16,6 @@ static NSString *defaultService;
 @synthesize accessGroup;
 
 + (void)initialize {
-    NSLog(@"%s", __func__);
     defaultService = [[[NSBundle mainBundle] bundleIdentifier] retain];
 }
 
