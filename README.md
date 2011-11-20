@@ -36,7 +36,7 @@ Remove items.
 ```
 
 =====
-### Using store object, easy to edit multiple items.
+### Using store object, easier to edit multiple items
 
 Instantiate store object with default service name.
 
@@ -66,6 +66,14 @@ Remove items.
 [store removeItemForKey:@"password"];
 
 [store synchronize]; // Write to keychain.
+```
+
+---
+### Debug print
+
+```objective-c
+UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithService:@"com.kishikawakatsumi"];
+NSLog(@"%@", store); // Print all keys and values for the service.
 ```
 
 ---
