@@ -135,6 +135,11 @@ static NSString *defaultService;
         [attributes setObject:key forKey:kSecAttrGeneric];
         [attributes setObject:key forKey:kSecAttrAccount];
 		[attributes setObject:data forKey:kSecValueData];
+#if !TARGET_IPHONE_SIMULATOR
+        if (accessGroup) {
+            [attributes setObject:accessGroup forKey:kSecAttrAccessGroup];
+        }
+#endif
 		
 		status = SecItemAdd((CFDictionaryRef)attributes, NULL);
 		if (status != errSecSuccess) {
