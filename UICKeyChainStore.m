@@ -87,7 +87,7 @@ static NSString *defaultService;
 	NSData *data = nil;
 	OSStatus status = SecItemCopyMatching((CFDictionaryRef)query, (CFTypeRef *)&data);
 	if (status != errSecSuccess) {
-		NSLog(@"%s|SecItemCopyMatching: error(%ld)", __func__, status);
+        return nil;
 	}
     
     return [data autorelease];
