@@ -44,7 +44,7 @@ Remove items.
 Instantiate store object with default service name.
 
 ```objective-c
-UICKeyChainStore *store = [UICKeyChainStore keyChain];
+UICKeyChainStore *store = [UICKeyChainStore keyChainStore];
 ```
 
 Or specify the service name.
