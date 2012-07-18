@@ -8,11 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface UICKeyChainStore : NSObject {
-    NSString *service;
-    NSString *accessGroup;
-    NSMutableDictionary *itemsToUpdate;
-}
+@interface UICKeyChainStore : NSObject
 
 @property (nonatomic, readonly) NSString *service;
 @property (nonatomic, readonly) NSString *accessGroup;
