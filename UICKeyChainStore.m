@@ -78,7 +78,7 @@ static NSString *defaultService;
 	[query setObject:service forKey:kSecAttrService];
     [query setObject:key forKey:kSecAttrGeneric];
     [query setObject:key forKey:kSecAttrAccount];
-#if !TARGET_IPHONE_SIMULATOR
+#if !TARGET_IPHONE_SIMULATOR && defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
     if (accessGroup) {
         [query setObject:accessGroup forKey:kSecAttrAccessGroup];
     }
@@ -115,7 +115,7 @@ static NSString *defaultService;
 	[query setObject:service forKey:kSecAttrService];
     [query setObject:key forKey:kSecAttrGeneric];
     [query setObject:key forKey:kSecAttrAccount];
-#if !TARGET_IPHONE_SIMULATOR
+#if !TARGET_IPHONE_SIMULATOR && defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
     if (accessGroup) {
         [query setObject:accessGroup forKey:kSecAttrAccessGroup];
     }
@@ -129,7 +129,7 @@ static NSString *defaultService;
             
             status = SecItemUpdate((CFDictionaryRef)query, (CFDictionaryRef)attributesToUpdate);
             if (status != errSecSuccess) {
-                NSLog(@"%s|SecItemUpdate: error(%ld)", __func__, status);
+                NSLog(@"%s|SecItemUpdate: error(%d)", __func__, status);
             }
         } else {
             [self removeItemForKey:key service:service accessGroup:accessGroup];
@@ -141,7 +141,7 @@ static NSString *defaultService;
         [attributes setObject:key forKey:kSecAttrGeneric];
         [attributes setObject:key forKey:kSecAttrAccount];
 		[attributes setObject:data forKey:kSecValueData];
-#if !TARGET_IPHONE_SIMULATOR
+#if !TARGET_IPHONE_SIMULATOR && defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
         if (accessGroup) {
             [attributes setObject:accessGroup forKey:kSecAttrAccessGroup];
         }
@@ -149,10 +149,10 @@ static NSString *defaultService;
 		
 		status = SecItemAdd((CFDictionaryRef)attributes, NULL);
 		if (status != errSecSuccess) {
-			NSLog(@"%s|SecItemAdd: error(%ld)", __func__, status);
+			NSLog(@"%s|SecItemAdd: error(%d)", __func__, status);
 		}		
 	} else {
-		NSLog(@"%s|SecItemCopyMatching: error(%ld)", __func__, status);
+		NSLog(@"%s|SecItemCopyMatching: error(%d)", __func__, status);
 	}
 }
 
@@ -178,7 +178,7 @@ static NSString *defaultService;
 	[itemToDelete setObject:service forKey:kSecAttrService];
     [itemToDelete setObject:key forKey:kSecAttrGeneric];
     [itemToDelete setObject:key forKey:kSecAttrAccount];
-#if !TARGET_IPHONE_SIMULATOR
+#if !TARGET_IPHONE_SIMULATOR && defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
     if (accessGroup) {
         [itemToDelete setObject:accessGroup forKey:kSecAttrAccessGroup];
     }
@@ -186,7 +186,7 @@ static NSString *defaultService;
 	
 	OSStatus status = SecItemDelete((CFDictionaryRef)itemToDelete);
 	if (status != errSecSuccess && status != errSecItemNotFound) {
-		NSLog(@"%s|SecItemDelete: error(%ld)", __func__, status);
+		NSLog(@"%s|SecItemDelete: error(%d)", __func__, status);
 	}
 }
 
@@ -201,7 +201,7 @@ static NSString *defaultService;
 	[query setObject:(id)kCFBooleanTrue forKey:kSecReturnData];
 	[query setObject:kSecMatchLimitAll forKey:kSecMatchLimit];
 	[query setObject:service forKey:kSecAttrService];
-#if !TARGET_IPHONE_SIMULATOR
+#if !TARGET_IPHONE_SIMULATOR && defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
     if (accessGroup) {
         [query setObject:accessGroup forKey:kSecAttrAccessGroup];
     }
@@ -212,7 +212,7 @@ static NSString *defaultService;
 	if (status == errSecSuccess || status == errSecItemNotFound) {
 		return [(NSArray *)result autorelease];
 	} else {
-		NSLog(@"%s|SecItemCopyMatching: error(%ld)", __func__, status);
+		NSLog(@"%s|SecItemCopyMatching: error(%d)", __func__, status);
 		return nil;
 	}
 }
@@ -233,7 +233,7 @@ static NSString *defaultService;
         
         OSStatus status = SecItemDelete((CFDictionaryRef)itemToDelete);
         if (status != errSecSuccess) {
-            NSLog(@"%s|SecItemDelete: error(%ld)", __func__, status);
+            NSLog(@"%s|SecItemDelete: error(%d)", __func__, status);
             NSLog(@"%@", itemToDelete);
         }
     }
@@ -270,7 +270,7 @@ static NSString *defaultService;
         service = [s copy];
         accessGroup = [group copy];
         if (accessGroup) {
-#if !TARGET_IPHONE_SIMULATOR
+#if !TARGET_IPHONE_SIMULATOR && defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
             [itemsToUpdate setObject:accessGroup forKey:(id)kSecAttrAccessGroup];
 #endif
         }
@@ -307,7 +307,9 @@ static NSString *defaultService;
         NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
         [attrs setObject:[attributes objectForKey:kSecAttrService] forKey:@"Service"];
         [attrs setObject:[attributes objectForKey:kSecAttrAccount] forKey:@"Account"];
+#if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
         [attrs setObject:[attributes objectForKey:kSecAttrAccessGroup] forKey:@"AccessGroup"];
+#endif
         NSData *data = [attributes objectForKey:kSecValueData];
         NSString *string = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
         if (string) {
