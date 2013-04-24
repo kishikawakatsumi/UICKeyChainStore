@@ -41,17 +41,17 @@ static NSString *defaultService;
     return nil;
 }
 
-+ (void)setString:(NSString *)value forKey:(NSString *)key {
-    [self setString:value forKey:key service:defaultService accessGroup:nil];
++ (BOOL)setString:(NSString *)value forKey:(NSString *)key {
+    return [self setString:value forKey:key service:defaultService accessGroup:nil];
 }
 
-+ (void)setString:(NSString *)value forKey:(NSString *)key service:(NSString *)service {
-    [self setString:value forKey:key service:service accessGroup:nil];
++ (BOOL)setString:(NSString *)value forKey:(NSString *)key service:(NSString *)service {
+    return [self setString:value forKey:key service:service accessGroup:nil];
 }
 
-+ (void)setString:(NSString *)value forKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup {
++ (BOOL)setString:(NSString *)value forKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup {
     NSData *data = [value dataUsingEncoding:NSUTF8StringEncoding];
-    [self setData:data forKey:key service:service accessGroup:accessGroup];
+    return [self setData:data forKey:key service:service accessGroup:accessGroup];
 }
 
 + (NSData *)dataForKey:(NSString *)key {
@@ -98,18 +98,18 @@ static NSString *defaultService;
     return ret;
 }
 
-+ (void)setData:(NSData *)data forKey:(NSString *)key {
-    [self setData:data forKey:key service:defaultService accessGroup:nil];
++ (BOOL)setData:(NSData *)data forKey:(NSString *)key {
+    return [self setData:data forKey:key service:defaultService accessGroup:nil];
 }
 
-+ (void)setData:(NSData *)data forKey:(NSString *)key service:(NSString *)service {
-    [self setData:data forKey:key service:service accessGroup:nil];
++ (BOOL)setData:(NSData *)data forKey:(NSString *)key service:(NSString *)service {
+    return [self setData:data forKey:key service:service accessGroup:nil];
 }
 
-+ (void)setData:(NSData *)data forKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup {
++ (BOOL)setData:(NSData *)data forKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup {
 	if (!key) {
-        NSAssert(NO, @"key must not be nil.");
-		return;
+        NSAssert(NO, @"The `key` must not be nil.");
+		return NO;
 	}
 	if (!service) {
         service = defaultService;
@@ -134,7 +134,7 @@ static NSString *defaultService;
             
             status = SecItemUpdate((__bridge CFDictionaryRef)query, (__bridge CFDictionaryRef)attributesToUpdate);
             if (status != errSecSuccess) {
-                NSLog(@"%s|SecItemUpdate: error(%d)", __func__, status);
+                return NO;
             }
         } else {
             [self removeItemForKey:key service:service accessGroup:accessGroup];
@@ -154,25 +154,27 @@ static NSString *defaultService;
 		
 		status = SecItemAdd((__bridge CFDictionaryRef)attributes, NULL);
 		if (status != errSecSuccess) {
-			NSLog(@"%s|SecItemAdd: error(%d)", __func__, status);
+			return NO;
 		}		
 	} else {
-		NSLog(@"%s|SecItemCopyMatching: error(%d)", __func__, status);
+        return NO;
 	}
+    
+    return YES;
 }
 
-+ (void)removeItemForKey:(NSString *)key {
-    [UICKeyChainStore removeItemForKey:key service:defaultService accessGroup:nil];
++ (BOOL)removeItemForKey:(NSString *)key {
+    return [UICKeyChainStore removeItemForKey:key service:defaultService accessGroup:nil];
 }
 
-+ (void)removeItemForKey:(NSString *)key service:(NSString *)service {
-    [UICKeyChainStore removeItemForKey:key service:service accessGroup:nil];
++ (BOOL)removeItemForKey:(NSString *)key service:(NSString *)service {
+    return [UICKeyChainStore removeItemForKey:key service:service accessGroup:nil];
 }
 
-+ (void)removeItemForKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup {
++ (BOOL)removeItemForKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup {
 	if (!key) {
-        NSAssert(NO, @"key must not be nil.");
-		return;
+        NSAssert(NO, @"The `key` must not be nil.");
+		return NO;
 	}
 	if (!service) {
         service = defaultService;
@@ -191,8 +193,10 @@ static NSString *defaultService;
 	
 	OSStatus status = SecItemDelete((__bridge CFDictionaryRef)itemToDelete);
 	if (status != errSecSuccess && status != errSecItemNotFound) {
-		NSLog(@"%s|SecItemDelete: error(%d)", __func__, status);
+        return NO;
 	}
+    
+    return YES;
 }
 
 + (NSArray *)itemsForService:(NSString *)service accessGroup:(NSString *)accessGroup {
@@ -215,22 +219,21 @@ static NSString *defaultService;
 	CFArrayRef result = nil;
 	OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, (CFTypeRef *)&result);
 	if (status == errSecSuccess || status == errSecItemNotFound) {
-		return (__bridge NSArray*)result;
+		return (__bridge NSArray *)result;
 	} else {
-		NSLog(@"%s|SecItemCopyMatching: error(%d)", __func__, status);
 		return nil;
 	}
 }
 
-+ (void)removeAllItems {
-    [self removeAllItemsForService:defaultService accessGroup:nil];
++ (BOOL)removeAllItems {
+    return [self removeAllItemsForService:defaultService accessGroup:nil];
 }
 
-+ (void)removeAllItemsForService:(NSString *)service {
-    [self removeAllItemsForService:service accessGroup:nil];
++ (BOOL)removeAllItemsForService:(NSString *)service {
+    return [self removeAllItemsForService:service accessGroup:nil];
 }
 
-+ (void)removeAllItemsForService:(NSString *)service accessGroup:(NSString *)accessGroup {
++ (BOOL)removeAllItemsForService:(NSString *)service accessGroup:(NSString *)accessGroup {
     NSArray *items = [UICKeyChainStore itemsForService:service accessGroup:accessGroup];    
     for (NSDictionary *item in items) {
         NSMutableDictionary *itemToDelete = [NSMutableDictionary dictionaryWithDictionary:item];
@@ -238,10 +241,11 @@ static NSString *defaultService;
         
         OSStatus status = SecItemDelete((__bridge CFDictionaryRef)itemToDelete);
         if (status != errSecSuccess) {
-            NSLog(@"%s|SecItemDelete: error(%d)", __func__, status);
-            NSLog(@"%@", itemToDelete);
+            return NO;
         }
     }
+    
+    return YES;
 }
 
 #pragma mark -
