@@ -5,8 +5,11 @@ UICKeyChainStore is a simple wrapper for Keychain on iOS and OS X. Makes using K
 ## License
 MIT License
 
-## Adding to your project
+## Installation
+### CocoaPods
+`pod 'UICKeyChainStore'`
 
+### Manual Install
 1. Add `Security.framework` to your target
 2. Add `UICKeyChainStore.h` and `UICKeyChainStore.m` to your project.
 
