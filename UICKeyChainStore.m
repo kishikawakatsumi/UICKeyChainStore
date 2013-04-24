@@ -21,19 +21,23 @@ static NSString *defaultService;
 @synthesize service;
 @synthesize accessGroup;
 
-+ (void)initialize {
++ (void)initialize
+{
     defaultService = [[NSBundle mainBundle] bundleIdentifier];
 }
 
-+ (NSString *)stringForKey:(NSString *)key {
++ (NSString *)stringForKey:(NSString *)key
+{
     return [self stringForKey:key service:defaultService accessGroup:nil];
 }
 
-+ (NSString *)stringForKey:(NSString *)key service:(NSString *)service {
++ (NSString *)stringForKey:(NSString *)key service:(NSString *)service
+{
     return [self stringForKey:key service:service accessGroup:nil];
 }
 
-+ (NSString *)stringForKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup {
++ (NSString *)stringForKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup
+{
     NSData *data = [self dataForKey:key service:service accessGroup:accessGroup];
     if (data) {
         return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
@@ -41,28 +45,34 @@ static NSString *defaultService;
     return nil;
 }
 
-+ (BOOL)setString:(NSString *)value forKey:(NSString *)key {
++ (BOOL)setString:(NSString *)value forKey:(NSString *)key
+{
     return [self setString:value forKey:key service:defaultService accessGroup:nil];
 }
 
-+ (BOOL)setString:(NSString *)value forKey:(NSString *)key service:(NSString *)service {
++ (BOOL)setString:(NSString *)value forKey:(NSString *)key service:(NSString *)service
+{
     return [self setString:value forKey:key service:service accessGroup:nil];
 }
 
-+ (BOOL)setString:(NSString *)value forKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup {
++ (BOOL)setString:(NSString *)value forKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup
+{
     NSData *data = [value dataUsingEncoding:NSUTF8StringEncoding];
     return [self setData:data forKey:key service:service accessGroup:accessGroup];
 }
 
-+ (NSData *)dataForKey:(NSString *)key {
++ (NSData *)dataForKey:(NSString *)key
+{
     return [self dataForKey:key service:defaultService accessGroup:nil];
 }
 
-+ (NSData *)dataForKey:(NSString *)key service:(NSString *)service {
++ (NSData *)dataForKey:(NSString *)key service:(NSString *)service
+{
     return [self dataForKey:key service:service accessGroup:nil];
 }
 
-+ (NSData *)dataForKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup {
++ (NSData *)dataForKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup
+{
 	if (!key) {
         NSAssert(NO, @"key must not be nil.");
 		return nil;
@@ -98,15 +108,18 @@ static NSString *defaultService;
     return ret;
 }
 
-+ (BOOL)setData:(NSData *)data forKey:(NSString *)key {
++ (BOOL)setData:(NSData *)data forKey:(NSString *)key
+{
     return [self setData:data forKey:key service:defaultService accessGroup:nil];
 }
 
-+ (BOOL)setData:(NSData *)data forKey:(NSString *)key service:(NSString *)service {
++ (BOOL)setData:(NSData *)data forKey:(NSString *)key service:(NSString *)service
+{
     return [self setData:data forKey:key service:service accessGroup:nil];
 }
 
-+ (BOOL)setData:(NSData *)data forKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup {
++ (BOOL)setData:(NSData *)data forKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup
+{
 	if (!key) {
         NSAssert(NO, @"The `key` must not be nil.");
 		return NO;
@@ -163,15 +176,18 @@ static NSString *defaultService;
     return YES;
 }
 
-+ (BOOL)removeItemForKey:(NSString *)key {
++ (BOOL)removeItemForKey:(NSString *)key
+{
     return [UICKeyChainStore removeItemForKey:key service:defaultService accessGroup:nil];
 }
 
-+ (BOOL)removeItemForKey:(NSString *)key service:(NSString *)service {
++ (BOOL)removeItemForKey:(NSString *)key service:(NSString *)service
+{
     return [UICKeyChainStore removeItemForKey:key service:service accessGroup:nil];
 }
 
-+ (BOOL)removeItemForKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup {
++ (BOOL)removeItemForKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup
+{
 	if (!key) {
         NSAssert(NO, @"The `key` must not be nil.");
 		return NO;
@@ -199,7 +215,8 @@ static NSString *defaultService;
     return YES;
 }
 
-+ (NSArray *)itemsForService:(NSString *)service accessGroup:(NSString *)accessGroup {
++ (NSArray *)itemsForService:(NSString *)service accessGroup:(NSString *)accessGroup
+{
 	if (!service) {
         service = defaultService;
 	}
@@ -225,15 +242,18 @@ static NSString *defaultService;
 	}
 }
 
-+ (BOOL)removeAllItems {
++ (BOOL)removeAllItems
+{
     return [self removeAllItemsForService:defaultService accessGroup:nil];
 }
 
-+ (BOOL)removeAllItemsForService:(NSString *)service {
++ (BOOL)removeAllItemsForService:(NSString *)service
+{
     return [self removeAllItemsForService:service accessGroup:nil];
 }
 
-+ (BOOL)removeAllItemsForService:(NSString *)service accessGroup:(NSString *)accessGroup {
++ (BOOL)removeAllItemsForService:(NSString *)service accessGroup:(NSString *)accessGroup
+{
     NSArray *items = [UICKeyChainStore itemsForService:service accessGroup:accessGroup];    
     for (NSDictionary *item in items) {
         NSMutableDictionary *itemToDelete = [NSMutableDictionary dictionaryWithDictionary:item];
@@ -250,11 +270,13 @@ static NSString *defaultService;
 
 #pragma mark -
 
-+ (UICKeyChainStore *)keyChainStore {
++ (UICKeyChainStore *)keyChainStore
+{
     return [[self alloc] initWithService:defaultService];
 }
 
-+ (UICKeyChainStore *)keyChainStoreWithService:(NSString *)service {
++ (UICKeyChainStore *)keyChainStoreWithService:(NSString *)service
+{
     return [[self alloc] initWithService:service];
 }
 
@@ -262,15 +284,18 @@ static NSString *defaultService;
     return [[self alloc] initWithService:service accessGroup:accessGroup];
 }
 
-- (id)init {
+- (id)init
+{
     return [self initWithService:defaultService accessGroup:nil];
 }
 
-- (id)initWithService:(NSString *)s {
+- (id)initWithService:(NSString *)s
+{
     return [self initWithService:s accessGroup:nil];
 }
 
-- (id)initWithService:(NSString *)s accessGroup:(NSString *)group {
+- (id)initWithService:(NSString *)s accessGroup:(NSString *)group
+{
     self = [super init];
     if (self) {
         if (!s) {
@@ -301,7 +326,8 @@ static NSString *defaultService;
 
 #pragma mark -
 
-- (NSString *)description {
+- (NSString *)description
+{
     NSArray *items = [UICKeyChainStore itemsForService:service accessGroup:accessGroup];
     NSMutableArray *list = [NSMutableArray arrayWithCapacity:[items count]];    
     for (NSDictionary *attributes in items) {
@@ -325,11 +351,13 @@ static NSString *defaultService;
 
 #pragma mark -
 
-- (void)setString:(NSString *)string forKey:(NSString *)key {
+- (void)setString:(NSString *)string forKey:(NSString *)key
+{
     [self setData:[string dataUsingEncoding:NSUTF8StringEncoding] forKey:key];
 }
 
-- (NSString *)stringForKey:(id)key {
+- (NSString *)stringForKey:(id)key
+{
     NSData *data = [self dataForKey:key];
     if (data) {
         return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
@@ -337,7 +365,8 @@ static NSString *defaultService;
     return nil;
 }
 
-- (void)setData:(NSData *)data forKey:(NSString *)key {
+- (void)setData:(NSData *)data forKey:(NSString *)key
+{
     if (!key) {
         return;
     }
@@ -348,7 +377,8 @@ static NSString *defaultService;
     }
 }
 
-- (NSData *)dataForKey:(NSString *)key {
+- (NSData *)dataForKey:(NSString *)key
+{
     NSData *data = [itemsToUpdate objectForKey:key];
     if (!data) {
         data = [[self class] dataForKey:key service:service accessGroup:accessGroup];
@@ -356,7 +386,8 @@ static NSString *defaultService;
     return data;
 }
 
-- (void)removeItemForKey:(NSString *)key {
+- (void)removeItemForKey:(NSString *)key
+{
     if ([itemsToUpdate objectForKey:key]) {
         [itemsToUpdate removeObjectForKey:key];
     } else {
@@ -366,14 +397,16 @@ static NSString *defaultService;
 
 #pragma mark -
 
-- (void)removeAllItems {
+- (void)removeAllItems
+{
     [itemsToUpdate removeAllObjects];
     [[self class] removeAllItemsForService:service accessGroup:accessGroup];
 }
 
 #pragma mark -
 
-- (void)synchronize {    
+- (void)synchronize
+{
     for (NSString *key in itemsToUpdate) {
         [[self class] setData:[itemsToUpdate objectForKey:key] forKey:key service:service accessGroup:accessGroup];
     }
