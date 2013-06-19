@@ -18,13 +18,56 @@ static NSString *defaultService;
 
 @implementation UICKeyChainStore
 
-@synthesize service;
-@synthesize accessGroup;
+#pragma mark -
 
 + (void)initialize
 {
     defaultService = [[NSBundle mainBundle] bundleIdentifier];
 }
+
+#pragma mark -
+
++ (UICKeyChainStore *)keyChainStore
+{
+    return [[self alloc] initWithService:defaultService];
+}
+
++ (UICKeyChainStore *)keyChainStoreWithService:(NSString *)service
+{
+    return [[self alloc] initWithService:service];
+}
+
++ (UICKeyChainStore *)keyChainStoreWithService:(NSString *)service accessGroup:(NSString *)accessGroup {
+    return [[self alloc] initWithService:service accessGroup:accessGroup];
+}
+
+- (instancetype)init
+{
+    return [self initWithService:defaultService accessGroup:nil];
+}
+
+- (instancetype)initWithService:(NSString *)service
+{
+    return [self initWithService:service accessGroup:nil];
+}
+
+- (instancetype)initWithService:(NSString *)service accessGroup:(NSString *)accessGroup
+{
+    self = [super init];
+    if (self) {
+        if (!service) {
+            service = defaultService;
+        }
+        _service = [service copy];
+        _accessGroup = [accessGroup copy];
+        
+        itemsToUpdate = [[NSMutableDictionary alloc] init];
+    }
+    
+    return self;
+}
+
+#pragma mark -
 
 + (NSString *)stringForKey:(NSString *)key
 {
@@ -42,6 +85,7 @@ static NSString *defaultService;
     if (data) {
         return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     }
+    
     return nil;
 }
 
@@ -61,6 +105,8 @@ static NSString *defaultService;
     return [self setData:data forKey:key service:service accessGroup:accessGroup];
 }
 
+#pragma mark -
+
 + (NSData *)dataForKey:(NSString *)key
 {
     return [self dataForKey:key service:defaultService accessGroup:nil];
@@ -74,14 +120,13 @@ static NSString *defaultService;
 + (NSData *)dataForKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup
 {
 	if (!key) {
-        NSAssert(NO, @"key must not be nil.");
 		return nil;
 	}
 	if (!service) {
         service = defaultService;
 	}
     
-	NSMutableDictionary* query = [NSMutableDictionary dictionary];
+	NSMutableDictionary *query = [[NSMutableDictionary alloc] init];
 	[query setObject:(__bridge id)kSecClassGenericPassword forKey:(__bridge id)kSecClass];
 	[query setObject:(__bridge id)kCFBooleanTrue forKey:(__bridge id)kSecReturnData];
 	[query setObject:(__bridge id)kSecMatchLimitOne forKey:(__bridge id)kSecMatchLimit];
@@ -121,14 +166,13 @@ static NSString *defaultService;
 + (BOOL)setData:(NSData *)data forKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup
 {
 	if (!key) {
-        NSAssert(NO, @"The `key` must not be nil.");
 		return NO;
 	}
 	if (!service) {
         service = defaultService;
 	}
 	
-	NSMutableDictionary *query = [NSMutableDictionary dictionary];
+	NSMutableDictionary *query = [[NSMutableDictionary alloc] init];
 	[query setObject:(__bridge id)kSecClassGenericPassword forKey:(__bridge id)kSecClass];
 	[query setObject:service forKey:(__bridge id)kSecAttrService];
     [query setObject:key forKey:(__bridge id)kSecAttrGeneric];
@@ -142,7 +186,7 @@ static NSString *defaultService;
 	OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, NULL);
 	if (status == errSecSuccess) {
         if (data) {
-            NSMutableDictionary *attributesToUpdate = [NSMutableDictionary dictionary];
+            NSMutableDictionary *attributesToUpdate = [[NSMutableDictionary alloc] init];
             [attributesToUpdate setObject:data forKey:(__bridge id)kSecValueData];
             
             status = SecItemUpdate((__bridge CFDictionaryRef)query, (__bridge CFDictionaryRef)attributesToUpdate);
@@ -153,7 +197,7 @@ static NSString *defaultService;
             [self removeItemForKey:key service:service accessGroup:accessGroup];
         }
 	} else if (status == errSecItemNotFound) {
-		NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
+		NSMutableDictionary *attributes = [[NSMutableDictionary alloc] init];
 		[attributes setObject:(__bridge id)kSecClassGenericPassword forKey:(__bridge id)kSecClass];
         [attributes setObject:service forKey:(__bridge id)kSecAttrService];
         [attributes setObject:key forKey:(__bridge id)kSecAttrGeneric];
@@ -168,13 +212,56 @@ static NSString *defaultService;
 		status = SecItemAdd((__bridge CFDictionaryRef)attributes, NULL);
 		if (status != errSecSuccess) {
 			return NO;
-		}		
+		}
 	} else {
         return NO;
 	}
     
     return YES;
 }
+
+#pragma mark -
+
+- (void)setString:(NSString *)string forKey:(NSString *)key
+{
+    [self setData:[string dataUsingEncoding:NSUTF8StringEncoding] forKey:key];
+}
+
+- (NSString *)stringForKey:(id)key
+{
+    NSData *data = [self dataForKey:key];
+    if (data) {
+        return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    }
+    
+    return nil;
+}
+
+#pragma mark -
+
+- (void)setData:(NSData *)data forKey:(NSString *)key
+{
+    if (!key) {
+        return;
+    }
+    if (!data) {
+        [self removeItemForKey:key];
+    } else {
+        [itemsToUpdate setObject:data forKey:key];
+    }
+}
+
+- (NSData *)dataForKey:(NSString *)key
+{
+    NSData *data = [itemsToUpdate objectForKey:key];
+    if (!data) {
+        data = [[self class] dataForKey:key service:self.service accessGroup:self.accessGroup];
+    }
+    
+    return data;
+}
+
+#pragma mark -
 
 + (BOOL)removeItemForKey:(NSString *)key
 {
@@ -189,14 +276,13 @@ static NSString *defaultService;
 + (BOOL)removeItemForKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup
 {
 	if (!key) {
-        NSAssert(NO, @"The `key` must not be nil.");
 		return NO;
 	}
 	if (!service) {
         service = defaultService;
 	}
 	
-	NSMutableDictionary *itemToDelete = [NSMutableDictionary dictionary];
+	NSMutableDictionary *itemToDelete = [[NSMutableDictionary alloc] init];
 	[itemToDelete setObject:(__bridge id)kSecClassGenericPassword forKey:(__bridge id)kSecClass];
 	[itemToDelete setObject:service forKey:(__bridge id)kSecAttrService];
     [itemToDelete setObject:key forKey:(__bridge id)kSecAttrGeneric];
@@ -221,7 +307,7 @@ static NSString *defaultService;
         service = defaultService;
 	}
 	
-	NSMutableDictionary *query = [NSMutableDictionary dictionary];
+	NSMutableDictionary *query = [[NSMutableDictionary alloc] init];
 	[query setObject:(__bridge id)kSecClassGenericPassword forKey:(__bridge id)kSecClass];
 	[query setObject:(id)kCFBooleanTrue forKey:(__bridge id)kSecReturnAttributes];
 	[query setObject:(id)kCFBooleanTrue forKey:(__bridge id)kSecReturnData];
@@ -254,9 +340,9 @@ static NSString *defaultService;
 
 + (BOOL)removeAllItemsForService:(NSString *)service accessGroup:(NSString *)accessGroup
 {
-    NSArray *items = [UICKeyChainStore itemsForService:service accessGroup:accessGroup];    
+    NSArray *items = [UICKeyChainStore itemsForService:service accessGroup:accessGroup];
     for (NSDictionary *item in items) {
-        NSMutableDictionary *itemToDelete = [NSMutableDictionary dictionaryWithDictionary:item];
+        NSMutableDictionary *itemToDelete = [[NSMutableDictionary alloc] initWithDictionary:item];
         [itemToDelete setObject:(__bridge id)kSecClassGenericPassword forKey:(__bridge id)kSecClass];
         
         OSStatus status = SecItemDelete((__bridge CFDictionaryRef)itemToDelete);
@@ -270,68 +356,38 @@ static NSString *defaultService;
 
 #pragma mark -
 
-+ (UICKeyChainStore *)keyChainStore
+- (void)removeItemForKey:(NSString *)key
 {
-    return [[self alloc] initWithService:defaultService];
-}
-
-+ (UICKeyChainStore *)keyChainStoreWithService:(NSString *)service
-{
-    return [[self alloc] initWithService:service];
-}
-
-+ (UICKeyChainStore *)keyChainStoreWithService:(NSString *)service accessGroup:(NSString *)accessGroup {
-    return [[self alloc] initWithService:service accessGroup:accessGroup];
-}
-
-- (id)init
-{
-    return [self initWithService:defaultService accessGroup:nil];
-}
-
-- (id)initWithService:(NSString *)s
-{
-    return [self initWithService:s accessGroup:nil];
-}
-
-- (id)initWithService:(NSString *)s accessGroup:(NSString *)group
-{
-    self = [super init];
-    if (self) {
-        if (!s) {
-            s = defaultService;
-        }
-        service = [s copy];
-        accessGroup = [group copy];
-        if (accessGroup) {
-#if !TARGET_IPHONE_SIMULATOR && defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
-            [itemsToUpdate setObject:accessGroup forKey:(__bridge id)kSecAttrAccessGroup];
-#endif
-        }
-		
-        NSMutableDictionary *query = [NSMutableDictionary dictionaryWithDictionary:itemsToUpdate];
-        [query setObject:(__bridge id)kSecMatchLimitAll forKey:(__bridge id)kSecMatchLimit];
-        [query setObject:(id)kCFBooleanTrue forKey:(__bridge id)kSecReturnAttributes];
-        
-        CFTypeRef result = nil;
-        OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, &result);
-        if (status == errSecSuccess) {
-            itemsToUpdate = [[NSMutableDictionary alloc] initWithDictionary:(__bridge NSDictionary*)result];
-		} else {
-            itemsToUpdate = [[NSMutableDictionary alloc] init];
-        }
+    if ([itemsToUpdate objectForKey:key]) {
+        [itemsToUpdate removeObjectForKey:key];
+    } else {
+        [[self class] removeItemForKey:key service:self.service accessGroup:self.accessGroup];
     }
-    return self;
+}
+
+- (void)removeAllItems
+{
+    [itemsToUpdate removeAllObjects];
+    [[self class] removeAllItemsForService:self.service accessGroup:self.accessGroup];
+}
+
+#pragma mark -
+
+- (void)synchronize
+{
+    for (NSString *key in itemsToUpdate) {
+        [[self class] setData:[itemsToUpdate objectForKey:key] forKey:key service:self.service accessGroup:self.accessGroup];
+    }
 }
 
 #pragma mark -
 
 - (NSString *)description
 {
-    NSArray *items = [UICKeyChainStore itemsForService:service accessGroup:accessGroup];
-    NSMutableArray *list = [NSMutableArray arrayWithCapacity:[items count]];    
+    NSArray *items = [UICKeyChainStore itemsForService:self.service accessGroup:self.accessGroup];
+    NSMutableArray *list = [[NSMutableArray alloc] initWithCapacity:items.count];
     for (NSDictionary *attributes in items) {
-        NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
+        NSMutableDictionary *attrs = [[NSMutableDictionary alloc] init];
         [attrs setObject:[attributes objectForKey:(__bridge id)kSecAttrService] forKey:@"Service"];
         [attrs setObject:[attributes objectForKey:(__bridge id)kSecAttrAccount] forKey:@"Account"];
 #if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
@@ -346,70 +402,8 @@ static NSString *defaultService;
         }
         [list addObject:attrs];
     }
+    
     return [list description];
-}
-
-#pragma mark -
-
-- (void)setString:(NSString *)string forKey:(NSString *)key
-{
-    [self setData:[string dataUsingEncoding:NSUTF8StringEncoding] forKey:key];
-}
-
-- (NSString *)stringForKey:(id)key
-{
-    NSData *data = [self dataForKey:key];
-    if (data) {
-        return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    }
-    return nil;
-}
-
-- (void)setData:(NSData *)data forKey:(NSString *)key
-{
-    if (!key) {
-        return;
-    }
-    if (!data) {
-        [self removeItemForKey:key];
-    } else {
-        [itemsToUpdate setObject:data forKey:key];
-    }
-}
-
-- (NSData *)dataForKey:(NSString *)key
-{
-    NSData *data = [itemsToUpdate objectForKey:key];
-    if (!data) {
-        data = [[self class] dataForKey:key service:service accessGroup:accessGroup];
-    }
-    return data;
-}
-
-- (void)removeItemForKey:(NSString *)key
-{
-    if ([itemsToUpdate objectForKey:key]) {
-        [itemsToUpdate removeObjectForKey:key];
-    } else {
-        [[self class] removeItemForKey:key service:service accessGroup:accessGroup];
-    }
-}
-
-#pragma mark -
-
-- (void)removeAllItems
-{
-    [itemsToUpdate removeAllObjects];
-    [[self class] removeAllItemsForService:service accessGroup:accessGroup];
-}
-
-#pragma mark -
-
-- (void)synchronize
-{
-    for (NSString *key in itemsToUpdate) {
-        [[self class] setData:[itemsToUpdate objectForKey:key] forKey:key service:service accessGroup:accessGroup];
-    }
 }
 
 @end

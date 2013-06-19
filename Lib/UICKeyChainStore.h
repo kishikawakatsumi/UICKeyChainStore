@@ -13,6 +13,14 @@
 @property (nonatomic, readonly) NSString *service;
 @property (nonatomic, readonly) NSString *accessGroup;
 
++ (UICKeyChainStore *)keyChainStore;
++ (UICKeyChainStore *)keyChainStoreWithService:(NSString *)service;
++ (UICKeyChainStore *)keyChainStoreWithService:(NSString *)service accessGroup:(NSString *)accessGroup;
+
+- (instancetype)init;
+- (instancetype)initWithService:(NSString *)service;
+- (instancetype)initWithService:(NSString *)service accessGroup:(NSString *)accessGroup;
+
 + (NSString *)stringForKey:(NSString *)key;
 + (NSString *)stringForKey:(NSString *)key service:(NSString *)service;
 + (NSString *)stringForKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup;
@@ -27,25 +35,18 @@
 + (BOOL)setData:(NSData *)data forKey:(NSString *)key service:(NSString *)service;
 + (BOOL)setData:(NSData *)data forKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup;
 
+- (void)setString:(NSString *)string forKey:(NSString *)key;
+- (NSString *)stringForKey:(NSString *)key;
+
+- (void)setData:(NSData *)data forKey:(NSString *)key;
+- (NSData *)dataForKey:(NSString *)key;
+
 + (BOOL)removeItemForKey:(NSString *)key;
 + (BOOL)removeItemForKey:(NSString *)key service:(NSString *)service;
 + (BOOL)removeItemForKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup;
 + (BOOL)removeAllItems;
 + (BOOL)removeAllItemsForService:(NSString *)service;
 + (BOOL)removeAllItemsForService:(NSString *)service accessGroup:(NSString *)accessGroup;
-
-+ (UICKeyChainStore *)keyChainStore;
-+ (UICKeyChainStore *)keyChainStoreWithService:(NSString *)service;
-+ (UICKeyChainStore *)keyChainStoreWithService:(NSString *)service accessGroup:(NSString *)accessGroup;
-- (id)init;
-- (id)initWithService:(NSString *)service;
-- (id)initWithService:(NSString *)service accessGroup:(NSString *)accessGroup;
-
-- (void)setString:(NSString *)string forKey:(NSString *)key;
-- (NSString *)stringForKey:(NSString *)key;
-
-- (void)setData:(NSData *)data forKey:(NSString *)key;
-- (NSData *)dataForKey:(NSString *)key;
 
 - (void)removeItemForKey:(NSString *)key;
 - (void)removeAllItems;
