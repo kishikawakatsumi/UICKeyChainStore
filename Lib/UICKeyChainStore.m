@@ -322,7 +322,7 @@ static NSString *defaultService;
 	CFArrayRef result = nil;
 	OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, (CFTypeRef *)&result);
 	if (status == errSecSuccess || status == errSecItemNotFound) {
-		return (__bridge NSArray *)result;
+		return CFBridgingRelease(result);
 	} else {
 		return nil;
 	}
