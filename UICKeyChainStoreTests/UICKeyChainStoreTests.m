@@ -62,14 +62,36 @@
 
 - (void)testRemoveAllItemsForServiceAccessGroup
 {
+    UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithService:kStubService
+                                                             accessGroup:kStubAccessGroup];
+    // write to keychain
+    [store setString:kStubString forKey:kStubKey];
+
+    // read from keychain, test keychain contains item
+    NSString *actualString = [store stringForKey:kStubKey];
+    NSString *expectedString = kStubString;
+    STAssertEqualObjects(expectedString, actualString, @"expected %@ but got %@",
+                  expectedString, actualString);
+
+    // remove items from keychain
     BOOL actualResult = [UICKeyChainStore removeAllItemsForService:kStubService
                                                        accessGroup:kStubAccessGroup];
+    // test remove succeeded
     BOOL expectedResult = YES;
     NSString *actualResultString = actualResult ? @"YES" : @"NO";
     NSString *expectedResultString = expectedResult ? @"YES" : @"NO";
 
     STAssertEquals(expectedResult, actualResult, @"expected %@ but got %@",
                   expectedResultString, actualResultString);
+
+    // read from keychain, test keychain doesn't contain item
+    actualString = [UICKeyChainStore stringForKey:kStubKey
+                                                  service:kStubService
+                                              accessGroup:kStubAccessGroup];
+    expectedString = NULL;
+    
+    STAssertEqualObjects(expectedString, actualString, @"expected %@ but got %@",
+                  expectedString, actualString);
 }
 
 @end
