@@ -60,7 +60,7 @@
                   expectedResult, actualResult);
 }
 
-- (void)testRemoveAllItemsForServiceAccessGroup
+- (void)testAddAndRemoveItem
 {
     UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithService:kStubService
                                                              accessGroup:kStubAccessGroup];
@@ -70,28 +70,18 @@
     // read from keychain, test keychain contains item
     NSString *actualString = [store stringForKey:kStubKey];
     NSString *expectedString = kStubString;
-    STAssertEqualObjects(expectedString, actualString, @"expected %@ but got %@",
-                  expectedString, actualString);
+    STAssertEqualObjects(expectedString, actualString,
+                         @"expected %@ but got %@", expectedString, actualString);
 
-    // remove items from keychain
-    BOOL actualResult = [UICKeyChainStore removeAllItemsForService:kStubService
-                                                       accessGroup:kStubAccessGroup];
-    // test remove succeeded
-    BOOL expectedResult = YES;
-    NSString *actualResultString = actualResult ? @"YES" : @"NO";
-    NSString *expectedResultString = expectedResult ? @"YES" : @"NO";
-
-    STAssertEquals(expectedResult, actualResult, @"expected %@ but got %@",
-                  expectedResultString, actualResultString);
-
+    // remove item from keychain
+    [store removeItemForKey:kStubKey];
+    
     // read from keychain, test keychain doesn't contain item
-    actualString = [UICKeyChainStore stringForKey:kStubKey
-                                                  service:kStubService
-                                              accessGroup:kStubAccessGroup];
+    actualString = [store stringForKey:kStubKey];
     expectedString = NULL;
     
-    STAssertEqualObjects(expectedString, actualString, @"expected %@ but got %@",
-                  expectedString, actualString);
+    STAssertEqualObjects(expectedString, actualString,
+                         @"expected %@ but got %@", expectedString, actualString);
 }
 
 @end
