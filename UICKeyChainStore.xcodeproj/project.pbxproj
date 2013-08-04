@@ -21,6 +21,8 @@
 		DE20786617AEBDA100B126C9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE20784717AEBDA100B126C9 /* Foundation.framework */; };
 		DE20786E17AEBDA100B126C9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE20786C17AEBDA100B126C9 /* InfoPlist.strings */; };
 		DE20787117AEBDA100B126C9 /* UICKeyChainStoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DE20787017AEBDA100B126C9 /* UICKeyChainStoreTests.m */; };
+		DE2AD09917AEC313005E0F26 /* UICKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2AD09817AEC313005E0F26 /* UICKeyChainStore.m */; };
+		DE2AD09A17AEC313005E0F26 /* UICKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2AD09817AEC313005E0F26 /* UICKeyChainStore.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,11 @@
 		DE20786B17AEBDA100B126C9 /* UICKeyChainStoreTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UICKeyChainStoreTests-Info.plist"; sourceTree = "<group>"; };
 		DE20786D17AEBDA100B126C9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DE20787017AEBDA100B126C9 /* UICKeyChainStoreTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UICKeyChainStoreTests.m; sourceTree = "<group>"; };
+		DE2AD09717AEC313005E0F26 /* UICKeyChainStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICKeyChainStore.h; sourceTree = "<group>"; };
+		DE2AD09817AEC313005E0F26 /* UICKeyChainStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICKeyChainStore.m; sourceTree = "<group>"; };
+		DE2AD09B17AEC31F005E0F26 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		DE2AD09E17AEC32D005E0F26 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		DE2AD0A117AEC342005E0F26 /* UICKeyChainStore.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UICKeyChainStore.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +88,10 @@
 		DE20783917AEBDA100B126C9 = {
 			isa = PBXGroup;
 			children = (
+				DE2AD09B17AEC31F005E0F26 /* LICENSE */,
+				DE2AD09E17AEC32D005E0F26 /* README.md */,
+				DE2AD0A117AEC342005E0F26 /* UICKeyChainStore.podspec */,
+				DE2AD09617AEC313005E0F26 /* Lib */,
 				DE20784B17AEBDA100B126C9 /* UICKeyChainStore */,
 				DE20786917AEBDA100B126C9 /* UICKeyChainStoreTests */,
 				DE20784417AEBDA100B126C9 /* Frameworks */,
@@ -148,6 +159,15 @@
 				DE20786C17AEBDA100B126C9 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DE2AD09617AEC313005E0F26 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				DE2AD09717AEC313005E0F26 /* UICKeyChainStore.h */,
+				DE2AD09817AEC313005E0F26 /* UICKeyChainStore.m */,
+			);
+			path = Lib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +281,7 @@
 			files = (
 				DE20785217AEBDA100B126C9 /* main.m in Sources */,
 				DE20785617AEBDA100B126C9 /* AppDelegate.m in Sources */,
+				DE2AD09917AEC313005E0F26 /* UICKeyChainStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE20787117AEBDA100B126C9 /* UICKeyChainStoreTests.m in Sources */,
+				DE2AD09A17AEC313005E0F26 /* UICKeyChainStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
