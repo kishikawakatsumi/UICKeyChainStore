@@ -25,6 +25,8 @@
 		DE2AD09A17AEC313005E0F26 /* UICKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2AD09817AEC313005E0F26 /* UICKeyChainStore.m */; };
 		DEA2E65F17AED45900348F7B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEA2E65E17AED45900348F7B /* Security.framework */; };
 		DEA2E66017AED46A00348F7B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEA2E65E17AED45900348F7B /* Security.framework */; };
+		DECCCE8A17AEE93200701816 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DECCCE8917AEE93200701816 /* MainStoryboard.storyboard */; };
+		DECCCE8D17AEEA9300701816 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DECCCE8C17AEEA9300701816 /* MyViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,9 @@
 		DE2AD09E17AEC32D005E0F26 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		DE2AD0A117AEC342005E0F26 /* UICKeyChainStore.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UICKeyChainStore.podspec; sourceTree = "<group>"; };
 		DEA2E65E17AED45900348F7B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		DECCCE8917AEE93200701816 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		DECCCE8B17AEEA9300701816 /* MyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
+		DECCCE8C17AEEA9300701816 /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +136,9 @@
 				DE20785417AEBDA100B126C9 /* AppDelegate.h */,
 				DE20785517AEBDA100B126C9 /* AppDelegate.m */,
 				DE20784C17AEBDA100B126C9 /* Supporting Files */,
+				DECCCE8917AEE93200701816 /* MainStoryboard.storyboard */,
+				DECCCE8B17AEEA9300701816 /* MyViewController.h */,
+				DECCCE8C17AEEA9300701816 /* MyViewController.m */,
 			);
 			path = UICKeyChainStore;
 			sourceTree = "<group>";
@@ -251,6 +259,7 @@
 				DE20785817AEBDA100B126C9 /* Default.png in Resources */,
 				DE20785A17AEBDA100B126C9 /* Default@2x.png in Resources */,
 				DE20785C17AEBDA100B126C9 /* Default-568h@2x.png in Resources */,
+				DECCCE8A17AEE93200701816 /* MainStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +297,7 @@
 				DE20785217AEBDA100B126C9 /* main.m in Sources */,
 				DE20785617AEBDA100B126C9 /* AppDelegate.m in Sources */,
 				DE2AD09917AEC313005E0F26 /* UICKeyChainStore.m in Sources */,
+				DECCCE8D17AEEA9300701816 /* MyViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
