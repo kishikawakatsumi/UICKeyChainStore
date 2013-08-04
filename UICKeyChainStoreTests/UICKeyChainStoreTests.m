@@ -6,7 +6,12 @@
 //  Copyright (c) 2013 Beepscore LLC. All rights reserved.
 //
 
-#import "UICKeyChainStoreTests.h"
+#import <SenTestingKit/SenTestingKit.h>
+
+@interface UICKeyChainStoreTests : SenTestCase
+
+@end
+
 
 @implementation UICKeyChainStoreTests
 

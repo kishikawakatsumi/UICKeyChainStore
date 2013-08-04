@@ -51,7 +51,6 @@
 		DE20786317AEBDA100B126C9 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		DE20786B17AEBDA100B126C9 /* UICKeyChainStoreTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UICKeyChainStoreTests-Info.plist"; sourceTree = "<group>"; };
 		DE20786D17AEBDA100B126C9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		DE20786F17AEBDA100B126C9 /* UICKeyChainStoreTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UICKeyChainStoreTests.h; sourceTree = "<group>"; };
 		DE20787017AEBDA100B126C9 /* UICKeyChainStoreTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UICKeyChainStoreTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -136,7 +135,6 @@
 		DE20786917AEBDA100B126C9 /* UICKeyChainStoreTests */ = {
 			isa = PBXGroup;
 			children = (
-				DE20786F17AEBDA100B126C9 /* UICKeyChainStoreTests.h */,
 				DE20787017AEBDA100B126C9 /* UICKeyChainStoreTests.m */,
 				DE20786A17AEBDA100B126C9 /* Supporting Files */,
 			);
@@ -435,6 +433,7 @@
 				DE20787617AEBDA100B126C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DE20787717AEBDA100B126C9 /* Build configuration list for PBXNativeTarget "UICKeyChainStoreTests" */ = {
 			isa = XCConfigurationList;
@@ -443,6 +442,7 @@
 				DE20787917AEBDA100B126C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
