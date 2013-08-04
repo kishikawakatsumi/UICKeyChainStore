@@ -23,6 +23,8 @@
 		DE20787117AEBDA100B126C9 /* UICKeyChainStoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DE20787017AEBDA100B126C9 /* UICKeyChainStoreTests.m */; };
 		DE2AD09917AEC313005E0F26 /* UICKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2AD09817AEC313005E0F26 /* UICKeyChainStore.m */; };
 		DE2AD09A17AEC313005E0F26 /* UICKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2AD09817AEC313005E0F26 /* UICKeyChainStore.m */; };
+		DEA2E65F17AED45900348F7B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEA2E65E17AED45900348F7B /* Security.framework */; };
+		DEA2E66017AED46A00348F7B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEA2E65E17AED45900348F7B /* Security.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,7 @@
 		DE2AD09B17AEC31F005E0F26 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		DE2AD09E17AEC32D005E0F26 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		DE2AD0A117AEC342005E0F26 /* UICKeyChainStore.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UICKeyChainStore.podspec; sourceTree = "<group>"; };
+		DEA2E65E17AED45900348F7B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEA2E65F17AED45900348F7B /* Security.framework in Frameworks */,
 				DE20784617AEBDA100B126C9 /* UIKit.framework in Frameworks */,
 				DE20784817AEBDA100B126C9 /* Foundation.framework in Frameworks */,
 				DE20784A17AEBDA100B126C9 /* CoreGraphics.framework in Frameworks */,
@@ -79,6 +83,7 @@
 				DE20786417AEBDA100B126C9 /* SenTestingKit.framework in Frameworks */,
 				DE20786517AEBDA100B126C9 /* UIKit.framework in Frameworks */,
 				DE20786617AEBDA100B126C9 /* Foundation.framework in Frameworks */,
+				DEA2E66017AED46A00348F7B /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +116,7 @@
 		DE20784417AEBDA100B126C9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DEA2E65E17AED45900348F7B /* Security.framework */,
 				DE20784517AEBDA100B126C9 /* UIKit.framework */,
 				DE20784717AEBDA100B126C9 /* Foundation.framework */,
 				DE20784917AEBDA100B126C9 /* CoreGraphics.framework */,
