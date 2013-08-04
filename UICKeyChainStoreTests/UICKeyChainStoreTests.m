@@ -12,6 +12,7 @@
 @interface UICKeyChainStoreTests : SenTestCase
 {
     NSString *kStubKey;
+    NSString *kStubString;
     NSString *kStubService;
     NSString *kStubAccessGroup;
 }
@@ -26,14 +27,14 @@
     
     // Set-up code here.
 
-    // Before running each test, remove item for key.
-    kStubKey = @"stubKey";
-    kStubService = @"stubService";
+    // Before running each test, remove items from keychain 
+    kStubKey = @"password";
+    kStubString = @"password1234";
+    kStubService = @"com.kishikawakatsumi";
     kStubAccessGroup = @"stubAccessGroup";
 
-    [UICKeyChainStore removeItemForKey:kStubKey
-                               service:kStubService
-                           accessGroup:kStubAccessGroup];
+    [UICKeyChainStore removeAllItemsForService:kStubService
+                                   accessGroup:kStubAccessGroup];
 }
 
 - (void)tearDown
@@ -43,16 +44,31 @@
     [super tearDown];
 }
 
-- (void)testRemoveItemForKeyServiceAccessGroup
+- (void)testSetStringForKey
 {
-    BOOL actualResult = [UICKeyChainStore removeItemForKey:kStubKey
-                                              service:kStubService
-                                         accessGroup:kStubAccessGroup];
+    UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithService:kStubService
+                                                             accessGroup:kStubAccessGroup];
+    // write to keychain
+    [store setString:kStubString forKey:kStubKey];
+
+    // read result from keychain
+    NSString *actualResult = [store stringForKey:kStubKey];
+    
+    NSString *expectedResult = kStubString;
+
+    STAssertEqualObjects(expectedResult, actualResult, @"expected %@ but got %@",
+                  expectedResult, actualResult);
+}
+
+- (void)testRemoveAllItemsForServiceAccessGroup
+{
+    BOOL actualResult = [UICKeyChainStore removeAllItemsForService:kStubService
+                                                       accessGroup:kStubAccessGroup];
     BOOL expectedResult = YES;
     NSString *actualResultString = actualResult ? @"YES" : @"NO";
     NSString *expectedResultString = expectedResult ? @"YES" : @"NO";
 
-    STAssertEquals(actualResult, expectedResult, @"setUp expected %@ but got %@",
+    STAssertEquals(expectedResult, actualResult, @"expected %@ but got %@",
                   expectedResultString, actualResultString);
 }
 
