@@ -7,9 +7,14 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
+#import "UICKeyChainStore.h"
 
 @interface UICKeyChainStoreTests : SenTestCase
-
+{
+    NSString *kStubKey;
+    NSString *kStubService;
+    NSString *kStubAccessGroup;
+}
 @end
 
 
@@ -20,6 +25,15 @@
     [super setUp];
     
     // Set-up code here.
+
+    // Before running each test, remove item for key.
+    kStubKey = @"stubKey";
+    kStubService = @"stubService";
+    kStubAccessGroup = @"stubAccessGroup";
+
+    [UICKeyChainStore removeItemForKey:kStubKey
+                               service:kStubService
+                           accessGroup:kStubAccessGroup];
 }
 
 - (void)tearDown
@@ -29,9 +43,17 @@
     [super tearDown];
 }
 
-- (void)testExample
+- (void)testRemoveItemForKeyServiceAccessGroup
 {
-    STFail(@"Unit tests are not implemented yet in UICKeyChainStoreTests");
+    BOOL actualResult = [UICKeyChainStore removeItemForKey:kStubKey
+                                              service:kStubService
+                                         accessGroup:kStubAccessGroup];
+    BOOL expectedResult = YES;
+    NSString *actualResultString = actualResult ? @"YES" : @"NO";
+    NSString *expectedResultString = expectedResult ? @"YES" : @"NO";
+
+    STAssertEquals(actualResult, expectedResult, @"setUp expected %@ but got %@",
+                  expectedResultString, actualResultString);
 }
 
 @end
