@@ -35,6 +35,7 @@
 
     [UICKeyChainStore removeAllItemsForService:kStubService
                                    accessGroup:kStubAccessGroup];
+    [UICKeyChainStore removeAllItems];
 }
 
 - (void)tearDown
@@ -44,28 +45,37 @@
     [super tearDown];
 }
 
-- (void)testSetStringForKey
+- (void)testClassMethodsSetAndRemoveItem
 {
-    UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithService:kStubService
-                                                             accessGroup:kStubAccessGroup];
     // write to keychain
-    [store setString:kStubString forKey:kStubKey];
+    [UICKeyChainStore setString:kStubString forKey:kStubKey];
 
-    // read result from keychain
-    NSString *actualResult = [store stringForKey:kStubKey];
+    // read from keychain, test keychain contains item
+    NSString *actualString = [UICKeyChainStore stringForKey:kStubKey];
+    NSString *expectedString = kStubString;
+    STAssertEqualObjects(expectedString, actualString,
+                         @"expected %@ but got %@", expectedString, actualString);
+
+    // remove item from keychain
+    [UICKeyChainStore removeItemForKey:kStubKey];
+
+    // read from keychain, test keychain doesn't contain item
+    actualString = [UICKeyChainStore stringForKey:kStubKey];
+    expectedString = NULL;
+
+    STAssertEqualObjects(expectedString, actualString,
+                         @"expected %@ but got %@", expectedString, actualString);
     
-    NSString *expectedResult = kStubString;
-
-    STAssertEqualObjects(expectedResult, actualResult, @"expected %@ but got %@",
-                  expectedResult, actualResult);
 }
 
-- (void)testAddAndRemoveItem
+- (void)testInstanceMethodsSetAndRemoveItem
 {
+    // create an instance
     UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithService:kStubService
                                                              accessGroup:kStubAccessGroup];
     // write to keychain
     [store setString:kStubString forKey:kStubKey];
+    [store synchronize];
 
     // read from keychain, test keychain contains item
     NSString *actualString = [store stringForKey:kStubKey];
@@ -75,11 +85,16 @@
 
     // remove item from keychain
     [store removeItemForKey:kStubKey];
-    
+    [store synchronize];
+
     // read from keychain, test keychain doesn't contain item
     actualString = [store stringForKey:kStubKey];
     expectedString = NULL;
-    
+    STAssertEqualObjects(expectedString, actualString,
+                         @"expected %@ but got %@", expectedString, actualString);
+
+    actualString = [store description];
+    expectedString = @"(\n)";
     STAssertEqualObjects(expectedString, actualString,
                          @"expected %@ but got %@", expectedString, actualString);
 }
