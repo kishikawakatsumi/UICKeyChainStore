@@ -12,6 +12,8 @@ MIT License
 ### Manual Install
 1. Add `Security.framework` to your target
 2. Add `UICKeyChainStore.h` and `UICKeyChainStore.m` to your project.
+3. Copy files in Lib to your project.
+4. Copy LICENSE to your project.
 
 ## Usage
 
