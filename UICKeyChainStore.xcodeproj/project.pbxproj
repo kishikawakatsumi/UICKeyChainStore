@@ -40,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1426600D17B96F6000E17A90 /* UICKeyChainStoreTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICKeyChainStoreTests.h; sourceTree = "<group>"; };
 		DE20784217AEBDA100B126C9 /* UICKeyChainStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UICKeyChainStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE20784517AEBDA100B126C9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DE20784717AEBDA100B126C9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -60,9 +61,6 @@
 		DE20787017AEBDA100B126C9 /* UICKeyChainStoreTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UICKeyChainStoreTests.m; sourceTree = "<group>"; };
 		DE2AD09717AEC313005E0F26 /* UICKeyChainStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICKeyChainStore.h; sourceTree = "<group>"; };
 		DE2AD09817AEC313005E0F26 /* UICKeyChainStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICKeyChainStore.m; sourceTree = "<group>"; };
-		DE2AD09B17AEC31F005E0F26 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		DE2AD09E17AEC32D005E0F26 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		DE2AD0A117AEC342005E0F26 /* UICKeyChainStore.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UICKeyChainStore.podspec; sourceTree = "<group>"; };
 		DEA2E65E17AED45900348F7B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		DECCCE8917AEE93200701816 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		DECCCE8B17AEEA9300701816 /* MyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
@@ -98,9 +96,6 @@
 		DE20783917AEBDA100B126C9 = {
 			isa = PBXGroup;
 			children = (
-				DE2AD09B17AEC31F005E0F26 /* LICENSE */,
-				DE2AD09E17AEC32D005E0F26 /* README.md */,
-				DE2AD0A117AEC342005E0F26 /* UICKeyChainStore.podspec */,
 				DE2AD09617AEC313005E0F26 /* Lib */,
 				DE20784B17AEBDA100B126C9 /* UICKeyChainStore */,
 				DE20786917AEBDA100B126C9 /* UICKeyChainStoreTests */,
@@ -135,10 +130,10 @@
 			children = (
 				DE20785417AEBDA100B126C9 /* AppDelegate.h */,
 				DE20785517AEBDA100B126C9 /* AppDelegate.m */,
-				DE20784C17AEBDA100B126C9 /* Supporting Files */,
 				DECCCE8917AEE93200701816 /* MainStoryboard.storyboard */,
 				DECCCE8B17AEEA9300701816 /* MyViewController.h */,
 				DECCCE8C17AEEA9300701816 /* MyViewController.m */,
+				DE20784C17AEBDA100B126C9 /* Supporting Files */,
 			);
 			path = UICKeyChainStore;
 			sourceTree = "<group>";
@@ -160,6 +155,7 @@
 		DE20786917AEBDA100B126C9 /* UICKeyChainStoreTests */ = {
 			isa = PBXGroup;
 			children = (
+				1426600D17B96F6000E17A90 /* UICKeyChainStoreTests.h */,
 				DE20787017AEBDA100B126C9 /* UICKeyChainStoreTests.m */,
 				DE20786A17AEBDA100B126C9 /* Supporting Files */,
 			);

@@ -7,18 +7,17 @@
 //  MIT License
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import "UICKeyChainStoreTests.h"
 #import "UICKeyChainStore.h"
 
-@interface UICKeyChainStoreTests : SenTestCase
-{
+@interface UICKeyChainStoreTests () {
     NSString *kStubKey;
     NSString *kStubString;
     NSString *kStubService;
     NSString *kStubAccessGroup;
 }
-@end
 
+@end
 
 @implementation UICKeyChainStoreTests
 
@@ -26,8 +25,6 @@
 {
     [super setUp];
     
-    // Set-up code here.
-
     // Before running each test, remove items from keychain 
     kStubKey = @"password";
     kStubString = @"password1234";
@@ -43,8 +40,6 @@
 
 - (void)tearDown
 {
-    // Tear-down code here.
-    
     [super tearDown];
 }
 
