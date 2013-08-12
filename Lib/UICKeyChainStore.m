@@ -378,6 +378,8 @@ static NSString *defaultService;
     for (NSString *key in itemsToUpdate) {
         [[self class] setData:[itemsToUpdate objectForKey:key] forKey:key service:self.service accessGroup:self.accessGroup];
     }
+    
+    [itemsToUpdate removeAllObjects];
 }
 
 #pragma mark -
