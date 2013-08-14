@@ -1,10 +1,9 @@
 # UICKeyChainStore
-=====================
 
-![version](http://cocoapod-badges.herokuapp.com/v/VEVerbalExpressions/badge.svg)
-![platform](http://cocoapod-badges.herokuapp.com/p/VEVerbalExpressions/badge.svg)
-[![Build Status](https://travis-ci.org/kishikawakatsumi/ObjectiveCVerbalExpressions.png?branch=master)](https://travis-ci.org/kishikawakatsumi/ObjectiveCVerbalExpressions)
-[![Coverage Status](https://coveralls.io/repos/kishikawakatsumi/ObjectiveCVerbalExpressions/badge.png?branch=master)](https://coveralls.io/r/kishikawakatsumi/ObjectiveCVerbalExpressions?branch=master)
+![version](http://cocoapod-badges.herokuapp.com/v/UICKeyChainStore/badge.svg)
+![platform](http://cocoapod-badges.herokuapp.com/p/UICKeyChainStore/badge.svg)
+[![Build Status](https://travis-ci.org/kishikawakatsumi/UICKeyChainStore.png?branch=master)](https://travis-ci.org/kishikawakatsumi/UICKeyChainStore)
+[![Coverage Status](https://coveralls.io/repos/kishikawakatsumi/UICKeyChainStore/badge.png?branch=master)](https://coveralls.io/r/kishikawakatsumi/UICKeyChainStore?branch=master)
 
 
 UICKeyChainStore is a simple wrapper for Keychain on iOS and OS X. Makes using Keychain APIs as easy as NSUserDefaults.
