@@ -13,6 +13,9 @@
 @property (nonatomic, readonly) NSString *service;
 @property (nonatomic, readonly) NSString *accessGroup;
 
++ (NSString *)defaultService;
++ (void)setDefaultService:(NSString *)defaultService;
+
 + (UICKeyChainStore *)keyChainStore;
 + (UICKeyChainStore *)keyChainStoreWithService:(NSString *)service;
 + (UICKeyChainStore *)keyChainStoreWithService:(NSString *)service accessGroup:(NSString *)accessGroup;

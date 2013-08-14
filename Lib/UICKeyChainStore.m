@@ -8,7 +8,7 @@
 
 #import "UICKeyChainStore.h"
 
-static NSString *defaultService;
+static NSString *_defaultService;
 
 @interface UICKeyChainStore () {
     NSMutableDictionary *itemsToUpdate;
@@ -18,18 +18,25 @@ static NSString *defaultService;
 
 @implementation UICKeyChainStore
 
-#pragma mark -
-
-+ (void)initialize
++ (NSString *)defaultService
 {
-    defaultService = [[NSBundle mainBundle] bundleIdentifier];
+    if (!_defaultService) {
+        _defaultService = [[NSBundle mainBundle] bundleIdentifier];
+    }
+    
+    return _defaultService;
+}
+
++ (void)setDefaultService:(NSString *)defaultService
+{
+    _defaultService = defaultService;
 }
 
 #pragma mark -
 
 + (UICKeyChainStore *)keyChainStore
 {
-    return [[self alloc] initWithService:defaultService];
+    return [[self alloc] initWithService:[self defaultService]];
 }
 
 + (UICKeyChainStore *)keyChainStoreWithService:(NSString *)service
@@ -43,7 +50,7 @@ static NSString *defaultService;
 
 - (instancetype)init
 {
-    return [self initWithService:defaultService accessGroup:nil];
+    return [self initWithService:[self.class defaultService] accessGroup:nil];
 }
 
 - (instancetype)initWithService:(NSString *)service
@@ -56,7 +63,7 @@ static NSString *defaultService;
     self = [super init];
     if (self) {
         if (!service) {
-            service = defaultService;
+            service = [self.class defaultService];
         }
         _service = [service copy];
         _accessGroup = [accessGroup copy];
@@ -71,7 +78,7 @@ static NSString *defaultService;
 
 + (NSString *)stringForKey:(NSString *)key
 {
-    return [self stringForKey:key service:defaultService accessGroup:nil];
+    return [self stringForKey:key service:[self defaultService] accessGroup:nil];
 }
 
 + (NSString *)stringForKey:(NSString *)key service:(NSString *)service
@@ -91,7 +98,7 @@ static NSString *defaultService;
 
 + (BOOL)setString:(NSString *)value forKey:(NSString *)key
 {
-    return [self setString:value forKey:key service:defaultService accessGroup:nil];
+    return [self setString:value forKey:key service:[self defaultService] accessGroup:nil];
 }
 
 + (BOOL)setString:(NSString *)value forKey:(NSString *)key service:(NSString *)service
@@ -109,7 +116,7 @@ static NSString *defaultService;
 
 + (NSData *)dataForKey:(NSString *)key
 {
-    return [self dataForKey:key service:defaultService accessGroup:nil];
+    return [self dataForKey:key service:[self defaultService] accessGroup:nil];
 }
 
 + (NSData *)dataForKey:(NSString *)key service:(NSString *)service
@@ -123,7 +130,7 @@ static NSString *defaultService;
 		return nil;
 	}
 	if (!service) {
-        service = defaultService;
+        service = [self defaultService];
 	}
     
 	NSMutableDictionary *query = [[NSMutableDictionary alloc] init];
@@ -155,7 +162,7 @@ static NSString *defaultService;
 
 + (BOOL)setData:(NSData *)data forKey:(NSString *)key
 {
-    return [self setData:data forKey:key service:defaultService accessGroup:nil];
+    return [self setData:data forKey:key service:[self defaultService] accessGroup:nil];
 }
 
 + (BOOL)setData:(NSData *)data forKey:(NSString *)key service:(NSString *)service
@@ -169,7 +176,7 @@ static NSString *defaultService;
 		return NO;
 	}
 	if (!service) {
-        service = defaultService;
+        service = [self defaultService];
 	}
 	
 	NSMutableDictionary *query = [[NSMutableDictionary alloc] init];
@@ -265,7 +272,7 @@ static NSString *defaultService;
 
 + (BOOL)removeItemForKey:(NSString *)key
 {
-    return [UICKeyChainStore removeItemForKey:key service:defaultService accessGroup:nil];
+    return [UICKeyChainStore removeItemForKey:key service:[self defaultService] accessGroup:nil];
 }
 
 + (BOOL)removeItemForKey:(NSString *)key service:(NSString *)service
@@ -279,7 +286,7 @@ static NSString *defaultService;
 		return NO;
 	}
 	if (!service) {
-        service = defaultService;
+        service = [self defaultService];
 	}
 	
 	NSMutableDictionary *itemToDelete = [[NSMutableDictionary alloc] init];
@@ -304,7 +311,7 @@ static NSString *defaultService;
 + (NSArray *)itemsForService:(NSString *)service accessGroup:(NSString *)accessGroup
 {
 	if (!service) {
-        service = defaultService;
+        service = [self defaultService];
 	}
 	
 	NSMutableDictionary *query = [[NSMutableDictionary alloc] init];
@@ -330,7 +337,7 @@ static NSString *defaultService;
 
 + (BOOL)removeAllItems
 {
-    return [self removeAllItemsForService:defaultService accessGroup:nil];
+    return [self removeAllItemsForService:[self defaultService] accessGroup:nil];
 }
 
 + (BOOL)removeAllItemsForService:(NSString *)service

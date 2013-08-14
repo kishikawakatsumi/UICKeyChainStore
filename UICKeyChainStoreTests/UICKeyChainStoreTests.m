@@ -32,7 +32,7 @@
     // to share keychain access between apps, access group must start with bundle seed id?
     //http://useyourloaf.com/blog/2010/04/03/keychain-group-access.html
     kStubAccessGroup = @"stubAccessGroup";
-
+    
     [UICKeyChainStore removeAllItemsForService:kStubService
                                    accessGroup:kStubAccessGroup];
     [UICKeyChainStore removeAllItems];
