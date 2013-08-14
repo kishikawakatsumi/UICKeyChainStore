@@ -57,9 +57,36 @@
     store = [UICKeyChainStore keyChainStore];
     STAssertEqualObjects(store.service, [UICKeyChainStore defaultService], @"instantiate default store");
     
+    store = [[UICKeyChainStore alloc] init];
+    STAssertEqualObjects(store.service, [UICKeyChainStore defaultService], @"instantiate default store");
+    
     NSString *serviceName = @"com.kishikawakatsumi.UICKeyChainStore";
     store = [UICKeyChainStore keyChainStoreWithService:serviceName];
     STAssertEqualObjects(store.service, serviceName, @"instantiate custom service named store");
+}
+
+- (void)testSetData
+{
+    NSString *usernameKey = @"username";
+    NSString *passwordKey = @"password";
+    NSString *username = @"kishikawakatsumi";
+    NSString *password = @"password1234";
+    NSData *usernameData = [username dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *passwordData = [password dataUsingEncoding:NSUTF8StringEncoding];
+    
+    [UICKeyChainStore setData:[username dataUsingEncoding:NSUTF8StringEncoding] forKey:usernameKey];
+    [UICKeyChainStore setData:[password dataUsingEncoding:NSUTF8StringEncoding] forKey:passwordKey];
+    
+    STAssertEqualObjects([UICKeyChainStore dataForKey:usernameKey], usernameData, @"stored username");
+    STAssertEqualObjects([UICKeyChainStore dataForKey:passwordKey], passwordData, @"stored password");
+    
+    [UICKeyChainStore removeItemForKey:usernameKey service:[UICKeyChainStore defaultService]];
+    STAssertNil([UICKeyChainStore dataForKey:usernameKey], @"removed username");
+    STAssertEqualObjects([UICKeyChainStore dataForKey:passwordKey], passwordData, @"left password");
+    
+    [UICKeyChainStore removeItemForKey:passwordKey service:[UICKeyChainStore defaultService]];
+    STAssertNil([UICKeyChainStore dataForKey:usernameKey], @"removed username");
+    STAssertNil([UICKeyChainStore dataForKey:passwordKey], @"removed password");
 }
 
 - (void)testSetUsernameAndPassword
@@ -70,8 +97,6 @@
     NSString *password = @"password1234";
     
     UICKeyChainStore *store = [UICKeyChainStore keyChainStore];
-    
-    [UICKeyChainStore removeAllItems];
     [store removeAllItems];
     
     [UICKeyChainStore setString:username forKey:usernameKey];
@@ -102,10 +127,9 @@
     NSString *password = @"password1234";
     
     NSString *serviceName = @"com.example.UICKeyChainStore";
-    UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithService:serviceName];
-    
-    [UICKeyChainStore removeAllItems];
     [UICKeyChainStore removeAllItemsForService:serviceName];
+    
+    UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithService:serviceName];
     [store removeAllItems];
     
     [store setString:username forKey:usernameKey];
