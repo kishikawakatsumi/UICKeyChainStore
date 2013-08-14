@@ -1,9 +1,6 @@
-PROJECT = UICKeyChainStore.xcodeproj
-TEST_TARGET = Tests
-
 test:
 	xctool \
-		clean test \
+		clean build test \
 		ONLY_ACTIVE_ARCH=NO \
 		TEST_AFTER_BUILD=YES \
 		GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES \
