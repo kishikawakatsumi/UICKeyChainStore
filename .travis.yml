@@ -4,6 +4,6 @@ before_install:
   - brew install xctool
   - sudo easy_install cpp-coveralls
 script:
-  - make test-with-coverage
+  - make test
 after_success:
-  - make send-coverage
+- ./coveralls.sh -r ./ -e UICKeyChainStore -e UICKeyChainStoreTests
