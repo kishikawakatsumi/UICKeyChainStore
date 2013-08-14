@@ -43,6 +43,96 @@
     [super tearDown];
 }
 
+- (void)testSetDefaultService
+{
+    NSString *serviceName = @"com.kishikawakatsumi.UICKeyChainStore";
+    [UICKeyChainStore setDefaultService:serviceName];
+    STAssertEqualObjects(serviceName, [UICKeyChainStore defaultService], @"specitfy default service name");
+}
+
+- (void)testInitializers
+{
+    UICKeyChainStore *store = nil;
+    
+    store = [UICKeyChainStore keyChainStore];
+    STAssertEqualObjects(store.service, [UICKeyChainStore defaultService], @"instantiate default store");
+    
+    NSString *serviceName = @"com.kishikawakatsumi.UICKeyChainStore";
+    store = [UICKeyChainStore keyChainStoreWithService:serviceName];
+    STAssertEqualObjects(store.service, serviceName, @"instantiate custom service named store");
+}
+
+- (void)testSetUsernameAndPassword
+{
+    NSString *usernameKey = @"username";
+    NSString *passwordKey = @"password";
+    NSString *username = @"kishikawakatsumi";
+    NSString *password = @"password1234";
+    
+    UICKeyChainStore *store = [UICKeyChainStore keyChainStore];
+    
+    [UICKeyChainStore removeAllItems];
+    [store removeAllItems];
+    
+    [UICKeyChainStore setString:username forKey:usernameKey];
+    [UICKeyChainStore setString:password forKey:passwordKey];
+    
+    STAssertEqualObjects([UICKeyChainStore stringForKey:usernameKey], username, @"stored username");
+    STAssertEqualObjects([UICKeyChainStore stringForKey:passwordKey], password, @"stored password");
+    STAssertEqualObjects([store stringForKey:usernameKey], username, @"stored username");
+    STAssertEqualObjects([store stringForKey:passwordKey], password, @"stored password");
+    
+    [UICKeyChainStore removeItemForKey:usernameKey];
+    STAssertNil([UICKeyChainStore stringForKey:usernameKey], @"removed username");
+    STAssertEqualObjects([UICKeyChainStore stringForKey:passwordKey], password, @"left password");
+    STAssertEqualObjects([store stringForKey:passwordKey], password, @"left password");
+    
+    [UICKeyChainStore removeItemForKey:passwordKey];
+    STAssertNil([UICKeyChainStore stringForKey:usernameKey], @"removed username");
+    STAssertNil([UICKeyChainStore stringForKey:passwordKey], @"removed password");
+    STAssertNil([store stringForKey:usernameKey], @"removed username");
+    STAssertNil([store stringForKey:passwordKey], @"removed password");
+}
+
+- (void)testSetSynchronize
+{
+    NSString *usernameKey = @"username";
+    NSString *passwordKey = @"password";
+    NSString *username = @"kishikawakatsumi";
+    NSString *password = @"password1234";
+    
+    NSString *serviceName = @"com.example.UICKeyChainStore";
+    UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithService:serviceName];
+    
+    [UICKeyChainStore removeAllItems];
+    [UICKeyChainStore removeAllItemsForService:serviceName];
+    [store removeAllItems];
+    
+    [store setString:username forKey:usernameKey];
+    [store setString:password forKey:passwordKey];
+    
+    STAssertEqualObjects([store stringForKey:usernameKey], username, @"stored username");
+    STAssertEqualObjects([store stringForKey:passwordKey], password, @"stored password");
+    STAssertNil([UICKeyChainStore stringForKey:usernameKey service:serviceName], @"not synchronized yet");
+    STAssertNil([UICKeyChainStore stringForKey:passwordKey service:serviceName], @"not synchronized yet");
+    
+    [store synchronize];
+    STAssertEqualObjects([store stringForKey:usernameKey], username, @"stored username");
+    STAssertEqualObjects([store stringForKey:passwordKey], password, @"stored password");
+    STAssertEqualObjects([UICKeyChainStore stringForKey:usernameKey service:serviceName], username, @"stored username");
+    STAssertEqualObjects([UICKeyChainStore stringForKey:passwordKey service:serviceName], password, @"stored password");
+    
+    [store removeItemForKey:usernameKey];
+    STAssertNil([store stringForKey:usernameKey], @"removed username");
+    STAssertEqualObjects([store stringForKey:passwordKey], password, @"left password");
+    STAssertNil([UICKeyChainStore stringForKey:usernameKey service:serviceName], @"removed username");
+    STAssertEqualObjects([UICKeyChainStore stringForKey:passwordKey service:serviceName], password, @"left password");
+    
+    [store removeItemForKey:passwordKey];
+    STAssertNil([store stringForKey:passwordKey], @"removed password");
+    STAssertNil([UICKeyChainStore stringForKey:passwordKey service:serviceName], @"removed password");
+}
+
 - (void)testClassMethodsSetAndRemoveItem
 {
     // write to keychain
