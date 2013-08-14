@@ -6,4 +6,4 @@ before_install:
 script:
   - make test
 after_success:
-  - coveralls -e UICKeyChainStore -e UICKeyChainStoreTests --verbose
+  - ./coveralls.sh -e UICKeyChainStore -e UICKeyChainStoreTests --verbose
