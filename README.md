@@ -16,7 +16,7 @@ MIT License
 `pod 'UICKeyChainStore'`
 
 ### Manual Install
-1. Add `Security.framework` to your target=
+1. Add `Security.framework` to your target.
 2. Copy files in Lib (`UICKeyChainStore.h` and `UICKeyChainStore.m`) to your project.
 
 ## Usage
