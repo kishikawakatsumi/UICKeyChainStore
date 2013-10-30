@@ -209,6 +209,7 @@ static NSString *_defaultService;
         [attributes setObject:service forKey:(__bridge id)kSecAttrService];
         [attributes setObject:key forKey:(__bridge id)kSecAttrGeneric];
         [attributes setObject:key forKey:(__bridge id)kSecAttrAccount];
+        [attributes setObject:(__bridge id)kSecAttrAccessibleAfterFirstUnlock forKey:(__bridge id)kSecAttrAccessible];
 		[attributes setObject:data forKey:(__bridge id)kSecValueData];
 #if !TARGET_IPHONE_SIMULATOR && defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
         if (accessGroup) {
