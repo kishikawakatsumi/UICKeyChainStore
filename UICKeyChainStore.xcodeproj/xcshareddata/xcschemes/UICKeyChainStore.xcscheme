@@ -20,20 +20,6 @@
                ReferencedContainer = "container:UICKeyChainStore.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DE20786117AEBDA100B126C9"
-               BuildableName = "UICKeyChainStoreTests.octest"
-               BlueprintName = "UICKeyChainStoreTests"
-               ReferencedContainer = "container:UICKeyChainStore.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction

@@ -9,7 +9,7 @@ test:
 build-ios:
 	xctool \
 		clean build \
-		-scheme 'Tests-iOS' \
+		-scheme 'UICKeyChainStore' \
 		-sdk iphonesimulator \
 		-arch i386 \
 		ONLY_ACTIVE_ARCH=NO \
@@ -20,7 +20,7 @@ build-ios:
 build-osx:
 	xctool \
 		clean build \
-		-scheme 'Tests-OSX' \
+		-scheme 'libUICKeyChainStore' \
 		-sdk macosx \
 		-arch x86_64 \
 		ONLY_ACTIVE_ARCH=NO \

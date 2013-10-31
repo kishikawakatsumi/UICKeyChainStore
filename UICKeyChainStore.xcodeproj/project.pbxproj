@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		145652D61822C57B00BF1709 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 145652D51822C57B00BF1709 /* Cocoa.framework */; };
+		145652E01822C57B00BF1709 /* libUICKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 145652DF1822C57B00BF1709 /* libUICKeyChainStore.m */; };
+		145652E71822C57C00BF1709 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 145652E61822C57C00BF1709 /* XCTest.framework */; };
+		145652E81822C57C00BF1709 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 145652D51822C57B00BF1709 /* Cocoa.framework */; };
+		145652EB1822C57C00BF1709 /* liblibUICKeyChainStore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 145652D41822C57B00BF1709 /* liblibUICKeyChainStore.a */; };
+		145652F11822C57C00BF1709 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 145652EF1822C57C00BF1709 /* InfoPlist.strings */; };
+		145652F31822C57C00BF1709 /* libUICKeyChainStoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 145652F21822C57C00BF1709 /* libUICKeyChainStoreTests.m */; };
 		DE20784617AEBDA100B126C9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE20784517AEBDA100B126C9 /* UIKit.framework */; };
 		DE20784817AEBDA100B126C9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE20784717AEBDA100B126C9 /* Foundation.framework */; };
 		DE20784A17AEBDA100B126C9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE20784917AEBDA100B126C9 /* CoreGraphics.framework */; };
@@ -30,6 +37,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		145652E91822C57C00BF1709 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DE20783A17AEBDA100B126C9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 145652D31822C57A00BF1709;
+			remoteInfo = libUICKeyChainStore;
+		};
 		DE20786717AEBDA100B126C9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DE20783A17AEBDA100B126C9 /* Project object */;
@@ -41,6 +55,19 @@
 
 /* Begin PBXFileReference section */
 		1426600D17B96F6000E17A90 /* UICKeyChainStoreTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICKeyChainStoreTests.h; sourceTree = "<group>"; };
+		145652D41822C57B00BF1709 /* liblibUICKeyChainStore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblibUICKeyChainStore.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		145652D51822C57B00BF1709 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		145652D81822C57B00BF1709 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		145652D91822C57B00BF1709 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		145652DA1822C57B00BF1709 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		145652DD1822C57B00BF1709 /* libUICKeyChainStore-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "libUICKeyChainStore-Prefix.pch"; sourceTree = "<group>"; };
+		145652DE1822C57B00BF1709 /* libUICKeyChainStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = libUICKeyChainStore.h; sourceTree = "<group>"; };
+		145652DF1822C57B00BF1709 /* libUICKeyChainStore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = libUICKeyChainStore.m; sourceTree = "<group>"; };
+		145652E51822C57B00BF1709 /* libUICKeyChainStoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = libUICKeyChainStoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		145652E61822C57C00BF1709 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		145652EE1822C57C00BF1709 /* libUICKeyChainStoreTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "libUICKeyChainStoreTests-Info.plist"; sourceTree = "<group>"; };
+		145652F01822C57C00BF1709 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		145652F21822C57C00BF1709 /* libUICKeyChainStoreTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = libUICKeyChainStoreTests.m; sourceTree = "<group>"; };
 		DE20784217AEBDA100B126C9 /* UICKeyChainStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UICKeyChainStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE20784517AEBDA100B126C9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DE20784717AEBDA100B126C9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -68,6 +95,24 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		145652D11822C57A00BF1709 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				145652D61822C57B00BF1709 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		145652E21822C57B00BF1709 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				145652E81822C57C00BF1709 /* Cocoa.framework in Frameworks */,
+				145652E71822C57C00BF1709 /* XCTest.framework in Frameworks */,
+				145652EB1822C57C00BF1709 /* liblibUICKeyChainStore.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DE20783F17AEBDA100B126C9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -93,12 +138,60 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		145652D71822C57B00BF1709 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				145652D81822C57B00BF1709 /* Foundation.framework */,
+				145652D91822C57B00BF1709 /* CoreData.framework */,
+				145652DA1822C57B00BF1709 /* AppKit.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		145652DB1822C57B00BF1709 /* libUICKeyChainStore */ = {
+			isa = PBXGroup;
+			children = (
+				145652DE1822C57B00BF1709 /* libUICKeyChainStore.h */,
+				145652DF1822C57B00BF1709 /* libUICKeyChainStore.m */,
+				145652DC1822C57B00BF1709 /* Supporting Files */,
+			);
+			path = libUICKeyChainStore;
+			sourceTree = "<group>";
+		};
+		145652DC1822C57B00BF1709 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				145652DD1822C57B00BF1709 /* libUICKeyChainStore-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		145652EC1822C57C00BF1709 /* libUICKeyChainStoreTests */ = {
+			isa = PBXGroup;
+			children = (
+				145652F21822C57C00BF1709 /* libUICKeyChainStoreTests.m */,
+				145652ED1822C57C00BF1709 /* Supporting Files */,
+			);
+			path = libUICKeyChainStoreTests;
+			sourceTree = "<group>";
+		};
+		145652ED1822C57C00BF1709 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				145652EE1822C57C00BF1709 /* libUICKeyChainStoreTests-Info.plist */,
+				145652EF1822C57C00BF1709 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		DE20783917AEBDA100B126C9 = {
 			isa = PBXGroup;
 			children = (
 				DE2AD09617AEC313005E0F26 /* Lib */,
 				DE20784B17AEBDA100B126C9 /* UICKeyChainStore */,
 				DE20786917AEBDA100B126C9 /* UICKeyChainStoreTests */,
+				145652DB1822C57B00BF1709 /* libUICKeyChainStore */,
+				145652EC1822C57C00BF1709 /* libUICKeyChainStoreTests */,
 				DE20784417AEBDA100B126C9 /* Frameworks */,
 				DE20784317AEBDA100B126C9 /* Products */,
 			);
@@ -109,6 +202,8 @@
 			children = (
 				DE20784217AEBDA100B126C9 /* UICKeyChainStore.app */,
 				DE20786217AEBDA100B126C9 /* UICKeyChainStoreTests.octest */,
+				145652D41822C57B00BF1709 /* liblibUICKeyChainStore.a */,
+				145652E51822C57B00BF1709 /* libUICKeyChainStoreTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -121,6 +216,9 @@
 				DE20784917AEBDA100B126C9 /* CoreGraphics.framework */,
 				DEA2E65E17AED45900348F7B /* Security.framework */,
 				DE20786317AEBDA100B126C9 /* SenTestingKit.framework */,
+				145652D51822C57B00BF1709 /* Cocoa.framework */,
+				145652E61822C57C00BF1709 /* XCTest.framework */,
+				145652D71822C57B00BF1709 /* Other Frameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -182,7 +280,52 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		145652D21822C57A00BF1709 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		145652D31822C57A00BF1709 /* libUICKeyChainStore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 145652F81822C57C00BF1709 /* Build configuration list for PBXNativeTarget "libUICKeyChainStore" */;
+			buildPhases = (
+				145652D01822C57A00BF1709 /* Sources */,
+				145652D11822C57A00BF1709 /* Frameworks */,
+				145652D21822C57A00BF1709 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = libUICKeyChainStore;
+			productName = libUICKeyChainStore;
+			productReference = 145652D41822C57B00BF1709 /* liblibUICKeyChainStore.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		145652E41822C57B00BF1709 /* libUICKeyChainStoreTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 145652F91822C57C00BF1709 /* Build configuration list for PBXNativeTarget "libUICKeyChainStoreTests" */;
+			buildPhases = (
+				145652E11822C57B00BF1709 /* Sources */,
+				145652E21822C57B00BF1709 /* Frameworks */,
+				145652E31822C57B00BF1709 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				145652EA1822C57C00BF1709 /* PBXTargetDependency */,
+			);
+			name = libUICKeyChainStoreTests;
+			productName = libUICKeyChainStoreTests;
+			productReference = 145652E51822C57B00BF1709 /* libUICKeyChainStoreTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		DE20784117AEBDA100B126C9 /* UICKeyChainStore */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DE20787417AEBDA100B126C9 /* Build configuration list for PBXNativeTarget "UICKeyChainStore" */;
@@ -227,6 +370,11 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Beepscore LLC";
+				TargetAttributes = {
+					145652E41822C57B00BF1709 = {
+						TestTargetID = DE20784117AEBDA100B126C9;
+					};
+				};
 			};
 			buildConfigurationList = DE20783D17AEBDA100B126C9 /* Build configuration list for PBXProject "UICKeyChainStore" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -242,11 +390,21 @@
 			targets = (
 				DE20784117AEBDA100B126C9 /* UICKeyChainStore */,
 				DE20786117AEBDA100B126C9 /* UICKeyChainStoreTests */,
+				145652D31822C57A00BF1709 /* libUICKeyChainStore */,
+				145652E41822C57B00BF1709 /* libUICKeyChainStoreTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		145652E31822C57B00BF1709 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				145652F11822C57C00BF1709 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DE20784017AEBDA100B126C9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -286,6 +444,22 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		145652D01822C57A00BF1709 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				145652E01822C57B00BF1709 /* libUICKeyChainStore.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		145652E11822C57B00BF1709 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				145652F31822C57C00BF1709 /* libUICKeyChainStoreTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DE20783E17AEBDA100B126C9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -309,6 +483,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		145652EA1822C57C00BF1709 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 145652D31822C57A00BF1709 /* libUICKeyChainStore */;
+			targetProxy = 145652E91822C57C00BF1709 /* PBXContainerItemProxy */;
+		};
 		DE20786817AEBDA100B126C9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = DE20784117AEBDA100B126C9 /* UICKeyChainStore */;
@@ -317,6 +496,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		145652EF1822C57C00BF1709 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				145652F01822C57C00BF1709 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		DE20784E17AEBDA100B126C9 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -336,6 +523,120 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		145652F41822C57C00BF1709 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "libUICKeyChainStore/libUICKeyChainStore-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		145652F51822C57C00BF1709 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "libUICKeyChainStore/libUICKeyChainStore-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		145652F61822C57C00BF1709 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/UICKeyChainStore.app/UICKeyChainStore";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "libUICKeyChainStore/libUICKeyChainStore-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "libUICKeyChainStoreTests/libUICKeyChainStoreTests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		145652F71822C57C00BF1709 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/UICKeyChainStore.app/UICKeyChainStore";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "libUICKeyChainStore/libUICKeyChainStore-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "libUICKeyChainStoreTests/libUICKeyChainStoreTests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
 		DE20787217AEBDA100B126C9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -451,6 +752,22 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		145652F81822C57C00BF1709 /* Build configuration list for PBXNativeTarget "libUICKeyChainStore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				145652F41822C57C00BF1709 /* Debug */,
+				145652F51822C57C00BF1709 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		145652F91822C57C00BF1709 /* Build configuration list for PBXNativeTarget "libUICKeyChainStoreTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				145652F61822C57C00BF1709 /* Debug */,
+				145652F71822C57C00BF1709 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		DE20783D17AEBDA100B126C9 /* Build configuration list for PBXProject "UICKeyChainStore" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
