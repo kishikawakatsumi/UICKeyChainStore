@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.license               = { :type => 'MIT', :file => 'LICENSE' }
   s.author                = { 'kishikawakatsumi' => 'kishikawakatsumi@mac.com' }
   s.authors               = { 'kishikawakatsumi' => 'kishikawakatsumi@mac.com' }
-  s.source                = { :git => 'https://github.com/kishikawakatsumi/UICKeyChainStore.git', :tag => 'v1.0.3' }
+  s.source                = { :git => 'https://github.com/kishikawakatsumi/UICKeyChainStore.git', :tag => 'v1.0.4' }
   s.ios.deployment_target = '4.3'
   s.osx.deployment_target = '10.6'
   s.source_files          = 'Lib/*'
