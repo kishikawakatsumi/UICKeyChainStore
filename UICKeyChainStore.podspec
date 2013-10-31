@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                  = 'UICKeyChainStore'
-  s.version               = '1.0.3'
+  s.version               = '1.0.4'
   s.summary               = 'UICKeyChainStore is a simple wrapper for Keychain on iOS and OS X. Makes using Keychain APIs as easy as NSUserDefaults.'
   s.homepage              = 'https://github.com/kishikawakatsumi/UICKeyChainStore'
   s.license               = { :type => 'MIT', :file => 'LICENSE' }
