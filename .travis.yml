@@ -2,6 +2,8 @@ language: objective-c
 before_install:
   - sudo easy_install cpp-coveralls
 script:
+  - make build-ios
+  - make build-osx
   - make test
 after_success:
   - ./coveralls.sh -e UICKeyChainStore -e UICKeyChainStoreTests --verbose
