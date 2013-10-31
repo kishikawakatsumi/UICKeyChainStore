@@ -130,9 +130,9 @@
 			children = (
 				DE20785417AEBDA100B126C9 /* AppDelegate.h */,
 				DE20785517AEBDA100B126C9 /* AppDelegate.m */,
-				DECCCE8917AEE93200701816 /* MainStoryboard.storyboard */,
 				DECCCE8B17AEEA9300701816 /* MyViewController.h */,
 				DECCCE8C17AEEA9300701816 /* MyViewController.m */,
+				DECCCE8917AEE93200701816 /* MainStoryboard.storyboard */,
 				DE20784C17AEBDA100B126C9 /* Supporting Files */,
 			);
 			path = UICKeyChainStore;
