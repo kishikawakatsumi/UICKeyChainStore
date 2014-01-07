@@ -1,7 +1,0 @@
-[
-  "-project", "UICKeyChainStore.xcodeproj",
-  "-scheme", "Tests",
-  "-configuration", "Debug",
-  "-sdk", "iphonesimulator",
-  "-arch", "i386"
-]

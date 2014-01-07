@@ -12,7 +12,6 @@
 		DE20784617AEBDA100B126C9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE20784517AEBDA100B126C9 /* UIKit.framework */; };
 		DE20784817AEBDA100B126C9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE20784717AEBDA100B126C9 /* Foundation.framework */; };
 		DE20784A17AEBDA100B126C9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE20784917AEBDA100B126C9 /* CoreGraphics.framework */; };
-		DE20785017AEBDA100B126C9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE20784E17AEBDA100B126C9 /* InfoPlist.strings */; };
 		DE20785217AEBDA100B126C9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DE20785117AEBDA100B126C9 /* main.m */; };
 		DE20785617AEBDA100B126C9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DE20785517AEBDA100B126C9 /* AppDelegate.m */; };
 		DE20785817AEBDA100B126C9 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = DE20785717AEBDA100B126C9 /* Default.png */; };
@@ -21,14 +20,13 @@
 		DE20786417AEBDA100B126C9 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE20786317AEBDA100B126C9 /* SenTestingKit.framework */; };
 		DE20786517AEBDA100B126C9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE20784517AEBDA100B126C9 /* UIKit.framework */; };
 		DE20786617AEBDA100B126C9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE20784717AEBDA100B126C9 /* Foundation.framework */; };
-		DE20786E17AEBDA100B126C9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE20786C17AEBDA100B126C9 /* InfoPlist.strings */; };
 		DE20787117AEBDA100B126C9 /* UICKeyChainStoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DE20787017AEBDA100B126C9 /* UICKeyChainStoreTests.m */; };
 		DE2AD09917AEC313005E0F26 /* UICKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2AD09817AEC313005E0F26 /* UICKeyChainStore.m */; };
 		DE2AD09A17AEC313005E0F26 /* UICKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2AD09817AEC313005E0F26 /* UICKeyChainStore.m */; };
 		DEA2E65F17AED45900348F7B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEA2E65E17AED45900348F7B /* Security.framework */; };
 		DEA2E66017AED46A00348F7B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEA2E65E17AED45900348F7B /* Security.framework */; };
 		DECCCE8A17AEE93200701816 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DECCCE8917AEE93200701816 /* MainStoryboard.storyboard */; };
-		DECCCE8D17AEEA9300701816 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DECCCE8C17AEEA9300701816 /* MyViewController.m */; };
+		DECCCE8D17AEEA9300701816 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DECCCE8C17AEEA9300701816 /* ViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,15 +50,11 @@
 		145652DE1822C57B00BF1709 /* libUICKeyChainStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = libUICKeyChainStore.h; sourceTree = "<group>"; };
 		145652DF1822C57B00BF1709 /* libUICKeyChainStore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = libUICKeyChainStore.m; sourceTree = "<group>"; };
 		145652E61822C57C00BF1709 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		145652EE1822C57C00BF1709 /* libUICKeyChainStoreTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "libUICKeyChainStoreTests-Info.plist"; sourceTree = "<group>"; };
-		145652F01822C57C00BF1709 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		145652F21822C57C00BF1709 /* libUICKeyChainStoreTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = libUICKeyChainStoreTests.m; sourceTree = "<group>"; };
 		DE20784217AEBDA100B126C9 /* UICKeyChainStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UICKeyChainStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE20784517AEBDA100B126C9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DE20784717AEBDA100B126C9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DE20784917AEBDA100B126C9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		DE20784D17AEBDA100B126C9 /* UICKeyChainStore-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UICKeyChainStore-Info.plist"; sourceTree = "<group>"; };
-		DE20784F17AEBDA100B126C9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DE20785117AEBDA100B126C9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DE20785317AEBDA100B126C9 /* UICKeyChainStore-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UICKeyChainStore-Prefix.pch"; sourceTree = "<group>"; };
 		DE20785417AEBDA100B126C9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -71,14 +65,13 @@
 		DE20786217AEBDA100B126C9 /* UICKeyChainStoreTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UICKeyChainStoreTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE20786317AEBDA100B126C9 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		DE20786B17AEBDA100B126C9 /* UICKeyChainStoreTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UICKeyChainStoreTests-Info.plist"; sourceTree = "<group>"; };
-		DE20786D17AEBDA100B126C9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DE20787017AEBDA100B126C9 /* UICKeyChainStoreTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UICKeyChainStoreTests.m; sourceTree = "<group>"; };
 		DE2AD09717AEC313005E0F26 /* UICKeyChainStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICKeyChainStore.h; sourceTree = "<group>"; };
 		DE2AD09817AEC313005E0F26 /* UICKeyChainStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICKeyChainStore.m; sourceTree = "<group>"; };
 		DEA2E65E17AED45900348F7B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		DECCCE8917AEE93200701816 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
-		DECCCE8B17AEEA9300701816 /* MyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
-		DECCCE8C17AEEA9300701816 /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
+		DECCCE8B17AEEA9300701816 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		DECCCE8C17AEEA9300701816 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +111,7 @@
 		145652D71822C57B00BF1709 /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				145652D51822C57B00BF1709 /* Cocoa.framework */,
 				145652D81822C57B00BF1709 /* Foundation.framework */,
 				145652D91822C57B00BF1709 /* CoreData.framework */,
 				145652DA1822C57B00BF1709 /* AppKit.framework */,
@@ -143,24 +137,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		145652EC1822C57C00BF1709 /* libUICKeyChainStoreTests */ = {
-			isa = PBXGroup;
-			children = (
-				145652F21822C57C00BF1709 /* libUICKeyChainStoreTests.m */,
-				145652ED1822C57C00BF1709 /* Supporting Files */,
-			);
-			path = libUICKeyChainStoreTests;
-			sourceTree = "<group>";
-		};
-		145652ED1822C57C00BF1709 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				145652EE1822C57C00BF1709 /* libUICKeyChainStoreTests-Info.plist */,
-				145652EF1822C57C00BF1709 /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		DE20783917AEBDA100B126C9 = {
 			isa = PBXGroup;
 			children = (
@@ -168,7 +144,6 @@
 				DE20784B17AEBDA100B126C9 /* UICKeyChainStore */,
 				DE20786917AEBDA100B126C9 /* UICKeyChainStoreTests */,
 				145652DB1822C57B00BF1709 /* libUICKeyChainStore */,
-				145652EC1822C57C00BF1709 /* libUICKeyChainStoreTests */,
 				DE20784417AEBDA100B126C9 /* Frameworks */,
 				DE20784317AEBDA100B126C9 /* Products */,
 			);
@@ -192,7 +167,6 @@
 				DE20784917AEBDA100B126C9 /* CoreGraphics.framework */,
 				DEA2E65E17AED45900348F7B /* Security.framework */,
 				DE20786317AEBDA100B126C9 /* SenTestingKit.framework */,
-				145652D51822C57B00BF1709 /* Cocoa.framework */,
 				145652E61822C57C00BF1709 /* XCTest.framework */,
 				145652D71822C57B00BF1709 /* Other Frameworks */,
 			);
@@ -204,8 +178,8 @@
 			children = (
 				DE20785417AEBDA100B126C9 /* AppDelegate.h */,
 				DE20785517AEBDA100B126C9 /* AppDelegate.m */,
-				DECCCE8B17AEEA9300701816 /* MyViewController.h */,
-				DECCCE8C17AEEA9300701816 /* MyViewController.m */,
+				DECCCE8B17AEEA9300701816 /* ViewController.h */,
+				DECCCE8C17AEEA9300701816 /* ViewController.m */,
 				DECCCE8917AEE93200701816 /* MainStoryboard.storyboard */,
 				DE20784C17AEBDA100B126C9 /* Supporting Files */,
 			);
@@ -216,7 +190,6 @@
 			isa = PBXGroup;
 			children = (
 				DE20784D17AEBDA100B126C9 /* UICKeyChainStore-Info.plist */,
-				DE20784E17AEBDA100B126C9 /* InfoPlist.strings */,
 				DE20785117AEBDA100B126C9 /* main.m */,
 				DE20785317AEBDA100B126C9 /* UICKeyChainStore-Prefix.pch */,
 				DE20785717AEBDA100B126C9 /* Default.png */,
@@ -240,7 +213,6 @@
 			isa = PBXGroup;
 			children = (
 				DE20786B17AEBDA100B126C9 /* UICKeyChainStoreTests-Info.plist */,
-				DE20786C17AEBDA100B126C9 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -353,7 +325,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE20785017AEBDA100B126C9 /* InfoPlist.strings in Resources */,
 				DE20785817AEBDA100B126C9 /* Default.png in Resources */,
 				DE20785A17AEBDA100B126C9 /* Default@2x.png in Resources */,
 				DE20785C17AEBDA100B126C9 /* Default-568h@2x.png in Resources */,
@@ -365,7 +336,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE20786E17AEBDA100B126C9 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,7 +372,7 @@
 			files = (
 				DE20785217AEBDA100B126C9 /* main.m in Sources */,
 				DE20785617AEBDA100B126C9 /* AppDelegate.m in Sources */,
-				DECCCE8D17AEEA9300701816 /* MyViewController.m in Sources */,
+				DECCCE8D17AEEA9300701816 /* ViewController.m in Sources */,
 				DE2AD09917AEC313005E0F26 /* UICKeyChainStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -425,33 +395,6 @@
 			targetProxy = DE20786717AEBDA100B126C9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		145652EF1822C57C00BF1709 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				145652F01822C57C00BF1709 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		DE20784E17AEBDA100B126C9 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DE20784F17AEBDA100B126C9 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		DE20786C17AEBDA100B126C9 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DE20786D17AEBDA100B126C9 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		145652F41822C57C00BF1709 /* Debug */ = {
@@ -628,6 +571,7 @@
 				145652F51822C57C00BF1709 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DE20783D17AEBDA100B126C9 /* Build configuration list for PBXProject "UICKeyChainStore" */ = {
 			isa = XCConfigurationList;

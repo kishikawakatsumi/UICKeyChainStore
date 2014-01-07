@@ -7,13 +7,13 @@
 //  MIT License
 //
 
-#import "MyViewController.h"
+#import "ViewController.h"
 
-@interface MyViewController ()
+@interface ViewController ()
 
 @end
 
-@implementation MyViewController
+@implementation ViewController
 
 - (void)viewDidLoad
 {

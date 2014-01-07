@@ -9,6 +9,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MyViewController : UIViewController
+@interface ViewController : UIViewController
 
 @end

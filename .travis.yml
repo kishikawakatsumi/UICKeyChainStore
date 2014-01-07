@@ -1,9 +1,10 @@
 language: objective-c
+env:
+    global:
+    - LANG=en_US.UTF-8
+    - LC_ALL=en_US.UTF-8
 before_install:
-  - sudo easy_install cpp-coveralls
+  - gem install xcpretty
 script:
-  - make build-ios
-  - make build-osx
-  - make test
-after_success:
-  - ./coveralls.sh -e UICKeyChainStore -e UICKeyChainStoreTests --verbose
+  - rake
+   
