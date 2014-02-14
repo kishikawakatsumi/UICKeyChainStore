@@ -20,18 +20,18 @@ task :ios => ['ios:clean', 'ios:build', 'ios:test']
 namespace :ios do
   desc 'Clean for iOS'
   task :clean do
-    system("xcodebuild clean -scheme UICKeyChainStore | xcpretty -c")
+    sh "xcodebuild clean -scheme UICKeyChainStore | xcpretty -c; exit ${PIPESTATUS[0]}"
   end
   
   desc 'Build for iOS'
   task :build do
-    system("xcodebuild -scheme UICKeyChainStore CODE_SIGN_IDENTITY=\"\" CODE_SIGNING_REQUIRED=NO | xcpretty -c")
+    sh "xcodebuild -scheme UICKeyChainStore CODE_SIGN_IDENTITY=\"\" CODE_SIGNING_REQUIRED=NO | xcpretty -c; exit ${PIPESTATUS[0]}"
   end
   
   desc 'Test for iOS'
   task :test do
     DESTINATIONS.each do |destination|
-      system("xcodebuild test -scheme UICKeyChainStore -configuration Debug -sdk iphonesimulator -destination \"#{destination}\" | xcpretty -c")
+      sh "xcodebuild test -scheme UICKeyChainStore -configuration Debug -sdk iphonesimulator -destination \"#{destination}\" | xcpretty -tc; exit ${PIPESTATUS[0]}"
     end
   end
 end
@@ -42,16 +42,16 @@ task :osx => ['osx:clean', 'osx:build']
 namespace :osx do
   desc 'Clean for OS X'
   task :clean do
-    system("xcodebuild clean -scheme libUICKeyChainStore | xcpretty -c")
+    sh "xcodebuild clean -scheme libUICKeyChainStore | xcpretty -c; exit ${PIPESTATUS[0]}"
   end
 
   desc 'Build for OS X'
   task :build do
-    system("xcodebuild -scheme libUICKeyChainStore | xcpretty -c")
+    sh "xcodebuild -scheme libUICKeyChainStore | xcpretty -c; exit ${PIPESTATUS[0]}"
   end
   
   desc 'Test for OS X'
   task :test do
-    system("xcodebuild test -scheme libUICKeyChainStore -configuration Debug -destination platform='OS X', arch=x86_64 | xcpretty -c")
+    sh "xcodebuild test -scheme libUICKeyChainStore -configuration Debug -destination platform='OS X', arch=x86_64 | xcpretty -tc; exit ${PIPESTATUS[0]}"
   end
 end
