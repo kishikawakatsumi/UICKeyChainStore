@@ -89,3 +89,7 @@ NSLog(@"%@", store); // Print all keys and values for the service.
 
 ---
 Easy as that. (See [UICKeyChainStore.h](https://github.com/kishikawakatsumi/UICKeyChainStore/blob/master/Lib/UICKeyChainStore.h) for all of the methods.)
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/kishikawakatsumi/uickeychainstore/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
