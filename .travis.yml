@@ -1,4 +1,8 @@
 language: objective-c
+env:
+  global:
+  - LANG=en_US.UTF-8
+  - LC_ALL=en_US.UTF-8
 before_install:
   - gem install xcpretty
 script:
