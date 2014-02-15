@@ -90,7 +90,13 @@ Easy as that. (See [UICKeyChainStore.h](https://github.com/kishikawakatsumi/UICK
 
 
 ## License
-MIT License
+
+[Apache]: http://www.apache.org/licenses/LICENSE-2.0
+[MIT]: http://www.opensource.org/licenses/mit-license.php
+[GPL]: http://www.gnu.org/licenses/gpl.html
+[BSD]: http://opensource.org/licenses/bsd-license.php
+
+UICKeyChainStore is available under the [MIT license][MIT]. See the LICENSE file for more info.
 
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/kishikawakatsumi/uickeychainstore/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
