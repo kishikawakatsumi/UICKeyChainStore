@@ -126,18 +126,18 @@ static NSString *_defaultService;
 
 + (NSData *)dataForKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup
 {
-	if (!key) {
-		return nil;
-	}
-	if (!service) {
+    if (!key) {
+        return nil;
+    }
+    if (!service) {
         service = [self defaultService];
-	}
+    }
     
-	NSMutableDictionary *query = [[NSMutableDictionary alloc] init];
-	[query setObject:(__bridge id)kSecClassGenericPassword forKey:(__bridge id)kSecClass];
-	[query setObject:(__bridge id)kCFBooleanTrue forKey:(__bridge id)kSecReturnData];
-	[query setObject:(__bridge id)kSecMatchLimitOne forKey:(__bridge id)kSecMatchLimit];
-	[query setObject:service forKey:(__bridge id)kSecAttrService];
+    NSMutableDictionary *query = [[NSMutableDictionary alloc] init];
+    [query setObject:(__bridge id)kSecClassGenericPassword forKey:(__bridge id)kSecClass];
+    [query setObject:(__bridge id)kCFBooleanTrue forKey:(__bridge id)kSecReturnData];
+    [query setObject:(__bridge id)kSecMatchLimitOne forKey:(__bridge id)kSecMatchLimit];
+    [query setObject:service forKey:(__bridge id)kSecAttrService];
     [query setObject:key forKey:(__bridge id)kSecAttrGeneric];
     [query setObject:key forKey:(__bridge id)kSecAttrAccount];
 #if !TARGET_IPHONE_SIMULATOR && defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
@@ -146,11 +146,11 @@ static NSString *_defaultService;
     }
 #endif
     
-	CFTypeRef data = nil;
-	OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, &data);
-	if (status != errSecSuccess) {
+    CFTypeRef data = nil;
+    OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, &data);
+    if (status != errSecSuccess) {
         return nil;
-	}
+    }
     
     NSData *ret = [NSData dataWithData:(__bridge NSData *)data];
     if (data) {
@@ -172,16 +172,16 @@ static NSString *_defaultService;
 
 + (BOOL)setData:(NSData *)data forKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup
 {
-	if (!key) {
-		return NO;
-	}
-	if (!service) {
+    if (!key) {
+        return NO;
+    }
+    if (!service) {
         service = [self defaultService];
-	}
-	
-	NSMutableDictionary *query = [[NSMutableDictionary alloc] init];
-	[query setObject:(__bridge id)kSecClassGenericPassword forKey:(__bridge id)kSecClass];
-	[query setObject:service forKey:(__bridge id)kSecAttrService];
+    }
+    
+    NSMutableDictionary *query = [[NSMutableDictionary alloc] init];
+    [query setObject:(__bridge id)kSecClassGenericPassword forKey:(__bridge id)kSecClass];
+    [query setObject:service forKey:(__bridge id)kSecAttrService];
     [query setObject:key forKey:(__bridge id)kSecAttrGeneric];
     [query setObject:key forKey:(__bridge id)kSecAttrAccount];
 #if !TARGET_IPHONE_SIMULATOR && defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
@@ -190,8 +190,8 @@ static NSString *_defaultService;
     }
 #endif
     
-	OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, NULL);
-	if (status == errSecSuccess) {
+    OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, NULL);
+    if (status == errSecSuccess) {
         if (data) {
             NSMutableDictionary *attributesToUpdate = [[NSMutableDictionary alloc] init];
             [attributesToUpdate setObject:data forKey:(__bridge id)kSecValueData];
@@ -203,29 +203,29 @@ static NSString *_defaultService;
         } else {
             [self removeItemForKey:key service:service accessGroup:accessGroup];
         }
-	} else if (status == errSecItemNotFound) {
-		NSMutableDictionary *attributes = [[NSMutableDictionary alloc] init];
-		[attributes setObject:(__bridge id)kSecClassGenericPassword forKey:(__bridge id)kSecClass];
+    } else if (status == errSecItemNotFound) {
+        NSMutableDictionary *attributes = [[NSMutableDictionary alloc] init];
+        [attributes setObject:(__bridge id)kSecClassGenericPassword forKey:(__bridge id)kSecClass];
         [attributes setObject:service forKey:(__bridge id)kSecAttrService];
         [attributes setObject:key forKey:(__bridge id)kSecAttrGeneric];
         [attributes setObject:key forKey:(__bridge id)kSecAttrAccount];
 #if TARGET_OS_IPHONE || (defined(MAC_OS_X_VERSION_10_9) && MAC_OS_X_VERSION_MIN_REQUIRED >= MAC_OS_X_VERSION_10_9)
         [attributes setObject:(__bridge id)kSecAttrAccessibleAfterFirstUnlock forKey:(__bridge id)kSecAttrAccessible];
 #endif
-		[attributes setObject:data forKey:(__bridge id)kSecValueData];
+        [attributes setObject:data forKey:(__bridge id)kSecValueData];
 #if !TARGET_IPHONE_SIMULATOR && defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
         if (accessGroup) {
             [attributes setObject:accessGroup forKey:(__bridge id)kSecAttrAccessGroup];
         }
 #endif
-		
-		status = SecItemAdd((__bridge CFDictionaryRef)attributes, NULL);
-		if (status != errSecSuccess) {
-			return NO;
-		}
-	} else {
+        
+        status = SecItemAdd((__bridge CFDictionaryRef)attributes, NULL);
+        if (status != errSecSuccess) {
+            return NO;
+        }
+    } else {
         return NO;
-	}
+    }
     
     return YES;
 }
@@ -285,16 +285,16 @@ static NSString *_defaultService;
 
 + (BOOL)removeItemForKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup
 {
-	if (!key) {
-		return NO;
-	}
-	if (!service) {
+    if (!key) {
+        return NO;
+    }
+    if (!service) {
         service = [self defaultService];
-	}
-	
-	NSMutableDictionary *itemToDelete = [[NSMutableDictionary alloc] init];
-	[itemToDelete setObject:(__bridge id)kSecClassGenericPassword forKey:(__bridge id)kSecClass];
-	[itemToDelete setObject:service forKey:(__bridge id)kSecAttrService];
+    }
+    
+    NSMutableDictionary *itemToDelete = [[NSMutableDictionary alloc] init];
+    [itemToDelete setObject:(__bridge id)kSecClassGenericPassword forKey:(__bridge id)kSecClass];
+    [itemToDelete setObject:service forKey:(__bridge id)kSecAttrService];
     [itemToDelete setObject:key forKey:(__bridge id)kSecAttrGeneric];
     [itemToDelete setObject:key forKey:(__bridge id)kSecAttrAccount];
 #if !TARGET_IPHONE_SIMULATOR && defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
@@ -302,40 +302,40 @@ static NSString *_defaultService;
         [itemToDelete setObject:accessGroup forKey:(__bridge id)kSecAttrAccessGroup];
     }
 #endif
-	
-	OSStatus status = SecItemDelete((__bridge CFDictionaryRef)itemToDelete);
-	if (status != errSecSuccess && status != errSecItemNotFound) {
+    
+    OSStatus status = SecItemDelete((__bridge CFDictionaryRef)itemToDelete);
+    if (status != errSecSuccess && status != errSecItemNotFound) {
         return NO;
-	}
+    }
     
     return YES;
 }
 
 + (NSArray *)itemsForService:(NSString *)service accessGroup:(NSString *)accessGroup
 {
-	if (!service) {
+    if (!service) {
         service = [self defaultService];
-	}
-	
-	NSMutableDictionary *query = [[NSMutableDictionary alloc] init];
-	[query setObject:(__bridge id)kSecClassGenericPassword forKey:(__bridge id)kSecClass];
-	[query setObject:(id)kCFBooleanTrue forKey:(__bridge id)kSecReturnAttributes];
-	[query setObject:(id)kCFBooleanTrue forKey:(__bridge id)kSecReturnData];
-	[query setObject:(__bridge id)kSecMatchLimitAll forKey:(__bridge id)kSecMatchLimit];
-	[query setObject:service forKey:(__bridge id)kSecAttrService];
+    }
+    
+    NSMutableDictionary *query = [[NSMutableDictionary alloc] init];
+    [query setObject:(__bridge id)kSecClassGenericPassword forKey:(__bridge id)kSecClass];
+    [query setObject:(id)kCFBooleanTrue forKey:(__bridge id)kSecReturnAttributes];
+    [query setObject:(id)kCFBooleanTrue forKey:(__bridge id)kSecReturnData];
+    [query setObject:(__bridge id)kSecMatchLimitAll forKey:(__bridge id)kSecMatchLimit];
+    [query setObject:service forKey:(__bridge id)kSecAttrService];
 #if !TARGET_IPHONE_SIMULATOR && defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
     if (accessGroup) {
         [query setObject:accessGroup forKey:(__bridge id)kSecAttrAccessGroup];
     }
 #endif
-	
-	CFArrayRef result = nil;
-	OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, (CFTypeRef *)&result);
-	if (status == errSecSuccess || status == errSecItemNotFound) {
-		return CFBridgingRelease(result);
-	} else {
-		return nil;
-	}
+    
+    CFArrayRef result = nil;
+    OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, (CFTypeRef *)&result);
+    if (status == errSecSuccess || status == errSecItemNotFound) {
+        return CFBridgingRelease(result);
+    } else {
+        return nil;
+    }
 }
 
 + (BOOL)removeAllItems
