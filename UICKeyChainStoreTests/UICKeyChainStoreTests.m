@@ -222,6 +222,7 @@
     
     // write to keychain using obj subscripting
     store[kStubKey] = kStubString;
+    [store synchronize];
     
     // read from keychain using obj subscripting
     STAssertEqualObjects(store[kStubKey], kStubString, @"expected %@ but got %@", expectedString, store[kStubKey]);
