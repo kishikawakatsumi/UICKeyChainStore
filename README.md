@@ -77,6 +77,22 @@ Remove items.
 [store synchronize]; // Write to keychain.
 ```
 
+=====
+### Object Subscripting
+
+```objective-c
+UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithService:@"com.kishikawakatsumi"];
+```
+
+```objective-c
+store[@"username"] = @"kishikawakatsumi@mac.com";
+store[@"password"] = @"password1234";
+```
+
+```objective-c
+[store synchronize];
+```
+
 ---
 ### Debug print
 
