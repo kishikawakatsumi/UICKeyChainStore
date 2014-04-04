@@ -211,4 +211,21 @@
                          @"expected %@ but got %@", expectedString, actualString);
 }
 
+
+- (void)testObjectSubscripting
+{
+    // create an instance
+    UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithService:kStubService
+                                                             accessGroup:kStubAccessGroup];
+    
+    NSString *expectedString = kStubString;
+    
+    // write to keychain using obj subscripting
+    store[kStubKey] = kStubString;
+    
+    // read from keychain using obj subscripting
+    STAssertEqualObjects(store[kStubKey], kStubString, @"expected %@ but got %@", expectedString, store[kStubKey]);
+    
+}
+
 @end

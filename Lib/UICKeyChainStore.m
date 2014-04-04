@@ -418,4 +418,16 @@ static NSString *_defaultService;
     return [list description];
 }
 
+#pragma mark - Object Subscripting
+
+- (NSString *)objectForKeyedSubscript:(NSString <NSCopying> *)key
+{
+    return [self stringForKey:key];
+}
+
+- (void)setObject:(NSString *)obj forKeyedSubscript:(NSString <NSCopying> *)key
+{
+    [self setString:obj forKey:key];
+}
+
 @end

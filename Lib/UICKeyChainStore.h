@@ -56,4 +56,9 @@
 
 - (void)synchronize;
 
+// object subscripting
+
+- (NSString *)objectForKeyedSubscript:(NSString <NSCopying> *)key;
+- (void)setObject:(NSString *)obj forKeyedSubscript:(NSString <NSCopying> *)key;
+
 @end
