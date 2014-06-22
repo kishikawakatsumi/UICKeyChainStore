@@ -263,7 +263,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ $arch != \"x86_64\" ] && [ $arch != \"i386\" ]; then\n    codesign --verify --force --sign \"$CODE_SIGN_IDENTITY\" \"$CODESIGNING_FOLDER_PATH\"\nfi\n";
+			shellScript = "install_name_tool -change \"/Developer/Library/Frameworks/XCTest.framework/XCTest\" \"${SDKROOT}/Developer/Library/Frameworks/XCTest.framework/XCTest\" \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\"\n\nif [ $arch != \"x86_64\" ] && [ $arch != \"i386\" ]; then\ncodesign --verify --force --sign \"$CODE_SIGN_IDENTITY\" \"$CODESIGNING_FOLDER_PATH\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
