@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <Group
+      location = "group:Lib"
+      name = "Lib">
+      <FileRef
+         location = "group:UICKeyChainStore.h">
+      </FileRef>
+      <FileRef
+         location = "group:UICKeyChainStore.m">
+      </FileRef>
+   </Group>
+   <FileRef
+      location = "group:iOS/UICKeyChainStore.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Mac/UICKeyChainStore.xcodeproj">
+   </FileRef>
+</Workspace>

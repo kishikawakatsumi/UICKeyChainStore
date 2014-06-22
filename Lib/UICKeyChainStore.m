@@ -44,7 +44,8 @@ static NSString *_defaultService;
     return [[self alloc] initWithService:service];
 }
 
-+ (UICKeyChainStore *)keyChainStoreWithService:(NSString *)service accessGroup:(NSString *)accessGroup {
++ (UICKeyChainStore *)keyChainStoreWithService:(NSString *)service accessGroup:(NSString *)accessGroup
+{
     return [[self alloc] initWithService:service accessGroup:accessGroup];
 }
 
