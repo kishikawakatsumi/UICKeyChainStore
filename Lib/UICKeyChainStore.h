@@ -24,16 +24,16 @@
 - (instancetype)initWithService:(NSString *)service;
 - (instancetype)initWithService:(NSString *)service accessGroup:(NSString *)accessGroup;
 
-+ (NSString *)stringForKey:(NSString *)key;
-+ (NSString *)stringForKey:(NSString *)key service:(NSString *)service;
-+ (NSString *)stringForKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup;
++ (NSMutableString *)stringForKey:(NSString *)key;
++ (NSMutableString *)stringForKey:(NSString *)key service:(NSString *)service;
++ (NSMutableString *)stringForKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup;
 + (BOOL)setString:(NSString *)value forKey:(NSString *)key;
 + (BOOL)setString:(NSString *)value forKey:(NSString *)key service:(NSString *)service;
 + (BOOL)setString:(NSString *)value forKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup;
 
-+ (NSData *)dataForKey:(NSString *)key;
-+ (NSData *)dataForKey:(NSString *)key service:(NSString *)service;
-+ (NSData *)dataForKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup;
++ (NSMutableData *)dataForKey:(NSString *)key;
++ (NSMutableData *)dataForKey:(NSString *)key service:(NSString *)service;
++ (NSMutableData *)dataForKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup;
 + (BOOL)setData:(NSData *)data forKey:(NSString *)key;
 + (BOOL)setData:(NSData *)data forKey:(NSString *)key service:(NSString *)service;
 + (BOOL)setData:(NSData *)data forKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup;
