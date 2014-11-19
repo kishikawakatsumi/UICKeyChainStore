@@ -77,21 +77,21 @@ static NSString *_defaultService;
 
 #pragma mark -
 
-+ (NSString *)stringForKey:(NSString *)key
++ (NSMutableString *)stringForKey:(NSString *)key
 {
     return [self stringForKey:key service:[self defaultService] accessGroup:nil];
 }
 
-+ (NSString *)stringForKey:(NSString *)key service:(NSString *)service
++ (NSMutableString *)stringForKey:(NSString *)key service:(NSString *)service
 {
     return [self stringForKey:key service:service accessGroup:nil];
 }
 
-+ (NSString *)stringForKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup
++ (NSMutableString *)stringForKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup
 {
-    NSData *data = [self dataForKey:key service:service accessGroup:accessGroup];
+    NSMutableData *data = [self dataForKey:key service:service accessGroup:accessGroup];
     if (data) {
-        return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        return [[NSMutableString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     }
     
     return nil;
@@ -115,17 +115,17 @@ static NSString *_defaultService;
 
 #pragma mark -
 
-+ (NSData *)dataForKey:(NSString *)key
++ (NSMutableData *)dataForKey:(NSString *)key
 {
     return [self dataForKey:key service:[self defaultService] accessGroup:nil];
 }
 
-+ (NSData *)dataForKey:(NSString *)key service:(NSString *)service
++ (NSMutableData *)dataForKey:(NSString *)key service:(NSString *)service
 {
     return [self dataForKey:key service:service accessGroup:nil];
 }
 
-+ (NSData *)dataForKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup
++ (NSMutableData *)dataForKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup
 {
     if (!key) {
         return nil;
@@ -153,10 +153,7 @@ static NSString *_defaultService;
         return nil;
     }
     
-    NSData *ret = [NSData dataWithData:(__bridge NSData *)data];
-    if (data) {
-        CFRelease(data);
-    }
+    NSMutableData *ret = (__bridge_transfer NSMutableData *)data;
     
     return ret;
 }
