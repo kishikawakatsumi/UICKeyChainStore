@@ -1,4 +1,4 @@
-# UICKeyChainStore ![License MIT](https://go-shields.herokuapp.com/license-MIT-yellow.png) 
+# UICKeyChainStore ![License MIT](https://go-shields.herokuapp.com/license-MIT-yellow.png)
 
 [![Version](https://cocoapod-badges.herokuapp.com/v/UICKeyChainStore/badge.png)](https://cocoapod-badges.herokuapp.com/v/UICKeyChainStore/badge.png)
 [![Platform](https://cocoapod-badges.herokuapp.com/p/UICKeyChainStore/badge.png)](https://cocoapod-badges.herokuapp.com/p/UICKeyChainStore/badge.png)
@@ -42,6 +42,13 @@ Remove items.
 ```objective-c
 [UICKeyChainStore removeItemForKey:@"username" service:@"com.kishikawakatsumi"];
 [UICKeyChainStore removeItemForKey:@"password" service:@"com.kishikawakatsumi"];
+```
+
+To set nil value also works remove item for the key.
+
+```objective-c
+[UICKeyChainStore setString:nil forKey:@"username" service:@"com.kishikawakatsumi"];
+[UICKeyChainStore setString:nil forKey:@"password" service:@"com.kishikawakatsumi"];
 ```
 
 =====
