@@ -8,6 +8,7 @@
 
 #import "UICKeyChainStore.h"
 
+NSString * const UICKeyChainStoreErrorDomain = @"com.kishikawakatsumi.uickeychainstore";
 static NSString *_defaultService;
 
 @interface UICKeyChainStore () {
@@ -79,17 +80,32 @@ static NSString *_defaultService;
 
 + (NSString *)stringForKey:(NSString *)key
 {
-    return [self stringForKey:key service:[self defaultService] accessGroup:nil];
+    return [self stringForKey:key error:nil];
+}
+
++ (NSString *)stringForKey:(NSString *)key error:(NSError *__autoreleasing *)error
+{
+    return [self stringForKey:key service:nil error:error];
 }
 
 + (NSString *)stringForKey:(NSString *)key service:(NSString *)service
 {
-    return [self stringForKey:key service:service accessGroup:nil];
+    return [self stringForKey:key service:service error:nil];
+}
+
++ (NSString *)stringForKey:(NSString *)key service:(NSString *)service error:(NSError *__autoreleasing *)error
+{
+    return [self stringForKey:key service:service accessGroup:nil error:error];
 }
 
 + (NSString *)stringForKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup
 {
-    NSData *data = [self dataForKey:key service:service accessGroup:accessGroup];
+    return [self stringForKey:key service:service accessGroup:accessGroup error:nil];
+}
+
++ (NSString *)stringForKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup error:(NSError *__autoreleasing *)error
+{
+    NSData *data = [self dataForKey:key service:service accessGroup:accessGroup error:error];
     if (data) {
         return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     }
@@ -99,35 +115,68 @@ static NSString *_defaultService;
 
 + (BOOL)setString:(NSString *)value forKey:(NSString *)key
 {
-    return [self setString:value forKey:key service:[self defaultService] accessGroup:nil];
+    return [self setString:value forKey:key error:nil];
+}
+
++ (BOOL)setString:(NSString *)value forKey:(NSString *)key error:(NSError *__autoreleasing *)error
+{
+    return [self setString:value forKey:key service:nil error:error];
 }
 
 + (BOOL)setString:(NSString *)value forKey:(NSString *)key service:(NSString *)service
 {
-    return [self setString:value forKey:key service:service accessGroup:nil];
+    return [self setString:value forKey:key service:service error:nil];
+}
+
++ (BOOL)setString:(NSString *)value forKey:(NSString *)key service:(NSString *)service error:(NSError *__autoreleasing *)error
+{
+    return [self setString:value forKey:key service:service accessGroup:nil error:error];
 }
 
 + (BOOL)setString:(NSString *)value forKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup
 {
+    return [self setString:value forKey:key service:service accessGroup:accessGroup error:nil];
+}
+
++ (BOOL)setString:(NSString *)value forKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup error:(NSError *__autoreleasing *)error
+{
     NSData *data = [value dataUsingEncoding:NSUTF8StringEncoding];
-    return [self setData:data forKey:key service:service accessGroup:accessGroup];
+    return [self setData:data forKey:key service:service accessGroup:accessGroup error:error];
 }
 
 #pragma mark -
 
 + (NSData *)dataForKey:(NSString *)key
 {
-    return [self dataForKey:key service:[self defaultService] accessGroup:nil];
+    return [self dataForKey:key error:nil];
+}
+
++ (NSData *)dataForKey:(NSString *)key error:(NSError *__autoreleasing *)error
+{
+    return [self dataForKey:key service:nil error:error];
 }
 
 + (NSData *)dataForKey:(NSString *)key service:(NSString *)service
 {
-    return [self dataForKey:key service:service accessGroup:nil];
+    return [self dataForKey:key service:service error:nil];
+}
+
++ (NSData *)dataForKey:(NSString *)key service:(NSString *)service error:(NSError *__autoreleasing *)error
+{
+    return [self dataForKey:key service:service accessGroup:nil error:error];
 }
 
 + (NSData *)dataForKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup
 {
+    return [self dataForKey:key service:service accessGroup:accessGroup error:nil];
+}
+
++ (NSData *)dataForKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup error:(NSError *__autoreleasing *)error
+{
     if (!key) {
+        if (error) {
+            *error = [NSError errorWithDomain:UICKeyChainStoreErrorDomain code:UICKeyChainStoreErrorInvalidArguments userInfo:@{NSLocalizedDescriptionKey: NSLocalizedString(@"`key` must not to be nil", nil)}];
+        }
         return nil;
     }
     if (!service) {
@@ -150,6 +199,9 @@ static NSString *_defaultService;
     CFTypeRef data = nil;
     OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, &data);
     if (status != errSecSuccess) {
+        if (error) {
+            *error = [NSError errorWithDomain:UICKeyChainStoreErrorDomain code:status userInfo:nil];
+        }
         return nil;
     }
     
@@ -163,17 +215,35 @@ static NSString *_defaultService;
 
 + (BOOL)setData:(NSData *)data forKey:(NSString *)key
 {
-    return [self setData:data forKey:key service:[self defaultService] accessGroup:nil];
+    return [self setData:data forKey:key error:nil];
+}
+
++ (BOOL)setData:(NSData *)data forKey:(NSString *)key error:(NSError *__autoreleasing *)error
+{
+    return [self setData:data forKey:key service:nil error:error];
 }
 
 + (BOOL)setData:(NSData *)data forKey:(NSString *)key service:(NSString *)service
 {
-    return [self setData:data forKey:key service:service accessGroup:nil];
+    return [self setData:data forKey:key service:service error:nil];
+}
+
++ (BOOL)setData:(NSData *)data forKey:(NSString *)key service:(NSString *)service error:(NSError *__autoreleasing *)error
+{
+    return [self setData:data forKey:key service:service accessGroup:nil error:error];
 }
 
 + (BOOL)setData:(NSData *)data forKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup
 {
+    return [self setData:data forKey:key service:service accessGroup:accessGroup error:nil];
+}
+
++ (BOOL)setData:(NSData *)data forKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup error:(NSError *__autoreleasing *)error
+{
     if (!key) {
+        if (error) {
+            *error = [NSError errorWithDomain:UICKeyChainStoreErrorDomain code:UICKeyChainStoreErrorInvalidArguments userInfo:@{NSLocalizedDescriptionKey: NSLocalizedString(@"`key` must not to be nil", nil)}];
+        }
         return NO;
     }
     if (!service) {
@@ -199,6 +269,9 @@ static NSString *_defaultService;
             
             status = SecItemUpdate((__bridge CFDictionaryRef)query, (__bridge CFDictionaryRef)attributesToUpdate);
             if (status != errSecSuccess) {
+                if (error) {
+                    *error = [NSError errorWithDomain:UICKeyChainStoreErrorDomain code:status userInfo:nil];
+                }
                 return NO;
             }
         } else {
@@ -222,9 +295,15 @@ static NSString *_defaultService;
         
         status = SecItemAdd((__bridge CFDictionaryRef)attributes, NULL);
         if (status != errSecSuccess) {
+            if (error) {
+                *error = [NSError errorWithDomain:UICKeyChainStoreErrorDomain code:status userInfo:nil];
+            }
             return NO;
         }
     } else {
+        if (error) {
+            *error = [NSError errorWithDomain:UICKeyChainStoreErrorDomain code:status userInfo:nil];
+        }
         return NO;
     }
     
@@ -235,12 +314,22 @@ static NSString *_defaultService;
 
 - (void)setString:(NSString *)string forKey:(NSString *)key
 {
-    [self setData:[string dataUsingEncoding:NSUTF8StringEncoding] forKey:key];
+    [self setData:[string dataUsingEncoding:NSUTF8StringEncoding] forKey:key error:nil];
+}
+
+- (void)setString:(NSString *)string forKey:(NSString *)key error:(NSError *__autoreleasing *)error
+{
+    [self setData:[string dataUsingEncoding:NSUTF8StringEncoding] forKey:key error:error];
 }
 
 - (NSString *)stringForKey:(id)key
 {
-    NSData *data = [self dataForKey:key];
+    return [self stringForKey:key error:nil];
+}
+
+- (NSString *)stringForKey:(id)key error:(NSError *__autoreleasing *)error
+{
+    NSData *data = [self dataForKey:key error:error];
     if (data) {
         return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     }
@@ -252,11 +341,19 @@ static NSString *_defaultService;
 
 - (void)setData:(NSData *)data forKey:(NSString *)key
 {
+    [self setData:data forKey:key error:nil];
+}
+
+- (void)setData:(NSData *)data forKey:(NSString *)key error:(NSError *__autoreleasing *)error
+{
     if (!key) {
+        if (error) {
+            *error = [NSError errorWithDomain:UICKeyChainStoreErrorDomain code:UICKeyChainStoreErrorInvalidArguments userInfo:@{NSLocalizedDescriptionKey: NSLocalizedString(@"`key` must not to be nil", nil)}];
+        }
         return;
     }
     if (!data) {
-        [self removeItemForKey:key];
+        [self removeItemForKey:key error:error];
     } else {
         [itemsToUpdate setObject:data forKey:key];
     }
@@ -264,9 +361,14 @@ static NSString *_defaultService;
 
 - (NSData *)dataForKey:(NSString *)key
 {
+    return [self dataForKey:key error:nil];
+}
+
+- (NSData *)dataForKey:(NSString *)key error:(NSError *__autoreleasing *)error
+{
     NSData *data = [itemsToUpdate objectForKey:key];
     if (!data) {
-        data = [[self class] dataForKey:key service:self.service accessGroup:self.accessGroup];
+        data = [self.class dataForKey:key service:self.service accessGroup:self.accessGroup error:error];
     }
     
     return data;
@@ -276,17 +378,35 @@ static NSString *_defaultService;
 
 + (BOOL)removeItemForKey:(NSString *)key
 {
-    return [UICKeyChainStore removeItemForKey:key service:[self defaultService] accessGroup:nil];
+    return [self removeItemForKey:key error:nil];
+}
+
++ (BOOL)removeItemForKey:(NSString *)key error:(NSError *__autoreleasing *)error
+{
+    return [self removeItemForKey:key service:nil error:error];
 }
 
 + (BOOL)removeItemForKey:(NSString *)key service:(NSString *)service
 {
-    return [UICKeyChainStore removeItemForKey:key service:service accessGroup:nil];
+    return [self removeItemForKey:key service:service error:nil];
+}
+
++ (BOOL)removeItemForKey:(NSString *)key service:(NSString *)service error:(NSError *__autoreleasing *)error
+{
+    return [self removeItemForKey:key service:service accessGroup:nil error:error];
 }
 
 + (BOOL)removeItemForKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup
 {
+    return [self removeItemForKey:key service:service accessGroup:accessGroup error:nil];
+}
+
++ (BOOL)removeItemForKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup error:(NSError *__autoreleasing *)error
+{
     if (!key) {
+        if (error) {
+            *error = [NSError errorWithDomain:UICKeyChainStoreErrorDomain code:UICKeyChainStoreErrorInvalidArguments userInfo:@{NSLocalizedDescriptionKey: NSLocalizedString(@"`key` must not to be nil", nil)}];
+        }
         return NO;
     }
     if (!service) {
@@ -306,6 +426,9 @@ static NSString *_defaultService;
     
     OSStatus status = SecItemDelete((__bridge CFDictionaryRef)itemToDelete);
     if (status != errSecSuccess && status != errSecItemNotFound) {
+        if (error) {
+            *error = [NSError errorWithDomain:UICKeyChainStoreErrorDomain code:status userInfo:nil];
+        }
         return NO;
     }
     
@@ -341,15 +464,30 @@ static NSString *_defaultService;
 
 + (BOOL)removeAllItems
 {
-    return [self removeAllItemsForService:[self defaultService] accessGroup:nil];
+    return [self removeAllItemsWithError:nil];
+}
+
++ (BOOL)removeAllItemsWithError:(NSError *__autoreleasing *)error
+{
+    return [self removeAllItemsForService:nil error:error];
 }
 
 + (BOOL)removeAllItemsForService:(NSString *)service
 {
-    return [self removeAllItemsForService:service accessGroup:nil];
+    return [self removeAllItemsForService:service error:nil];
+}
+
++ (BOOL)removeAllItemsForService:(NSString *)service error:(NSError *__autoreleasing *)error
+{
+    return [self removeAllItemsForService:service accessGroup:nil error:error];
 }
 
 + (BOOL)removeAllItemsForService:(NSString *)service accessGroup:(NSString *)accessGroup
+{
+    return [self removeAllItemsForService:service accessGroup:accessGroup error:nil];
+}
+
++ (BOOL)removeAllItemsForService:(NSString *)service accessGroup:(NSString *)accessGroup error:(NSError *__autoreleasing *)error
 {
     NSArray *items = [UICKeyChainStore itemsForService:service accessGroup:accessGroup];
     for (NSDictionary *item in items) {
@@ -358,6 +496,9 @@ static NSString *_defaultService;
         
         OSStatus status = SecItemDelete((__bridge CFDictionaryRef)itemToDelete);
         if (status != errSecSuccess) {
+            if (error) {
+                *error = [NSError errorWithDomain:UICKeyChainStoreErrorDomain code:status userInfo:nil];
+            }
             return NO;
         }
     }
@@ -372,14 +513,28 @@ static NSString *_defaultService;
     if ([itemsToUpdate objectForKey:key]) {
         [itemsToUpdate removeObjectForKey:key];
     } else {
-        [[self class] removeItemForKey:key service:self.service accessGroup:self.accessGroup];
+        [self.class removeItemForKey:key service:self.service accessGroup:self.accessGroup error:nil];
+    }
+}
+
+- (void)removeItemForKey:(NSString *)key error:(NSError *__autoreleasing *)error
+{
+    if ([itemsToUpdate objectForKey:key]) {
+        [itemsToUpdate removeObjectForKey:key];
+    } else {
+        [self.class removeItemForKey:key service:self.service accessGroup:self.accessGroup error:error];
     }
 }
 
 - (void)removeAllItems
 {
+    [self removeAllItemsWithError:nil];
+}
+
+- (void)removeAllItemsWithError:(NSError *__autoreleasing *)error
+{
     [itemsToUpdate removeAllObjects];
-    [[self class] removeAllItemsForService:self.service accessGroup:self.accessGroup];
+    [self.class removeAllItemsForService:self.service accessGroup:self.accessGroup error:error];
 }
 
 #pragma mark -
@@ -387,7 +542,16 @@ static NSString *_defaultService;
 - (void)synchronize
 {
     for (NSString *key in itemsToUpdate) {
-        [[self class] setData:[itemsToUpdate objectForKey:key] forKey:key service:self.service accessGroup:self.accessGroup];
+        [self.class setData:[itemsToUpdate objectForKey:key] forKey:key service:self.service accessGroup:self.accessGroup error:nil];
+    }
+    
+    [itemsToUpdate removeAllObjects];
+}
+
+- (void)synchronizeWithError:(NSError *__autoreleasing *)error
+{
+    for (NSString *key in itemsToUpdate) {
+        [self.class setData:[itemsToUpdate objectForKey:key] forKey:key service:self.service accessGroup:self.accessGroup error:error];
     }
     
     [itemsToUpdate removeAllObjects];
