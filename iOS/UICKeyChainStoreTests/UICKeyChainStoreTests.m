@@ -543,14 +543,23 @@
     // create an instance
     UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithService:kStubService];
     
-    NSString *expectedString = kStubString;
-    
     // write to keychain using obj subscripting
     store[kStubKey] = kStubString;
     [store synchronize];
     
+    NSString *actualString = store[kStubKey];
+    NSString *expectedString = kStubString;
+    
     // read from keychain using obj subscripting
-    XCTAssertEqualObjects(store[kStubKey], kStubString, @"expected %@ but got %@", expectedString, store[kStubKey]);
+    XCTAssertEqualObjects(expectedString, actualString, @"expected %@ but got %@", expectedString, actualString);
+    
+    store[kStubKey] = nil;
+    [store synchronize];
+    
+    actualString = store[kStubKey];
+    expectedString = NULL;
+    
+    XCTAssertEqualObjects(expectedString, actualString, @"expected %@ but got %@", expectedString, actualString);
 }
 
 @end
