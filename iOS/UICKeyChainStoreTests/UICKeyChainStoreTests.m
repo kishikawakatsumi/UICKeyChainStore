@@ -116,6 +116,42 @@
     XCTAssertNil(error, @"no error");
 }
 
+- (void)testSetNilData
+{
+    NSString *usernameKey = @"username";
+    NSString *passwordKey = @"password";
+    NSString *username = @"kishikawakatsumi";
+    NSString *password = @"password1234";
+    NSData *usernameData = [username dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *passwordData = [password dataUsingEncoding:NSUTF8StringEncoding];
+    
+    [UICKeyChainStore setData:nil forKey:usernameKey];
+    [UICKeyChainStore setData:nil forKey:passwordKey];
+    XCTAssertNil([UICKeyChainStore dataForKey:usernameKey], @"no username");
+    XCTAssertNil([UICKeyChainStore dataForKey:passwordKey], @"no password");
+    
+    [UICKeyChainStore setData:[username dataUsingEncoding:NSUTF8StringEncoding] forKey:usernameKey];
+    [UICKeyChainStore setData:[password dataUsingEncoding:NSUTF8StringEncoding] forKey:passwordKey];
+    XCTAssertEqualObjects([UICKeyChainStore dataForKey:usernameKey], usernameData, @"stored username");
+    XCTAssertEqualObjects([UICKeyChainStore dataForKey:passwordKey], passwordData, @"stored password");
+    
+    [UICKeyChainStore setData:nil forKey:usernameKey];
+    XCTAssertNil([UICKeyChainStore dataForKey:usernameKey], @"removed username");
+    XCTAssertEqualObjects([UICKeyChainStore dataForKey:passwordKey], passwordData, @"left password");
+    
+    [UICKeyChainStore setData:nil forKey:passwordKey];
+    XCTAssertNil([UICKeyChainStore dataForKey:usernameKey], @"removed username");
+    XCTAssertNil([UICKeyChainStore dataForKey:passwordKey], @"removed password");
+    
+    [UICKeyChainStore removeItemForKey:usernameKey];
+    XCTAssertNil([UICKeyChainStore dataForKey:usernameKey], @"removed username");
+    XCTAssertNil([UICKeyChainStore dataForKey:passwordKey], @"removed password");
+    
+    [UICKeyChainStore removeItemForKey:passwordKey];
+    XCTAssertNil([UICKeyChainStore dataForKey:usernameKey], @"removed username");
+    XCTAssertNil([UICKeyChainStore dataForKey:passwordKey], @"removed password");
+}
+
 - (void)testSetUsernameAndPassword
 {
     NSString *usernameKey = @"username";
@@ -192,6 +228,40 @@
     XCTAssertNil(error, @"no error");
     XCTAssertNil([store stringForKey:passwordKey error:&error], @"removed password");
     XCTAssertNil(error, @"no error");
+}
+
+- (void)testSetNilUsernameAndNilPassword
+{
+    NSString *usernameKey = @"username";
+    NSString *passwordKey = @"password";
+    NSString *username = @"kishikawakatsumi";
+    NSString *password = @"password1234";
+    
+    UICKeyChainStore *store = [UICKeyChainStore keyChainStore];
+    [store removeAllItems];
+    
+    [UICKeyChainStore setString:nil forKey:usernameKey];
+    [UICKeyChainStore setString:nil forKey:passwordKey];
+    XCTAssertNil([UICKeyChainStore dataForKey:usernameKey], @"no username");
+    XCTAssertNil([UICKeyChainStore dataForKey:passwordKey], @"no password");
+    
+    [UICKeyChainStore setString:username forKey:usernameKey];
+    [UICKeyChainStore setString:password forKey:passwordKey];
+    XCTAssertEqualObjects([UICKeyChainStore stringForKey:usernameKey], username, @"stored username");
+    XCTAssertEqualObjects([UICKeyChainStore stringForKey:passwordKey], password, @"stored password");
+    XCTAssertEqualObjects([store stringForKey:usernameKey], username, @"stored username");
+    XCTAssertEqualObjects([store stringForKey:passwordKey], password, @"stored password");
+    
+    [UICKeyChainStore setString:nil forKey:usernameKey];
+    XCTAssertNil([UICKeyChainStore stringForKey:usernameKey], @"removed username");
+    XCTAssertEqualObjects([UICKeyChainStore stringForKey:passwordKey], password, @"left password");
+    XCTAssertEqualObjects([store stringForKey:passwordKey], password, @"left password");
+    
+    [UICKeyChainStore setString:nil forKey:passwordKey];
+    XCTAssertNil([UICKeyChainStore stringForKey:usernameKey], @"removed username");
+    XCTAssertNil([UICKeyChainStore stringForKey:passwordKey], @"removed password");
+    XCTAssertNil([store stringForKey:usernameKey], @"removed username");
+    XCTAssertNil([store stringForKey:passwordKey], @"removed password");
 }
 
 - (void)testSynchronize1
