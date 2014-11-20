@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                  = "UICKeyChainStore"
-  s.version               = "1.0.5"
+  s.version               = "1.1.0"
   s.summary               = "UICKeyChainStore is a simple wrapper for Keychain on iOS and OS X. Makes using Keychain APIs as easy as NSUserDefaults."
   s.homepage              = "https://github.com/kishikawakatsumi/UICKeyChainStore"
   s.social_media_url      = "https://twitter.com/k_katsumi"
@@ -13,6 +13,6 @@ Pod::Spec.new do |s|
   s.requires_arc          = true
 
   s.source_files          = "Lib/*"
-  
+
   s.framework             = "Security"
 end
