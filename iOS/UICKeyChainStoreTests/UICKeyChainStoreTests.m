@@ -512,6 +512,32 @@
                           @"expected %@ but got %@", expectedString, actualString);
 }
 
+- (void)testInstanceMethodsSetAndRemoveWithNilValue
+{
+    UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithService:kStubService];
+    
+    [store setString:kStubString forKey:kStubKey];
+    [store synchronize];
+    
+    NSString *actualString = [store stringForKey:kStubKey];
+    NSString *expectedString = kStubString;
+    XCTAssertEqualObjects(expectedString, actualString,
+                          @"expected %@ but got %@", expectedString, actualString);
+    
+    [store setString:nil forKey:kStubKey];
+    [store synchronize];
+    
+    actualString = [store stringForKey:kStubKey];
+    expectedString = NULL;
+    XCTAssertEqualObjects(expectedString, actualString,
+                          @"expected %@ but got %@", expectedString, actualString);
+    
+    actualString = [store description];
+    expectedString = @"(\n)";
+    XCTAssertEqualObjects(expectedString, actualString,
+                          @"expected %@ but got %@", expectedString, actualString);
+}
+
 - (void)testObjectSubscripting
 {
     // create an instance
