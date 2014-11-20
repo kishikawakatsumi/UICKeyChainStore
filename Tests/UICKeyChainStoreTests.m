@@ -27,6 +27,8 @@
     kStubString = @"password1234";
     kStubService = @"com.kishikawakatsumi";
     
+    [UICKeyChainStore setDefaultService:kStubService];
+    
     [UICKeyChainStore removeAllItems];
 }
 
