@@ -199,8 +199,10 @@ static NSString *_defaultService;
     CFTypeRef data = nil;
     OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, &data);
     if (status != errSecSuccess) {
-        if (error) {
-            *error = [NSError errorWithDomain:UICKeyChainStoreErrorDomain code:status userInfo:nil];
+        if (status != errSecItemNotFound) {
+            if (error) {
+                *error = [NSError errorWithDomain:UICKeyChainStoreErrorDomain code:status userInfo:nil];
+            }
         }
         return nil;
     }
