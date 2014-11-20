@@ -18,9 +18,9 @@
 		147256B519570FB600989F75 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1472569A19570FB600989F75 /* Foundation.framework */; };
 		147256B619570FB600989F75 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1472569E19570FB600989F75 /* UIKit.framework */; };
 		147256BE19570FB600989F75 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 147256BC19570FB600989F75 /* InfoPlist.strings */; };
-		147256C019570FB600989F75 /* UICKeyChainStoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 147256BF19570FB600989F75 /* UICKeyChainStoreTests.m */; };
 		147257091957118800989F75 /* UICKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 147257081957118800989F75 /* UICKeyChainStore.m */; };
 		1472570A1957118800989F75 /* UICKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 147257081957118800989F75 /* UICKeyChainStore.m */; };
+		14A86CC81A1DD980002F5380 /* UICKeyChainStoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A86CC71A1DD980002F5380 /* UICKeyChainStoreTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,9 +49,9 @@
 		147256B319570FB600989F75 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		147256BB19570FB600989F75 /* UICKeyChainStoreTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UICKeyChainStoreTests-Info.plist"; sourceTree = "<group>"; };
 		147256BD19570FB600989F75 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		147256BF19570FB600989F75 /* UICKeyChainStoreTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UICKeyChainStoreTests.m; sourceTree = "<group>"; };
 		147257071957118800989F75 /* UICKeyChainStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICKeyChainStore.h; sourceTree = "<group>"; };
 		147257081957118800989F75 /* UICKeyChainStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICKeyChainStore.m; sourceTree = "<group>"; };
+		14A86CC71A1DD980002F5380 /* UICKeyChainStoreTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UICKeyChainStoreTests.m; path = ../../Tests/UICKeyChainStoreTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,7 +134,7 @@
 		147256B919570FB600989F75 /* UICKeyChainStoreTests */ = {
 			isa = PBXGroup;
 			children = (
-				147256BF19570FB600989F75 /* UICKeyChainStoreTests.m */,
+				14A86CC71A1DD980002F5380 /* UICKeyChainStoreTests.m */,
 				147256BA19570FB600989F75 /* Supporting Files */,
 			);
 			path = UICKeyChainStoreTests;
@@ -282,8 +282,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				147256C019570FB600989F75 /* UICKeyChainStoreTests.m in Sources */,
 				1472570A1957118800989F75 /* UICKeyChainStore.m in Sources */,
+				14A86CC81A1DD980002F5380 /* UICKeyChainStoreTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
