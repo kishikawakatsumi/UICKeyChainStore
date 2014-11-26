@@ -16,3 +16,6 @@ project.xcworkspace
 *.DS_Store
 *.swp
 *.out
+
+.bundle/
+vendor/
