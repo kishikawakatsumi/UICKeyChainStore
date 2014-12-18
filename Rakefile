@@ -15,7 +15,7 @@ def destinations
 end
 
 XCJobs::Build.new('ios:build') do |t|
-  t.workspace = 'UICKeyChainStore.xcworkspace'
+  t.workspace = 'UICKeyChainStore'
   t.scheme = 'iOS'
   t.configuration = 'Release'
   t.build_dir = 'build'
@@ -25,7 +25,7 @@ XCJobs::Build.new('ios:build') do |t|
 end
 
 XCJobs::Build.new('osx:build') do |t|
-  t.workspace = 'UICKeyChainStore.xcworkspace'
+  t.workspace = 'UICKeyChainStore'
   t.scheme = 'Mac'
   t.configuration = 'Release'
   t.sdk = 'macosx'
@@ -34,7 +34,7 @@ XCJobs::Build.new('osx:build') do |t|
 end
 
 XCJobs::Test.new('ios:test') do |t|
-  t.workspace = 'UICKeyChainStore.xcworkspace'
+  t.workspace = 'UICKeyChainStore'
   t.scheme = 'iOS'
   t.configuration = 'Release'
   destinations.each do |destination|
@@ -44,7 +44,7 @@ XCJobs::Test.new('ios:test') do |t|
 end
 
 XCJobs::Test.new('osx:test') do |t|
-  t.workspace = 'UICKeyChainStore.xcworkspace'
+  t.workspace = 'UICKeyChainStore'
   t.scheme = 'Mac'
   t.configuration = 'Release'
   t.sdk = 'macosx'
