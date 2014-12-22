@@ -37,12 +37,12 @@ static NSString *_defaultService;
 
 + (UICKeyChainStore *)keyChainStore
 {
-    return [[self alloc] initWithService:[self defaultService]];
+    return [self keyChainStoreWithService:[self defaultService]];
 }
 
 + (UICKeyChainStore *)keyChainStoreWithService:(NSString *)service
 {
-    return [[self alloc] initWithService:service];
+    return [self keyChainStoreWithService:service accessGroup:nil];
 }
 
 + (UICKeyChainStore *)keyChainStoreWithService:(NSString *)service accessGroup:(NSString *)accessGroup
@@ -52,7 +52,7 @@ static NSString *_defaultService;
 
 - (instancetype)init
 {
-    return [self initWithService:[self.class defaultService] accessGroup:nil];
+    return [self initWithService:[self.class defaultService]];
 }
 
 - (instancetype)initWithService:(NSString *)service
@@ -457,7 +457,7 @@ static NSString *_defaultService;
 
 - (void)setObject:(NSObject *)object forKey:(NSString *)key error:(NSError *__autoreleasing *)error
 {
-    [self.class setObject:object forKey:key error:error];
+    [self setData:[NSKeyedArchiver archivedDataWithRootObject:object] forKey:key error:error];
 }
 
 - (NSObject *)objectForKey:(id)key
@@ -467,7 +467,12 @@ static NSString *_defaultService;
 
 - (NSObject *)objectForKey:(id)key error:(NSError *__autoreleasing *)error
 {
-    return [self.class objectForKey:key error:error];
+    NSData *data = [self dataForKey:key error:error];
+    if (data) {
+        return [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    }
+    
+    return nil;
 }
 
 #pragma mark -
