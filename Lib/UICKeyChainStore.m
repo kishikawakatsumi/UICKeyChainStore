@@ -12,7 +12,7 @@ NSString * const UICKeyChainStoreErrorDomain = @"com.kishikawakatsumi.uickeychai
 static NSString *_defaultService;
 
 @interface UICKeyChainStore () {
-    NSMutableDictionary *itemsToUpdate;
+    NSMutableDictionary *_itemsToUpdate;
 }
 
 @end
@@ -24,7 +24,7 @@ static NSString *_defaultService;
     if (!_defaultService) {
         _defaultService = [[NSBundle mainBundle] bundleIdentifier];
     }
-    
+
     return _defaultService;
 }
 
@@ -69,10 +69,10 @@ static NSString *_defaultService;
         }
         _service = [service copy];
         _accessGroup = [accessGroup copy];
-        
-        itemsToUpdate = [[NSMutableDictionary alloc] init];
+
+        _itemsToUpdate = [[NSMutableDictionary alloc] init];
     }
-    
+
     return self;
 }
 
@@ -109,7 +109,7 @@ static NSString *_defaultService;
     if (data) {
         return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     }
-    
+
     return nil;
 }
 
@@ -182,7 +182,7 @@ static NSString *_defaultService;
     if (!service) {
         service = [self defaultService];
     }
-    
+
     NSMutableDictionary *query = [[NSMutableDictionary alloc] init];
     [query setObject:(__bridge id)kSecClassGenericPassword forKey:(__bridge id)kSecClass];
     [query setObject:(__bridge id)kCFBooleanTrue forKey:(__bridge id)kSecReturnData];
@@ -195,7 +195,7 @@ static NSString *_defaultService;
         [query setObject:accessGroup forKey:(__bridge id)kSecAttrAccessGroup];
     }
 #endif
-    
+
     CFTypeRef data = nil;
     OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, &data);
     if (status != errSecSuccess) {
@@ -206,12 +206,12 @@ static NSString *_defaultService;
         }
         return nil;
     }
-    
+
     NSData *ret = [NSData dataWithData:(__bridge NSData *)data];
     if (data) {
         CFRelease(data);
     }
-    
+
     return ret;
 }
 
@@ -251,7 +251,7 @@ static NSString *_defaultService;
     if (!service) {
         service = [self defaultService];
     }
-    
+
     NSMutableDictionary *query = [[NSMutableDictionary alloc] init];
     [query setObject:(__bridge id)kSecClassGenericPassword forKey:(__bridge id)kSecClass];
     [query setObject:service forKey:(__bridge id)kSecAttrService];
@@ -262,13 +262,13 @@ static NSString *_defaultService;
         [query setObject:accessGroup forKey:(__bridge id)kSecAttrAccessGroup];
     }
 #endif
-    
+
     OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, NULL);
     if (status == errSecSuccess) {
         if (data) {
             NSMutableDictionary *attributesToUpdate = [[NSMutableDictionary alloc] init];
             [attributesToUpdate setObject:data forKey:(__bridge id)kSecValueData];
-            
+
             status = SecItemUpdate((__bridge CFDictionaryRef)query, (__bridge CFDictionaryRef)attributesToUpdate);
             if (status != errSecSuccess) {
                 if (error) {
@@ -297,7 +297,7 @@ static NSString *_defaultService;
             [attributes setObject:accessGroup forKey:(__bridge id)kSecAttrAccessGroup];
         }
 #endif
-        
+
         status = SecItemAdd((__bridge CFDictionaryRef)attributes, NULL);
         if (status != errSecSuccess) {
             if (error) {
@@ -311,9 +311,78 @@ static NSString *_defaultService;
         }
         return NO;
     }
-    
+
     return YES;
 }
+
+#pragma mark - Object
+
++ (NSObject *)objectForKey:(NSString *)key
+{
+    return [self objectForKey:key error:nil];
+}
+
++ (NSObject *)objectForKey:(NSString *)key error:(NSError *__autoreleasing *)error
+{
+    return [self objectForKey:key service:nil error:error];
+}
+
++ (NSObject *)objectForKey:(NSString *)key service:(NSString *)service
+{
+    return [self objectForKey:key service:service error:nil];
+}
+
++ (NSObject *)objectForKey:(NSString *)key service:(NSString *)service error:(NSError *__autoreleasing *)error
+{
+    return [self objectForKey:key service:service accessGroup:nil error:error];
+}
+
++ (NSObject *)objectForKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup
+{
+    return [self objectForKey:key service:service accessGroup:accessGroup error:nil];
+}
+
++ (NSObject *)objectForKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup error:(NSError *__autoreleasing *)error
+{
+    NSData *data = [self dataForKey:key service:service accessGroup:accessGroup error:error];
+    if (data) {
+        return [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    }
+
+    return nil;
+}
+
++ (BOOL)setObject:(NSObject *)object forKey:(NSString *)key
+{
+    return [self setObject:object forKey:key error:nil];
+}
+
++ (BOOL)setObject:(NSObject *)object forKey:(NSString *)key error:(NSError *__autoreleasing *)error
+{
+    return [self setObject:object forKey:key service:nil error:error];
+}
+
++ (BOOL)setObject:(NSObject *)object forKey:(NSString *)key service:(NSString *)service
+{
+    return [self setObject:object forKey:key service:service error:nil];
+}
+
++ (BOOL)setObject:(NSObject *)object forKey:(NSString *)key service:(NSString *)service error:(NSError *__autoreleasing *)error
+{
+    return [self setObject:object forKey:key service:service accessGroup:nil error:error];
+}
+
++ (BOOL)setObject:(NSObject *)object forKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup
+{
+    return [self setObject:object forKey:key service:service accessGroup:accessGroup error:nil];
+}
+
++ (BOOL)setObject:(NSObject *)object forKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup error:(NSError *__autoreleasing *)error
+{
+    NSData* data = [NSKeyedArchiver archivedDataWithRootObject:object];
+    return [self setData:data forKey:key service:service accessGroup:accessGroup error:error];
+}
+
 
 #pragma mark -
 
@@ -338,7 +407,7 @@ static NSString *_defaultService;
     if (data) {
         return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     }
-    
+
     return nil;
 }
 
@@ -360,7 +429,7 @@ static NSString *_defaultService;
     if (!data) {
         [self removeItemForKey:key error:error];
     } else {
-        [itemsToUpdate setObject:data forKey:key];
+        [_itemsToUpdate setObject:data forKey:key];
     }
 }
 
@@ -371,12 +440,34 @@ static NSString *_defaultService;
 
 - (NSData *)dataForKey:(NSString *)key error:(NSError *__autoreleasing *)error
 {
-    NSData *data = [itemsToUpdate objectForKey:key];
+    NSData *data = [_itemsToUpdate objectForKey:key];
     if (!data) {
         data = [self.class dataForKey:key service:self.service accessGroup:self.accessGroup error:error];
     }
-    
+
     return data;
+}
+
+#pragma mark -
+
+- (void)setObject:(NSObject *)object forKey:(NSString *)key
+{
+    [self setObject:object forKey:key error:nil];
+}
+
+- (void)setObject:(NSObject *)object forKey:(NSString *)key error:(NSError *__autoreleasing *)error
+{
+    [self.class setObject:object forKey:key error:error];
+}
+
+- (NSObject *)objectForKey:(id)key
+{
+    return [self objectForKey:key error:nil];
+}
+
+- (NSObject *)objectForKey:(id)key error:(NSError *__autoreleasing *)error
+{
+    return [self.class objectForKey:key error:error];
 }
 
 #pragma mark -
@@ -417,7 +508,7 @@ static NSString *_defaultService;
     if (!service) {
         service = [self defaultService];
     }
-    
+
     NSMutableDictionary *itemToDelete = [[NSMutableDictionary alloc] init];
     [itemToDelete setObject:(__bridge id)kSecClassGenericPassword forKey:(__bridge id)kSecClass];
     [itemToDelete setObject:service forKey:(__bridge id)kSecAttrService];
@@ -428,7 +519,7 @@ static NSString *_defaultService;
         [itemToDelete setObject:accessGroup forKey:(__bridge id)kSecAttrAccessGroup];
     }
 #endif
-    
+
     OSStatus status = SecItemDelete((__bridge CFDictionaryRef)itemToDelete);
     if (status != errSecSuccess && status != errSecItemNotFound) {
         if (error) {
@@ -436,7 +527,7 @@ static NSString *_defaultService;
         }
         return NO;
     }
-    
+
     return YES;
 }
 
@@ -445,7 +536,7 @@ static NSString *_defaultService;
     if (!service) {
         service = [self defaultService];
     }
-    
+
     NSMutableDictionary *query = [[NSMutableDictionary alloc] init];
     [query setObject:(__bridge id)kSecClassGenericPassword forKey:(__bridge id)kSecClass];
     [query setObject:(id)kCFBooleanTrue forKey:(__bridge id)kSecReturnAttributes];
@@ -457,7 +548,7 @@ static NSString *_defaultService;
         [query setObject:accessGroup forKey:(__bridge id)kSecAttrAccessGroup];
     }
 #endif
-    
+
     CFArrayRef result = nil;
     OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, (CFTypeRef *)&result);
     if (status == errSecSuccess || status == errSecItemNotFound) {
@@ -498,7 +589,7 @@ static NSString *_defaultService;
     for (NSDictionary *item in items) {
         NSMutableDictionary *itemToDelete = [[NSMutableDictionary alloc] initWithDictionary:item];
         [itemToDelete setObject:(__bridge id)kSecClassGenericPassword forKey:(__bridge id)kSecClass];
-        
+
         OSStatus status = SecItemDelete((__bridge CFDictionaryRef)itemToDelete);
         if (status != errSecSuccess) {
             if (error) {
@@ -507,7 +598,7 @@ static NSString *_defaultService;
             return NO;
         }
     }
-    
+
     return YES;
 }
 
@@ -515,8 +606,8 @@ static NSString *_defaultService;
 
 - (void)removeItemForKey:(NSString *)key
 {
-    if ([itemsToUpdate objectForKey:key]) {
-        [itemsToUpdate removeObjectForKey:key];
+    if ([_itemsToUpdate objectForKey:key]) {
+        [_itemsToUpdate removeObjectForKey:key];
     } else {
         [self.class removeItemForKey:key service:self.service accessGroup:self.accessGroup error:nil];
     }
@@ -524,8 +615,8 @@ static NSString *_defaultService;
 
 - (void)removeItemForKey:(NSString *)key error:(NSError *__autoreleasing *)error
 {
-    if ([itemsToUpdate objectForKey:key]) {
-        [itemsToUpdate removeObjectForKey:key];
+    if ([_itemsToUpdate objectForKey:key]) {
+        [_itemsToUpdate removeObjectForKey:key];
     } else {
         [self.class removeItemForKey:key service:self.service accessGroup:self.accessGroup error:error];
     }
@@ -538,7 +629,7 @@ static NSString *_defaultService;
 
 - (void)removeAllItemsWithError:(NSError *__autoreleasing *)error
 {
-    [itemsToUpdate removeAllObjects];
+    [_itemsToUpdate removeAllObjects];
     [self.class removeAllItemsForService:self.service accessGroup:self.accessGroup error:error];
 }
 
@@ -546,20 +637,20 @@ static NSString *_defaultService;
 
 - (void)synchronize
 {
-    for (NSString *key in itemsToUpdate) {
-        [self.class setData:[itemsToUpdate objectForKey:key] forKey:key service:self.service accessGroup:self.accessGroup error:nil];
+    for (NSString *key in _itemsToUpdate) {
+        [self.class setData:[_itemsToUpdate objectForKey:key] forKey:key service:self.service accessGroup:self.accessGroup error:nil];
     }
-    
-    [itemsToUpdate removeAllObjects];
+
+    [_itemsToUpdate removeAllObjects];
 }
 
 - (void)synchronizeWithError:(NSError *__autoreleasing *)error
 {
-    for (NSString *key in itemsToUpdate) {
-        [self.class setData:[itemsToUpdate objectForKey:key] forKey:key service:self.service accessGroup:self.accessGroup error:error];
+    for (NSString *key in _itemsToUpdate) {
+        [self.class setData:[_itemsToUpdate objectForKey:key] forKey:key service:self.service accessGroup:self.accessGroup error:error];
     }
-    
-    [itemsToUpdate removeAllObjects];
+
+    [_itemsToUpdate removeAllObjects];
 }
 
 #pragma mark -
@@ -584,7 +675,7 @@ static NSString *_defaultService;
         }
         [list addObject:attrs];
     }
-    
+
     return [list description];
 }
 
