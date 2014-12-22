@@ -56,6 +56,20 @@ typedef NS_ENUM(NSInteger, UICKeyChainStoreErrorCode) {
 + (BOOL)setData:(NSData *)data forKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup;
 + (BOOL)setData:(NSData *)data forKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup error:(NSError * __autoreleasing *)error;
 
++ (NSObject *)objectForKey:(NSString *)key;
++ (NSObject *)objectForKey:(NSString *)key error:(NSError * __autoreleasing *)error;
++ (NSObject *)objectForKey:(NSString *)key service:(NSString *)service;
++ (NSObject *)objectForKey:(NSString *)key service:(NSString *)service error:(NSError * __autoreleasing *)error;
++ (NSObject *)objectForKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup;
++ (NSObject *)objectForKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup error:(NSError * __autoreleasing *)error;
++ (BOOL)setObject:(NSObject *)object forKey:(NSString *)key;
++ (BOOL)setObject:(NSObject *)object forKey:(NSString *)key error:(NSError * __autoreleasing *)error;
++ (BOOL)setObject:(NSObject *)object forKey:(NSString *)key service:(NSString *)service;
++ (BOOL)setObject:(NSObject *)object forKey:(NSString *)key service:(NSString *)service error:(NSError * __autoreleasing *)error;
++ (BOOL)setObject:(NSObject *)object forKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup;
++ (BOOL)setObject:(NSObject *)object forKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup error:(NSError * __autoreleasing *)error;
+
+
 - (void)setString:(NSString *)string forKey:(NSString *)key;
 - (void)setString:(NSString *)string forKey:(NSString *)key error:(NSError * __autoreleasing *)error;
 - (NSString *)stringForKey:(NSString *)key;
@@ -65,6 +79,12 @@ typedef NS_ENUM(NSInteger, UICKeyChainStoreErrorCode) {
 - (void)setData:(NSData *)data forKey:(NSString *)key error:(NSError * __autoreleasing *)error;
 - (NSData *)dataForKey:(NSString *)key;
 - (NSData *)dataForKey:(NSString *)key error:(NSError * __autoreleasing *)error;
+
+- (void)setObject:(NSObject *)data forKey:(NSString *)key;
+- (void)setObject:(NSObject *)data forKey:(NSString *)key error:(NSError * __autoreleasing *)error;
+- (NSObject *)objectForKey:(NSString *)key;
+- (NSObject *)objectForKey:(NSString *)key error:(NSError * __autoreleasing *)error;
+
 
 + (BOOL)removeItemForKey:(NSString *)key;
 + (BOOL)removeItemForKey:(NSString *)key error:(NSError * __autoreleasing *)error;
