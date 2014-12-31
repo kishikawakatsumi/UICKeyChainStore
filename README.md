@@ -7,6 +7,9 @@
 
 UICKeyChainStore is a simple wrapper for Keychain on iOS and OS X. Makes using Keychain APIs as easy as NSUserDefaults.
 
+Released Swift version => [KeychainAccess](https://github.com/kishikawakatsumi/KeychainAccess)  
+[KeychainAccess](https://github.com/kishikawakatsumi/KeychainAccess) is next generation of UICKeyChainStore
+
 
 ## Installation
 ### CocoaPods
