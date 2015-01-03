@@ -1,12 +1,14 @@
 language: objective-c
-osx_image: xcode61
 cache:
   directories:
     - vendor/bundle
 install:
+  - sudo easy_install cpp-coveralls
   - bundle install --path=vendor/bundle --binstubs=vendor/bin
 script:
   - bundle exec rake ios:build osx:build ios:test osx:test
+after_success:
+  - ./iOS/Script/coveralls.sh
 env:
   global:
     - LANG=en_US.UTF-8

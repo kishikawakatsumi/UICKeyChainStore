@@ -14,7 +14,6 @@
 		147256F11957100600989F75 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 147256EF1957100600989F75 /* InfoPlist.strings */; };
 		1472570E1957119900989F75 /* UICKeyChainStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 1472570C1957119900989F75 /* UICKeyChainStore.h */; };
 		1472570F1957119900989F75 /* UICKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 1472570D1957119900989F75 /* UICKeyChainStore.m */; };
-		147257101957119900989F75 /* UICKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 1472570D1957119900989F75 /* UICKeyChainStore.m */; };
 		14A86CCA1A1DD98A002F5380 /* UICKeyChainStoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A86CC91A1DD98A002F5380 /* UICKeyChainStoreTests.m */; };
 /* End PBXBuildFile section */
 
@@ -250,7 +249,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				147257101957119900989F75 /* UICKeyChainStore.m in Sources */,
 				14A86CCA1A1DD98A002F5380 /* UICKeyChainStoreTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
