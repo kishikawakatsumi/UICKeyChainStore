@@ -1,13 +1,13 @@
-# UICKeyChainStore ![License MIT](https://go-shields.herokuapp.com/license-MIT-yellow.png)
-
-[![Version](https://cocoapod-badges.herokuapp.com/v/UICKeyChainStore/badge.png)](https://cocoapod-badges.herokuapp.com/v/UICKeyChainStore/badge.png)
-[![Platform](https://cocoapod-badges.herokuapp.com/p/UICKeyChainStore/badge.png)](https://cocoapod-badges.herokuapp.com/p/UICKeyChainStore/badge.png)
-[![Build Status](https://travis-ci.org/kishikawakatsumi/UICKeyChainStore.png?branch=master)](https://travis-ci.org/kishikawakatsumi/UICKeyChainStore)
-[![Analytics](https://ga-beacon.appspot.com/UA-4291014-9/UICKeyChainStore/README.md)](https://github.com/igrigorik/ga-beacon)
+# UICKeyChainStore
+[![CI Status](http://img.shields.io/travis/kishikawakatsumi/UICKeyChainStore.svg?style=flat)](https://travis-ci.org/kishikawakatsumi/UICKeyChainStore)
+[![Coverage Status](https://img.shields.io/coveralls/kishikawakatsumi/UICKeyChainStore.svg?style=flat)](https://coveralls.io/r/kishikawakatsumi/UICKeyChainStore?branch=master)
+[![Version](https://img.shields.io/cocoapods/v/UICKeyChainStore.svg?style=flat)](http://cocoadocs.org/docsets/UICKeyChainStore)
+[![License](https://img.shields.io/cocoapods/l/UICKeyChainStore.svg?style=flat)](http://cocoadocs.org/docsets/UICKeyChainStore)
+[![Platform](https://img.shields.io/cocoapods/p/UICKeyChainStore.svg?style=flat)](http://cocoadocs.org/docsets/UICKeyChainStore)
 
 UICKeyChainStore is a simple wrapper for Keychain on iOS and OS X. Makes using Keychain APIs as easy as NSUserDefaults.
 
-## Looking for the library written in Swift? 
+## Looking for the library written in Swift?
 
 Try [KeychainAccess](https://github.com/kishikawakatsumi/KeychainAccess)  
 [KeychainAccess](https://github.com/kishikawakatsumi/KeychainAccess) is next generation of UICKeyChainStore
