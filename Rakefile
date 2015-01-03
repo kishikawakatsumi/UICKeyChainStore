@@ -40,7 +40,10 @@ XCJobs::Test.new('ios:test') do |t|
   destinations.each do |destination|
     t.add_destination(destination)
   end
+  t.build_dir = 'build'
   t.formatter = 'xcpretty -c'
+  t.add_build_setting('GCC_INSTRUMENT_PROGRAM_FLOW_ARCS', 'YES')
+  t.add_build_setting('GCC_GENERATE_TEST_COVERAGE_FILES', 'YES')
 end
 
 XCJobs::Test.new('osx:test') do |t|
@@ -48,5 +51,8 @@ XCJobs::Test.new('osx:test') do |t|
   t.scheme = 'Mac'
   t.configuration = 'Release'
   t.sdk = 'macosx'
+  t.build_dir = 'build'
   t.formatter = 'xcpretty -c'
+  t.add_build_setting('GCC_INSTRUMENT_PROGRAM_FLOW_ARCS', 'YES')
+  t.add_build_setting('GCC_GENERATE_TEST_COVERAGE_FILES', 'YES')
 end
