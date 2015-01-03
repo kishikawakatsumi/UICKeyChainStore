@@ -13,7 +13,7 @@ for file in *.gcda; do
   gcov "\${file}"
 done
 
-coveralls --root "${SRCROOT}/../" -e "iOS" --no-gcov
+coveralls --root "${SRCROOT}/../" --extension ".m" --no-gcov
 EOF
 
 chmod +x "${COVERALLS_SCRIPT_PATH}"
