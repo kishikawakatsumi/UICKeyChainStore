@@ -322,9 +322,10 @@ static NSString *_defaultService;
     [self setData:[string dataUsingEncoding:NSUTF8StringEncoding] forKey:key error:nil];
 }
 
-- (void)setString:(NSString *)string forKey:(NSString *)key error:(NSError *__autoreleasing *)error
+- (BOOL)setString:(NSString *)string forKey:(NSString *)key error:(NSError *__autoreleasing *)error
 {
     [self setData:[string dataUsingEncoding:NSUTF8StringEncoding] forKey:key error:error];
+    return error == nil;
 }
 
 - (NSString *)stringForKey:(id)key
@@ -349,19 +350,20 @@ static NSString *_defaultService;
     [self setData:data forKey:key error:nil];
 }
 
-- (void)setData:(NSData *)data forKey:(NSString *)key error:(NSError *__autoreleasing *)error
+- (BOOL)setData:(NSData *)data forKey:(NSString *)key error:(NSError *__autoreleasing *)error
 {
     if (!key) {
         if (error) {
             *error = [NSError errorWithDomain:UICKeyChainStoreErrorDomain code:UICKeyChainStoreErrorInvalidArguments userInfo:@{NSLocalizedDescriptionKey: NSLocalizedString(@"`key` must not to be nil", nil)}];
         }
-        return;
+        return error == nil;
     }
     if (!data) {
         [self removeItemForKey:key error:error];
     } else {
         [itemsToUpdate setObject:data forKey:key];
     }
+    return error == nil;
 }
 
 - (NSData *)dataForKey:(NSString *)key
@@ -522,13 +524,14 @@ static NSString *_defaultService;
     }
 }
 
-- (void)removeItemForKey:(NSString *)key error:(NSError *__autoreleasing *)error
+- (BOOL)removeItemForKey:(NSString *)key error:(NSError *__autoreleasing *)error
 {
     if ([itemsToUpdate objectForKey:key]) {
         [itemsToUpdate removeObjectForKey:key];
     } else {
         [self.class removeItemForKey:key service:self.service accessGroup:self.accessGroup error:error];
     }
+    return error == nil;
 }
 
 - (void)removeAllItems
@@ -536,10 +539,10 @@ static NSString *_defaultService;
     [self removeAllItemsWithError:nil];
 }
 
-- (void)removeAllItemsWithError:(NSError *__autoreleasing *)error
+- (BOOL)removeAllItemsWithError:(NSError *__autoreleasing *)error
 {
     [itemsToUpdate removeAllObjects];
-    [self.class removeAllItemsForService:self.service accessGroup:self.accessGroup error:error];
+    return [self.class removeAllItemsForService:self.service accessGroup:self.accessGroup error:error];
 }
 
 #pragma mark -
@@ -553,13 +556,14 @@ static NSString *_defaultService;
     [itemsToUpdate removeAllObjects];
 }
 
-- (void)synchronizeWithError:(NSError *__autoreleasing *)error
+- (BOOL)synchronizeWithError:(NSError *__autoreleasing *)error
 {
     for (NSString *key in itemsToUpdate) {
         [self.class setData:[itemsToUpdate objectForKey:key] forKey:key service:self.service accessGroup:self.accessGroup error:error];
     }
     
     [itemsToUpdate removeAllObjects];
+    return error == nil;
 }
 
 #pragma mark -
