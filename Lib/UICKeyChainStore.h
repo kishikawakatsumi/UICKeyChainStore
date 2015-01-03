@@ -26,6 +26,18 @@ typedef NS_ENUM(NSInteger, UICKeyChainStoreErrorCode) {
 + (UICKeyChainStore *)keyChainStoreWithService:(NSString *)service;
 + (UICKeyChainStore *)keyChainStoreWithService:(NSString *)service accessGroup:(NSString *)accessGroup;
 
+/*
+ For those who want to use this in swift, I prefixed the methods above with get for use in swift because the 3 class methods above where not made available when trying to use them with swift
+    Instead of
+        let store=UICKeyChainStore.keyChainStore() //This is not available in swift
+    You call
+        let store:UICKeyChainStore=UICKeyChainStore.getKeyChainStore()
+*/
+
++ (UICKeyChainStore *)getKeyChainStore;
++ (UICKeyChainStore *)getKeyChainStoreWithService:(NSString *)service;
++ (UICKeyChainStore *)getKeyChainStoreWithService:(NSString *)service accessGroup:(NSString *)accessGroup;
+
 - (instancetype)init;
 - (instancetype)initWithService:(NSString *)service;
 - (instancetype)initWithService:(NSString *)service accessGroup:(NSString *)accessGroup;

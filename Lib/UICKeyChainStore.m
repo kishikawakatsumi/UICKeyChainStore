@@ -50,6 +50,21 @@ static NSString *_defaultService;
     return [[self alloc] initWithService:service accessGroup:accessGroup];
 }
 
+
+/*
+ For those who want to use this in swift, I prefixed the methods above with get for use in swift because the 3 class methods above where not made available when trying to use them with swift
+ */
++ (UICKeyChainStore *)getKeyChainStore{
+    return [self keyChainStore];
+}
++ (UICKeyChainStore *)getKeyChainStoreWithService:(NSString *)service{
+    return [self keyChainStoreWithService:service];
+}
++ (UICKeyChainStore *)getKeyChainStoreWithService:(NSString *)service accessGroup:(NSString *)accessGroup{
+    return [self keyChainStoreWithService:service accessGroup:accessGroup];
+}
+
+
 - (instancetype)init
 {
     return [self initWithService:[self.class defaultService] accessGroup:nil];
