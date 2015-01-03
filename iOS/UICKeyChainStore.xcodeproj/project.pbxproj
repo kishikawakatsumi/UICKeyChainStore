@@ -20,6 +20,7 @@
 		147256BE19570FB600989F75 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 147256BC19570FB600989F75 /* InfoPlist.strings */; };
 		147257091957118800989F75 /* UICKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 147257081957118800989F75 /* UICKeyChainStore.m */; };
 		14A86CC81A1DD980002F5380 /* UICKeyChainStoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A86CC71A1DD980002F5380 /* UICKeyChainStoreTests.m */; };
+		713BCDFE1A58F672000F2D96 /* UICKeyChainItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 713BCDFD1A58F672000F2D96 /* UICKeyChainItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		147257071957118800989F75 /* UICKeyChainStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICKeyChainStore.h; sourceTree = "<group>"; };
 		147257081957118800989F75 /* UICKeyChainStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICKeyChainStore.m; sourceTree = "<group>"; };
 		14A86CC71A1DD980002F5380 /* UICKeyChainStoreTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UICKeyChainStoreTests.m; path = ../../Tests/UICKeyChainStoreTests.m; sourceTree = "<group>"; };
+		713BCDFC1A58F672000F2D96 /* UICKeyChainItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICKeyChainItem.h; sourceTree = "<group>"; };
+		713BCDFD1A58F672000F2D96 /* UICKeyChainItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICKeyChainItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +154,8 @@
 		147257061957118800989F75 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				713BCDFC1A58F672000F2D96 /* UICKeyChainItem.h */,
+				713BCDFD1A58F672000F2D96 /* UICKeyChainItem.m */,
 				147257071957118800989F75 /* UICKeyChainStore.h */,
 				147257081957118800989F75 /* UICKeyChainStore.m */,
 			);
@@ -271,6 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				713BCDFE1A58F672000F2D96 /* UICKeyChainItem.m in Sources */,
 				147256AB19570FB600989F75 /* UICAppDelegate.m in Sources */,
 				147256A719570FB600989F75 /* main.m in Sources */,
 				147257091957118800989F75 /* UICKeyChainStore.m in Sources */,

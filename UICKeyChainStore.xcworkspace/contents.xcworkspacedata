@@ -10,6 +10,12 @@
       <FileRef
          location = "group:UICKeyChainStore.m">
       </FileRef>
+      <FileRef
+         location = "group:UICKeyChainItem.h">
+      </FileRef>
+      <FileRef
+         location = "group:UICKeyChainItem.m">
+      </FileRef>
    </Group>
    <FileRef
       location = "group:iOS/UICKeyChainStore.xcodeproj">
