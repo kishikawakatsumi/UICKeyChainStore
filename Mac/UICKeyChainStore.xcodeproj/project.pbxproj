@@ -15,6 +15,8 @@
 		1472570E1957119900989F75 /* UICKeyChainStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 1472570C1957119900989F75 /* UICKeyChainStore.h */; };
 		1472570F1957119900989F75 /* UICKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 1472570D1957119900989F75 /* UICKeyChainStore.m */; };
 		14A86CCA1A1DD98A002F5380 /* UICKeyChainStoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A86CC91A1DD98A002F5380 /* UICKeyChainStoreTests.m */; };
+		713BCE011A58F676000F2D96 /* UICKeyChainItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 713BCDFF1A58F676000F2D96 /* UICKeyChainItem.h */; };
+		713BCE021A58F676000F2D96 /* UICKeyChainItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 713BCE001A58F676000F2D96 /* UICKeyChainItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +43,8 @@
 		1472570C1957119900989F75 /* UICKeyChainStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICKeyChainStore.h; sourceTree = "<group>"; };
 		1472570D1957119900989F75 /* UICKeyChainStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICKeyChainStore.m; sourceTree = "<group>"; };
 		14A86CC91A1DD98A002F5380 /* UICKeyChainStoreTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UICKeyChainStoreTests.m; path = ../../Tests/UICKeyChainStoreTests.m; sourceTree = "<group>"; };
+		713BCDFF1A58F676000F2D96 /* UICKeyChainItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICKeyChainItem.h; sourceTree = "<group>"; };
+		713BCE001A58F676000F2D96 /* UICKeyChainItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICKeyChainItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +146,8 @@
 		1472570B1957119900989F75 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				713BCDFF1A58F676000F2D96 /* UICKeyChainItem.h */,
+				713BCE001A58F676000F2D96 /* UICKeyChainItem.m */,
 				1472570C1957119900989F75 /* UICKeyChainStore.h */,
 				1472570D1957119900989F75 /* UICKeyChainStore.m */,
 			);
@@ -157,6 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1472570E1957119900989F75 /* UICKeyChainStore.h in Headers */,
+				713BCE011A58F676000F2D96 /* UICKeyChainItem.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +248,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				713BCE021A58F676000F2D96 /* UICKeyChainItem.m in Sources */,
 				1472570F1957119900989F75 /* UICKeyChainStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
