@@ -989,7 +989,8 @@
 
 #pragma mark -
 
-- (void)testGetAllKeys {
+- (void)testGetAllKeys
+{
     UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithService:@"github.com"];
     [store removeAllItems];
     
@@ -1007,7 +1008,8 @@
     [store removeAllItems];
 }
 
-- (void)testGetAllItems {
+- (void)testGetAllItems
+{
     UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithService:@"github.com"];
     [store removeAllItems];
     
@@ -1057,7 +1059,8 @@
     [store removeAllItems];
 }
 
-- (void)testGetAllKeysClassMethod {
+- (void)testGetAllKeysClassMethod
+{
     [UICKeyChainStore removeAllItemsForService:@"github.com"];
     
     [UICKeyChainStore setString:@"01234567-89ab-cdef-0123-456789abcdef" forKey:@"kishikawakatsumi" service:@"github.com"];
@@ -1079,7 +1082,8 @@
     [UICKeyChainStore removeAllItemsForService:@"github.com"];
 }
 
-- (void)testGetAllItemsClassMethod {
+- (void)testGetAllItemsClassMethod
+{
     [UICKeyChainStore removeAllItemsForService:@"github.com"];
     
     [UICKeyChainStore setString:@"01234567-89ab-cdef-0123-456789abcdef" forKey:@"kishikawakatsumi" service:@"github.com"];
@@ -1141,6 +1145,66 @@
     
     username = [store stringForKey:@"username"];
     XCTAssertNil(username);
+}
+
+- (void)testDescription
+{
+    UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithService:@"github.com"];
+    [store removeAllItems];
+    
+    [store setString:@"01234567-89ab-cdef-0123-456789abcdef" forKey:@"kishikawakatsumi"];
+    [store setString:@"00000000-89ab-cdef-0000-456789abcdef" forKey:@"hirohamada"];
+    [store setString:@"11111111-89ab-cdef-1111-456789abcdef" forKey:@"honeylemon"];
+    
+#if TARGET_OS_IPHONE
+    NSString *description = @"(\n" \
+    @"    {\n"
+    @"    accessGroup = test;\n" \
+    @"    accessibility = ck;\n" \
+    @"    class = GenericPassword;\n" \
+    @"    key = kishikawakatsumi;\n" \
+    @"    service = \"github.com\";\n" \
+    @"    synchronizable = 0;\n" \
+    @"    value = \"01234567-89ab-cdef-0123-456789abcdef\";\n" \
+    @"}    {\n" \
+    @"    accessGroup = test;\n" \
+    @"    accessibility = ck;\n" \
+    @"    class = GenericPassword;\n" \
+    @"    key = hirohamada;\n" \
+    @"    service = \"github.com\";\n" \
+    @"    synchronizable = 0;\n" \
+    @"    value = \"00000000-89ab-cdef-0000-456789abcdef\";\n" \
+    @"}    {\n" \
+    @"    accessGroup = test;\n" \
+    @"    accessibility = ck;\n" \
+    @"    class = GenericPassword;\n" \
+    @"    key = honeylemon;\n" \
+    @"    service = \"github.com\";\n" \
+    @"    synchronizable = 0;\n" \
+    @"    value = \"11111111-89ab-cdef-1111-456789abcdef\";\n" \
+    @"})";
+#else
+    NSString *description = @"(\n" \
+    @"    {\n"
+    @"    class = GenericPassword;\n" \
+    @"    key = kishikawakatsumi;\n" \
+    @"    service = \"github.com\";\n" \
+    @"    value = \"\";\n" \
+    @"}    {\n" \
+    @"    class = GenericPassword;\n" \
+    @"    key = hirohamada;\n" \
+    @"    service = \"github.com\";\n" \
+    @"    value = \"\";\n" \
+    @"}    {\n" \
+    @"    class = GenericPassword;\n" \
+    @"    key = honeylemon;\n" \
+    @"    service = \"github.com\";\n" \
+    @"    value = \"\";\n" \
+    @"})";
+#endif
+    XCTAssertEqualObjects(store.description, description);
+    
+    [store removeAllItems];
 }
 
 #pragma mark -
