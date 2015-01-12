@@ -1067,6 +1067,9 @@
     keychain = [UICKeyChainStore keyChainStoreWithServer:URL protocolType:UICKeyChainStoreProtocolTypeHTTPProxy];
     XCTAssertEqualObjects([keychain protocolTypeObject], (__bridge id)kSecAttrProtocolHTTPProxy);
     
+    keychain = [UICKeyChainStore keyChainStoreWithServer:URL protocolType:UICKeyChainStoreProtocolTypeHTTPSProxy];
+    XCTAssertEqualObjects([keychain protocolTypeObject], (__bridge id)kSecAttrProtocolHTTPSProxy);
+    
     keychain = [UICKeyChainStore keyChainStoreWithServer:URL protocolType:UICKeyChainStoreProtocolTypeFTPProxy];
     XCTAssertEqualObjects([keychain protocolTypeObject], (__bridge id)kSecAttrProtocolFTPProxy);
     
