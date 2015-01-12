@@ -961,4 +961,19 @@
     XCTAssertNil(username);
 }
 
+- (void)testSetLabelAndComment
+{
+    UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithService:@"Twitter"];
+    
+    [store setString:@"kishikawakatsumi" forKey:@"username" label:@"Label" comment:@"Comment"];
+    
+    NSString *username = [store stringForKey:@"username"];
+    XCTAssertEqualObjects(username, @"kishikawakatsumi");
+    
+    [store setString:nil forKey:@"username"];
+    
+    username = [store stringForKey:@"username"];
+    XCTAssertNil(username);
+}
+
 @end
