@@ -987,6 +987,147 @@
     XCTAssertNil(username);
 }
 
+#pragma mark -
+
+- (void)testGetAllKeys {
+    UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithService:@"github.com"];
+    [store removeAllItems];
+    
+    [store setString:@"01234567-89ab-cdef-0123-456789abcdef" forKey:@"kishikawakatsumi"];
+    [store setString:@"00000000-89ab-cdef-0000-456789abcdef" forKey:@"hirohamada"];
+    [store setString:@"11111111-89ab-cdef-1111-456789abcdef" forKey:@"honeylemon"];
+    
+    NSArray *allKeys = store.allKeys;
+    XCTAssertTrue([allKeys containsObject:@"kishikawakatsumi"]);
+    XCTAssertTrue([allKeys containsObject:@"hirohamada"]);
+    XCTAssertTrue([allKeys containsObject:@"honeylemon"]);
+    
+    XCTAssertEqual(allKeys.count, 3);
+    
+    [store removeAllItems];
+}
+
+- (void)testGetAllItems {
+    UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithService:@"github.com"];
+    [store removeAllItems];
+    
+    [store setString:@"01234567-89ab-cdef-0123-456789abcdef" forKey:@"kishikawakatsumi"];
+    [store setString:@"00000000-89ab-cdef-0000-456789abcdef" forKey:@"hirohamada"];
+    [store setString:@"11111111-89ab-cdef-1111-456789abcdef" forKey:@"honeylemon"];
+    
+    NSArray *allItems = store.allItems;
+    for (NSDictionary *item in allItems) {
+        if ([item[@"key"] isEqualToString:@"kishikawakatsumi"]) {
+#if TARGET_OS_IPHONE
+            XCTAssertEqualObjects(item[@"value"], @"01234567-89ab-cdef-0123-456789abcdef");
+#else
+            XCTAssertEqualObjects(item[@"value"], @"");
+#endif
+            XCTAssertEqualObjects(item[@"service"], @"github.com");
+#if TARGET_OS_IPHONE
+            XCTAssertEqualObjects(item[@"accessibility"], (__bridge id)kSecAttrAccessibleAfterFirstUnlock);
+#endif
+        }
+        if ([item[@"key"] isEqualToString:@"hirohamada"]) {
+#if TARGET_OS_IPHONE
+            XCTAssertEqualObjects(item[@"value"], @"00000000-89ab-cdef-0000-456789abcdef");
+#else
+            XCTAssertEqualObjects(item[@"value"], @"");
+#endif
+            XCTAssertEqualObjects(item[@"service"], @"github.com");
+#if TARGET_OS_IPHONE
+            XCTAssertEqualObjects(item[@"accessibility"], (__bridge id)kSecAttrAccessibleAfterFirstUnlock);
+#endif
+        }
+        if ([item[@"key"] isEqualToString:@"honeylemon"]) {
+#if TARGET_OS_IPHONE
+            XCTAssertEqualObjects(item[@"value"], @"11111111-89ab-cdef-1111-456789abcdef");
+#else
+            XCTAssertEqualObjects(item[@"value"], @"");
+#endif
+            XCTAssertEqualObjects(item[@"service"], @"github.com");
+#if TARGET_OS_IPHONE
+            XCTAssertEqualObjects(item[@"accessibility"], (__bridge id)kSecAttrAccessibleAfterFirstUnlock);
+#endif
+        }
+    }
+    
+    XCTAssertEqual(allItems.count, 3);
+    
+    [store removeAllItems];
+}
+
+- (void)testGetAllKeysClassMethod {
+    [UICKeyChainStore removeAllItemsForService:@"github.com"];
+    
+    [UICKeyChainStore setString:@"01234567-89ab-cdef-0123-456789abcdef" forKey:@"kishikawakatsumi" service:@"github.com"];
+    [UICKeyChainStore setString:@"00000000-89ab-cdef-0000-456789abcdef" forKey:@"hirohamada" service:@"github.com"];
+    [UICKeyChainStore setString:@"11111111-89ab-cdef-1111-456789abcdef" forKey:@"honeylemon" service:@"github.com"];
+    
+    NSArray *allKeysAndServices = [UICKeyChainStore allKeysWithItemClass:UICKeyChainStoreItemClassGenericPassword];
+    NSMutableArray *keys = [[NSMutableArray alloc] init];
+    for (NSDictionary *keyAndService in allKeysAndServices) {
+        if ([keyAndService[@"service"] isEqualToString:@"github.com"]) {
+            [keys addObject:keyAndService[@"key"]];
+        }
+    }
+    
+    XCTAssertTrue([keys containsObject:@"kishikawakatsumi"]);
+    XCTAssertTrue([keys containsObject:@"hirohamada"]);
+    XCTAssertTrue([keys containsObject:@"honeylemon"]);
+    
+    [UICKeyChainStore removeAllItemsForService:@"github.com"];
+}
+
+- (void)testGetAllItemsClassMethod {
+    [UICKeyChainStore removeAllItemsForService:@"github.com"];
+    
+    [UICKeyChainStore setString:@"01234567-89ab-cdef-0123-456789abcdef" forKey:@"kishikawakatsumi" service:@"github.com"];
+    [UICKeyChainStore setString:@"00000000-89ab-cdef-0000-456789abcdef" forKey:@"hirohamada" service:@"github.com"];
+    [UICKeyChainStore setString:@"11111111-89ab-cdef-1111-456789abcdef" forKey:@"honeylemon" service:@"github.com"];
+    
+    NSArray *allItems = [UICKeyChainStore allItemsWithItemClass:UICKeyChainStoreItemClassGenericPassword];
+    for (NSDictionary *item in allItems) {
+        if ([item[@"key"] isEqualToString:@"kishikawakatsumi"]) {
+#if TARGET_OS_IPHONE
+            XCTAssertEqualObjects(item[@"value"], @"01234567-89ab-cdef-0123-456789abcdef");
+#else
+            XCTAssertEqualObjects(item[@"value"], @"");
+#endif
+            XCTAssertEqualObjects(item[@"service"], @"github.com");
+#if TARGET_OS_IPHONE
+            XCTAssertEqualObjects(item[@"accessibility"], (__bridge id)kSecAttrAccessibleAfterFirstUnlock);
+#endif
+        }
+        if ([item[@"key"] isEqualToString:@"hirohamada"]) {
+#if TARGET_OS_IPHONE
+            XCTAssertEqualObjects(item[@"value"], @"00000000-89ab-cdef-0000-456789abcdef");
+#else
+            XCTAssertEqualObjects(item[@"value"], @"");
+#endif
+            XCTAssertEqualObjects(item[@"service"], @"github.com");
+#if TARGET_OS_IPHONE
+            XCTAssertEqualObjects(item[@"accessibility"], (__bridge id)kSecAttrAccessibleAfterFirstUnlock);
+#endif
+        }
+        if ([item[@"key"] isEqualToString:@"honeylemon"]) {
+#if TARGET_OS_IPHONE
+            XCTAssertEqualObjects(item[@"value"], @"11111111-89ab-cdef-1111-456789abcdef");
+#else
+            XCTAssertEqualObjects(item[@"value"], @"");
+#endif
+            XCTAssertEqualObjects(item[@"service"], @"github.com");
+#if TARGET_OS_IPHONE
+            XCTAssertEqualObjects(item[@"accessibility"], (__bridge id)kSecAttrAccessibleAfterFirstUnlock);
+#endif
+        }
+    }
+    
+    [UICKeyChainStore removeAllItemsForService:@"github.com"];
+}
+
+#pragma mark -
+
 - (void)testSetLabelAndComment
 {
     UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithService:@"Twitter"];
@@ -1001,6 +1142,8 @@
     username = [store stringForKey:@"username"];
     XCTAssertNil(username);
 }
+
+#pragma mark -
 
 - (void)testProtocolTypeAndAuthenticationTypePrivateMethod
 {

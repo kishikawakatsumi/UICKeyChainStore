@@ -643,13 +643,25 @@ static NSString *_defaultService;
 
 - (NSArray *)allKeys
 {
-    return [self.class allKeysWithItemClass:[self itemClassObject]];
+    NSArray *items = [self.class prettify:[self itemClassObject] items:[self items]];
+    NSMutableArray *keys = [[NSMutableArray alloc] init];
+    for (NSDictionary *item in items) {
+        [keys addObject:item[@"key"]];
+    }
+    return keys.copy;
 }
 
-+ (NSArray *)allKeysWithItemClass:(CFTypeRef)itemClass
++ (NSArray *)allKeysWithItemClass:(UICKeyChainStoreItemClass)itemClass
 {
+    CFTypeRef itemClassObject;
+    if (itemClass == UICKeyChainStoreItemClassGenericPassword) {
+        itemClassObject = kSecClassGenericPassword;
+    } else if (itemClass == UICKeyChainStoreItemClassInternetPassword) {
+        itemClassObject = kSecClassInternetPassword;
+    }
+    
     NSMutableDictionary *query = [[NSMutableDictionary alloc] init];
-    query[(__bridge __strong id)kSecClass] = (__bridge id)itemClass;
+    query[(__bridge __strong id)kSecClass] = (__bridge id)itemClassObject;
     query[(__bridge __strong id)kSecMatchLimit] = (__bridge id)kSecMatchLimitAll;
     query[(__bridge __strong id)kSecReturnAttributes] = (__bridge id)kCFBooleanTrue;
     
@@ -657,15 +669,16 @@ static NSString *_defaultService;
     OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query,(CFTypeRef *)&result);
     
     if (status == errSecSuccess) {
-        NSArray *items = [self prettify:itemClass items:(__bridge NSArray *)result];
+        NSArray *items = [self prettify:itemClassObject items:(__bridge NSArray *)result];
         NSMutableArray *keys = [[NSMutableArray alloc] init];
         for (NSDictionary *item in items) {
-            if (itemClass == kSecClassGenericPassword) {
+            if (itemClassObject == kSecClassGenericPassword) {
                 [keys addObject:@{@"service": item[@"service"] ?: @"", @"key": item[@"key"] ?: @""}];
-            } else if (itemClass == kSecClassInternetPassword) {
+            } else if (itemClassObject == kSecClassInternetPassword) {
                 [keys addObject:@{@"server": item[@"service"] ?: @"", @"key": item[@"key"] ?: @""}];
             }
         }
+        return keys.copy;
     } else if (status == errSecItemNotFound) {
         return @[];
     }
@@ -673,13 +686,20 @@ static NSString *_defaultService;
     return nil;
 }
 
-+ (NSArray *)allItemsWithItemClass:(CFTypeRef)itemClass
++ (NSArray *)allItemsWithItemClass:(UICKeyChainStoreItemClass)itemClass
 {
+    CFTypeRef itemClassObject;
+    if (itemClass == UICKeyChainStoreItemClassGenericPassword) {
+        itemClassObject = kSecClassGenericPassword;
+    } else if (itemClass == UICKeyChainStoreItemClassInternetPassword) {
+        itemClassObject = kSecClassInternetPassword;
+    }
+    
     NSMutableDictionary *query = [[NSMutableDictionary alloc] init];
-    query[(__bridge __strong id)kSecClass] = (__bridge id)itemClass;
+    query[(__bridge __strong id)kSecClass] = (__bridge id)itemClassObject;
     query[(__bridge __strong id)kSecMatchLimit] = (__bridge id)kSecMatchLimitAll;
     query[(__bridge __strong id)kSecReturnAttributes] = (__bridge id)kCFBooleanTrue;
-#if !TARGET_OS_IPHONE
+#if TARGET_OS_IPHONE
     query[(__bridge __strong id)kSecReturnData] = (__bridge id)kCFBooleanTrue;
 #endif
     
@@ -687,7 +707,7 @@ static NSString *_defaultService;
     OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query,(CFTypeRef *)&result);
     
     if (status == errSecSuccess) {
-        return [self prettify:itemClass items:(__bridge NSArray *)result];
+        return [self prettify:itemClassObject items:(__bridge NSArray *)result];
     } else if (status == errSecItemNotFound) {
         return @[];
     }
@@ -697,7 +717,7 @@ static NSString *_defaultService;
 
 - (NSArray *)allItems
 {
-    return [self.class allItemsWithItemClass:[self itemClassObject]];
+    return [self.class prettify:[self itemClassObject] items:[self items]];
 }
 
 - (NSArray *)items
@@ -705,7 +725,7 @@ static NSString *_defaultService;
     NSMutableDictionary *query = [self query];
     query[(__bridge __strong id)kSecMatchLimit] = (__bridge id)kSecMatchLimitAll;
     query[(__bridge __strong id)kSecReturnAttributes] = (__bridge id)kCFBooleanTrue;
-#if !TARGET_OS_IPHONE
+#if TARGET_OS_IPHONE
     query[(__bridge __strong id)kSecReturnData] = (__bridge id)kCFBooleanTrue;
 #endif
     
@@ -734,7 +754,7 @@ static NSString *_defaultService;
                 item[@"service"] = service;
             }
             id accessGroup = attributes[(__bridge id)kSecAttrAccessGroup];
-            if (service) {
+            if (accessGroup) {
                 item[@"accessGroup"] = accessGroup;
             }
         } else if (itemClass == kSecClassInternetPassword) {

@@ -71,7 +71,8 @@ typedef NS_ENUM(NSInteger, UICKeyChainStoreAccessibility) {
     UICKeyChainStoreAccessibilityWhenUnlockedThisDeviceOnly,
     UICKeyChainStoreAccessibilityAfterFirstUnlockThisDeviceOnly,
     UICKeyChainStoreAccessibilityAlwaysThisDeviceOnly,
-};
+}
+__OSX_AVAILABLE_STARTING(__MAC_10_9, __IPHONE_4_0);
 
 typedef NS_ENUM(NSInteger, UICKeyChainStoreAuthenticationPolicy) {
     UICKeyChainStoreAuthenticationPolicyUserPresence = kSecAccessControlUserPresence,
@@ -96,6 +97,9 @@ __OSX_AVAILABLE_STARTING(__MAC_10_10, __IPHONE_8_0);
 
 @property (nonatomic) NSString *authenticationPrompt
 __OSX_AVAILABLE_STARTING(__MAC_NA, __IPHONE_8_0);
+
+@property (nonatomic, readonly) NSArray *allKeys;
+@property (nonatomic, readonly) NSArray *allItems;
 
 + (NSString *)defaultService;
 + (void)setDefaultService:(NSString *)defaultService;
@@ -177,10 +181,10 @@ __OSX_AVAILABLE_STARTING(__MAC_NA, __IPHONE_8_0);
 - (NSString *)objectForKeyedSubscript:(NSString <NSCopying> *)key;
 - (void)setObject:(NSString *)obj forKeyedSubscript:(NSString <NSCopying> *)key;
 
-+ (NSArray *)allKeysWithItemClass:(CFTypeRef)itemClass;
++ (NSArray *)allKeysWithItemClass:(UICKeyChainStoreItemClass)itemClass;
 - (NSArray *)allKeys;
 
-+ (NSArray *)allItemsWithItemClass:(CFTypeRef)itemClass;
++ (NSArray *)allItemsWithItemClass:(UICKeyChainStoreItemClass)itemClass;
 - (NSArray *)allItems;
 
 - (void)setAccessibility:(UICKeyChainStoreAccessibility)accessibility authenticationPolicy:(UICKeyChainStoreAuthenticationPolicy)authenticationPolicy

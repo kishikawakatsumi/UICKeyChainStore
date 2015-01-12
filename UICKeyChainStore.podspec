@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.source                = { :git => "https://github.com/kishikawakatsumi/UICKeyChainStore.git", :tag => "v#{s.version}" }
 
   s.ios.deployment_target = "4.3"
-  s.osx.deployment_target = "10.6"
+  s.osx.deployment_target = "10.7"
   s.requires_arc          = true
 
   s.source_files          = "Lib/UICKeyChainStore/*.{h,m}"
