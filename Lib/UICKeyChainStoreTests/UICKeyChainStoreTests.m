@@ -13,6 +13,7 @@
 
 - (CFTypeRef)protocolTypeObject;
 - (CFTypeRef)authenticationTypeObject;
+- (CFTypeRef)accessibilityObject;
 
 @end
 
@@ -1385,6 +1386,38 @@
     
     keychain = [UICKeyChainStore keyChainStoreWithServer:URL protocolType:UICKeyChainStoreProtocolTypePOP3S];
     XCTAssertEqualObjects([keychain protocolTypeObject], (__bridge id)kSecAttrProtocolPOP3S);
+}
+
+#pragma mark -
+
+- (void)testAccessibilityPrivateMethod
+{
+    UICKeyChainStore *keychain;
+    
+    keychain = [UICKeyChainStore keyChainStoreWithService:@"Twitter"];
+    
+    keychain.accessibility = UICKeyChainStoreAccessibilityWhenUnlocked;
+    XCTAssertEqualObjects([keychain accessibilityObject], (__bridge id)kSecAttrAccessibleWhenUnlocked);
+    
+    keychain.accessibility = UICKeyChainStoreAccessibilityAfterFirstUnlock;
+    XCTAssertEqualObjects([keychain accessibilityObject], (__bridge id)kSecAttrAccessibleAfterFirstUnlock);
+    
+    keychain.accessibility = UICKeyChainStoreAccessibilityAlways;
+    XCTAssertEqualObjects([keychain accessibilityObject], (__bridge id)kSecAttrAccessibleAlways);
+    
+#if TARGET_OS_IPHONE
+    keychain.accessibility = UICKeyChainStoreAccessibilityWhenPasscodeSetThisDeviceOnly;
+    XCTAssertEqualObjects([keychain accessibilityObject], (__bridge id)kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly);
+#endif
+    
+    keychain.accessibility = UICKeyChainStoreAccessibilityWhenUnlockedThisDeviceOnly;
+    XCTAssertEqualObjects([keychain accessibilityObject], (__bridge id)kSecAttrAccessibleWhenUnlockedThisDeviceOnly);
+    
+    keychain.accessibility = UICKeyChainStoreAccessibilityAfterFirstUnlockThisDeviceOnly;
+    XCTAssertEqualObjects([keychain accessibilityObject], (__bridge id)kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly);
+    
+    keychain.accessibility = UICKeyChainStoreAccessibilityAlwaysThisDeviceOnly;
+    XCTAssertEqualObjects([keychain accessibilityObject], (__bridge id)kSecAttrAccessibleAlwaysThisDeviceOnly);
 }
 
 @end
