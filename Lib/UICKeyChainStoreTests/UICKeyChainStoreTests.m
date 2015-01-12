@@ -9,6 +9,13 @@
 #import <XCTest/XCTest.h>
 #import "UICKeyChainStore.h"
 
+@interface UICKeyChainStore (Private)
+
+- (CFTypeRef)protocolTypeObject;
+- (CFTypeRef)authenticationTypeObject;
+
+@end
+
 @interface UICKeyChainStoreTests : XCTestCase
 
 @end
@@ -993,6 +1000,105 @@
     
     username = [store stringForKey:@"username"];
     XCTAssertNil(username);
+}
+
+- (void)testProtocolTypeAndAuthenticationTypePrivateMethod
+{
+    NSURL *URL = [NSURL URLWithString:@"https://kishikawakatsumi.com"];
+    
+    UICKeyChainStore *keychain;
+    
+    keychain = [UICKeyChainStore keyChainStoreWithServer:URL protocolType:UICKeyChainStoreProtocolTypeFTP authenticationType:UICKeyChainStoreAuthenticationTypeNTLM];
+    XCTAssertEqualObjects([keychain protocolTypeObject], (__bridge id)kSecAttrProtocolFTP);
+    XCTAssertEqualObjects([keychain authenticationTypeObject], (__bridge id)kSecAttrAuthenticationTypeNTLM);
+    
+    keychain = [UICKeyChainStore keyChainStoreWithServer:URL protocolType:UICKeyChainStoreProtocolTypeFTPAccount authenticationType:UICKeyChainStoreAuthenticationTypeMSN];
+    XCTAssertEqualObjects([keychain protocolTypeObject], (__bridge id)kSecAttrProtocolFTPAccount);
+    XCTAssertEqualObjects([keychain authenticationTypeObject], (__bridge id)kSecAttrAuthenticationTypeMSN);
+    
+    keychain = [UICKeyChainStore keyChainStoreWithServer:URL protocolType:UICKeyChainStoreProtocolTypeHTTP authenticationType:UICKeyChainStoreAuthenticationTypeDPA];
+    XCTAssertEqualObjects([keychain protocolTypeObject], (__bridge id)kSecAttrProtocolHTTP);
+    XCTAssertEqualObjects([keychain authenticationTypeObject], (__bridge id)kSecAttrAuthenticationTypeDPA);
+    
+    keychain = [UICKeyChainStore keyChainStoreWithServer:URL protocolType:UICKeyChainStoreProtocolTypeIRC authenticationType:UICKeyChainStoreAuthenticationTypeRPA];
+    XCTAssertEqualObjects([keychain protocolTypeObject], (__bridge id)kSecAttrProtocolIRC);
+    XCTAssertEqualObjects([keychain authenticationTypeObject], (__bridge id)kSecAttrAuthenticationTypeRPA);
+    
+    keychain = [UICKeyChainStore keyChainStoreWithServer:URL protocolType:UICKeyChainStoreProtocolTypeNNTP authenticationType:UICKeyChainStoreAuthenticationTypeHTTPBasic];
+    XCTAssertEqualObjects([keychain protocolTypeObject], (__bridge id)kSecAttrProtocolNNTP);
+    XCTAssertEqualObjects([keychain authenticationTypeObject], (__bridge id)kSecAttrAuthenticationTypeHTTPBasic);
+    
+    keychain = [UICKeyChainStore keyChainStoreWithServer:URL protocolType:UICKeyChainStoreProtocolTypePOP3 authenticationType:UICKeyChainStoreAuthenticationTypeHTTPDigest];
+    XCTAssertEqualObjects([keychain protocolTypeObject], (__bridge id)kSecAttrProtocolPOP3);
+    XCTAssertEqualObjects([keychain authenticationTypeObject], (__bridge id)kSecAttrAuthenticationTypeHTTPDigest);
+    
+    keychain = [UICKeyChainStore keyChainStoreWithServer:URL protocolType:UICKeyChainStoreProtocolTypeSMTP authenticationType:UICKeyChainStoreAuthenticationTypeHTMLForm];
+    XCTAssertEqualObjects([keychain protocolTypeObject], (__bridge id)kSecAttrProtocolSMTP);
+    XCTAssertEqualObjects([keychain authenticationTypeObject], (__bridge id)kSecAttrAuthenticationTypeHTMLForm);
+    
+    keychain = [UICKeyChainStore keyChainStoreWithServer:URL protocolType:UICKeyChainStoreProtocolTypeSOCKS authenticationType:UICKeyChainStoreAuthenticationTypeDefault];
+    XCTAssertEqualObjects([keychain protocolTypeObject], (__bridge id)kSecAttrProtocolSOCKS);
+    XCTAssertEqualObjects([keychain authenticationTypeObject], (__bridge id)kSecAttrAuthenticationTypeDefault);
+    
+    keychain = [UICKeyChainStore keyChainStoreWithServer:URL protocolType:UICKeyChainStoreProtocolTypeIMAP];
+    XCTAssertEqualObjects([keychain protocolTypeObject], (__bridge id)kSecAttrProtocolIMAP);
+    
+    keychain = [UICKeyChainStore keyChainStoreWithServer:URL protocolType:UICKeyChainStoreProtocolTypeLDAP];
+    XCTAssertEqualObjects([keychain protocolTypeObject], (__bridge id)kSecAttrProtocolLDAP);
+    
+    keychain = [UICKeyChainStore keyChainStoreWithServer:URL protocolType:UICKeyChainStoreProtocolTypeAppleTalk];
+    XCTAssertEqualObjects([keychain protocolTypeObject], (__bridge id)kSecAttrProtocolAppleTalk);
+    
+    keychain = [UICKeyChainStore keyChainStoreWithServer:URL protocolType:UICKeyChainStoreProtocolTypeAFP];
+    XCTAssertEqualObjects([keychain protocolTypeObject], (__bridge id)kSecAttrProtocolAFP);
+    
+    keychain = [UICKeyChainStore keyChainStoreWithServer:URL protocolType:UICKeyChainStoreProtocolTypeTelnet];
+    XCTAssertEqualObjects([keychain protocolTypeObject], (__bridge id)kSecAttrProtocolTelnet);
+    
+    keychain = [UICKeyChainStore keyChainStoreWithServer:URL protocolType:UICKeyChainStoreProtocolTypeSSH];
+    XCTAssertEqualObjects([keychain protocolTypeObject], (__bridge id)kSecAttrProtocolSSH);
+    
+    keychain = [UICKeyChainStore keyChainStoreWithServer:URL protocolType:UICKeyChainStoreProtocolTypeFTPS];
+    XCTAssertEqualObjects([keychain protocolTypeObject], (__bridge id)kSecAttrProtocolFTPS);
+    
+    keychain = [UICKeyChainStore keyChainStoreWithServer:URL protocolType:UICKeyChainStoreProtocolTypeHTTPS];
+    XCTAssertEqualObjects([keychain protocolTypeObject], (__bridge id)kSecAttrProtocolHTTPS);
+    
+    keychain = [UICKeyChainStore keyChainStoreWithServer:URL protocolType:UICKeyChainStoreProtocolTypeHTTPProxy];
+    XCTAssertEqualObjects([keychain protocolTypeObject], (__bridge id)kSecAttrProtocolHTTPProxy);
+    
+    keychain = [UICKeyChainStore keyChainStoreWithServer:URL protocolType:UICKeyChainStoreProtocolTypeFTPProxy];
+    XCTAssertEqualObjects([keychain protocolTypeObject], (__bridge id)kSecAttrProtocolFTPProxy);
+    
+    keychain = [UICKeyChainStore keyChainStoreWithServer:URL protocolType:UICKeyChainStoreProtocolTypeSMB];
+    XCTAssertEqualObjects([keychain protocolTypeObject], (__bridge id)kSecAttrProtocolSMB);
+    
+    keychain = [UICKeyChainStore keyChainStoreWithServer:URL protocolType:UICKeyChainStoreProtocolTypeRTSP];
+    XCTAssertEqualObjects([keychain protocolTypeObject], (__bridge id)kSecAttrProtocolRTSP);
+    
+    keychain = [UICKeyChainStore keyChainStoreWithServer:URL protocolType:UICKeyChainStoreProtocolTypeRTSPProxy];
+    XCTAssertEqualObjects([keychain protocolTypeObject], (__bridge id)kSecAttrProtocolRTSPProxy);
+    
+    keychain = [UICKeyChainStore keyChainStoreWithServer:URL protocolType:UICKeyChainStoreProtocolTypeDAAP];
+    XCTAssertEqualObjects([keychain protocolTypeObject], (__bridge id)kSecAttrProtocolDAAP);
+    
+    keychain = [UICKeyChainStore keyChainStoreWithServer:URL protocolType:UICKeyChainStoreProtocolTypeEPPC];
+    XCTAssertEqualObjects([keychain protocolTypeObject], (__bridge id)kSecAttrProtocolEPPC);
+    
+    keychain = [UICKeyChainStore keyChainStoreWithServer:URL protocolType:UICKeyChainStoreProtocolTypeNNTPS];
+    XCTAssertEqualObjects([keychain protocolTypeObject], (__bridge id)kSecAttrProtocolNNTPS);
+    
+    keychain = [UICKeyChainStore keyChainStoreWithServer:URL protocolType:UICKeyChainStoreProtocolTypeLDAPS];
+    XCTAssertEqualObjects([keychain protocolTypeObject], (__bridge id)kSecAttrProtocolLDAPS);
+    
+    keychain = [UICKeyChainStore keyChainStoreWithServer:URL protocolType:UICKeyChainStoreProtocolTypeTelnetS];
+    XCTAssertEqualObjects([keychain protocolTypeObject], (__bridge id)kSecAttrProtocolTelnetS);
+    
+    keychain = [UICKeyChainStore keyChainStoreWithServer:URL protocolType:UICKeyChainStoreProtocolTypeIRCS];
+    XCTAssertEqualObjects([keychain protocolTypeObject], (__bridge id)kSecAttrProtocolIRCS);
+    
+    keychain = [UICKeyChainStore keyChainStoreWithServer:URL protocolType:UICKeyChainStoreProtocolTypePOP3S];
+    XCTAssertEqualObjects([keychain protocolTypeObject], (__bridge id)kSecAttrProtocolPOP3S);
 }
 
 @end
