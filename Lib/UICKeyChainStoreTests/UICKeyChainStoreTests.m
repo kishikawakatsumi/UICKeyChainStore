@@ -989,7 +989,7 @@
 
 #pragma mark -
 
-- (void)testGetAllKeys
+- (void)testGetAllKeys1
 {
     UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithService:@"github.com"];
     [store removeAllItems];
@@ -1008,7 +1008,26 @@
     [store removeAllItems];
 }
 
-- (void)testGetAllItems
+- (void)testGetAllKeys2
+{
+    UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithServer:[NSURL URLWithString:@"https://kishikawakatsumi.com"] protocolType:UICKeyChainStoreProtocolTypeHTTPS];
+    [store removeAllItems];
+    
+    [store setString:@"01234567-89ab-cdef-0123-456789abcdef" forKey:@"kishikawakatsumi"];
+    [store setString:@"00000000-89ab-cdef-0000-456789abcdef" forKey:@"hirohamada"];
+    [store setString:@"11111111-89ab-cdef-1111-456789abcdef" forKey:@"honeylemon"];
+    
+    NSArray *allKeys = store.allKeys;
+    XCTAssertTrue([allKeys containsObject:@"kishikawakatsumi"]);
+    XCTAssertTrue([allKeys containsObject:@"hirohamada"]);
+    XCTAssertTrue([allKeys containsObject:@"honeylemon"]);
+    
+    XCTAssertEqual(allKeys.count, 3);
+    
+    [store removeAllItems];
+}
+
+- (void)testGetAllItems1
 {
     UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithService:@"github.com"];
     [store removeAllItems];
@@ -1048,6 +1067,63 @@
             XCTAssertEqualObjects(item[@"value"], @"");
 #endif
             XCTAssertEqualObjects(item[@"service"], @"github.com");
+#if TARGET_OS_IPHONE
+            XCTAssertEqualObjects(item[@"accessibility"], (__bridge id)kSecAttrAccessibleAfterFirstUnlock);
+#endif
+        }
+    }
+    
+    XCTAssertEqual(allItems.count, 3);
+    
+    [store removeAllItems];
+}
+
+- (void)testGetAllItems2
+{
+    UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithServer:[NSURL URLWithString:@"https://kishikawakatsumi.com"] protocolType:UICKeyChainStoreProtocolTypeHTTPS];
+    [store removeAllItems];
+    
+    [store setString:@"01234567-89ab-cdef-0123-456789abcdef" forKey:@"kishikawakatsumi"];
+    [store setString:@"00000000-89ab-cdef-0000-456789abcdef" forKey:@"hirohamada"];
+    [store setString:@"11111111-89ab-cdef-1111-456789abcdef" forKey:@"honeylemon"];
+    
+    NSArray *allItems = store.allItems;
+    for (NSDictionary *item in allItems) {
+        if ([item[@"key"] isEqualToString:@"kishikawakatsumi"]) {
+#if TARGET_OS_IPHONE
+            XCTAssertEqualObjects(item[@"value"], @"01234567-89ab-cdef-0123-456789abcdef");
+#else
+            XCTAssertEqualObjects(item[@"value"], @"");
+#endif
+            XCTAssertEqualObjects(item[@"server"], @"kishikawakatsumi.com");
+            XCTAssertEqualObjects(item[@"protocol"], (__bridge id)kSecAttrProtocolHTTPS);
+            XCTAssertEqualObjects(item[@"authenticationType"], (__bridge id)kSecAttrAuthenticationTypeDefault);
+#if TARGET_OS_IPHONE
+            XCTAssertEqualObjects(item[@"accessibility"], (__bridge id)kSecAttrAccessibleAfterFirstUnlock);
+#endif
+        }
+        if ([item[@"key"] isEqualToString:@"hirohamada"]) {
+#if TARGET_OS_IPHONE
+            XCTAssertEqualObjects(item[@"value"], @"00000000-89ab-cdef-0000-456789abcdef");
+#else
+            XCTAssertEqualObjects(item[@"value"], @"");
+#endif
+            XCTAssertEqualObjects(item[@"server"], @"kishikawakatsumi.com");
+            XCTAssertEqualObjects(item[@"protocol"], (__bridge id)kSecAttrProtocolHTTPS);
+            XCTAssertEqualObjects(item[@"authenticationType"], (__bridge id)kSecAttrAuthenticationTypeDefault);
+#if TARGET_OS_IPHONE
+            XCTAssertEqualObjects(item[@"accessibility"], (__bridge id)kSecAttrAccessibleAfterFirstUnlock);
+#endif
+        }
+        if ([item[@"key"] isEqualToString:@"honeylemon"]) {
+#if TARGET_OS_IPHONE
+            XCTAssertEqualObjects(item[@"value"], @"11111111-89ab-cdef-1111-456789abcdef");
+#else
+            XCTAssertEqualObjects(item[@"value"], @"");
+#endif
+            XCTAssertEqualObjects(item[@"server"], @"kishikawakatsumi.com");
+            XCTAssertEqualObjects(item[@"protocol"], (__bridge id)kSecAttrProtocolHTTPS);
+            XCTAssertEqualObjects(item[@"authenticationType"], (__bridge id)kSecAttrAuthenticationTypeDefault);
 #if TARGET_OS_IPHONE
             XCTAssertEqualObjects(item[@"accessibility"], (__bridge id)kSecAttrAccessibleAfterFirstUnlock);
 #endif
