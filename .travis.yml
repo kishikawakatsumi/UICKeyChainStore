@@ -1,14 +1,11 @@
 language: objective-c
-cache:
-  directories:
-    - vendor/bundle
 install:
   - sudo easy_install cpp-coveralls
-  - bundle install --path=vendor/bundle --binstubs=vendor/bin
+  - (cd Lib && bundle install --path=vendor/bundle --binstubs=vendor/bin)
 script:
-  - bundle exec rake ios:build osx:build ios:test osx:test
+  - (cd Lib && bundle exec rake test:ios test:osx)
 after_success:
-  - ./iOS/Script/coveralls.sh
+  - ./Lib/Script/coveralls.sh
 branches:
   only:
     - master
