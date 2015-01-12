@@ -82,6 +82,7 @@
     XCTAssertNil([UICKeyChainStore dataForKey:passwordKey], @"removed password");
 }
 
+#if TARGET_OS_IPHONE
 - (void)testSetDataWithNoError
 {
     NSString *usernameKey = @"username";
@@ -117,6 +118,7 @@
     XCTAssertNil([UICKeyChainStore dataForKey:passwordKey error:&error], @"removed password");
     XCTAssertNil(error, @"no error");
 }
+#endif
 
 - (void)testSetNilData
 {
@@ -183,6 +185,7 @@
     XCTAssertNil([store stringForKey:passwordKey], @"removed password");
 }
 
+#if TARGET_OS_IPHONE
 - (void)testSetUsernameAndPasswordWithNoError
 {
     NSString *usernameKey = @"username";
@@ -231,6 +234,7 @@
     XCTAssertNil([store stringForKey:passwordKey error:&error], @"removed password");
     XCTAssertNil(error, @"no error");
 }
+#endif
 
 - (void)testSetNilUsernameAndNilPassword
 {
@@ -266,142 +270,6 @@
     XCTAssertNil([store stringForKey:passwordKey], @"removed password");
 }
 
-- (void)testSynchronize1
-{
-    NSString *usernameKey = @"username";
-    NSString *passwordKey = @"password";
-    NSString *username = @"kishikawakatsumi";
-    NSString *password = @"password1234";
-    
-    NSString *serviceName = @"com.example.UICKeyChainStore";
-    [UICKeyChainStore removeAllItemsForService:serviceName];
-    
-    UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithService:serviceName];
-    [store removeAllItems];
-    
-    [store setString:username forKey:usernameKey];
-    [store setString:password forKey:passwordKey];
-    XCTAssertEqualObjects([store stringForKey:usernameKey], username, @"stored username");
-    XCTAssertEqualObjects([store stringForKey:passwordKey], password, @"stored password");
-    XCTAssertNil([UICKeyChainStore stringForKey:usernameKey service:serviceName], @"not synchronized yet");
-    XCTAssertNil([UICKeyChainStore stringForKey:passwordKey service:serviceName], @"not synchronized yet");
-    
-    [store synchronize];
-    XCTAssertEqualObjects([store stringForKey:usernameKey], username, @"stored username");
-    XCTAssertEqualObjects([store stringForKey:passwordKey], password, @"stored password");
-    XCTAssertEqualObjects([UICKeyChainStore stringForKey:usernameKey service:serviceName], username, @"stored username");
-    XCTAssertEqualObjects([UICKeyChainStore stringForKey:passwordKey service:serviceName], password, @"stored password");
-    
-    [store removeItemForKey:usernameKey];
-    XCTAssertNil([store stringForKey:usernameKey], @"removed username");
-    XCTAssertEqualObjects([store stringForKey:passwordKey], password, @"left password");
-    XCTAssertNil([UICKeyChainStore stringForKey:usernameKey service:serviceName], @"removed username");
-    XCTAssertEqualObjects([UICKeyChainStore stringForKey:passwordKey service:serviceName], password, @"left password");
-    
-    [store removeItemForKey:passwordKey];
-    XCTAssertNil([store stringForKey:passwordKey], @"removed password");
-    XCTAssertNil([UICKeyChainStore stringForKey:passwordKey service:serviceName], @"removed password");
-}
-
-- (void)testSynchronize2
-{
-    NSString *usernameKey = @"username";
-    NSString *passwordKey = @"password";
-    NSString *username = @"kishikawakatsumi";
-    NSString *password = @"password1234";
-    
-    NSString *serviceName = @"com.example.UICKeyChainStore";
-    [UICKeyChainStore removeAllItemsForService:serviceName];
-    
-    UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithService:serviceName];
-    [store removeAllItems];
-    
-    [store setString:username forKey:usernameKey];
-    [store setString:password forKey:passwordKey];
-    XCTAssertEqualObjects([store stringForKey:usernameKey], username, @"stored username");
-    XCTAssertEqualObjects([store stringForKey:passwordKey], password, @"stored password");
-    XCTAssertNil([UICKeyChainStore stringForKey:usernameKey service:serviceName], @"not synchronized yet");
-    XCTAssertNil([UICKeyChainStore stringForKey:passwordKey service:serviceName], @"not synchronized yet");
-    
-    [store removeItemForKey:usernameKey];
-    XCTAssertNil([store stringForKey:usernameKey], @"removed username");
-    XCTAssertEqualObjects([store stringForKey:passwordKey], password, @"left password");
-    XCTAssertNil([UICKeyChainStore stringForKey:usernameKey service:serviceName], @"not synchronized yet");
-    XCTAssertNil([UICKeyChainStore stringForKey:passwordKey service:serviceName], @"not synchronized yet");
-    
-    [store removeItemForKey:passwordKey];
-    XCTAssertNil([store stringForKey:passwordKey], @"removed password");
-    XCTAssertNil([UICKeyChainStore stringForKey:passwordKey service:serviceName], @"not synchronized yet");
-    
-    [store synchronize];
-    
-    XCTAssertNil([store stringForKey:usernameKey], @"removed username");
-    XCTAssertNil([store stringForKey:passwordKey], @"removed password");
-    XCTAssertNil([UICKeyChainStore stringForKey:usernameKey service:serviceName], @"removed username");
-    XCTAssertNil([UICKeyChainStore stringForKey:passwordKey service:serviceName], @"removed password");
-}
-
-- (void)testSynchronizeWithNoError
-{
-    NSString *usernameKey = @"username";
-    NSString *passwordKey = @"password";
-    NSString *username = @"kishikawakatsumi";
-    NSString *password = @"password1234";
-    
-    NSString *serviceName = @"com.example.UICKeyChainStore";
-    
-    NSError *error;
-    
-    [UICKeyChainStore removeAllItemsForService:serviceName error:&error];
-    XCTAssertNil(error, @"no error");
-    
-    UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithService:serviceName];
-    [store removeAllItemsWithError:&error];
-    XCTAssertNil(error, @"no error");
-    
-    [store setString:username forKey:usernameKey error:&error];
-    XCTAssertNil(error, @"no error");
-    [store setString:password forKey:passwordKey error:&error];
-    XCTAssertNil(error, @"no error");
-    XCTAssertEqualObjects([store stringForKey:usernameKey error:&error], username, @"stored username");
-    XCTAssertNil(error, @"no error");
-    XCTAssertEqualObjects([store stringForKey:passwordKey error:&error], password, @"stored password");
-    XCTAssertNil(error, @"no error");
-    XCTAssertNil([UICKeyChainStore stringForKey:usernameKey service:serviceName error:&error], @"not synchronized yet");
-    XCTAssertNil(error, @"no error");
-    XCTAssertNil([UICKeyChainStore stringForKey:passwordKey service:serviceName error:&error], @"not synchronized yet");
-    XCTAssertNil(error, @"no error");
-    
-    [store synchronizeWithError:&error];
-    XCTAssertNil(error, @"no error");
-    XCTAssertEqualObjects([store stringForKey:usernameKey error:&error], username, @"stored username");
-    XCTAssertNil(error, @"no error");
-    XCTAssertEqualObjects([store stringForKey:passwordKey error:&error], password, @"stored password");
-    XCTAssertNil(error, @"no error");
-    XCTAssertEqualObjects([UICKeyChainStore stringForKey:usernameKey service:serviceName error:&error], username, @"stored username");
-    XCTAssertNil(error, @"no error");
-    XCTAssertEqualObjects([UICKeyChainStore stringForKey:passwordKey service:serviceName error:&error], password, @"stored password");
-    XCTAssertNil(error, @"no error");
-    
-    [store removeItemForKey:usernameKey error:&error];
-    XCTAssertNil(error, @"no error");
-    XCTAssertNil([store stringForKey:usernameKey error:&error], @"removed username");
-    XCTAssertNil(error, @"no error");
-    XCTAssertEqualObjects([store stringForKey:passwordKey error:&error], password, @"left password");
-    XCTAssertNil(error, @"no error");
-    XCTAssertNil([UICKeyChainStore stringForKey:usernameKey service:serviceName error:&error], @"removed username");
-    XCTAssertNil(error, @"no error");
-    XCTAssertEqualObjects([UICKeyChainStore stringForKey:passwordKey service:serviceName error:&error], password, @"left password");
-    XCTAssertNil(error, @"no error");
-    
-    [store removeItemForKey:passwordKey error:&error];
-    XCTAssertNil(error, @"no error");
-    XCTAssertNil([store stringForKey:passwordKey error:&error], @"removed password");
-    XCTAssertNil(error, @"no error");
-    XCTAssertNil([UICKeyChainStore stringForKey:passwordKey service:serviceName error:&error], @"removed password");
-    XCTAssertNil(error, @"no error");
-}
-
 - (void)testClassMethodsSetAndRemoveItem
 {
     // write to keychain
@@ -424,6 +292,7 @@
                           @"expected %@ but got %@", expectedString, actualString);
 }
 
+#if TARGET_OS_IPHONE
 - (void)testClassMethodsSetAndRemoveItemWithNoError
 {
     NSError *error;
@@ -449,6 +318,7 @@
     XCTAssertEqualObjects(expectedString, actualString,
                           @"expected %@ but got %@", expectedString, actualString);
 }
+#endif
 
 - (void)testInstanceMethodsSetAndRemoveItem
 {
@@ -473,13 +343,9 @@
     expectedString = NULL;
     XCTAssertEqualObjects(expectedString, actualString,
                           @"expected %@ but got %@", expectedString, actualString);
-    
-    actualString = [store description];
-    expectedString = @"(\n)";
-    XCTAssertEqualObjects(expectedString, actualString,
-                          @"expected %@ but got %@", expectedString, actualString);
 }
 
+#if TARGET_OS_IPHONE
 - (void)testInstanceMethodsSetAndRemoveItemWithNoError
 {
     NSError *error;
@@ -507,12 +373,8 @@
     expectedString = NULL;
     XCTAssertEqualObjects(expectedString, actualString,
                           @"expected %@ but got %@", expectedString, actualString);
-    
-    actualString = [store description];
-    expectedString = @"(\n)";
-    XCTAssertEqualObjects(expectedString, actualString,
-                          @"expected %@ but got %@", expectedString, actualString);
 }
+#endif
 
 - (void)testInstanceMethodsSetAndRemoveWithNilValue
 {
@@ -531,11 +393,6 @@
     
     actualString = [store stringForKey:kStubKey];
     expectedString = NULL;
-    XCTAssertEqualObjects(expectedString, actualString,
-                          @"expected %@ but got %@", expectedString, actualString);
-    
-    actualString = [store description];
-    expectedString = @"(\n)";
     XCTAssertEqualObjects(expectedString, actualString,
                           @"expected %@ but got %@", expectedString, actualString);
 }
