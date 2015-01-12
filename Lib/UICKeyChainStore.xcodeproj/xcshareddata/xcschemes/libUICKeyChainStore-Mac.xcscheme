@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0510"
+   LastUpgradeVersion = "0610"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,23 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "147256D11957100600989F75"
+               BlueprintIdentifier = "14A59D1B1A62F4DA006561CC"
                BuildableName = "libUICKeyChainStore.a"
-               BlueprintName = "UICKeyChainStore"
+               BlueprintName = "libUICKeyChainStore-Mac"
+               ReferencedContainer = "container:UICKeyChainStore.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "14A59D251A62F4DA006561CC"
+               BuildableName = "libUICKeyChainStore-MacTests.xctest"
+               BlueprintName = "libUICKeyChainStore-MacTests"
                ReferencedContainer = "container:UICKeyChainStore.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,13 +46,22 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "147256E41957100600989F75"
-               BuildableName = "UICKeyChainStoreTests.xctest"
-               BlueprintName = "UICKeyChainStoreTests"
+               BlueprintIdentifier = "14A59D251A62F4DA006561CC"
+               BuildableName = "libUICKeyChainStore-MacTests.xctest"
+               BlueprintName = "libUICKeyChainStore-MacTests"
                ReferencedContainer = "container:UICKeyChainStore.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "14A59D1B1A62F4DA006561CC"
+            BuildableName = "libUICKeyChainStore.a"
+            BlueprintName = "libUICKeyChainStore-Mac"
+            ReferencedContainer = "container:UICKeyChainStore.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
@@ -49,6 +72,15 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "14A59D1B1A62F4DA006561CC"
+            BuildableName = "libUICKeyChainStore.a"
+            BlueprintName = "libUICKeyChainStore-Mac"
+            ReferencedContainer = "container:UICKeyChainStore.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -58,6 +90,15 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "14A59D1B1A62F4DA006561CC"
+            BuildableName = "libUICKeyChainStore.a"
+            BlueprintName = "libUICKeyChainStore-Mac"
+            ReferencedContainer = "container:UICKeyChainStore.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
