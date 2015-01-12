@@ -756,13 +756,32 @@
     XCTAssertEqualObjects([UICKeyChainStore dataForKey:@"username"], usernameData, @"stored username");
     XCTAssertEqualObjects([UICKeyChainStore dataForKey:@"password"], passwordData, @"stored password");
     
-    [UICKeyChainStore removeItemForKey:@"username" service:[UICKeyChainStore defaultService]];
+    [UICKeyChainStore removeItemForKey:@"username"];
     XCTAssertNil([UICKeyChainStore dataForKey:@"username"], @"removed username");
     XCTAssertEqualObjects([UICKeyChainStore dataForKey:@"password"], passwordData, @"left password");
     
-    [UICKeyChainStore removeItemForKey:@"password" service:[UICKeyChainStore defaultService]];
+    [UICKeyChainStore removeItemForKey:@"password"];
     XCTAssertNil([UICKeyChainStore dataForKey:@"username"], @"removed username");
     XCTAssertNil([UICKeyChainStore dataForKey:@"password"], @"removed password");
+}
+
+- (void)testSetDataWithServiceClassMethod
+{
+    NSData *usernameData = [@"kishikawakatsumi" dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *passwordData = [@"password1234" dataUsingEncoding:NSUTF8StringEncoding];
+    
+    [UICKeyChainStore setData:usernameData forKey:@"username" service:@"Twitter"];
+    [UICKeyChainStore setData:passwordData forKey:@"password" service:@"Twitter"];
+    XCTAssertEqualObjects([UICKeyChainStore dataForKey:@"username" service:@"Twitter"], usernameData, @"stored username");
+    XCTAssertEqualObjects([UICKeyChainStore dataForKey:@"password" service:@"Twitter"], passwordData, @"stored password");
+    
+    [UICKeyChainStore removeItemForKey:@"username" service:@"Twitter"];
+    XCTAssertNil([UICKeyChainStore dataForKey:@"username" service:@"Twitter"], @"removed username");
+    XCTAssertEqualObjects([UICKeyChainStore dataForKey:@"password" service:@"Twitter"], passwordData, @"left password");
+    
+    [UICKeyChainStore removeItemForKey:@"password" service:@"Twitter"];
+    XCTAssertNil([UICKeyChainStore dataForKey:@"username" service:@"Twitter"], @"removed username");
+    XCTAssertNil([UICKeyChainStore dataForKey:@"password" service:@"Twitter"], @"removed password");
 }
 
 #if TARGET_OS_IPHONE
