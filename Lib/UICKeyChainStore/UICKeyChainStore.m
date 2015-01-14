@@ -149,8 +149,9 @@ static NSString *_defaultService;
 + (NSString *)stringForKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup error:(NSError *__autoreleasing *)error
 {
     if (!key) {
+        NSError *e = [self argumentError:NSLocalizedString(@"the key must not to be nil", nil)];
         if (error) {
-            *error = [self argumentError:NSLocalizedString(@"the key must not to be nil", nil)];
+            *error = e;
         }
         return nil;
     }
@@ -198,8 +199,9 @@ static NSString *_defaultService;
     if (data) {
         return [self setData:data forKey:key service:service accessGroup:accessGroup error:error];
     }
+    NSError *e = [self conversionError:NSLocalizedString(@"failed to convert string to data", nil)];
     if (error) {
-        *error = [self conversionError:NSLocalizedString(@"failed to convert string to data", nil)];
+        *error = e;
     }
     return NO;
 }
@@ -234,8 +236,9 @@ static NSString *_defaultService;
 + (NSData *)dataForKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup error:(NSError *__autoreleasing *)error
 {
     if (!key) {
+        NSError *e = [self argumentError:NSLocalizedString(@"the key must not to be nil", nil)];
         if (error) {
-            *error = [self argumentError:NSLocalizedString(@"the key must not to be nil", nil)];
+            *error = e;
         }
         return nil;
     }
@@ -277,8 +280,9 @@ static NSString *_defaultService;
 + (BOOL)setData:(NSData *)data forKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup error:(NSError *__autoreleasing *)error
 {
     if (!key) {
+        NSError *e = [self argumentError:NSLocalizedString(@"the key must not to be nil", nil)];
         if (error) {
-            *error = [self argumentError:NSLocalizedString(@"the key must not to be nil", nil)];
+            *error = e;
         }
         return NO;
     }
@@ -316,8 +320,9 @@ static NSString *_defaultService;
         if (string) {
             return string;
         }
+        NSError *e = [self.class conversionError:NSLocalizedString(@"failed to convert data to string", nil)];
         if (error) {
-            *error = [self.class conversionError:NSLocalizedString(@"failed to convert data to string", nil)];
+            *error = e;
         }
         return nil;
     }
@@ -351,8 +356,9 @@ static NSString *_defaultService;
     if (data) {
         return [self setData:data forKey:key label:label comment:comment error:error];
     }
+    NSError *e = [self.class conversionError:NSLocalizedString(@"failed to convert string to data", nil)];
     if (error) {
-        *error = [self.class conversionError:NSLocalizedString(@"failed to convert string to data", nil)];
+        *error = e;
     }
     return NO;
 }
@@ -381,8 +387,9 @@ static NSString *_defaultService;
             CFRelease(data);
             return ret;
         } else {
+            NSError *e = [self.class unexpectedError:NSLocalizedString(@"Unexpected error has occurred.", nil)];
             if (error) {
-                *error = [self.class unexpectedError:NSLocalizedString(@"Unexpected error has occurred.", nil)];
+                *error = e;
             }
             return nil;
         }
@@ -390,8 +397,9 @@ static NSString *_defaultService;
         return nil;
     }
     
+    NSError *e = [self.class securityError:status];
     if (error) {
-        *error = [self.class securityError:status];
+        *error = e;
     }
     return nil;
 }
@@ -416,8 +424,9 @@ static NSString *_defaultService;
 - (BOOL)setData:(NSData *)data forKey:(NSString *)key label:(NSString *)label comment:(NSString *)comment error:(NSError *__autoreleasing *)error
 {
     if (!key) {
+        NSError *e = [self.class argumentError:NSLocalizedString(@"the key must not to be nil", nil)];
         if (error) {
-            *error = [self.class argumentError:NSLocalizedString(@"the key must not to be nil", nil)];
+            *error = e;
         }
         return NO;
     }
@@ -435,11 +444,9 @@ static NSString *_defaultService;
     
     OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, NULL);
     if (status == errSecSuccess || status == errSecInteractionNotAllowed) {
-#if TARGET_OS_IPHONE
-        if (floor(NSFoundationVersionNumber) > floor(1047.25)) { // iOS 8+
-            [query removeObjectForKey:(__bridge id)kSecUseNoAuthenticationUI];
-        }
-#endif
+        query = [self query];
+        query[(__bridge __strong id)kSecAttrAccount] = key;
+        
         NSError *unexpectedError = nil;
         NSMutableDictionary *attributes = [self attributesWithKey:nil value:data error:&unexpectedError];
         
@@ -451,6 +458,7 @@ static NSString *_defaultService;
         }
         
         if (unexpectedError) {
+            NSLog(@"error: [%@] %@", @(unexpectedError.code), NSLocalizedString(@"Unexpected error has occurred.", nil));
             if (error) {
                 *error = unexpectedError;
             }
@@ -465,8 +473,9 @@ static NSString *_defaultService;
                 status = SecItemUpdate((__bridge CFDictionaryRef)query, (__bridge CFDictionaryRef)attributes);
             }
             if (status != errSecSuccess) {
+                NSError *e = [self.class securityError:status];
                 if (error) {
-                    *error = [self.class securityError:status];
+                    *error = e;
                 }
                 return NO;
             }
@@ -483,6 +492,7 @@ static NSString *_defaultService;
         }
         
         if (unexpectedError) {
+            NSLog(@"error: [%@] %@", @(unexpectedError.code), NSLocalizedString(@"Unexpected error has occurred.", nil));
             if (error) {
                 *error = unexpectedError;
             }
@@ -490,15 +500,17 @@ static NSString *_defaultService;
         } else {
             status = SecItemAdd((__bridge CFDictionaryRef)attributes, NULL);
             if (status != errSecSuccess) {
+                NSError *e = [self.class securityError:status];
                 if (error) {
-                    *error = [self.class securityError:status];
+                    *error = e;
                 }
                 return NO;
             }
         }
     } else {
+        NSError *e = [self.class securityError:status];
         if (error) {
-            *error = [self.class securityError:status];
+            *error = e;
         }
         return NO;
     }
@@ -536,8 +548,9 @@ static NSString *_defaultService;
 + (BOOL)removeItemForKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup error:(NSError *__autoreleasing *)error
 {
     if (!key) {
+        NSError *e = [self.class argumentError:NSLocalizedString(@"the key must not to be nil", nil)];
         if (error) {
-            *error = [self.class argumentError:NSLocalizedString(@"the key must not to be nil", nil)];
+            *error = e;
         }
         return NO;
     }
@@ -596,8 +609,9 @@ static NSString *_defaultService;
     
     OSStatus status = SecItemDelete((__bridge CFDictionaryRef)query);
     if (status != errSecSuccess && status != errSecItemNotFound) {
+        NSError *e = [self.class securityError:status];
         if (error) {
-            *error = [self.class securityError:status];
+            *error = e;
         }
         return NO;
     }
@@ -621,8 +635,9 @@ static NSString *_defaultService;
     
     OSStatus status = SecItemDelete((__bridge CFDictionaryRef)query);
     if (status != errSecSuccess && status != errSecItemNotFound) {
+        NSError *e = [self.class securityError:status];
         if (error) {
-            *error = [self.class securityError:status];
+            *error = e;
         }
         return NO;
     }
@@ -808,10 +823,21 @@ static NSString *_defaultService;
 
 #pragma mark -
 
+- (void)setSynchronizable:(BOOL)synchronizable
+{
+    _synchronizable = synchronizable;
+    if (_authenticationPolicy) {
+        NSLog(@"%@", @"Cannot specify both an authenticationPolicy and a synchronizable");
+    }
+}
+
 - (void)setAccessibility:(UICKeyChainStoreAccessibility)accessibility authenticationPolicy:(UICKeyChainStoreAuthenticationPolicy)authenticationPolicy
 {
     _accessibility = accessibility;
     _authenticationPolicy = authenticationPolicy;
+    if (_synchronizable) {
+        NSLog(@"%@", @"Cannot specify both an authenticationPolicy and a synchronizable");
+    }
 }
 
 #pragma mark -
@@ -919,17 +945,20 @@ static NSString *_defaultService;
             CFErrorRef securityError = NULL;
             SecAccessControlRef accessControl = SecAccessControlCreateWithFlags(kCFAllocatorDefault, accessibilityObject, (SecAccessControlCreateFlags)_authenticationPolicy, &securityError);
             if (securityError) {
+                NSError *e = (__bridge NSError *)securityError;
+                NSLog(@"error: [%@] %@", @(e.code), e.localizedDescription);
                 if (error) {
-                    *error = (__bridge NSError *)securityError;
+                    *error = e;
                     return nil;
                 }
             }
             if (!accessControl) {
+                NSString *message = NSLocalizedString(@"Unexpected error has occurred.", nil);
+                NSError *e = [self.class unexpectedError:message];
                 if (error) {
-                    NSString *message = @"Unexpected error has occurred.";
-                    *error = [self.class unexpectedError:message];
-                    return nil;
+                    *error = e;
                 }
+                return nil;
             }
             attributes[(__bridge __strong id)kSecAttrAccessControl] = (__bridge id)accessControl;
         } else {
