@@ -4,4 +4,7 @@
    <FileRef
       location = "group:Lib/UICKeyChainStore.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:Examples/Example-iOS/Example-iOS.xcodeproj">
+   </FileRef>
 </Workspace>
