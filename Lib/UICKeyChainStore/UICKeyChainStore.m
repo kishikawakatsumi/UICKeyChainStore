@@ -440,7 +440,7 @@ static NSString *_defaultService;
             [query removeObjectForKey:(__bridge id)kSecUseNoAuthenticationUI];
         }
 #endif
-        NSError *unexpectedError;
+        NSError *unexpectedError = nil;
         NSMutableDictionary *attributes = [self attributesWithKey:nil value:data error:&unexpectedError];
         
         if (label) {
@@ -456,7 +456,14 @@ static NSString *_defaultService;
             }
             return NO;
         } else {
-            status = SecItemUpdate((__bridge CFDictionaryRef)query, (__bridge CFDictionaryRef)attributes);
+            
+            if (status == errSecInteractionNotAllowed && floor(NSFoundationVersionNumber) <= floor(1140.11)) { // iOS 8.0.x
+                if ([self removeItemForKey:key error:error]) {
+                    return [self setData:data forKey:key label:label comment:comment error:error];
+                }
+            } else {
+                status = SecItemUpdate((__bridge CFDictionaryRef)query, (__bridge CFDictionaryRef)attributes);
+            }
             if (status != errSecSuccess) {
                 if (error) {
                     *error = [self.class securityError:status];
@@ -465,7 +472,7 @@ static NSString *_defaultService;
             }
         }
     } else if (status == errSecItemNotFound) {
-        NSError *unexpectedError;
+        NSError *unexpectedError = nil;
         NSMutableDictionary *attributes = [self attributesWithKey:key value:data error:&unexpectedError];
         
         if (label) {
@@ -909,7 +916,7 @@ static NSString *_defaultService;
     CFTypeRef accessibilityObject = [self accessibilityObject];
     if (_authenticationPolicy && accessibilityObject) {
         if (floor(NSFoundationVersionNumber) > floor(iOS_7_1_or_10_9_2)) { // iOS 8+ or OS X 10.10+
-            CFErrorRef securityError;
+            CFErrorRef securityError = NULL;
             SecAccessControlRef accessControl = SecAccessControlCreateWithFlags(kCFAllocatorDefault, accessibilityObject, (SecAccessControlCreateFlags)_authenticationPolicy, &securityError);
             if (securityError) {
                 if (error) {
