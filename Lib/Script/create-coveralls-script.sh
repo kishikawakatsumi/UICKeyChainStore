@@ -13,7 +13,7 @@ for file in *.gcda; do
   gcov "\${file}"
 done
 
-coveralls --root "${SRCROOT}/../" --extension ".m" -e "Lib/UICKeyChainStoreTests/" -e "Lib/vendor/" --no-gcov
+coveralls --root "${SRCROOT}/../" --extension ".m" -e "Lib/UICKeyChainStoreTests/" -e "Examples/" -e "Lib/vendor/" --no-gcov
 EOF
 
 chmod +x "${COVERALLS_SCRIPT_PATH}"

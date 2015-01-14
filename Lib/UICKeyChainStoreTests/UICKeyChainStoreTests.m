@@ -402,6 +402,61 @@
 
 #pragma mark -
 
+#if TARGET_OS_IPHONE
+- (void)testRemoveAllItemsWithErrorClassMethod
+{
+    XCTAssertNil([UICKeyChainStore stringForKey:@"username"], @"not stored username");
+    XCTAssertNil([UICKeyChainStore stringForKey:@"password"], @"not stored password");
+    
+    [UICKeyChainStore setString:@"kishikawakatsumi" forKey:@"username"];
+    XCTAssertEqualObjects([UICKeyChainStore stringForKey:@"username"], @"kishikawakatsumi", @"stored username");
+    
+    [UICKeyChainStore setString:@"password1234" forKey:@"password"];
+    XCTAssertEqualObjects([UICKeyChainStore stringForKey:@"password"], @"password1234", @"stored password");
+    
+    NSError *error = nil;
+    [UICKeyChainStore removeAllItemsWithError:&error];
+    XCTAssertNil([UICKeyChainStore stringForKey:@"username"], @"removed username");
+    XCTAssertNil([UICKeyChainStore stringForKey:@"password"], @"removed password");
+    XCTAssertNil(error);
+}
+#else
+- (void)testRemoveAllItemsWithErrorClassMethod
+{
+    XCTAssertNil([UICKeyChainStore stringForKey:@"username"], @"not stored username");
+    XCTAssertNil([UICKeyChainStore stringForKey:@"password"], @"not stored password");
+    
+    [UICKeyChainStore setString:@"kishikawakatsumi" forKey:@"username"];
+    XCTAssertEqualObjects([UICKeyChainStore stringForKey:@"username"], @"kishikawakatsumi", @"stored username");
+    
+    [UICKeyChainStore setString:@"password1234" forKey:@"password"];
+    XCTAssertEqualObjects([UICKeyChainStore stringForKey:@"password"], @"password1234", @"stored password");
+    
+    [UICKeyChainStore removeAllItemsWithError:nil];
+    XCTAssertNil([UICKeyChainStore stringForKey:@"username"], @"removed username");
+    XCTAssertNil([UICKeyChainStore stringForKey:@"password"], @"removed password");
+}
+#endif
+
+
+- (void)testRemoveAllItemsForServiceClassMethod
+{
+    XCTAssertNil([UICKeyChainStore stringForKey:@"username" service:@"Twitter"], @"not stored username");
+    XCTAssertNil([UICKeyChainStore stringForKey:@"password" service:@"Twitter"], @"not stored password");
+    
+    [UICKeyChainStore setString:@"kishikawakatsumi" forKey:@"username" service:@"Twitter"];
+    XCTAssertEqualObjects([UICKeyChainStore stringForKey:@"username" service:@"Twitter"], @"kishikawakatsumi", @"stored username");
+    
+    [UICKeyChainStore setString:@"password1234" forKey:@"password" service:@"Twitter"];
+    XCTAssertEqualObjects([UICKeyChainStore stringForKey:@"password" service:@"Twitter"], @"password1234", @"stored password");
+    
+    [UICKeyChainStore removeAllItemsForService:@"Twitter" error:nil];
+    XCTAssertNil([UICKeyChainStore stringForKey:@"username"], @"removed username");
+    XCTAssertNil([UICKeyChainStore stringForKey:@"password"], @"removed password");
+}
+
+#pragma mark -
+
 - (void)testSubscripting
 {
     UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithService:@"Twitter"];
@@ -432,7 +487,7 @@
     {
         UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithService:@"Twitter" accessGroup:@"12ABCD3E4F.shared"];
         
-        NSError *error;
+        NSError *error = nil;
         BOOL succeeded = [keychain removeAllItemsWithError:&error];
         XCTAssertNil(error, "no error occurred");
         XCTAssertTrue(succeeded, "succeeded");
@@ -440,7 +495,7 @@
     {
         UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithService:@"Twitter"];
         
-        NSError *error;
+        NSError *error = nil;
         BOOL succeeded = [keychain removeAllItemsWithError:&error];
         XCTAssertNil(error, "no error occurred");
         XCTAssertTrue(succeeded, "succeeded");
@@ -448,7 +503,7 @@
     {
         UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithServer:[NSURL URLWithString:@"https://kishikawakatsumi.com"] protocolType:UICKeyChainStoreProtocolTypeHTTPS];
         
-        NSError *error;
+        NSError *error = nil;
         BOOL succeeded = [keychain removeAllItemsWithError:&error];
         XCTAssertNil(error, "no error occurred");
         XCTAssertTrue(succeeded, "succeeded");
@@ -456,7 +511,7 @@
     {
         UICKeyChainStore *keychain = [UICKeyChainStore keyChainStore];
         
-        NSError *error;
+        NSError *error = nil;
         BOOL succeeded = [keychain removeAllItemsWithError:&error];
         XCTAssertNil(error, "no error occurred");
         XCTAssertTrue(succeeded, "succeeded");
@@ -466,7 +521,7 @@
         // Add Keychain items
         UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithService:@"Twitter"];
         
-        NSError *error;
+        NSError *error = nil;
         BOOL succeeded = [keychain setString:@"kishikawa_katsumi" forKey:@"username" error:&error];
         XCTAssertNil(error, "no error occurred");
         XCTAssertTrue(succeeded, "succeeded");
@@ -488,7 +543,7 @@
         // Update Keychain items
         UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithService:@"Twitter"];
         
-        NSError *error;
+        NSError *error = nil;
         BOOL succeeded = [keychain setString:@"katsumi_kishikawa" forKey:@"username" error:&error];
         XCTAssertNil(error, "no error occurred");
         XCTAssertTrue(succeeded, "succeeded");
@@ -510,7 +565,7 @@
         // Remove Keychain items
         UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithService:@"Twitter"];
         
-        NSError *error;
+        NSError *error = nil;
         BOOL succeeded = [keychain removeItemForKey:@"username" error:&error];
         XCTAssertNil(error, "no error occurred");
         XCTAssertTrue(succeeded, "succeeded");
@@ -677,7 +732,7 @@
     XCTAssertNil([store stringForKey:@"password"], @"removed password");
 }
 
-- (void)testSetStringWithServiceClassMethod
+- (void)testSetStringWithServiceClassMethod1
 {
     UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithService:@"Twitter"];
     [store removeAllItems];
@@ -700,6 +755,42 @@
     XCTAssertNil([store stringForKey:@"username"], @"removed username");
     XCTAssertNil([store stringForKey:@"password"], @"removed password");
 }
+
+#if TARGET_OS_IPHONE
+- (void)testSetStringWithServiceClassMethod2
+{
+    UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithService:@"Twitter"];
+    [store removeAllItems];
+    
+    NSError *error = nil;
+    [UICKeyChainStore setString:@"kishikawakatsumi" forKey:@"username" service:@"Twitter" error:&error];
+    XCTAssertNil(error);
+    [UICKeyChainStore setString:@"password1234" forKey:@"password" service:@"Twitter" error:&error];
+    XCTAssertNil(error);
+    XCTAssertEqualObjects([UICKeyChainStore stringForKey:@"username" service:@"Twitter" error:&error], @"kishikawakatsumi", @"stored username");
+    XCTAssertNil(error);
+    XCTAssertEqualObjects([UICKeyChainStore stringForKey:@"password" service:@"Twitter" error:&error], @"password1234", @"stored password");
+    XCTAssertNil(error);
+    XCTAssertEqualObjects([store stringForKey:@"username"], @"kishikawakatsumi", @"stored username");
+    XCTAssertEqualObjects([store stringForKey:@"password"], @"password1234", @"stored password");
+    
+    [UICKeyChainStore removeItemForKey:@"username" service:@"Twitter" error:&error];
+    XCTAssertNil(error);
+    XCTAssertNil([UICKeyChainStore stringForKey:@"username" service:@"Twitter" error:&error], @"removed username");
+    XCTAssertEqualObjects([UICKeyChainStore stringForKey:@"password" service:@"Twitter" error:&error], @"password1234", @"left password");
+    XCTAssertNil(error);
+    XCTAssertEqualObjects([store stringForKey:@"password"], @"password1234", @"left password");
+    
+    [UICKeyChainStore removeItemForKey:@"password" service:@"Twitter" error:&error];
+    XCTAssertNil(error);
+    XCTAssertNil([UICKeyChainStore stringForKey:@"username" service:@"Twitter" error:&error], @"removed username");
+    XCTAssertNil(error);
+    XCTAssertNil([UICKeyChainStore stringForKey:@"password" service:@"Twitter" error:&error], @"removed password");
+    XCTAssertNil(error);
+    XCTAssertNil([store stringForKey:@"username"], @"removed username");
+    XCTAssertNil([store stringForKey:@"password"], @"removed password");
+}
+#endif
 
 - (void)testSetStringWithServiceAndAccessGroupClassMethod
 {
@@ -728,7 +819,7 @@
 #if TARGET_OS_IPHONE
 - (void)testSetStringClassMethodAndError
 {
-    NSError *error;
+    NSError *error = nil;
     
     UICKeyChainStore *store = [UICKeyChainStore keyChainStore];
     [store removeAllItemsWithError:&error];
@@ -846,7 +937,7 @@
     NSData *usernameData = [@"kishikawakatsumi" dataUsingEncoding:NSUTF8StringEncoding];
     NSData *passwordData = [@"password1234" dataUsingEncoding:NSUTF8StringEncoding];
     
-    NSError *error;
+    NSError *error = nil;
     
     [UICKeyChainStore setData:usernameData forKey:@"username" error:&error];
     XCTAssertNil(error, @"no error");
@@ -872,6 +963,67 @@
     XCTAssertNil([UICKeyChainStore dataForKey:@"password" error:&error], @"removed password");
     XCTAssertNil(error, @"no error");
 }
+
+- (void)testSetDataWithServiceClassMethodAndError
+{
+    NSData *usernameData = [@"kishikawakatsumi" dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *passwordData = [@"password1234" dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSError *error = nil;
+    [UICKeyChainStore setData:usernameData forKey:@"username" service:@"Twitter" error:&error];
+    XCTAssertNil(error, @"no error");
+    [UICKeyChainStore setData:passwordData forKey:@"password" service:@"Twitter" error:&error];
+    XCTAssertNil(error, @"no error");
+    XCTAssertEqualObjects([UICKeyChainStore dataForKey:@"username" service:@"Twitter" error:&error], usernameData, @"stored username");
+    XCTAssertNil(error, @"no error");
+    XCTAssertEqualObjects([UICKeyChainStore dataForKey:@"password" service:@"Twitter" error:&error], passwordData, @"stored password");
+    XCTAssertNil(error, @"no error");
+    
+    [UICKeyChainStore removeItemForKey:@"username" service:@"Twitter" error:&error];
+    XCTAssertNil(error, @"no error");
+    XCTAssertNil([UICKeyChainStore dataForKey:@"username" service:@"Twitter" error:&error], @"removed username");
+    XCTAssertNil(error, @"no error");
+    XCTAssertEqualObjects([UICKeyChainStore dataForKey:@"password" service:@"Twitter" error:&error], passwordData, @"left password");
+    XCTAssertNil(error, @"no error");
+    
+    [UICKeyChainStore removeItemForKey:@"password" service:@"Twitter" error:&error];
+    XCTAssertNil(error, @"no error");
+    XCTAssertNil([UICKeyChainStore dataForKey:@"username" service:@"Twitter" error:&error], @"removed username");
+    XCTAssertNil(error, @"no error");
+    XCTAssertNil([UICKeyChainStore dataForKey:@"password" service:@"Twitter" error:&error], @"removed password");
+    XCTAssertNil(error, @"no error");
+}
+
+- (void)testSetDataWithServiceAndAccessGroupClassMethodAndError
+{
+    NSData *usernameData = [@"kishikawakatsumi" dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *passwordData = [@"password1234" dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSError *error = nil;
+    [UICKeyChainStore setData:usernameData forKey:@"username" service:@"Twitter" accessGroup:@"12ABCD3E4F.shared" error:&error];
+    XCTAssertNil(error, @"no error");
+    [UICKeyChainStore setData:passwordData forKey:@"password" service:@"Twitter" accessGroup:@"12ABCD3E4F.shared" error:&error];
+    XCTAssertNil(error, @"no error");
+    XCTAssertEqualObjects([UICKeyChainStore dataForKey:@"username" service:@"Twitter" accessGroup:@"12ABCD3E4F.shared" error:&error], usernameData, @"stored username");
+    XCTAssertNil(error, @"no error");
+    XCTAssertEqualObjects([UICKeyChainStore dataForKey:@"password" service:@"Twitter" accessGroup:@"12ABCD3E4F.shared" error:&error], passwordData, @"stored password");
+    XCTAssertNil(error, @"no error");
+    
+    [UICKeyChainStore removeItemForKey:@"username" service:@"Twitter" accessGroup:@"12ABCD3E4F.shared" error:&error];
+    XCTAssertNil(error, @"no error");
+    XCTAssertNil([UICKeyChainStore dataForKey:@"username" service:@"Twitter" accessGroup:@"12ABCD3E4F.shared" error:&error], @"removed username");
+    XCTAssertNil(error, @"no error");
+    XCTAssertEqualObjects([UICKeyChainStore dataForKey:@"password" service:@"Twitter" accessGroup:@"12ABCD3E4F.shared" error:&error], passwordData, @"left password");
+    XCTAssertNil(error, @"no error");
+    
+    [UICKeyChainStore removeItemForKey:@"password" service:@"Twitter" accessGroup:@"12ABCD3E4F.shared" error:&error];
+    XCTAssertNil(error, @"no error");
+    XCTAssertNil([UICKeyChainStore dataForKey:@"username" service:@"Twitter" accessGroup:@"12ABCD3E4F.shared" error:&error], @"removed username");
+    XCTAssertNil(error, @"no error");
+    XCTAssertNil([UICKeyChainStore dataForKey:@"password" service:@"Twitter" accessGroup:@"12ABCD3E4F.shared" error:&error], @"removed password");
+    XCTAssertNil(error, @"no error");
+}
+
 #endif
 
 - (void)testSetNilData
@@ -920,7 +1072,7 @@
 #if TARGET_OS_IPHONE
 - (void)testClassMethodsSetAndRemoveItemWithNoError
 {
-    NSError *error;
+    NSError *error = nil;
     
     [UICKeyChainStore setString:@"kishikawakatsumi" forKey:@"username" error:&error];
     XCTAssertNil(error, @"no error");
@@ -953,7 +1105,7 @@
 #if TARGET_OS_IPHONE
 - (void)testInstanceMethodsSetAndRemoveItemWithNoError
 {
-    NSError *error;
+    NSError *error = nil;
     
     UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithService:@"Twitter"];
     
@@ -1136,7 +1288,7 @@
     [store removeAllItems];
 }
 
-- (void)testGetAllKeysClassMethod
+- (void)testGetAllKeysGenericPasswordClassMethod
 {
     [UICKeyChainStore removeAllItemsForService:@"github.com"];
     
@@ -1209,7 +1361,7 @@
 
 #pragma mark -
 
-- (void)testSetLabelAndComment
+- (void)testSetStringLabelAndComment
 {
     UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithService:@"Twitter"];
     
@@ -1223,6 +1375,17 @@
     username = [store stringForKey:@"username"];
     XCTAssertNil(username);
 }
+
+- (void)testSetDataLabelAndComment
+{
+    UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithService:@"Twitter"];
+    
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:@[@"Keychain"]];
+    [store setData:data forKey:@"data" label:@"Label" comment:@"Comment"];
+    XCTAssertEqualObjects(data, [store dataForKey:@"data"]);
+}
+
+#pragma mark -
 
 - (void)testDescription
 {
@@ -1285,6 +1448,29 @@
 }
 
 #pragma mark -
+
+- (void)testStringConversionError
+{
+    UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithService:@"Twitter"];
+    
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:@[@"Keychain"]];
+    
+    [store setData:data forKey:@"data"];
+    
+    NSError *error = nil;
+    NSString *s = [store stringForKey:@"data" error:&error];
+    XCTAssertNil(s);
+    XCTAssertNotNil(error);
+}
+
+- (void)testArgumentError
+{
+    UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithService:@"Twitter"];
+    
+    NSError *error = nil;
+    [store setString:@"kishikawakatsumi" forKey:nil error:&error];
+    XCTAssertNotNil(error);
+}
 
 - (void)testProtocolTypeAndAuthenticationTypePrivateMethod
 {
