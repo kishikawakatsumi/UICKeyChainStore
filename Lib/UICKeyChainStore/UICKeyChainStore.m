@@ -675,7 +675,7 @@ static NSString *_defaultService;
 
 + (NSArray *)allKeysWithItemClass:(UICKeyChainStoreItemClass)itemClass
 {
-    CFTypeRef itemClassObject;
+    CFTypeRef itemClassObject = kSecClassGenericPassword;
     if (itemClass == UICKeyChainStoreItemClassGenericPassword) {
         itemClassObject = kSecClassGenericPassword;
     } else if (itemClass == UICKeyChainStoreItemClassInternetPassword) {
@@ -710,7 +710,7 @@ static NSString *_defaultService;
 
 + (NSArray *)allItemsWithItemClass:(UICKeyChainStoreItemClass)itemClass
 {
-    CFTypeRef itemClassObject;
+    CFTypeRef itemClassObject = kSecClassGenericPassword;
     if (itemClass == UICKeyChainStoreItemClassGenericPassword) {
         itemClassObject = kSecClassGenericPassword;
     } else if (itemClass == UICKeyChainStoreItemClassInternetPassword) {
