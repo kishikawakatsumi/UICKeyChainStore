@@ -190,6 +190,19 @@ __OSX_AVAILABLE_STARTING(__MAC_NA, __IPHONE_8_0);
 - (void)setAccessibility:(UICKeyChainStoreAccessibility)accessibility authenticationPolicy:(UICKeyChainStoreAuthenticationPolicy)authenticationPolicy
 __OSX_AVAILABLE_STARTING(__MAC_10_10, __IPHONE_8_0);
 
+#if TARGET_OS_IPHONE
+- (void)sharedPasswordWithCompletion:(void (^)(NSString *account, NSString *password, NSError *error))completion;
+- (void)sharedPasswordForAccount:(NSString *)account completion:(void (^)(NSString *password, NSError *error))completion;
+
+- (void)setSharedPassword:(NSString *)password forAccount:(NSString *)account completion:(void (^)(NSError *error))completion;
+- (void)removeSharedPasswordForAccount:(NSString *)account completion:(void (^)(NSError *error))completion;
+
++ (void)requestSharedWebCredentialWithCompletion:(void (^)(NSArray *credentials, NSError *error))completion;
++ (void)requestSharedWebCredentialForDomain:(NSString *)domain account:(NSString *)account completion:(void (^)(NSArray *credentials, NSError *error))completion;
+
++ (NSString *)generatePassword;
+#endif
+
 - (void)synchronize __attribute__((deprecated("calling this method is no longer required")));
 - (BOOL)synchronizeWithError:(NSError *__autoreleasing *)error __attribute__((deprecated("calling this method is no longer required")));
 
