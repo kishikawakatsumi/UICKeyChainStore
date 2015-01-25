@@ -842,6 +842,128 @@ static NSString *_defaultService;
 
 #pragma mark -
 
+#if TARGET_OS_IPHONE
+- (void)sharedPasswordWithCompletion:(void (^)(NSString *account, NSString *password, NSError *error))completion
+{
+    NSString *domain = self.server.host;
+    if (domain.length > 0) {
+        [self.class requestSharedWebCredentialForDomain:domain account:nil completion:^(NSArray *credentials, NSError *error) {
+            NSDictionary *credential = credentials.firstObject;
+            if (credential) {
+                NSString *account = credential[@"account"];
+                NSString *password = credential[@"password"];
+                if (completion) {
+                    completion(account, password, error);
+                }
+            } else {
+                if (completion) {
+                    completion(nil, nil, error);
+                }
+            }
+        }];
+    } else {
+        NSError *error = [self.class argumentError:NSLocalizedString(@"the server property must not to be nil, should use 'keyChainStoreWithServer:protocolType:' initializer to instantiate keychain store", nil)];
+        if (completion) {
+            completion(nil, nil, error);
+        }
+    }
+}
+
+- (void)sharedPasswordForAccount:(NSString *)account completion:(void (^)(NSString *password, NSError *error))completion
+{
+    NSString *domain = self.server.host;
+    if (domain.length > 0) {
+        [self.class requestSharedWebCredentialForDomain:domain account:account completion:^(NSArray *credentials, NSError *error) {
+            NSDictionary *credential = credentials.firstObject;
+            if (credential) {
+                NSString *password = credential[@"password"];
+                if (completion) {
+                    completion(password, error);
+                }
+            } else {
+                if (completion) {
+                    completion(nil, error);
+                }
+            }
+        }];
+    } else {
+        NSError *error = [self.class argumentError:NSLocalizedString(@"the server property must not to be nil, should use 'keyChainStoreWithServer:protocolType:' initializer to instantiate keychain store", nil)];
+        if (completion) {
+            completion(nil, error);
+        }
+    }
+}
+
+- (void)setSharedPassword:(NSString *)password forAccount:(NSString *)account completion:(void (^)(NSError *error))completion
+{
+    NSString *domain = self.server.host;
+    if (domain.length > 0) {
+        SecAddSharedWebCredential((__bridge CFStringRef)domain, (__bridge CFStringRef)account, (__bridge CFStringRef)password, ^(CFErrorRef error) {
+            if (completion) {
+                completion((__bridge NSError *)error);
+            }
+        });
+    } else {
+        NSError *error = [self.class argumentError:NSLocalizedString(@"the server property must not to be nil, should use 'keyChainStoreWithServer:protocolType:' initializer to instantiate keychain store", nil)];
+        if (completion) {
+            completion(error);
+        }
+    }
+}
+
+- (void)removeSharedPasswordForAccount:(NSString *)account completion:(void (^)(NSError *error))completion
+{
+    [self setSharedPassword:nil forAccount:account completion:completion];
+}
+
++ (void)requestSharedWebCredentialWithCompletion:(void (^)(NSArray *credentials, NSError *error))completion
+{
+    [self requestSharedWebCredentialForDomain:nil account:nil completion:completion];
+}
+
++ (void)requestSharedWebCredentialForDomain:(NSString *)domain account:(NSString *)account completion:(void (^)(NSArray *credentials, NSError *error))completion
+{
+    SecRequestSharedWebCredential((__bridge CFStringRef)domain, (__bridge CFStringRef)account, ^(CFArrayRef credentials, CFErrorRef error) {
+        if (error) {
+            NSError *e = (__bridge NSError *)error;
+            if (e.code != errSecItemNotFound) {
+                NSLog(@"error: [%@] %@", @(e.code), e.localizedDescription);
+            }
+        }
+        
+        NSMutableArray *sharedCredentials = [[NSMutableArray alloc] init];
+        for (NSDictionary *credential in (__bridge NSArray *)credentials) {
+            NSMutableDictionary *sharedCredential = [[NSMutableDictionary alloc] init];
+            NSString *server = credential[(__bridge __strong id)kSecAttrServer];
+            if (server) {
+                sharedCredential[@"server"] = server;
+            }
+            NSString *account = credential[(__bridge __strong id)kSecAttrAccount];
+            if (account) {
+                sharedCredential[@"account"] = account;
+            }
+            NSString *password = credential[(__bridge __strong id)kSecSharedPassword];
+            if (password) {
+                sharedCredential[@"password"] = password;
+            }
+            [sharedCredentials addObject:sharedCredential];
+        }
+        
+        if (completion) {
+            completion(sharedCredentials.copy, (__bridge NSError *)error);
+        }
+    });
+}
+
++ (NSString *)generatePassword
+{
+    return CFBridgingRelease(SecCreateSharedWebCredentialPassword());
+}
+
+#endif
+
+#pragma mark -
+
 - (void)synchronize
 {
     // Deprecated, calling this method is no longer required
