@@ -347,10 +347,11 @@ if (password) {
 
 #### Generate strong random password
 
-Generate strong random password that is in the same format used by Safari autofill.
+Generate strong random password that is in the same format used by Safari autofill (xxx-xxx-xxx-xxx).  
 
 ```objective-c
 NSString *password = [UICKeyChainStore generatePassword];
+NSLog(@"%@", password); // => Nhu-GKm-s3n-pMx
 ```
 
 #### How to set up Shared Web Credentials
