@@ -24,6 +24,7 @@ Try [KeychainAccess](https://github.com/kishikawakatsumi/KeychainAccess).
 - [Support accessibility](#accessibility)
 - [Support iCloud sharing](#icloud_sharing)
 - **[Support TouchID and Keychain integration (iOS 8+)](#touch_id_integration)**
+- **[Support Shared Web Credentials (iOS 8+)](#shared_web_credentials)**
 - Works on both iOS & OS X
 
 ## :book: Usage
@@ -296,6 +297,72 @@ UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithService:@"com.ex
 
 keychain[@"kishikawakatsumi"] = nil;
 ```
+
+### <a name="shared_web_credentials"> :key: Shared Web Credentials
+
+> Shared web credentials is a programming interface that enables native iOS apps to share credentials with their website counterparts. For example, a user may log in to a website in Safari, entering a user name and password, and save those credentials using the iCloud Keychain. Later, the user may run a native app from the same developer, and instead of the app requiring the user to reenter a user name and password, shared web credentials gives it access to the credentials that were entered earlier in Safari. The user can also create new accounts, update passwords, or delete her account from within the app. These changes are then saved and used by Safari.  
+<https://developer.apple.com/library/ios/documentation/Security/Reference/SharedWebCredentialsRef/>
+
+```objective-c
+UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithServer:[NSURL URLWithString:@"https://kishikawakatsumi.com"]
+protocolType:UICKeyChainStoreProtocolTypeHTTPS];
+NSString *username = @"kishikawakatsumi@mac.com";
+NSString *password = keychain[username];
+if (password) {
+    // If found password in the Keychain,
+    // then log into the server
+} else {
+    // If not found password in the Keychain,
+    // try to read from Shared Web Credentials
+    [keychain sharedPasswordForAccount:username completion:^(NSString *password, NSError *error) {
+        if (password) {
+            // If found password in the Shared Web Credentials,
+            // then log into the server
+            // and save the password to the Keychain
+
+            keychain[username] = password
+        } else {
+            // If not found password either in the Keychain also Shared Web Credentials,
+            // prompt for username and password
+
+            // Log into server
+
+            // If the login is successful,
+            // save the credentials to both the Keychain and the Shared Web Credentials.
+
+            keychain[username] = password
+            [keychain setSharedPassword:password forAccount:username completion:nil];
+        }
+    }];
+}
+```
+
+#### Request all associated domain's credentials
+
+```objective-c
+[UICKeyChainStore requestSharedWebCredentialWithCompletion:^(NSArray *credentials, NSError *error) {
+
+}];
+```
+
+#### Generate strong random password
+
+Generate strong random password that is in the same format used by Safari autofill.
+
+```objective-c
+NSString *password = [UICKeyChainStore generatePassword];
+```
+
+#### How to set up Shared Web Credentials
+
+> 1. Add a com.apple.developer.associated-domains entitlement to your app. This entitlement must include all the domains with which you want to share credentials.
+
+> 2. Add an apple-app-site-association file to your website. This file must include application identifiers for all the apps with which the site wants to share credentials, and it must be properly signed.
+
+> 3. When the app is installed, the system downloads and verifies the site association file for each of its associated domains. If the verification is successful, the app is associated with the domain.
+
+**More details:**  
+<https://developer.apple.com/library/ios/documentation/Security/Reference/SharedWebCredentialsRef/>
 
 ### :key: Debugging
 
