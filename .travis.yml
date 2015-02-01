@@ -1,11 +1,8 @@
 language: objective-c
 install:
-  - sudo easy_install cpp-coveralls
   - (cd Lib && bundle install --path=vendor/bundle --binstubs=vendor/bin)
 script:
-  - (cd Lib && bundle exec rake test:ios test:osx)
-after_success:
-  - ./Lib/Script/coveralls.sh
+  - (cd Lib && bundle exec rake test:ios test:osx coverage:coveralls)
 branches:
   only:
     - master
