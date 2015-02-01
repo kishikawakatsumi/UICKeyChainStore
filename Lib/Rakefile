@@ -10,7 +10,7 @@ def destinations
     'name=iPhone 5s,OS=7.1',
     'name=iPhone 5s,OS=8.1',
     'name=iPhone 6,OS=8.1',
-    'name=iPhone 6 Plus,OS=8.1'
+    'name=iPhone 6 Plus,OS=8.1',
   ]
 end
 
@@ -54,9 +54,8 @@ XCJobs::Test.new('test:ios') do |t|
   destinations.each do |destination|
     t.add_destination(destination)
   end
+  t.coverage = true
   t.formatter = 'xcpretty -c'
-  t.add_build_setting('GCC_INSTRUMENT_PROGRAM_FLOW_ARCS', 'YES')
-  t.add_build_setting('GCC_GENERATE_TEST_COVERAGE_FILES', 'YES')
 end
 
 XCJobs::Test.new('test:osx') do |t|
@@ -66,4 +65,9 @@ XCJobs::Test.new('test:osx') do |t|
   t.configuration = 'Release'
   t.build_dir = 'build'
   t.formatter = 'xcpretty -c'
+end
+
+XCJobs::Coverage::Coveralls.new() do |t|
+  t.add_extension('.m')
+  t.add_exclude('Lib/UICKeyChainStoreTests')
 end
