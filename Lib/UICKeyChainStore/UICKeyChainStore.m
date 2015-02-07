@@ -1004,7 +1004,7 @@ static NSString *_defaultService;
     
     CFTypeRef itemClass = [self itemClassObject];
     query[(__bridge __strong id)kSecClass] =(__bridge id)itemClass;
-    if (floor(NSFoundationVersionNumber) > floor(993.00)) { // iOS 7+ //NSFoundationVersionNumber_iOS_6_1
+    if (floor(NSFoundationVersionNumber) > floor(993.00)) { // iOS 7+ (NSFoundationVersionNumber_iOS_6_1)
         query[(__bridge __strong id)kSecAttrSynchronizable] = (__bridge id)kSecAttrSynchronizableAny;
     }
     
@@ -1034,7 +1034,7 @@ static NSString *_defaultService;
     
 #if TARGET_OS_IPHONE
     if (_authenticationPrompt) {
-        if (floor(NSFoundationVersionNumber) > floor(1047.25)) { // iOS 8+ //NSFoundationVersionNumber_iOS_7_1
+        if (floor(NSFoundationVersionNumber) > floor(1047.25)) { // iOS 8+ (NSFoundationVersionNumber_iOS_7_1)
             query[(__bridge __strong id)kSecUseOperationPrompt] = _authenticationPrompt;
         } else {
             NSLog(@"%@", @"Unavailable 'authenticationPrompt' attribute on iOS versions prior to 8.0.");
@@ -1059,9 +1059,9 @@ static NSString *_defaultService;
     attributes[(__bridge __strong id)kSecValueData] = value;
     
 #if TARGET_OS_IPHONE
-    double iOS_7_1_or_10_9_2 = 1047.25; //NSFoundationVersionNumber_iOS_7_1
+    double iOS_7_1_or_10_9_2 = 1047.25; // NSFoundationVersionNumber_iOS_7_1
 #else
-    double iOS_7_1_or_10_9_2 = 1056.13; //NSFoundationVersionNumber10_9_2
+    double iOS_7_1_or_10_9_2 = 1056.13; // NSFoundationVersionNumber10_9_2
 #endif
     CFTypeRef accessibilityObject = [self accessibilityObject];
     if (_authenticationPolicy && accessibilityObject) {
