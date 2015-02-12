@@ -1254,7 +1254,7 @@ static NSString *_defaultService;
 + (NSError *)securityError:(OSStatus)status
 {
     NSString *message = @"Security error has occurred.";
-#if TARGET_OS_MAC
+#if !TARGET_OS_IPHONE
     CFStringRef description = SecCopyErrorMessageString(status, NULL);
     if (description) {
         message = (__bridge_transfer NSString *)description;
