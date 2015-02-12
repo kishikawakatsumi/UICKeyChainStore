@@ -1253,7 +1253,14 @@ static NSString *_defaultService;
 
 + (NSError *)securityError:(OSStatus)status
 {
-    NSError *error = [NSError errorWithDomain:UICKeyChainStoreErrorDomain code:status userInfo:@{NSLocalizedDescriptionKey: @"Security error has occurred."}];
+    NSString *message = @"Security error has occurred.";
+#if TARGET_OS_MAC
+    CFStringRef description = SecCopyErrorMessageString(status, NULL);
+    if (description) {
+        message = (__bridge_transfer NSString *)description;
+    }
+#endif
+    NSError *error = [NSError errorWithDomain:UICKeyChainStoreErrorDomain code:status userInfo:@{NSLocalizedDescriptionKey: message}];
     NSLog(@"OSStatus error: [%@] %@", @(error.code), error.localizedDescription);
     return error;
 }
