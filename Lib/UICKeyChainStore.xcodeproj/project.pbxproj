@@ -21,6 +21,14 @@
 		14A59D271A62F4DA006561CC /* libUICKeyChainStore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14A59D1C1A62F4DA006561CC /* libUICKeyChainStore.a */; };
 		14A59D331A62F510006561CC /* UICKeyChainStoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A59CAF1A62CF6E006561CC /* UICKeyChainStoreTests.m */; };
 		14A59D361A641129006561CC /* UICKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A59CD71A62D4C3006561CC /* UICKeyChainStore.m */; };
+		3ACDC27F1A931BCE00C7A63A /* UICv1KeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACDC27E1A931BCE00C7A63A /* UICv1KeyChainStore.m */; };
+		3ACDC2801A931BCE00C7A63A /* UICv1KeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACDC27E1A931BCE00C7A63A /* UICv1KeyChainStore.m */; };
+		3ACDC2811A931BCE00C7A63A /* UICv1KeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACDC27E1A931BCE00C7A63A /* UICv1KeyChainStore.m */; };
+		3ACDC2821A931BCE00C7A63A /* UICv1KeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACDC27E1A931BCE00C7A63A /* UICv1KeyChainStore.m */; };
+		3ACDC2891A931CE900C7A63A /* UICKeyChainStoreForwardCompatibilityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACDC2881A931CE900C7A63A /* UICKeyChainStoreForwardCompatibilityTests.m */; };
+		3ACDC28A1A931CE900C7A63A /* UICKeyChainStoreForwardCompatibilityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACDC2881A931CE900C7A63A /* UICKeyChainStoreForwardCompatibilityTests.m */; };
+		3ACDC28B1A931CE900C7A63A /* UICKeyChainStoreForwardCompatibilityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACDC2881A931CE900C7A63A /* UICKeyChainStoreForwardCompatibilityTests.m */; };
+		3ACDC28C1A931CE900C7A63A /* UICKeyChainStoreForwardCompatibilityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACDC2881A931CE900C7A63A /* UICKeyChainStoreForwardCompatibilityTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +88,9 @@
 		14A59D081A62F336006561CC /* libUICKeyChainStore-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "libUICKeyChainStore-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		14A59D1C1A62F4DA006561CC /* libUICKeyChainStore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libUICKeyChainStore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		14A59D261A62F4DA006561CC /* libUICKeyChainStore-MacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "libUICKeyChainStore-MacTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3ACDC27D1A931BCE00C7A63A /* UICv1KeyChainStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICv1KeyChainStore.h; sourceTree = "<group>"; };
+		3ACDC27E1A931BCE00C7A63A /* UICv1KeyChainStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICv1KeyChainStore.m; sourceTree = "<group>"; };
+		3ACDC2881A931CE900C7A63A /* UICKeyChainStoreForwardCompatibilityTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICKeyChainStoreForwardCompatibilityTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,7 +202,9 @@
 		14A59CAC1A62CF6E006561CC /* UICKeyChainStoreTests */ = {
 			isa = PBXGroup;
 			children = (
+				3ACDC27C1A931BCE00C7A63A /* v1.1.1-Lib */,
 				14A59CAF1A62CF6E006561CC /* UICKeyChainStoreTests.m */,
+				3ACDC2881A931CE900C7A63A /* UICKeyChainStoreForwardCompatibilityTests.m */,
 				14A59CAD1A62CF6E006561CC /* Supporting Files */,
 			);
 			path = UICKeyChainStoreTests;
@@ -203,6 +216,15 @@
 				14A59CAE1A62CF6E006561CC /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3ACDC27C1A931BCE00C7A63A /* v1.1.1-Lib */ = {
+			isa = PBXGroup;
+			children = (
+				3ACDC27D1A931BCE00C7A63A /* UICv1KeyChainStore.h */,
+				3ACDC27E1A931BCE00C7A63A /* UICv1KeyChainStore.m */,
+			);
+			path = "v1.1.1-Lib";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -494,6 +516,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				14A59CB01A62CF6E006561CC /* UICKeyChainStoreTests.m in Sources */,
+				3ACDC2891A931CE900C7A63A /* UICKeyChainStoreForwardCompatibilityTests.m in Sources */,
+				3ACDC27F1A931BCE00C7A63A /* UICv1KeyChainStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,6 +534,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				14A59CDA1A62D6B0006561CC /* UICKeyChainStoreTests.m in Sources */,
+				3ACDC28A1A931CE900C7A63A /* UICKeyChainStoreForwardCompatibilityTests.m in Sources */,
+				3ACDC2801A931BCE00C7A63A /* UICv1KeyChainStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,6 +552,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				14A59D151A62F3BD006561CC /* UICKeyChainStoreTests.m in Sources */,
+				3ACDC28B1A931CE900C7A63A /* UICKeyChainStoreForwardCompatibilityTests.m in Sources */,
+				3ACDC2811A931BCE00C7A63A /* UICv1KeyChainStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,6 +570,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				14A59D331A62F510006561CC /* UICKeyChainStoreTests.m in Sources */,
+				3ACDC28C1A931CE900C7A63A /* UICKeyChainStoreForwardCompatibilityTests.m in Sources */,
+				3ACDC2821A931BCE00C7A63A /* UICv1KeyChainStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
