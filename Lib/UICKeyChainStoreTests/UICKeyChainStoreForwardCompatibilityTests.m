@@ -17,7 +17,8 @@
 
 @implementation UICKeyChainStoreForwardCompatibilityTests
 
-- (void)setUp {
+- (void)setUp
+{
     [super setUp];
 
     [UICKeyChainStore setDefaultService:@(__FILE__)];
@@ -26,24 +27,25 @@
     [UICKeyChainStore removeAllItems];
 }
 
-- (void)tearDown {
+- (void)tearDown
+{
     [UICKeyChainStore removeAllItems];
 
     [super tearDown];
 }
 
-- (void)testReadV1DataFromV2 {
+- (void)testReadV1DataFromV2
+{
     [UICv1KeyChainStore setString:@"http://example.com/" forKey:@"url"];
 
-
     XCTAssertEqualObjects([UICKeyChainStore stringForKey:@"url"], @"http://example.com/");
-
 }
 
-- (void)testReadV2DataFromV1 {
-    [UICKeyChainStore setString:@"http://example.com/" forKey:@"url"];
-
+- (void)testReadV2DataFromV1
+{
+    [UICKeyChainStore setString:@"http://example.com/" forKey:@"url" genericAttribute:@"url"];
 
     XCTAssertEqualObjects([UICv1KeyChainStore stringForKey:@"url"], @"http://example.com/");
 }
+
 @end
