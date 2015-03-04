@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version               = "2.0.4"
   s.summary               = "UICKeyChainStore is a simple wrapper for Keychain that works on iOS and OS X. Makes using Keychain APIs as easy as NSUserDefaults."
   s.description           = <<-DESC
-                            UICKeyChainStore is a simple Swift wrapper for Keychain that works on iOS and OS X.
+                            UICKeyChainStore is a simple wrapper for Keychain that works on iOS and OS X.
                             Makes using Keychain APIs as easy as NSUserDefaults.
 
                             Features
