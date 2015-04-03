@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <UICKeyChainStore/UICKeyChainStore.h>
 
 @interface AppDelegate ()
 
@@ -15,6 +16,9 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    UICKeyChainStore *keychainStore = [UICKeyChainStore keyChainStore];
+    keychainStore[@"password"] = @"abcd1234";
+    NSLog(@"%@", keychainStore[@"a"]);
     return YES;
 }
 
