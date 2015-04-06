@@ -77,7 +77,7 @@ UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithServer:[NSURL UR
 #### subscripting
 
 ```objective-c
-keychain["kishikawakatsumi"] = "01234567-89ab-cdef-0123-456789abcdef"
+keychain[@"kishikawakatsumi"] = "01234567-89ab-cdef-0123-456789abcdef"
 ```
 
 #### set method
@@ -107,7 +107,7 @@ if (error) {
 #### subscripting (automatically converts to string)
 
 ```objective-c
-NSString *token = keychain["kishikawakatsumi"]
+NSString *token = keychain[@"kishikawakatsumi"]
 ```
 
 #### get methods
@@ -141,7 +141,7 @@ if (error) {
 #### subscripting
 
 ```objective-c
-keychain["kishikawakatsumi"] = nil
+keychain[@"kishikawakatsumi"] = nil
 ```
 
 #### remove method
