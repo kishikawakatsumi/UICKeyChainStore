@@ -68,6 +68,7 @@ XCJobs::Test.new('test:osx') do |t|
 end
 
 XCJobs::Coverage::Coveralls.new() do |t|
+  t.repo_token = 'tfWwD7PGboq20ffdQf14RhQnyYzckQVgE'
   t.add_extension('.m')
   t.add_exclude('Lib/UICKeyChainStoreTests')
 end
