@@ -906,9 +906,12 @@ static NSString *_defaultService;
         if (accessible) {
             item[@"accessibility"] = accessible;
         }
-        id synchronizable = attributes[(__bridge id)kSecAttrSynchronizable];
-        if (synchronizable) {
-            item[@"synchronizable"] = synchronizable;
+        
+        if (floor(NSFoundationVersionNumber) > floor(993.00)) { // iOS 7+
+            id synchronizable = attributes[(__bridge id)kSecAttrSynchronizable];
+            if (synchronizable) {
+                item[@"synchronizable"] = synchronizable;
+            }
         }
         
         [prettified addObject:item];
@@ -1202,7 +1205,9 @@ static NSString *_defaultService;
         }
     }
     
-    attributes[(__bridge __strong id)kSecAttrSynchronizable] = @(_synchronizable);
+    if (floor(NSFoundationVersionNumber) > floor(993.00)) { // iOS 7+
+        attributes[(__bridge __strong id)kSecAttrSynchronizable] = @(_synchronizable);
+    }
     
     return attributes;
 }
