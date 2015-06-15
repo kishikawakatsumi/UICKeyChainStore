@@ -784,7 +784,9 @@ static NSString *_defaultService;
     query[(__bridge __strong id)kSecReturnAttributes] = (__bridge id)kCFBooleanTrue;
     
     CFArrayRef result = nil;
-    OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query,(CFTypeRef *)&result);
+    CFDictionaryRef cfquery = (CFDictionaryRef)CFBridgingRetain(query);
+    OSStatus status = SecItemCopyMatching(cfquery,(CFTypeRef *)&result);
+    CFRelease(cfquery);
     
     if (status == errSecSuccess) {
         NSArray *items = [self prettify:itemClassObject items:(__bridge NSArray *)result];
@@ -822,7 +824,9 @@ static NSString *_defaultService;
 #endif
     
     CFArrayRef result = nil;
-    OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query,(CFTypeRef *)&result);
+    CFDictionaryRef cfquery = (CFDictionaryRef)CFBridgingRetain(query);
+    OSStatus status = SecItemCopyMatching(cfquery,(CFTypeRef *)&result);
+    CFRelease(cfquery);
     
     if (status == errSecSuccess) {
         return [self prettify:itemClassObject items:(__bridge NSArray *)result];
