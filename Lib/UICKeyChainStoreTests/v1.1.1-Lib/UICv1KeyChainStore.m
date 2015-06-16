@@ -429,8 +429,10 @@ static NSString *_defaultService;
         [itemToDelete setObject:accessGroup forKey:(__bridge id)kSecAttrAccessGroup];
     }
 #endif
-    
-    OSStatus status = SecItemDelete((__bridge CFDictionaryRef)itemToDelete);
+
+    CFDictionaryRef cfquery = (CFDictionaryRef)CFBridgingRetain(itemToDelete);
+    OSStatus status = SecItemDelete(cfquery);
+    CFRelease(cfquery);
     if (status != errSecSuccess && status != errSecItemNotFound) {
         if (error) {
             *error = [NSError errorWithDomain:UICv1KeyChainStoreErrorDomain code:status userInfo:nil];
@@ -460,7 +462,9 @@ static NSString *_defaultService;
 #endif
     
     CFArrayRef result = nil;
-    OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, (CFTypeRef *)&result);
+    CFDictionaryRef cfquery = (CFDictionaryRef)CFBridgingRetain(query);
+    OSStatus status = SecItemCopyMatching(cfquery, (CFTypeRef *)&result);
+    CFRelease(cfquery);
     if (status == errSecSuccess || status == errSecItemNotFound) {
         return CFBridgingRelease(result);
     } else {
