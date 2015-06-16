@@ -785,7 +785,7 @@ static NSString *_defaultService;
     
     CFArrayRef result = nil;
     CFDictionaryRef cfquery = (CFDictionaryRef)CFBridgingRetain(query);
-    OSStatus status = SecItemCopyMatching(cfquery,(CFTypeRef *)&result);
+    OSStatus status = SecItemCopyMatching(cfquery, (CFTypeRef *)&result);
     CFRelease(cfquery);
     
     if (status == errSecSuccess) {
@@ -825,7 +825,7 @@ static NSString *_defaultService;
     
     CFArrayRef result = nil;
     CFDictionaryRef cfquery = (CFDictionaryRef)CFBridgingRetain(query);
-    OSStatus status = SecItemCopyMatching(cfquery,(CFTypeRef *)&result);
+    OSStatus status = SecItemCopyMatching(cfquery, (CFTypeRef *)&result);
     CFRelease(cfquery);
     
     if (status == errSecSuccess) {
