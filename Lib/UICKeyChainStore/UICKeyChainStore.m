@@ -945,7 +945,7 @@ static NSString *_defaultService;
 
 #pragma mark -
 
-#if TARGET_OS_IPHONE
+#if TARGET_OS_IPHONE && !TARGET_OS_WATCH
 - (void)sharedPasswordWithCompletion:(void (^)(NSString *account, NSString *password, NSError *error))completion
 {
     NSString *domain = self.server.host;
