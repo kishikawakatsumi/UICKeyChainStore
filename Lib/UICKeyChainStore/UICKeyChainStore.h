@@ -20,6 +20,11 @@
 #define __null_unspecified
 #endif
 
+#if __has_extension(objc_generics)
+#define UIC_KEY_TYPE <NSString *>
+#define UIC_CREDENTIAL_TYPE <NSDictionary <NSString *, NSString *>*>
+#endif
+
 NS_ASSUME_NONNULL_BEGIN
 
 extern NSString * const UICKeyChainStoreErrorDomain;
@@ -112,7 +117,7 @@ __OSX_AVAILABLE_STARTING(__MAC_10_10, __IPHONE_8_0);
 @property (nonatomic, nullable) NSString *authenticationPrompt
 __OSX_AVAILABLE_STARTING(__MAC_NA, __IPHONE_8_0);
 
-@property (nonatomic, readonly, nullable) NSArray *allKeys;
+@property (nonatomic, readonly, nullable) NSArray UIC_KEY_TYPE *allKeys;
 @property (nonatomic, readonly, nullable) NSArray *allItems;
 
 + (NSString *)defaultService;
@@ -171,8 +176,8 @@ __OSX_AVAILABLE_STARTING(__MAC_NA, __IPHONE_8_0);
 - (nullable NSString *)objectForKeyedSubscript:(NSString<NSCopying> *)key;
 - (void)setObject:(nullable NSString *)obj forKeyedSubscript:(NSString<NSCopying> *)key;
 
-+ (nullable NSArray *)allKeysWithItemClass:(UICKeyChainStoreItemClass)itemClass;
-- (nullable NSArray *)allKeys;
++ (nullable NSArray UIC_KEY_TYPE *)allKeysWithItemClass:(UICKeyChainStoreItemClass)itemClass;
+- (nullable NSArray UIC_KEY_TYPE *)allKeys;
 
 + (nullable NSArray *)allItemsWithItemClass:(UICKeyChainStoreItemClass)itemClass;
 - (nullable NSArray *)allItems;
@@ -187,8 +192,8 @@ __OSX_AVAILABLE_STARTING(__MAC_10_10, __IPHONE_8_0);
 - (void)setSharedPassword:(nullable NSString *)password forAccount:(NSString *)account completion:(nullable void (^)(NSError * __nullable error))completion;
 - (void)removeSharedPasswordForAccount:(NSString *)account completion:(nullable void (^)(NSError * __nullable error))completion;
 
-+ (void)requestSharedWebCredentialWithCompletion:(nullable void (^)(NSArray * credentials, NSError * __nullable error))completion;
-+ (void)requestSharedWebCredentialForDomain:(nullable NSString *)domain account:(nullable NSString *)account completion:(nullable void (^)(NSArray * credentials, NSError * __nullable error))completion;
++ (void)requestSharedWebCredentialWithCompletion:(nullable void (^)(NSArray UIC_CREDENTIAL_TYPE *credentials, NSError * __nullable error))completion;
++ (void)requestSharedWebCredentialForDomain:(nullable NSString *)domain account:(nullable NSString *)account completion:(nullable void (^)(NSArray UIC_CREDENTIAL_TYPE *credentials, NSError * __nullable error))completion;
 
 + (NSString *)generatePassword;
 #endif
