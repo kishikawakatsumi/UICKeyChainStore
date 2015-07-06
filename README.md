@@ -8,6 +8,10 @@
 
 UICKeyChainStore is a simple wrapper for Keychain that works on iOS and OS X. Makes using Keychain APIs as easy as NSUserDefaults.
 
+**A watchOS 2 compatible version is in the works. Check out the [`watchos-2` branch](https://github.com/kishikawakatsumi/UICKeyChainStore/tree/watchos-2).**
+
+- **[Install via CocoaPods](#watchos2-cocoapods)**
+
 ## Looking for the library written in Swift?
 
 Try [KeychainAccess](https://github.com/kishikawakatsumi/KeychainAccess).  
@@ -516,6 +520,29 @@ UICKeyChainStore is available through [CocoaPods](http://cocoapods.org). To inst
 it, simply add the following line to your Podfile:
 
 `pod 'UICKeyChainStore'`
+
+##### <a name="watchos2-cocoapods"> For watchOS 2
+
+You should install CocoaPods 0.38.0.beta2.
+
+```shell
+[sudo] gem install cocoapods --pre
+```
+
+Then, add the following lines to your Podfile:
+
+```ruby
+use_frameworks!
+
+target 'EampleApp' do
+  pod 'KeychainAccess', :git => 'git@github.com:kishikawakatsumi/UICKeyChainStore.git', :branch => 'watchos-2'
+end
+
+target 'EampleApp WatchKit Extension' do
+  platform :watchos, '2.0'
+  pod 'KeychainAccess', :git => 'git@github.com:kishikawakatsumi/UICKeyChainStore.git', :branch => 'watchos-2'
+end
+```
 
 ### Carthage
 
