@@ -1371,7 +1371,7 @@ static NSString *_defaultService;
 
 @end
 
-@implementation UICKeyChainStore (Deprecated)
+@implementation UICKeyChainStore (Deprecation)
 
 - (void)synchronize
 {
