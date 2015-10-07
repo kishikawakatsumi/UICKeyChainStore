@@ -478,7 +478,7 @@ item: {
 }
 ```
 
-### Convienient class methods
+### Convenient class methods
 
 Add items using default service name (=bundle identifer).
 
