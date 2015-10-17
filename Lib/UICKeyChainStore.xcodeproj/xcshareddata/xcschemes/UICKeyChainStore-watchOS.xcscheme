@@ -14,23 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "14A59C9C1A62CF6E006561CC"
-               BuildableName = "UICKeyChainStore.framework"
-               BlueprintName = "UICKeyChainStore-iOS"
-               ReferencedContainer = "container:UICKeyChainStore.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "14A59CA71A62CF6E006561CC"
-               BuildableName = "UICKeyChainStore-iOSTests.xctest"
-               BlueprintName = "UICKeyChainStore-iOSTests"
+               BlueprintIdentifier = "145D4F571B4A7C4900BDF8DB"
+               BuildableName = "UICKeyChainStore-watchOS.framework"
+               BlueprintName = "UICKeyChainStore-watchOS"
                ReferencedContainer = "container:UICKeyChainStore.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -42,26 +28,7 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "14A59CA71A62CF6E006561CC"
-               BuildableName = "UICKeyChainStore-iOSTests.xctest"
-               BlueprintName = "UICKeyChainStore-iOSTests"
-               ReferencedContainer = "container:UICKeyChainStore.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "14A59C9C1A62CF6E006561CC"
-            BuildableName = "UICKeyChainStore.framework"
-            BlueprintName = "UICKeyChainStore-iOS"
-            ReferencedContainer = "container:UICKeyChainStore.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -78,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "14A59C9C1A62CF6E006561CC"
-            BuildableName = "UICKeyChainStore.framework"
-            BlueprintName = "UICKeyChainStore-iOS"
+            BlueprintIdentifier = "145D4F571B4A7C4900BDF8DB"
+            BuildableName = "UICKeyChainStore-watchOS.framework"
+            BlueprintName = "UICKeyChainStore-watchOS"
             ReferencedContainer = "container:UICKeyChainStore.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -96,9 +63,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "14A59C9C1A62CF6E006561CC"
-            BuildableName = "UICKeyChainStore.framework"
-            BlueprintName = "UICKeyChainStore-iOS"
+            BlueprintIdentifier = "145D4F571B4A7C4900BDF8DB"
+            BuildableName = "UICKeyChainStore-watchOS.framework"
+            BlueprintName = "UICKeyChainStore-watchOS"
             ReferencedContainer = "container:UICKeyChainStore.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
