@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "141851581BD284D6005DF9AB"
-               BuildableName = "UICKeyChainStore-watchOS.framework"
+               BuildableName = "UICKeyChainStore.framework"
                BlueprintName = "UICKeyChainStore-watchOS"
                ReferencedContainer = "container:UICKeyChainStore.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "141851581BD284D6005DF9AB"
-            BuildableName = "UICKeyChainStore-watchOS.framework"
+            BuildableName = "UICKeyChainStore.framework"
             BlueprintName = "UICKeyChainStore-watchOS"
             ReferencedContainer = "container:UICKeyChainStore.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "141851581BD284D6005DF9AB"
-            BuildableName = "UICKeyChainStore-watchOS.framework"
+            BuildableName = "UICKeyChainStore.framework"
             BlueprintName = "UICKeyChainStore-watchOS"
             ReferencedContainer = "container:UICKeyChainStore.xcodeproj">
          </BuildableReference>
