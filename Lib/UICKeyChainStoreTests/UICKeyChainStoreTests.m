@@ -1399,7 +1399,7 @@
 #if TARGET_OS_IPHONE
     NSString *description = @"(\n" \
     @"    {\n"
-    @"    accessGroup = test;\n" \
+    @"    accessGroup = \"\";\n" \
     @"    accessibility = ck;\n" \
     @"    class = GenericPassword;\n" \
     @"    key = kishikawakatsumi;\n" \
@@ -1407,7 +1407,7 @@
     @"    synchronizable = 0;\n" \
     @"    value = \"01234567-89ab-cdef-0123-456789abcdef\";\n" \
     @"}    {\n" \
-    @"    accessGroup = test;\n" \
+    @"    accessGroup = \"\";\n" \
     @"    accessibility = ck;\n" \
     @"    class = GenericPassword;\n" \
     @"    key = hirohamada;\n" \
@@ -1415,7 +1415,7 @@
     @"    synchronizable = 0;\n" \
     @"    value = \"00000000-89ab-cdef-0000-456789abcdef\";\n" \
     @"}    {\n" \
-    @"    accessGroup = test;\n" \
+    @"    accessGroup = \"\";\n" \
     @"    accessibility = ck;\n" \
     @"    class = GenericPassword;\n" \
     @"    key = honeylemon;\n" \
