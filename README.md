@@ -1,16 +1,12 @@
 # UICKeyChainStore
 [![CI Status](http://img.shields.io/travis/kishikawakatsumi/UICKeyChainStore.svg?style=flat)](https://travis-ci.org/kishikawakatsumi/UICKeyChainStore)
 [![Coverage Status](https://img.shields.io/coveralls/kishikawakatsumi/UICKeyChainStore.svg?style=flat)](https://coveralls.io/r/kishikawakatsumi/UICKeyChainStore?branch=master)
-[![Carthage Compatibility](https://img.shields.io/badge/carthage-✓-f2a77e.svg?style=flat)](https://github.com/Carthage/Carthage/)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Version](https://img.shields.io/cocoapods/v/UICKeyChainStore.svg?style=flat)](http://cocoadocs.org/docsets/UICKeyChainStore)
 [![License](https://img.shields.io/cocoapods/l/UICKeyChainStore.svg?style=flat)](http://cocoadocs.org/docsets/UICKeyChainStore)
 [![Platform](https://img.shields.io/cocoapods/p/UICKeyChainStore.svg?style=flat)](http://cocoadocs.org/docsets/UICKeyChainStore)
 
 UICKeyChainStore is a simple wrapper for Keychain that works on iOS and OS X. Makes using Keychain APIs as easy as NSUserDefaults.
-
-**A watchOS 2 compatible version is in the works. Check out the [`watchos-2` branch](https://github.com/kishikawakatsumi/UICKeyChainStore/tree/watchos-2).**
-
-- **[Install via CocoaPods](#watchos2-cocoapods)**
 
 ## Looking for the library written in Swift?
 
@@ -30,6 +26,7 @@ Try [KeychainAccess](https://github.com/kishikawakatsumi/KeychainAccess).
 - **[Support TouchID and Keychain integration (iOS 8+)](#touch_id_integration)**
 - **[Support Shared Web Credentials (iOS 8+)](#shared_web_credentials)**
 - Works on both iOS & OS X
+- Supported watchOS 2
 
 ## Usage
 
@@ -521,26 +518,18 @@ it, simply add the following line to your Podfile:
 
 `pod 'UICKeyChainStore'`
 
-##### <a name="watchos2-cocoapods"> For watchOS 2
-
-You should install CocoaPods 0.38.0.beta2.
-
-```shell
-[sudo] gem install cocoapods --pre
-```
-
-Then, add the following lines to your Podfile:
+##### For watchOS 2
 
 ```ruby
 use_frameworks!
 
 target 'EampleApp' do
-  pod 'KeychainAccess', :git => 'git@github.com:kishikawakatsumi/UICKeyChainStore.git', :branch => 'watchos-2'
+  pod 'UICKeyChainStore'
 end
 
 target 'EampleApp WatchKit Extension' do
   platform :watchos, '2.0'
-  pod 'KeychainAccess', :git => 'git@github.com:kishikawakatsumi/UICKeyChainStore.git', :branch => 'watchos-2'
+  pod 'UICKeyChainStore'
 end
 ```
 
