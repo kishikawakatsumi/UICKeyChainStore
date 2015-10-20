@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                  = "UICKeyChainStore"
-  s.version               = "2.0.7"
+  s.version               = "2.0.8"
   s.summary               = "UICKeyChainStore is a simple wrapper for Keychain that works on iOS and OS X. Makes using Keychain APIs as easy as NSUserDefaults."
   s.description           = <<-DESC
                             UICKeyChainStore is a simple wrapper for Keychain that works on iOS and OS X.
@@ -23,6 +23,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = "4.3"
   s.osx.deployment_target = "10.7"
   s.watchos.deployment_target = '2.0'
+  s.tvos.deployment_target = '9.0'
   s.requires_arc          = true
 
   s.source_files          = "Lib/UICKeyChainStore/*.{h,m}"
