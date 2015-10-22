@@ -23,6 +23,9 @@
 #if __has_extension(objc_generics)
 #define UIC_KEY_TYPE <NSString *>
 #define UIC_CREDENTIAL_TYPE <NSDictionary <NSString *, NSString *>*>
+#else
+#define UIC_KEY_TYPE
+#define UIC_CREDENTIAL_TYPE
 #endif
 
 NS_ASSUME_NONNULL_BEGIN
