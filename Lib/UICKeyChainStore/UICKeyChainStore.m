@@ -532,7 +532,7 @@ static NSString *_defaultService;
     } else if (floor(NSFoundationVersionNumber) > floor(1047.25)) { // iOS 8+
         query[(__bridge __strong id)kSecUseNoAuthenticationUI] = (__bridge id)kCFBooleanTrue;
     }
-#elif TARGET_OS_WATCH
+#elif TARGET_OS_WATCH || TARGET_OS_TV
     query[(__bridge __strong id)kSecUseAuthenticationUI] = (__bridge id)kSecUseAuthenticationUIFail;
 #endif
     
@@ -729,7 +729,7 @@ static NSString *_defaultService;
 - (BOOL)removeAllItemsWithError:(NSError *__autoreleasing *)error
 {
     NSMutableDictionary *query = [self query];
-#if !TARGET_OS_IOS && !TARGET_OS_WATCH
+#if !TARGET_OS_IPHONE
     query[(__bridge id)kSecMatchLimit] = (__bridge id)kSecMatchLimitAll;
 #endif
     
@@ -823,7 +823,7 @@ static NSString *_defaultService;
     query[(__bridge __strong id)kSecClass] = (__bridge id)itemClassObject;
     query[(__bridge __strong id)kSecMatchLimit] = (__bridge id)kSecMatchLimitAll;
     query[(__bridge __strong id)kSecReturnAttributes] = (__bridge id)kCFBooleanTrue;
-#if TARGET_OS_IOS || TARGET_OS_WATCH
+#if TARGET_OS_IPHONE
     query[(__bridge __strong id)kSecReturnData] = (__bridge id)kCFBooleanTrue;
 #endif
     
@@ -851,7 +851,7 @@ static NSString *_defaultService;
     NSMutableDictionary *query = [self query];
     query[(__bridge __strong id)kSecMatchLimit] = (__bridge id)kSecMatchLimitAll;
     query[(__bridge __strong id)kSecReturnAttributes] = (__bridge id)kCFBooleanTrue;
-#if TARGET_OS_IOS || TARGET_OS_WATCH
+#if TARGET_OS_IPHONE
     query[(__bridge __strong id)kSecReturnData] = (__bridge id)kCFBooleanTrue;
 #endif
     
@@ -1364,7 +1364,7 @@ static NSString *_defaultService;
 + (NSError *)securityError:(OSStatus)status
 {
     NSString *message = @"Security error has occurred.";
-#if TARGET_OS_MAC && !TARGET_OS_IPHONE && !TARGET_OS_IOS && !TARGET_OS_WATCH && !TARGET_OS_TV
+#if TARGET_OS_MAC && !TARGET_OS_IPHONE
     CFStringRef description = SecCopyErrorMessageString(status, NULL);
     if (description) {
         message = (__bridge_transfer NSString *)description;

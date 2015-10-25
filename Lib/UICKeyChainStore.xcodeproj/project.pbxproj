@@ -10,6 +10,12 @@
 		141851611BD28535005DF9AB /* UICKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A59CD71A62D4C3006561CC /* UICKeyChainStore.m */; };
 		141851621BD2853D005DF9AB /* UICKeyChainStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 14A59CA21A62CF6E006561CC /* UICKeyChainStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		145BF4AC1A6A688800D01D0D /* UICKeyChainStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 14A59CA21A62CF6E006561CC /* UICKeyChainStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		148F1C0F1BDCD829000AE481 /* UICKeyChainStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 148F1C0E1BDCD829000AE481 /* UICKeyChainStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		148F1C161BDCD829000AE481 /* UICKeyChainStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 148F1C0C1BDCD829000AE481 /* UICKeyChainStore.framework */; };
+		148F1C1B1BDCD829000AE481 /* UICKeyChainStoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 148F1C1A1BDCD829000AE481 /* UICKeyChainStoreTests.m */; };
+		148F1C231BDCD878000AE481 /* UICKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A59CD71A62D4C3006561CC /* UICKeyChainStore.m */; };
+		148F1C241BDCD8DF000AE481 /* UICKeyChainStoreForwardCompatibilityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACDC2881A931CE900C7A63A /* UICKeyChainStoreForwardCompatibilityTests.m */; };
+		148F1C251BDCD8E0000AE481 /* UICv1KeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACDC27E1A931BCE00C7A63A /* UICv1KeyChainStore.m */; };
 		14A59CA31A62CF6E006561CC /* UICKeyChainStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 14A59CA21A62CF6E006561CC /* UICKeyChainStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		14A59CA91A62CF6E006561CC /* UICKeyChainStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14A59C9D1A62CF6E006561CC /* UICKeyChainStore.framework */; };
 		14A59CB01A62CF6E006561CC /* UICKeyChainStoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A59CAF1A62CF6E006561CC /* UICKeyChainStoreTests.m */; };
@@ -34,6 +40,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		148F1C171BDCD829000AE481 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 14A59C941A62CF6E006561CC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 148F1C0B1BDCD829000AE481;
+			remoteInfo = UICKeyChainStore;
+		};
 		14A59CAA1A62CF6E006561CC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 14A59C941A62CF6E006561CC /* Project object */;
@@ -78,6 +91,12 @@
 
 /* Begin PBXFileReference section */
 		141851591BD284D6005DF9AB /* UICKeyChainStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UICKeyChainStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		148F1C0C1BDCD829000AE481 /* UICKeyChainStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UICKeyChainStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		148F1C0E1BDCD829000AE481 /* UICKeyChainStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UICKeyChainStore.h; sourceTree = "<group>"; };
+		148F1C101BDCD829000AE481 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		148F1C151BDCD829000AE481 /* UICKeyChainStore-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UICKeyChainStore-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		148F1C1A1BDCD829000AE481 /* UICKeyChainStoreTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UICKeyChainStoreTests.m; sourceTree = "<group>"; };
+		148F1C1C1BDCD829000AE481 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14A59C9D1A62CF6E006561CC /* UICKeyChainStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UICKeyChainStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		14A59CA11A62CF6E006561CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14A59CA21A62CF6E006561CC /* UICKeyChainStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UICKeyChainStore.h; sourceTree = "<group>"; };
@@ -101,6 +120,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		148F1C081BDCD829000AE481 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		148F1C121BDCD829000AE481 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				148F1C161BDCD829000AE481 /* UICKeyChainStore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,11 +201,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		148F1C0D1BDCD829000AE481 /* UICKeyChainStore */ = {
+			isa = PBXGroup;
+			children = (
+				148F1C0E1BDCD829000AE481 /* UICKeyChainStore.h */,
+				148F1C101BDCD829000AE481 /* Info.plist */,
+			);
+			path = UICKeyChainStore;
+			sourceTree = "<group>";
+		};
+		148F1C191BDCD829000AE481 /* UICKeyChainStoreTests */ = {
+			isa = PBXGroup;
+			children = (
+				148F1C1A1BDCD829000AE481 /* UICKeyChainStoreTests.m */,
+				148F1C1C1BDCD829000AE481 /* Info.plist */,
+			);
+			path = UICKeyChainStoreTests;
+			sourceTree = "<group>";
+		};
 		14A59C931A62CF6E006561CC = {
 			isa = PBXGroup;
 			children = (
 				14A59C9F1A62CF6E006561CC /* UICKeyChainStore */,
 				14A59CAC1A62CF6E006561CC /* UICKeyChainStoreTests */,
+				148F1C0D1BDCD829000AE481 /* UICKeyChainStore */,
+				148F1C191BDCD829000AE481 /* UICKeyChainStoreTests */,
 				14A59C9E1A62CF6E006561CC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -188,6 +242,8 @@
 				14A59D1C1A62F4DA006561CC /* libUICKeyChainStore.a */,
 				14A59D261A62F4DA006561CC /* libUICKeyChainStore-MacTests.xctest */,
 				141851591BD284D6005DF9AB /* UICKeyChainStore.framework */,
+				148F1C0C1BDCD829000AE481 /* UICKeyChainStore.framework */,
+				148F1C151BDCD829000AE481 /* UICKeyChainStore-tvOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -249,6 +305,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		148F1C091BDCD829000AE481 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				148F1C0F1BDCD829000AE481 /* UICKeyChainStore.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		14A59C9A1A62CF6E006561CC /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -292,6 +356,42 @@
 			productName = "UICKeyChainStore-watchOS";
 			productReference = 141851591BD284D6005DF9AB /* UICKeyChainStore.framework */;
 			productType = "com.apple.product-type.framework";
+		};
+		148F1C0B1BDCD829000AE481 /* UICKeyChainStore-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 148F1C211BDCD829000AE481 /* Build configuration list for PBXNativeTarget "UICKeyChainStore-tvOS" */;
+			buildPhases = (
+				148F1C071BDCD829000AE481 /* Sources */,
+				148F1C081BDCD829000AE481 /* Frameworks */,
+				148F1C091BDCD829000AE481 /* Headers */,
+				148F1C0A1BDCD829000AE481 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "UICKeyChainStore-tvOS";
+			productName = UICKeyChainStore;
+			productReference = 148F1C0C1BDCD829000AE481 /* UICKeyChainStore.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		148F1C141BDCD829000AE481 /* UICKeyChainStore-tvOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 148F1C221BDCD829000AE481 /* Build configuration list for PBXNativeTarget "UICKeyChainStore-tvOSTests" */;
+			buildPhases = (
+				148F1C111BDCD829000AE481 /* Sources */,
+				148F1C121BDCD829000AE481 /* Frameworks */,
+				148F1C131BDCD829000AE481 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				148F1C181BDCD829000AE481 /* PBXTargetDependency */,
+			);
+			name = "UICKeyChainStore-tvOSTests";
+			productName = UICKeyChainStoreTests;
+			productReference = 148F1C151BDCD829000AE481 /* UICKeyChainStore-tvOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		14A59C9C1A62CF6E006561CC /* UICKeyChainStore-iOS */ = {
 			isa = PBXNativeTarget;
@@ -447,6 +547,12 @@
 					141851581BD284D6005DF9AB = {
 						CreatedOnToolsVersion = 7.0.1;
 					};
+					148F1C0B1BDCD829000AE481 = {
+						CreatedOnToolsVersion = 7.1;
+					};
+					148F1C141BDCD829000AE481 = {
+						CreatedOnToolsVersion = 7.1;
+					};
 					14A59C9C1A62CF6E006561CC = {
 						CreatedOnToolsVersion = 6.1.1;
 					};
@@ -494,12 +600,28 @@
 				14A59D1B1A62F4DA006561CC /* libUICKeyChainStore-Mac */,
 				14A59D251A62F4DA006561CC /* libUICKeyChainStore-MacTests */,
 				141851581BD284D6005DF9AB /* UICKeyChainStore-watchOS */,
+				148F1C0B1BDCD829000AE481 /* UICKeyChainStore-tvOS */,
+				148F1C141BDCD829000AE481 /* UICKeyChainStore-tvOSTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		141851571BD284D6005DF9AB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		148F1C0A1BDCD829000AE481 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		148F1C131BDCD829000AE481 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -556,6 +678,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				141851611BD28535005DF9AB /* UICKeyChainStore.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		148F1C071BDCD829000AE481 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				148F1C231BDCD878000AE481 /* UICKeyChainStore.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		148F1C111BDCD829000AE481 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				148F1C1B1BDCD829000AE481 /* UICKeyChainStoreTests.m in Sources */,
+				148F1C241BDCD8DF000AE481 /* UICKeyChainStoreForwardCompatibilityTests.m in Sources */,
+				148F1C251BDCD8E0000AE481 /* UICv1KeyChainStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -634,6 +774,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		148F1C181BDCD829000AE481 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 148F1C0B1BDCD829000AE481 /* UICKeyChainStore-tvOS */;
+			targetProxy = 148F1C171BDCD829000AE481 /* PBXContainerItemProxy */;
+		};
 		14A59CAB1A62CF6E006561CC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 14A59C9C1A62CF6E006561CC /* UICKeyChainStore-iOS */;
@@ -697,6 +842,78 @@
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		148F1C1D1BDCD829000AE481 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = UICKeyChainStore/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kishikawakatsumi.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(PROJECT_NAME)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		148F1C1E1BDCD829000AE481 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = UICKeyChainStore/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kishikawakatsumi.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(PROJECT_NAME)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Release;
+		};
+		148F1C1F1BDCD829000AE481 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = UICKeyChainStoreTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kishikawakatsumi.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		148F1C201BDCD829000AE481 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = UICKeyChainStoreTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kishikawakatsumi.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Release;
 		};
@@ -1051,6 +1268,23 @@
 			buildConfigurations = (
 				1418515E1BD284D6005DF9AB /* Debug */,
 				1418515F1BD284D6005DF9AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		148F1C211BDCD829000AE481 /* Build configuration list for PBXNativeTarget "UICKeyChainStore-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				148F1C1D1BDCD829000AE481 /* Debug */,
+				148F1C1E1BDCD829000AE481 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		148F1C221BDCD829000AE481 /* Build configuration list for PBXNativeTarget "UICKeyChainStore-tvOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				148F1C1F1BDCD829000AE481 /* Debug */,
+				148F1C201BDCD829000AE481 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
