@@ -1463,6 +1463,9 @@
     XCTAssertNotNil(error);
 }
 
+#pragma mark -
+
+#if !__has_feature(nullability)
 - (void)testArgumentError
 {
     UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithService:@"Twitter"];
@@ -1471,6 +1474,9 @@
     [store setString:@"kishikawakatsumi" forKey:nil error:&error];
     XCTAssertNotNil(error);
 }
+#endif
+
+#pragma mark -
 
 - (void)testProtocolTypeAndAuthenticationTypePrivateMethod
 {
