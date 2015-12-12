@@ -1,24 +1,18 @@
 require 'xcjobs'
 
 def destinations
-  if ENV['CIRCLECI']
-      [ 'name=iPhone 6,OS=9.0',
-        'name=iPhone 6 Plus,OS=9.0'
-      ]
-  else
-    [ 'name=iPad 2,OS=8.1',
-      'name=iPad Air,OS=8.1',
-      'name=iPhone 4s,OS=8.1',
-      'name=iPhone 5,OS=8.1',
-      'name=iPhone 5s,OS=8.1',
-      'name=iPhone 6,OS=8.1',
-      'name=iPhone 6 Plus,OS=8.1',
-      'name=iPhone 6,OS=9.0',
-      'name=iPhone 6 Plus,OS=9.0',
-      'name=iPhone 6,OS=9.1',
-      'name=iPhone 6 Plus,OS=9.1'
-    ]
-  end
+  [ 'name=iPad 2,OS=8.1',
+    'name=iPad Air,OS=8.1',
+    'name=iPhone 4s,OS=8.1',
+    'name=iPhone 5,OS=8.1',
+    'name=iPhone 5s,OS=8.1',
+    'name=iPhone 6,OS=8.1',
+    'name=iPhone 6 Plus,OS=8.1',
+    'name=iPhone 6,OS=9.0',
+    'name=iPhone 6 Plus,OS=9.0',
+    'name=iPhone 6,OS=9.1',
+    'name=iPhone 6 Plus,OS=9.1'
+  ]
 end
 
 XCJobs::Build.new('build:ios:simulator') do |t|
