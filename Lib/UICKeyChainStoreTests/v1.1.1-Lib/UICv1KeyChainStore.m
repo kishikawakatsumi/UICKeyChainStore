@@ -577,10 +577,10 @@ static NSString *_defaultService;
     NSMutableArray *list = [[NSMutableArray alloc] initWithCapacity:items.count];
     for (NSDictionary *attributes in items) {
         NSMutableDictionary *attrs = [[NSMutableDictionary alloc] init];
-        [attrs setObject:[attributes objectForKey:(__bridge id)kSecAttrService] forKey:@"Service"];
-        [attrs setObject:[attributes objectForKey:(__bridge id)kSecAttrAccount] forKey:@"Account"];
+        [attrs setObject:(id)[attributes objectForKey:(__bridge id)kSecAttrService] forKey:@"Service"];
+        [attrs setObject:(id)[attributes objectForKey:(__bridge id)kSecAttrAccount] forKey:@"Account"];
 #if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
-        [attrs setObject:[attributes objectForKey:(__bridge id)kSecAttrAccessGroup] forKey:@"AccessGroup"];
+        [attrs setObject:(id)[attributes objectForKey:(__bridge id)kSecAttrAccessGroup] forKey:@"AccessGroup"];
 #endif
         NSData *data = [attributes objectForKey:(__bridge id)kSecValueData];
         NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];

@@ -33,8 +33,8 @@
     
     [[UICKeyChainStore keyChainStoreWithService:@"Twitter" accessGroup:@"12ABCD3E4F.shared"] removeAllItems];
     [[UICKeyChainStore keyChainStoreWithService:@"Twitter"] removeAllItems];
-    
-    [[UICKeyChainStore keyChainStoreWithServer:[NSURL URLWithString:@"https://example.com"] protocolType:UICKeyChainStoreProtocolTypeHTTPS] removeAllItems];
+
+    [[UICKeyChainStore keyChainStoreWithServer:(NSURL *)[NSURL URLWithString:@"https://example.com"] protocolType:UICKeyChainStoreProtocolTypeHTTPS] removeAllItems];
     
     [[UICKeyChainStore keyChainStore] removeAllItems];
 }
@@ -136,7 +136,7 @@
 {
     {
         // Add Keychain items
-        UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithServer:[NSURL URLWithString:@"https://kishikawakatsumi.com"] protocolType:UICKeyChainStoreProtocolTypeHTTPS];
+        UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithServer:(NSURL *)[NSURL URLWithString:@"https://kishikawakatsumi.com"] protocolType:UICKeyChainStoreProtocolTypeHTTPS];
         
         [keychain setString:@"kishikawa_katsumi" forKey:@"username"];
         [keychain setString:@"password_1234" forKey:@"password"];
@@ -150,7 +150,7 @@
     
     {
         // Update Keychain items
-        UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithServer:[NSURL URLWithString:@"https://kishikawakatsumi.com"] protocolType:UICKeyChainStoreProtocolTypeHTTPS];
+        UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithServer:(NSURL *)[NSURL URLWithString:@"https://kishikawakatsumi.com"] protocolType:UICKeyChainStoreProtocolTypeHTTPS];
         
         [keychain setString:@"katsumi_kishikawa" forKey:@"username"];
         [keychain setString:@"1234_password" forKey:@"password"];
@@ -164,7 +164,7 @@
     
     {
         // Remove Keychain items
-        UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithServer:[NSURL URLWithString:@"https://kishikawakatsumi.com"] protocolType:UICKeyChainStoreProtocolTypeHTTPS];
+        UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithServer:(NSURL *)[NSURL URLWithString:@"https://kishikawakatsumi.com"] protocolType:UICKeyChainStoreProtocolTypeHTTPS];
         
         [keychain removeItemForKey:@"username"];
         [keychain removeItemForKey:@"password"];
@@ -178,7 +178,7 @@
 {
     {
         // Add Keychain items
-        UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithServer:[NSURL URLWithString:@"https://kishikawakatsumi.com"] protocolType:UICKeyChainStoreProtocolTypeHTTPS];
+        UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithServer:(NSURL *)[NSURL URLWithString:@"https://kishikawakatsumi.com"] protocolType:UICKeyChainStoreProtocolTypeHTTPS];
         
         keychain[@"username"] = @"kishikawa_katsumi";
         keychain[@"password"] = @"password_1234";
@@ -192,7 +192,7 @@
     
     {
         // Update Keychain items
-        UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithServer:[NSURL URLWithString:@"https://kishikawakatsumi.com"] protocolType:UICKeyChainStoreProtocolTypeHTTPS];
+        UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithServer:(NSURL *)[NSURL URLWithString:@"https://kishikawakatsumi.com"] protocolType:UICKeyChainStoreProtocolTypeHTTPS];
         
         keychain[@"username"] = @"katsumi_kishikawa";
         keychain[@"password"] = @"1234_password";
@@ -206,7 +206,7 @@
     
     {
         // Remove Keychain items
-        UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithServer:[NSURL URLWithString:@"https://kishikawakatsumi.com"] protocolType:UICKeyChainStoreProtocolTypeHTTPS];
+        UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithServer:(NSURL *)[NSURL URLWithString:@"https://kishikawakatsumi.com"] protocolType:UICKeyChainStoreProtocolTypeHTTPS];
         
         keychain[@"username"] = nil;
         keychain[@"password"] = nil;
@@ -501,7 +501,7 @@
         XCTAssertTrue(succeeded, "succeeded");
     }
     {
-        UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithServer:[NSURL URLWithString:@"https://kishikawakatsumi.com"] protocolType:UICKeyChainStoreProtocolTypeHTTPS];
+        UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithServer:(NSURL *)[NSURL URLWithString:@"https://kishikawakatsumi.com"] protocolType:UICKeyChainStoreProtocolTypeHTTPS];
         
         NSError *error = nil;
         BOOL succeeded = [keychain removeAllItemsWithError:&error];
@@ -1163,7 +1163,7 @@
 
 - (void)testGetAllKeys2
 {
-    UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithServer:[NSURL URLWithString:@"https://kishikawakatsumi.com"] protocolType:UICKeyChainStoreProtocolTypeHTTPS];
+    UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithServer:(NSURL *)[NSURL URLWithString:@"https://kishikawakatsumi.com"] protocolType:UICKeyChainStoreProtocolTypeHTTPS];
     [store removeAllItems];
     
     [store setString:@"01234567-89ab-cdef-0123-456789abcdef" forKey:@"kishikawakatsumi"];
@@ -1233,7 +1233,7 @@
 
 - (void)testGetAllItems2
 {
-    UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithServer:[NSURL URLWithString:@"https://kishikawakatsumi.com"] protocolType:UICKeyChainStoreProtocolTypeHTTPS];
+    UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithServer:(NSURL *)[NSURL URLWithString:@"https://kishikawakatsumi.com"] protocolType:UICKeyChainStoreProtocolTypeHTTPS];
     [store removeAllItems];
     
     [store setString:@"01234567-89ab-cdef-0123-456789abcdef" forKey:@"kishikawakatsumi"];
@@ -1300,7 +1300,7 @@
     NSMutableArray *keys = [[NSMutableArray alloc] init];
     for (NSDictionary *keyAndService in allKeysAndServices) {
         if ([keyAndService[@"service"] isEqualToString:@"github.com"]) {
-            [keys addObject:keyAndService[@"key"]];
+            [keys addObject:(NSString *)keyAndService[@"key"]];
         }
     }
     
@@ -1462,8 +1462,6 @@
     XCTAssertNil(s);
     XCTAssertNotNil(error);
 }
-
-#pragma mark -
 
 #if !__has_feature(nullability)
 - (void)testArgumentError
