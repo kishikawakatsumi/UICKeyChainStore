@@ -10,9 +10,7 @@
 		141851611BD28535005DF9AB /* UICKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A59CD71A62D4C3006561CC /* UICKeyChainStore.m */; };
 		141851621BD2853D005DF9AB /* UICKeyChainStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 14A59CA21A62CF6E006561CC /* UICKeyChainStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		145BF4AC1A6A688800D01D0D /* UICKeyChainStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 14A59CA21A62CF6E006561CC /* UICKeyChainStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		148F1C0F1BDCD829000AE481 /* UICKeyChainStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 148F1C0E1BDCD829000AE481 /* UICKeyChainStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		148F1C161BDCD829000AE481 /* UICKeyChainStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 148F1C0C1BDCD829000AE481 /* UICKeyChainStore.framework */; };
-		148F1C1B1BDCD829000AE481 /* UICKeyChainStoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 148F1C1A1BDCD829000AE481 /* UICKeyChainStoreTests.m */; };
 		148F1C231BDCD878000AE481 /* UICKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A59CD71A62D4C3006561CC /* UICKeyChainStore.m */; };
 		148F1C241BDCD8DF000AE481 /* UICKeyChainStoreForwardCompatibilityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACDC2881A931CE900C7A63A /* UICKeyChainStoreForwardCompatibilityTests.m */; };
 		148F1C251BDCD8E0000AE481 /* UICv1KeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACDC27E1A931BCE00C7A63A /* UICv1KeyChainStore.m */; };
@@ -92,11 +90,7 @@
 /* Begin PBXFileReference section */
 		141851591BD284D6005DF9AB /* UICKeyChainStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UICKeyChainStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		148F1C0C1BDCD829000AE481 /* UICKeyChainStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UICKeyChainStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		148F1C0E1BDCD829000AE481 /* UICKeyChainStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UICKeyChainStore.h; sourceTree = "<group>"; };
-		148F1C101BDCD829000AE481 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		148F1C151BDCD829000AE481 /* UICKeyChainStore-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UICKeyChainStore-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		148F1C1A1BDCD829000AE481 /* UICKeyChainStoreTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UICKeyChainStoreTests.m; sourceTree = "<group>"; };
-		148F1C1C1BDCD829000AE481 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14A59C9D1A62CF6E006561CC /* UICKeyChainStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UICKeyChainStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		14A59CA11A62CF6E006561CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14A59CA21A62CF6E006561CC /* UICKeyChainStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UICKeyChainStore.h; sourceTree = "<group>"; };
@@ -201,31 +195,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		148F1C0D1BDCD829000AE481 /* UICKeyChainStore */ = {
-			isa = PBXGroup;
-			children = (
-				148F1C0E1BDCD829000AE481 /* UICKeyChainStore.h */,
-				148F1C101BDCD829000AE481 /* Info.plist */,
-			);
-			path = UICKeyChainStore;
-			sourceTree = "<group>";
-		};
-		148F1C191BDCD829000AE481 /* UICKeyChainStoreTests */ = {
-			isa = PBXGroup;
-			children = (
-				148F1C1A1BDCD829000AE481 /* UICKeyChainStoreTests.m */,
-				148F1C1C1BDCD829000AE481 /* Info.plist */,
-			);
-			path = UICKeyChainStoreTests;
-			sourceTree = "<group>";
-		};
 		14A59C931A62CF6E006561CC = {
 			isa = PBXGroup;
 			children = (
 				14A59C9F1A62CF6E006561CC /* UICKeyChainStore */,
 				14A59CAC1A62CF6E006561CC /* UICKeyChainStoreTests */,
-				148F1C0D1BDCD829000AE481 /* UICKeyChainStore */,
-				148F1C191BDCD829000AE481 /* UICKeyChainStoreTests */,
 				14A59C9E1A62CF6E006561CC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -309,7 +283,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				148F1C0F1BDCD829000AE481 /* UICKeyChainStore.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -693,7 +666,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				148F1C1B1BDCD829000AE481 /* UICKeyChainStoreTests.m in Sources */,
 				148F1C241BDCD8DF000AE481 /* UICKeyChainStoreForwardCompatibilityTests.m in Sources */,
 				148F1C251BDCD8E0000AE481 /* UICv1KeyChainStore.m in Sources */,
 			);

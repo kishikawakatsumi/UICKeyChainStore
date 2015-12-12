@@ -768,7 +768,10 @@ static NSString *_defaultService;
     NSArray *items = [self.class prettify:[self itemClassObject] items:[self items]];
     NSMutableArray *keys = [[NSMutableArray alloc] init];
     for (NSDictionary *item in items) {
-        [keys addObject:item[@"key"]];
+        NSString *key = item[@"key"];
+        if (key) {
+            [keys addObject:key];
+        }
     }
     return keys.copy;
 }
@@ -1064,7 +1067,7 @@ static NSString *_defaultService;
 
 + (NSString *)generatePassword
 {
-    return CFBridgingRelease(SecCreateSharedWebCredentialPassword());
+    return (NSString *)CFBridgingRelease(SecCreateSharedWebCredentialPassword());
 }
 
 #endif
