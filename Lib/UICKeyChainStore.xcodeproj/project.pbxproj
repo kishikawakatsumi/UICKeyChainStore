@@ -7,76 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		141851611BD28535005DF9AB /* UICKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A59CD71A62D4C3006561CC /* UICKeyChainStore.m */; };
-		141851621BD2853D005DF9AB /* UICKeyChainStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 14A59CA21A62CF6E006561CC /* UICKeyChainStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		145BF4AC1A6A688800D01D0D /* UICKeyChainStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 14A59CA21A62CF6E006561CC /* UICKeyChainStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		148F1C161BDCD829000AE481 /* UICKeyChainStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 148F1C0C1BDCD829000AE481 /* UICKeyChainStore.framework */; };
-		148F1C231BDCD878000AE481 /* UICKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A59CD71A62D4C3006561CC /* UICKeyChainStore.m */; };
-		148F1C241BDCD8DF000AE481 /* UICKeyChainStoreForwardCompatibilityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACDC2881A931CE900C7A63A /* UICKeyChainStoreForwardCompatibilityTests.m */; };
-		148F1C251BDCD8E0000AE481 /* UICv1KeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACDC27E1A931BCE00C7A63A /* UICv1KeyChainStore.m */; };
-		14A59CA31A62CF6E006561CC /* UICKeyChainStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 14A59CA21A62CF6E006561CC /* UICKeyChainStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		14A59CA91A62CF6E006561CC /* UICKeyChainStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14A59C9D1A62CF6E006561CC /* UICKeyChainStore.framework */; };
-		14A59CB01A62CF6E006561CC /* UICKeyChainStoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A59CAF1A62CF6E006561CC /* UICKeyChainStoreTests.m */; };
-		14A59CC91A62D3A2006561CC /* UICKeyChainStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14A59CBE1A62D3A1006561CC /* UICKeyChainStore.framework */; };
-		14A59CD81A62D4C3006561CC /* UICKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A59CD71A62D4C3006561CC /* UICKeyChainStore.m */; };
-		14A59CD91A62D4C3006561CC /* UICKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A59CD71A62D4C3006561CC /* UICKeyChainStore.m */; };
-		14A59CDA1A62D6B0006561CC /* UICKeyChainStoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A59CAF1A62CF6E006561CC /* UICKeyChainStoreTests.m */; };
-		14A59D091A62F336006561CC /* libUICKeyChainStore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14A59CFE1A62F336006561CC /* libUICKeyChainStore.a */; };
-		14A59D151A62F3BD006561CC /* UICKeyChainStoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A59CAF1A62CF6E006561CC /* UICKeyChainStoreTests.m */; };
-		14A59D161A62F3C0006561CC /* UICKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A59CD71A62D4C3006561CC /* UICKeyChainStore.m */; };
-		14A59D271A62F4DA006561CC /* libUICKeyChainStore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14A59D1C1A62F4DA006561CC /* libUICKeyChainStore.a */; };
-		14A59D331A62F510006561CC /* UICKeyChainStoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A59CAF1A62CF6E006561CC /* UICKeyChainStoreTests.m */; };
-		14A59D361A641129006561CC /* UICKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A59CD71A62D4C3006561CC /* UICKeyChainStore.m */; };
-		3ACDC27F1A931BCE00C7A63A /* UICv1KeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACDC27E1A931BCE00C7A63A /* UICv1KeyChainStore.m */; };
-		3ACDC2801A931BCE00C7A63A /* UICv1KeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACDC27E1A931BCE00C7A63A /* UICv1KeyChainStore.m */; };
-		3ACDC2811A931BCE00C7A63A /* UICv1KeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACDC27E1A931BCE00C7A63A /* UICv1KeyChainStore.m */; };
-		3ACDC2821A931BCE00C7A63A /* UICv1KeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACDC27E1A931BCE00C7A63A /* UICv1KeyChainStore.m */; };
-		3ACDC2891A931CE900C7A63A /* UICKeyChainStoreForwardCompatibilityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACDC2881A931CE900C7A63A /* UICKeyChainStoreForwardCompatibilityTests.m */; };
-		3ACDC28A1A931CE900C7A63A /* UICKeyChainStoreForwardCompatibilityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACDC2881A931CE900C7A63A /* UICKeyChainStoreForwardCompatibilityTests.m */; };
-		3ACDC28B1A931CE900C7A63A /* UICKeyChainStoreForwardCompatibilityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACDC2881A931CE900C7A63A /* UICKeyChainStoreForwardCompatibilityTests.m */; };
-		3ACDC28C1A931CE900C7A63A /* UICKeyChainStoreForwardCompatibilityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACDC2881A931CE900C7A63A /* UICKeyChainStoreForwardCompatibilityTests.m */; };
+		14796A481C1CD9A500169D09 /* UICKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A59CD71A62D4C3006561CC /* UICKeyChainStore.m */; };
+		14796A4B1C1CD9A500169D09 /* UICKeyChainStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 14A59CA21A62CF6E006561CC /* UICKeyChainStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		14796A561C1CD9B500169D09 /* UICKeyChainStoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A59CAF1A62CF6E006561CC /* UICKeyChainStoreTests.m */; };
+		14796A571C1CD9B500169D09 /* UICKeyChainStoreForwardCompatibilityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACDC2881A931CE900C7A63A /* UICKeyChainStoreForwardCompatibilityTests.m */; };
+		14796A581C1CD9B500169D09 /* UICv1KeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACDC27E1A931BCE00C7A63A /* UICv1KeyChainStore.m */; };
+		14796A631C1CD9C900169D09 /* UICKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A59CD71A62D4C3006561CC /* UICKeyChainStore.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		148F1C171BDCD829000AE481 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 14A59C941A62CF6E006561CC /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 148F1C0B1BDCD829000AE481;
-			remoteInfo = UICKeyChainStore;
-		};
-		14A59CAA1A62CF6E006561CC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 14A59C941A62CF6E006561CC /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 14A59C9C1A62CF6E006561CC;
-			remoteInfo = UICKeyChainStore;
-		};
-		14A59CCA1A62D3A2006561CC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 14A59C941A62CF6E006561CC /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 14A59CBD1A62D3A1006561CC;
-			remoteInfo = UICKeyChainStore;
-		};
-		14A59D0A1A62F336006561CC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 14A59C941A62CF6E006561CC /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 14A59CFD1A62F336006561CC;
-			remoteInfo = UICKeyChainStore;
-		};
-		14A59D281A62F4DA006561CC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 14A59C941A62CF6E006561CC /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 14A59D1B1A62F4DA006561CC;
-			remoteInfo = UICKeyChainStore;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
-		14A59CFC1A62F336006561CC /* CopyFiles */ = {
+		14796A651C1CD9C900169D09 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "include/$(PRODUCT_NAME)";
@@ -88,118 +28,69 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		141851591BD284D6005DF9AB /* UICKeyChainStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UICKeyChainStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		148F1C0C1BDCD829000AE481 /* UICKeyChainStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UICKeyChainStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		148F1C151BDCD829000AE481 /* UICKeyChainStore-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UICKeyChainStore-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		14A59C9D1A62CF6E006561CC /* UICKeyChainStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UICKeyChainStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		143BF28E1C1CD598002BE6B3 /* Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Base.xcconfig; path = Configurations/Base.xcconfig; sourceTree = "<group>"; };
+		143BF28F1C1CD598002BE6B3 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Debug.xcconfig; path = Configurations/Debug.xcconfig; sourceTree = "<group>"; };
+		143BF2901C1CD598002BE6B3 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Release.xcconfig; path = Configurations/Release.xcconfig; sourceTree = "<group>"; };
+		143BF2911C1CD598002BE6B3 /* Tests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Tests.xcconfig; path = Configurations/Tests.xcconfig; sourceTree = "<group>"; };
+		143BF2921C1CD598002BE6B3 /* UICKeyChainStore.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = UICKeyChainStore.xcconfig; path = Configurations/UICKeyChainStore.xcconfig; sourceTree = "<group>"; };
+		14796A501C1CD9A500169D09 /* UICKeyChainStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UICKeyChainStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		14796A5F1C1CD9B500169D09 /* UICKeyChainStoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UICKeyChainStoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		14796A691C1CD9C900169D09 /* libUICKeyChainStore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libUICKeyChainStore.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		14796A791C1CDB8A00169D09 /* libUICKeyChainStore.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = libUICKeyChainStore.xcconfig; path = Configurations/libUICKeyChainStore.xcconfig; sourceTree = "<group>"; };
 		14A59CA11A62CF6E006561CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14A59CA21A62CF6E006561CC /* UICKeyChainStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UICKeyChainStore.h; sourceTree = "<group>"; };
-		14A59CA81A62CF6E006561CC /* UICKeyChainStore-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UICKeyChainStore-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		14A59CAE1A62CF6E006561CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14A59CAF1A62CF6E006561CC /* UICKeyChainStoreTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UICKeyChainStoreTests.m; sourceTree = "<group>"; };
-		14A59CBE1A62D3A1006561CC /* UICKeyChainStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UICKeyChainStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		14A59CC81A62D3A2006561CC /* UICKeyChainStore-MacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UICKeyChainStore-MacTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		14A59CD71A62D4C3006561CC /* UICKeyChainStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICKeyChainStore.m; sourceTree = "<group>"; };
-		14A59CFE1A62F336006561CC /* libUICKeyChainStore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libUICKeyChainStore.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		14A59D081A62F336006561CC /* libUICKeyChainStore-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "libUICKeyChainStore-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		14A59D1C1A62F4DA006561CC /* libUICKeyChainStore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libUICKeyChainStore.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		14A59D261A62F4DA006561CC /* libUICKeyChainStore-MacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "libUICKeyChainStore-MacTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ACDC27D1A931BCE00C7A63A /* UICv1KeyChainStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICv1KeyChainStore.h; sourceTree = "<group>"; };
 		3ACDC27E1A931BCE00C7A63A /* UICv1KeyChainStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICv1KeyChainStore.m; sourceTree = "<group>"; };
 		3ACDC2881A931CE900C7A63A /* UICKeyChainStoreForwardCompatibilityTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICKeyChainStoreForwardCompatibilityTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		141851551BD284D6005DF9AB /* Frameworks */ = {
+		14796A491C1CD9A500169D09 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		148F1C081BDCD829000AE481 /* Frameworks */ = {
+		14796A591C1CD9B500169D09 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		148F1C121BDCD829000AE481 /* Frameworks */ = {
+		14796A641C1CD9C900169D09 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				148F1C161BDCD829000AE481 /* UICKeyChainStore.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		14A59C991A62CF6E006561CC /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		14A59CA51A62CF6E006561CC /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				14A59CA91A62CF6E006561CC /* UICKeyChainStore.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		14A59CBA1A62D3A1006561CC /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		14A59CC51A62D3A2006561CC /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				14A59CC91A62D3A2006561CC /* UICKeyChainStore.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		14A59CFB1A62F336006561CC /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		14A59D051A62F336006561CC /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				14A59D091A62F336006561CC /* libUICKeyChainStore.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		14A59D191A62F4DA006561CC /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		14A59D231A62F4DA006561CC /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				14A59D271A62F4DA006561CC /* libUICKeyChainStore.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		143BF28D1C1CD57C002BE6B3 /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				143BF28E1C1CD598002BE6B3 /* Base.xcconfig */,
+				143BF28F1C1CD598002BE6B3 /* Debug.xcconfig */,
+				143BF2901C1CD598002BE6B3 /* Release.xcconfig */,
+				143BF2921C1CD598002BE6B3 /* UICKeyChainStore.xcconfig */,
+				14796A791C1CDB8A00169D09 /* libUICKeyChainStore.xcconfig */,
+				143BF2911C1CD598002BE6B3 /* Tests.xcconfig */,
+			);
+			name = Configurations;
+			sourceTree = "<group>";
+		};
 		14A59C931A62CF6E006561CC = {
 			isa = PBXGroup;
 			children = (
 				14A59C9F1A62CF6E006561CC /* UICKeyChainStore */,
 				14A59CAC1A62CF6E006561CC /* UICKeyChainStoreTests */,
+				143BF28D1C1CD57C002BE6B3 /* Configurations */,
 				14A59C9E1A62CF6E006561CC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -207,17 +98,9 @@
 		14A59C9E1A62CF6E006561CC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				14A59C9D1A62CF6E006561CC /* UICKeyChainStore.framework */,
-				14A59CA81A62CF6E006561CC /* UICKeyChainStore-iOSTests.xctest */,
-				14A59CBE1A62D3A1006561CC /* UICKeyChainStore.framework */,
-				14A59CC81A62D3A2006561CC /* UICKeyChainStore-MacTests.xctest */,
-				14A59CFE1A62F336006561CC /* libUICKeyChainStore.a */,
-				14A59D081A62F336006561CC /* libUICKeyChainStore-iOSTests.xctest */,
-				14A59D1C1A62F4DA006561CC /* libUICKeyChainStore.a */,
-				14A59D261A62F4DA006561CC /* libUICKeyChainStore-MacTests.xctest */,
-				141851591BD284D6005DF9AB /* UICKeyChainStore.framework */,
-				148F1C0C1BDCD829000AE481 /* UICKeyChainStore.framework */,
-				148F1C151BDCD829000AE481 /* UICKeyChainStore-tvOSTests.xctest */,
+				14796A501C1CD9A500169D09 /* UICKeyChainStore.framework */,
+				14796A5F1C1CD9B500169D09 /* UICKeyChainStoreTests.xctest */,
+				14796A691C1CD9C900169D09 /* libUICKeyChainStore.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -271,242 +154,68 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		141851561BD284D6005DF9AB /* Headers */ = {
+		14796A4A1C1CD9A500169D09 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				141851621BD2853D005DF9AB /* UICKeyChainStore.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		148F1C091BDCD829000AE481 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		14A59C9A1A62CF6E006561CC /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				14A59CA31A62CF6E006561CC /* UICKeyChainStore.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		14A59CBB1A62D3A1006561CC /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				145BF4AC1A6A688800D01D0D /* UICKeyChainStore.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		14A59D1A1A62F4DA006561CC /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				14796A4B1C1CD9A500169D09 /* UICKeyChainStore.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		141851581BD284D6005DF9AB /* UICKeyChainStore-watchOS */ = {
+		14796A461C1CD9A500169D09 /* UICKeyChainStore */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 141851601BD284D6005DF9AB /* Build configuration list for PBXNativeTarget "UICKeyChainStore-watchOS" */;
+			buildConfigurationList = 14796A4D1C1CD9A500169D09 /* Build configuration list for PBXNativeTarget "UICKeyChainStore" */;
 			buildPhases = (
-				141851541BD284D6005DF9AB /* Sources */,
-				141851551BD284D6005DF9AB /* Frameworks */,
-				141851561BD284D6005DF9AB /* Headers */,
-				141851571BD284D6005DF9AB /* Resources */,
+				14796A471C1CD9A500169D09 /* Sources */,
+				14796A491C1CD9A500169D09 /* Frameworks */,
+				14796A4A1C1CD9A500169D09 /* Headers */,
+				14796A4C1C1CD9A500169D09 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "UICKeyChainStore-watchOS";
-			productName = "UICKeyChainStore-watchOS";
-			productReference = 141851591BD284D6005DF9AB /* UICKeyChainStore.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		148F1C0B1BDCD829000AE481 /* UICKeyChainStore-tvOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 148F1C211BDCD829000AE481 /* Build configuration list for PBXNativeTarget "UICKeyChainStore-tvOS" */;
-			buildPhases = (
-				148F1C071BDCD829000AE481 /* Sources */,
-				148F1C081BDCD829000AE481 /* Frameworks */,
-				148F1C091BDCD829000AE481 /* Headers */,
-				148F1C0A1BDCD829000AE481 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "UICKeyChainStore-tvOS";
+			name = UICKeyChainStore;
 			productName = UICKeyChainStore;
-			productReference = 148F1C0C1BDCD829000AE481 /* UICKeyChainStore.framework */;
+			productReference = 14796A501C1CD9A500169D09 /* UICKeyChainStore.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		148F1C141BDCD829000AE481 /* UICKeyChainStore-tvOSTests */ = {
+		14796A521C1CD9B500169D09 /* UICKeyChainStoreTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 148F1C221BDCD829000AE481 /* Build configuration list for PBXNativeTarget "UICKeyChainStore-tvOSTests" */;
+			buildConfigurationList = 14796A5C1C1CD9B500169D09 /* Build configuration list for PBXNativeTarget "UICKeyChainStoreTests" */;
 			buildPhases = (
-				148F1C111BDCD829000AE481 /* Sources */,
-				148F1C121BDCD829000AE481 /* Frameworks */,
-				148F1C131BDCD829000AE481 /* Resources */,
+				14796A551C1CD9B500169D09 /* Sources */,
+				14796A591C1CD9B500169D09 /* Frameworks */,
+				14796A5B1C1CD9B500169D09 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				148F1C181BDCD829000AE481 /* PBXTargetDependency */,
 			);
-			name = "UICKeyChainStore-tvOSTests";
+			name = UICKeyChainStoreTests;
 			productName = UICKeyChainStoreTests;
-			productReference = 148F1C151BDCD829000AE481 /* UICKeyChainStore-tvOSTests.xctest */;
+			productReference = 14796A5F1C1CD9B500169D09 /* UICKeyChainStoreTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		14A59C9C1A62CF6E006561CC /* UICKeyChainStore-iOS */ = {
+		14796A611C1CD9C900169D09 /* libUICKeyChainStore */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 14A59CB31A62CF6E006561CC /* Build configuration list for PBXNativeTarget "UICKeyChainStore-iOS" */;
+			buildConfigurationList = 14796A661C1CD9C900169D09 /* Build configuration list for PBXNativeTarget "libUICKeyChainStore" */;
 			buildPhases = (
-				14A59C981A62CF6E006561CC /* Sources */,
-				14A59C991A62CF6E006561CC /* Frameworks */,
-				14A59C9A1A62CF6E006561CC /* Headers */,
-				14A59C9B1A62CF6E006561CC /* Resources */,
+				14796A621C1CD9C900169D09 /* Sources */,
+				14796A641C1CD9C900169D09 /* Frameworks */,
+				14796A651C1CD9C900169D09 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "UICKeyChainStore-iOS";
+			name = libUICKeyChainStore;
 			productName = UICKeyChainStore;
-			productReference = 14A59C9D1A62CF6E006561CC /* UICKeyChainStore.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		14A59CA71A62CF6E006561CC /* UICKeyChainStore-iOSTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 14A59CB61A62CF6E006561CC /* Build configuration list for PBXNativeTarget "UICKeyChainStore-iOSTests" */;
-			buildPhases = (
-				14A59CA41A62CF6E006561CC /* Sources */,
-				14A59CA51A62CF6E006561CC /* Frameworks */,
-				14A59CA61A62CF6E006561CC /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				14A59CAB1A62CF6E006561CC /* PBXTargetDependency */,
-			);
-			name = "UICKeyChainStore-iOSTests";
-			productName = UICKeyChainStoreTests;
-			productReference = 14A59CA81A62CF6E006561CC /* UICKeyChainStore-iOSTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		14A59CBD1A62D3A1006561CC /* UICKeyChainStore-Mac */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 14A59CD11A62D3A2006561CC /* Build configuration list for PBXNativeTarget "UICKeyChainStore-Mac" */;
-			buildPhases = (
-				14A59CB91A62D3A1006561CC /* Sources */,
-				14A59CBA1A62D3A1006561CC /* Frameworks */,
-				14A59CBB1A62D3A1006561CC /* Headers */,
-				14A59CBC1A62D3A1006561CC /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "UICKeyChainStore-Mac";
-			productName = UICKeyChainStore;
-			productReference = 14A59CBE1A62D3A1006561CC /* UICKeyChainStore.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		14A59CC71A62D3A2006561CC /* UICKeyChainStore-MacTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 14A59CD41A62D3A2006561CC /* Build configuration list for PBXNativeTarget "UICKeyChainStore-MacTests" */;
-			buildPhases = (
-				14A59CC41A62D3A2006561CC /* Sources */,
-				14A59CC51A62D3A2006561CC /* Frameworks */,
-				14A59CC61A62D3A2006561CC /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				14A59CCB1A62D3A2006561CC /* PBXTargetDependency */,
-			);
-			name = "UICKeyChainStore-MacTests";
-			productName = UICKeyChainStoreTests;
-			productReference = 14A59CC81A62D3A2006561CC /* UICKeyChainStore-MacTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		14A59CFD1A62F336006561CC /* libUICKeyChainStore-iOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 14A59D0F1A62F336006561CC /* Build configuration list for PBXNativeTarget "libUICKeyChainStore-iOS" */;
-			buildPhases = (
-				14A59CFA1A62F336006561CC /* Sources */,
-				14A59CFB1A62F336006561CC /* Frameworks */,
-				14A59CFC1A62F336006561CC /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "libUICKeyChainStore-iOS";
-			productName = UICKeyChainStore;
-			productReference = 14A59CFE1A62F336006561CC /* libUICKeyChainStore.a */;
+			productReference = 14796A691C1CD9C900169D09 /* libUICKeyChainStore.a */;
 			productType = "com.apple.product-type.library.static";
-		};
-		14A59D071A62F336006561CC /* libUICKeyChainStore-iOSTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 14A59D121A62F336006561CC /* Build configuration list for PBXNativeTarget "libUICKeyChainStore-iOSTests" */;
-			buildPhases = (
-				14A59D041A62F336006561CC /* Sources */,
-				14A59D051A62F336006561CC /* Frameworks */,
-				14A59D061A62F336006561CC /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				14A59D0B1A62F336006561CC /* PBXTargetDependency */,
-			);
-			name = "libUICKeyChainStore-iOSTests";
-			productName = UICKeyChainStoreTests;
-			productReference = 14A59D081A62F336006561CC /* libUICKeyChainStore-iOSTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		14A59D1B1A62F4DA006561CC /* libUICKeyChainStore-Mac */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 14A59D2D1A62F4DA006561CC /* Build configuration list for PBXNativeTarget "libUICKeyChainStore-Mac" */;
-			buildPhases = (
-				14A59D181A62F4DA006561CC /* Sources */,
-				14A59D191A62F4DA006561CC /* Frameworks */,
-				14A59D1A1A62F4DA006561CC /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "libUICKeyChainStore-Mac";
-			productName = UICKeyChainStore;
-			productReference = 14A59D1C1A62F4DA006561CC /* libUICKeyChainStore.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		14A59D251A62F4DA006561CC /* libUICKeyChainStore-MacTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 14A59D301A62F4DA006561CC /* Build configuration list for PBXNativeTarget "libUICKeyChainStore-MacTests" */;
-			buildPhases = (
-				14A59D221A62F4DA006561CC /* Sources */,
-				14A59D231A62F4DA006561CC /* Frameworks */,
-				14A59D241A62F4DA006561CC /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				14A59D291A62F4DA006561CC /* PBXTargetDependency */,
-			);
-			name = "libUICKeyChainStore-MacTests";
-			productName = UICKeyChainStoreTests;
-			productReference = 14A59D261A62F4DA006561CC /* libUICKeyChainStore-MacTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -516,41 +225,6 @@
 			attributes = {
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "kishikawa katsumi";
-				TargetAttributes = {
-					141851581BD284D6005DF9AB = {
-						CreatedOnToolsVersion = 7.0.1;
-					};
-					148F1C0B1BDCD829000AE481 = {
-						CreatedOnToolsVersion = 7.1;
-					};
-					148F1C141BDCD829000AE481 = {
-						CreatedOnToolsVersion = 7.1;
-					};
-					14A59C9C1A62CF6E006561CC = {
-						CreatedOnToolsVersion = 6.1.1;
-					};
-					14A59CA71A62CF6E006561CC = {
-						CreatedOnToolsVersion = 6.1.1;
-					};
-					14A59CBD1A62D3A1006561CC = {
-						CreatedOnToolsVersion = 6.1.1;
-					};
-					14A59CC71A62D3A2006561CC = {
-						CreatedOnToolsVersion = 6.1.1;
-					};
-					14A59CFD1A62F336006561CC = {
-						CreatedOnToolsVersion = 6.1.1;
-					};
-					14A59D071A62F336006561CC = {
-						CreatedOnToolsVersion = 6.1.1;
-					};
-					14A59D1B1A62F4DA006561CC = {
-						CreatedOnToolsVersion = 6.1.1;
-					};
-					14A59D251A62F4DA006561CC = {
-						CreatedOnToolsVersion = 6.1.1;
-					};
-				};
 			};
 			buildConfigurationList = 14A59C971A62CF6E006561CC /* Build configuration list for PBXProject "UICKeyChainStore" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -564,79 +238,22 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				14A59C9C1A62CF6E006561CC /* UICKeyChainStore-iOS */,
-				14A59CA71A62CF6E006561CC /* UICKeyChainStore-iOSTests */,
-				14A59CBD1A62D3A1006561CC /* UICKeyChainStore-Mac */,
-				14A59CC71A62D3A2006561CC /* UICKeyChainStore-MacTests */,
-				14A59CFD1A62F336006561CC /* libUICKeyChainStore-iOS */,
-				14A59D071A62F336006561CC /* libUICKeyChainStore-iOSTests */,
-				14A59D1B1A62F4DA006561CC /* libUICKeyChainStore-Mac */,
-				14A59D251A62F4DA006561CC /* libUICKeyChainStore-MacTests */,
-				141851581BD284D6005DF9AB /* UICKeyChainStore-watchOS */,
-				148F1C0B1BDCD829000AE481 /* UICKeyChainStore-tvOS */,
-				148F1C141BDCD829000AE481 /* UICKeyChainStore-tvOSTests */,
+				14796A461C1CD9A500169D09 /* UICKeyChainStore */,
+				14796A611C1CD9C900169D09 /* libUICKeyChainStore */,
+				14796A521C1CD9B500169D09 /* UICKeyChainStoreTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		141851571BD284D6005DF9AB /* Resources */ = {
+		14796A4C1C1CD9A500169D09 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		148F1C0A1BDCD829000AE481 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		148F1C131BDCD829000AE481 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		14A59C9B1A62CF6E006561CC /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		14A59CA61A62CF6E006561CC /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		14A59CBC1A62D3A1006561CC /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		14A59CC61A62D3A2006561CC /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		14A59D061A62F336006561CC /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		14A59D241A62F4DA006561CC /* Resources */ = {
+		14796A5B1C1CD9B500169D09 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -646,630 +263,117 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		141851541BD284D6005DF9AB /* Sources */ = {
+		14796A471C1CD9A500169D09 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				141851611BD28535005DF9AB /* UICKeyChainStore.m in Sources */,
+				14796A481C1CD9A500169D09 /* UICKeyChainStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		148F1C071BDCD829000AE481 /* Sources */ = {
+		14796A551C1CD9B500169D09 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				148F1C231BDCD878000AE481 /* UICKeyChainStore.m in Sources */,
+				14796A561C1CD9B500169D09 /* UICKeyChainStoreTests.m in Sources */,
+				14796A571C1CD9B500169D09 /* UICKeyChainStoreForwardCompatibilityTests.m in Sources */,
+				14796A581C1CD9B500169D09 /* UICv1KeyChainStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		148F1C111BDCD829000AE481 /* Sources */ = {
+		14796A621C1CD9C900169D09 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				148F1C241BDCD8DF000AE481 /* UICKeyChainStoreForwardCompatibilityTests.m in Sources */,
-				148F1C251BDCD8E0000AE481 /* UICv1KeyChainStore.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		14A59C981A62CF6E006561CC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				14A59CD81A62D4C3006561CC /* UICKeyChainStore.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		14A59CA41A62CF6E006561CC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				14A59CB01A62CF6E006561CC /* UICKeyChainStoreTests.m in Sources */,
-				3ACDC2891A931CE900C7A63A /* UICKeyChainStoreForwardCompatibilityTests.m in Sources */,
-				3ACDC27F1A931BCE00C7A63A /* UICv1KeyChainStore.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		14A59CB91A62D3A1006561CC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				14A59CD91A62D4C3006561CC /* UICKeyChainStore.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		14A59CC41A62D3A2006561CC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				14A59CDA1A62D6B0006561CC /* UICKeyChainStoreTests.m in Sources */,
-				3ACDC28A1A931CE900C7A63A /* UICKeyChainStoreForwardCompatibilityTests.m in Sources */,
-				3ACDC2801A931BCE00C7A63A /* UICv1KeyChainStore.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		14A59CFA1A62F336006561CC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				14A59D161A62F3C0006561CC /* UICKeyChainStore.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		14A59D041A62F336006561CC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				14A59D151A62F3BD006561CC /* UICKeyChainStoreTests.m in Sources */,
-				3ACDC28B1A931CE900C7A63A /* UICKeyChainStoreForwardCompatibilityTests.m in Sources */,
-				3ACDC2811A931BCE00C7A63A /* UICv1KeyChainStore.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		14A59D181A62F4DA006561CC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				14A59D361A641129006561CC /* UICKeyChainStore.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		14A59D221A62F4DA006561CC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				14A59D331A62F510006561CC /* UICKeyChainStoreTests.m in Sources */,
-				3ACDC28C1A931CE900C7A63A /* UICKeyChainStoreForwardCompatibilityTests.m in Sources */,
-				3ACDC2821A931BCE00C7A63A /* UICv1KeyChainStore.m in Sources */,
+				14796A631C1CD9C900169D09 /* UICKeyChainStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		148F1C181BDCD829000AE481 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 148F1C0B1BDCD829000AE481 /* UICKeyChainStore-tvOS */;
-			targetProxy = 148F1C171BDCD829000AE481 /* PBXContainerItemProxy */;
-		};
-		14A59CAB1A62CF6E006561CC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 14A59C9C1A62CF6E006561CC /* UICKeyChainStore-iOS */;
-			targetProxy = 14A59CAA1A62CF6E006561CC /* PBXContainerItemProxy */;
-		};
-		14A59CCB1A62D3A2006561CC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 14A59CBD1A62D3A1006561CC /* UICKeyChainStore-Mac */;
-			targetProxy = 14A59CCA1A62D3A2006561CC /* PBXContainerItemProxy */;
-		};
-		14A59D0B1A62F336006561CC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 14A59CFD1A62F336006561CC /* libUICKeyChainStore-iOS */;
-			targetProxy = 14A59D0A1A62F336006561CC /* PBXContainerItemProxy */;
-		};
-		14A59D291A62F4DA006561CC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 14A59D1B1A62F4DA006561CC /* libUICKeyChainStore-Mac */;
-			targetProxy = 14A59D281A62F4DA006561CC /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin XCBuildConfiguration section */
-		1418515E1BD284D6005DF9AB /* Debug */ = {
+		14796A4E1C1CD9A500169D09 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 143BF2921C1CD598002BE6B3 /* UICKeyChainStore.xcconfig */;
 			buildSettings = {
-				BITCODE_GENERATION_MODE = marker;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = UICKeyChainStore/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kishikawakatsumi.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(PROJECT_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
 		};
-		1418515F1BD284D6005DF9AB /* Release */ = {
+		14796A4F1C1CD9A500169D09 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 143BF2921C1CD598002BE6B3 /* UICKeyChainStore.xcconfig */;
 			buildSettings = {
-				BITCODE_GENERATION_MODE = bitcode;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = UICKeyChainStore/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kishikawakatsumi.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(PROJECT_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
 		};
-		148F1C1D1BDCD829000AE481 /* Debug */ = {
+		14796A5D1C1CD9B500169D09 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 143BF2911C1CD598002BE6B3 /* Tests.xcconfig */;
 			buildSettings = {
-				BITCODE_GENERATION_MODE = marker;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = UICKeyChainStore/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kishikawakatsumi.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(PROJECT_NAME)";
-				SDKROOT = appletvos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Debug;
 		};
-		148F1C1E1BDCD829000AE481 /* Release */ = {
+		14796A5E1C1CD9B500169D09 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 143BF2911C1CD598002BE6B3 /* Tests.xcconfig */;
 			buildSettings = {
-				BITCODE_GENERATION_MODE = bitcode;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = UICKeyChainStore/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kishikawakatsumi.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(PROJECT_NAME)";
-				SDKROOT = appletvos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Release;
 		};
-		148F1C1F1BDCD829000AE481 /* Debug */ = {
+		14796A671C1CD9C900169D09 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14796A791C1CDB8A00169D09 /* libUICKeyChainStore.xcconfig */;
 			buildSettings = {
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = UICKeyChainStoreTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kishikawakatsumi.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = appletvos;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Debug;
 		};
-		148F1C201BDCD829000AE481 /* Release */ = {
+		14796A681C1CD9C900169D09 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14796A791C1CDB8A00169D09 /* libUICKeyChainStore.xcconfig */;
 			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = UICKeyChainStoreTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kishikawakatsumi.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = appletvos;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Release;
 		};
 		14A59CB11A62CF6E006561CC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 143BF28F1C1CD598002BE6B3 /* Debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NULLABLE_TO_NONNULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
 		14A59CB21A62CF6E006561CC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 143BF2901C1CD598002BE6B3 /* Release.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NULLABLE_TO_NONNULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		14A59CB41A62CF6E006561CC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BITCODE_GENERATION_MODE = marker;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = UICKeyChainStore/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kishikawakatsumi.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(PROJECT_NAME)";
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		14A59CB51A62CF6E006561CC /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BITCODE_GENERATION_MODE = bitcode;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = UICKeyChainStore/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kishikawakatsumi.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(PROJECT_NAME)";
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		14A59CB71A62CF6E006561CC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = UICKeyChainStoreTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kishikawakatsumi.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		14A59CB81A62CF6E006561CC /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = UICKeyChainStoreTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kishikawakatsumi.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		14A59CD21A62D3A2006561CC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BITCODE_GENERATION_MODE = marker;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_VERSION = A;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = UICKeyChainStore/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kishikawakatsumi.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(PROJECT_NAME)";
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		14A59CD31A62D3A2006561CC /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BITCODE_GENERATION_MODE = bitcode;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = UICKeyChainStore/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kishikawakatsumi.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(PROJECT_NAME)";
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		14A59CD51A62D3A2006561CC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = UICKeyChainStoreTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kishikawakatsumi.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-			};
-			name = Debug;
-		};
-		14A59CD61A62D3A2006561CC /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = UICKeyChainStoreTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kishikawakatsumi.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-			};
-			name = Release;
-		};
-		14A59D101A62F336006561CC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BITCODE_GENERATION_MODE = marker;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(PROJECT_NAME)";
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		14A59D111A62F336006561CC /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BITCODE_GENERATION_MODE = bitcode;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(PROJECT_NAME)";
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		14A59D131A62F336006561CC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = UICKeyChainStoreTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kishikawakatsumi.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		14A59D141A62F336006561CC /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = UICKeyChainStoreTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kishikawakatsumi.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		14A59D2E1A62F4DA006561CC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				EXECUTABLE_PREFIX = lib;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				PRODUCT_NAME = "$(PROJECT_NAME)";
-				SDKROOT = macosx;
-			};
-			name = Debug;
-		};
-		14A59D2F1A62F4DA006561CC /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				EXECUTABLE_PREFIX = lib;
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				PRODUCT_NAME = "$(PROJECT_NAME)";
-				SDKROOT = macosx;
-			};
-			name = Release;
-		};
-		14A59D311A62F4DA006561CC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = UICKeyChainStoreTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kishikawakatsumi.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-			};
-			name = Debug;
-		};
-		14A59D321A62F4DA006561CC /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = UICKeyChainStoreTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kishikawakatsumi.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		141851601BD284D6005DF9AB /* Build configuration list for PBXNativeTarget "UICKeyChainStore-watchOS" */ = {
+		14796A4D1C1CD9A500169D09 /* Build configuration list for PBXNativeTarget "UICKeyChainStore" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1418515E1BD284D6005DF9AB /* Debug */,
-				1418515F1BD284D6005DF9AB /* Release */,
+				14796A4E1C1CD9A500169D09 /* Debug */,
+				14796A4F1C1CD9A500169D09 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		148F1C211BDCD829000AE481 /* Build configuration list for PBXNativeTarget "UICKeyChainStore-tvOS" */ = {
+		14796A5C1C1CD9B500169D09 /* Build configuration list for PBXNativeTarget "UICKeyChainStoreTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				148F1C1D1BDCD829000AE481 /* Debug */,
-				148F1C1E1BDCD829000AE481 /* Release */,
+				14796A5D1C1CD9B500169D09 /* Debug */,
+				14796A5E1C1CD9B500169D09 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		148F1C221BDCD829000AE481 /* Build configuration list for PBXNativeTarget "UICKeyChainStore-tvOSTests" */ = {
+		14796A661C1CD9C900169D09 /* Build configuration list for PBXNativeTarget "libUICKeyChainStore" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				148F1C1F1BDCD829000AE481 /* Debug */,
-				148F1C201BDCD829000AE481 /* Release */,
+				14796A671C1CD9C900169D09 /* Debug */,
+				14796A681C1CD9C900169D09 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1279,78 +383,6 @@
 			buildConfigurations = (
 				14A59CB11A62CF6E006561CC /* Debug */,
 				14A59CB21A62CF6E006561CC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		14A59CB31A62CF6E006561CC /* Build configuration list for PBXNativeTarget "UICKeyChainStore-iOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				14A59CB41A62CF6E006561CC /* Debug */,
-				14A59CB51A62CF6E006561CC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		14A59CB61A62CF6E006561CC /* Build configuration list for PBXNativeTarget "UICKeyChainStore-iOSTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				14A59CB71A62CF6E006561CC /* Debug */,
-				14A59CB81A62CF6E006561CC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		14A59CD11A62D3A2006561CC /* Build configuration list for PBXNativeTarget "UICKeyChainStore-Mac" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				14A59CD21A62D3A2006561CC /* Debug */,
-				14A59CD31A62D3A2006561CC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		14A59CD41A62D3A2006561CC /* Build configuration list for PBXNativeTarget "UICKeyChainStore-MacTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				14A59CD51A62D3A2006561CC /* Debug */,
-				14A59CD61A62D3A2006561CC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		14A59D0F1A62F336006561CC /* Build configuration list for PBXNativeTarget "libUICKeyChainStore-iOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				14A59D101A62F336006561CC /* Debug */,
-				14A59D111A62F336006561CC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		14A59D121A62F336006561CC /* Build configuration list for PBXNativeTarget "libUICKeyChainStore-iOSTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				14A59D131A62F336006561CC /* Debug */,
-				14A59D141A62F336006561CC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		14A59D2D1A62F4DA006561CC /* Build configuration list for PBXNativeTarget "libUICKeyChainStore-Mac" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				14A59D2E1A62F4DA006561CC /* Debug */,
-				14A59D2F1A62F4DA006561CC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		14A59D301A62F4DA006561CC /* Build configuration list for PBXNativeTarget "libUICKeyChainStore-MacTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				14A59D311A62F4DA006561CC /* Debug */,
-				14A59D321A62F4DA006561CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
