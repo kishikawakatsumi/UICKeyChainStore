@@ -1071,19 +1071,6 @@ static NSString *_defaultService;
 
 #pragma mark -
 
-- (void)synchronize
-{
-    // Deprecated, calling this method is no longer required
-}
-
-- (BOOL)synchronizeWithError:(NSError *__autoreleasing *)error
-{
-    // Deprecated, calling this method is no longer required
-    return true;
-}
-
-#pragma mark -
-
 - (NSString *)description
 {
     NSArray *items = [self allItems];
@@ -1380,6 +1367,21 @@ static NSString *_defaultService;
     NSError *error = [NSError errorWithDomain:UICKeyChainStoreErrorDomain code:-99999 userInfo:@{NSLocalizedDescriptionKey: message}];
     NSLog(@"error: [%@] %@", @(error.code), error.localizedDescription);
     return error;
+}
+
+@end
+
+@implementation UICKeyChainStore (Deprecation)
+
+- (void)synchronize
+{
+    // Deprecated, calling this method is no longer required
+}
+
+- (BOOL)synchronizeWithError:(NSError *__autoreleasing *)error
+{
+    // Deprecated, calling this method is no longer required
+    return true;
 }
 
 @end
