@@ -31,7 +31,7 @@
     
     [UICKeyChainStore removeAllItems];
     
-    [[UICKeyChainStore keyChainStoreWithService:@"Twitter" accessGroup:@"12ABCD3E4F.shared"] removeAllItems];
+    [[UICKeyChainStore keyChainStoreWithService:@"Twitter" accessGroup:@"27AEDK3C9F.shared"] removeAllItems];
     [[UICKeyChainStore keyChainStoreWithService:@"Twitter"] removeAllItems];
 
     [[UICKeyChainStore keyChainStoreWithServer:(NSURL *)[NSURL URLWithString:@"https://example.com"] protocolType:UICKeyChainStoreProtocolTypeHTTPS] removeAllItems];
@@ -92,7 +92,7 @@
 {
     {
         // Add Keychain items
-        UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithService:@"Twitter" accessGroup:@"12ABCD3E4F.shared"];
+        UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithService:@"Twitter" accessGroup:@"27AEDK3C9F.shared"];
         
         keychain[@"username"] = @"kishikawa_katsumi";
         keychain[@"password"] = @"password_1234";
@@ -106,7 +106,7 @@
     
     {
         // Update Keychain items
-        UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithService:@"Twitter" accessGroup:@"12ABCD3E4F.shared"];
+        UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithService:@"Twitter" accessGroup:@"27AEDK3C9F.shared"];
         
         keychain[@"username"] = @"katsumi_kishikawa";
         keychain[@"password"] = @"1234_password";
@@ -120,7 +120,7 @@
     
     {
         // Remove Keychain items
-        UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithService:@"Twitter" accessGroup:@"12ABCD3E4F.shared"];
+        UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithService:@"Twitter" accessGroup:@"27AEDK3C9F.shared"];
         
         keychain[@"username"] = nil;
         keychain[@"password"] = nil;
@@ -257,26 +257,26 @@
 {
     UICKeyChainStore *keychain;
     
-    keychain = [UICKeyChainStore keyChainStoreWithService:nil accessGroup:@"12ABCD3E4F.shared"];
+    keychain = [UICKeyChainStore keyChainStoreWithService:nil accessGroup:@"27AEDK3C9F.shared"];
     XCTAssertEqualObjects(keychain.service, @"");
-    XCTAssertEqualObjects(keychain.accessGroup, @"12ABCD3E4F.shared");
+    XCTAssertEqualObjects(keychain.accessGroup, @"27AEDK3C9F.shared");
     
-    keychain = [[UICKeyChainStore alloc] initWithService:nil accessGroup:@"12ABCD3E4F.shared"];
+    keychain = [[UICKeyChainStore alloc] initWithService:nil accessGroup:@"27AEDK3C9F.shared"];
     XCTAssertEqualObjects(keychain.service, @"");
-    XCTAssertEqualObjects(keychain.accessGroup, @"12ABCD3E4F.shared");
+    XCTAssertEqualObjects(keychain.accessGroup, @"27AEDK3C9F.shared");
 }
 
 - (void)testInitializerWithServiceAndAccessGroup
 {
     UICKeyChainStore *keychain;
     
-    keychain = [UICKeyChainStore keyChainStoreWithService:@"com.example.github-token" accessGroup:@"12ABCD3E4F.shared"];
+    keychain = [UICKeyChainStore keyChainStoreWithService:@"com.example.github-token" accessGroup:@"27AEDK3C9F.shared"];
     XCTAssertEqualObjects(keychain.service, @"com.example.github-token");
-    XCTAssertEqualObjects(keychain.accessGroup, @"12ABCD3E4F.shared");
+    XCTAssertEqualObjects(keychain.accessGroup, @"27AEDK3C9F.shared");
     
-    keychain = [[UICKeyChainStore alloc] initWithService:@"com.example.github-token" accessGroup:@"12ABCD3E4F.shared"];
+    keychain = [[UICKeyChainStore alloc] initWithService:@"com.example.github-token" accessGroup:@"27AEDK3C9F.shared"];
     XCTAssertEqualObjects(keychain.service, @"com.example.github-token");
-    XCTAssertEqualObjects(keychain.accessGroup, @"12ABCD3E4F.shared");
+    XCTAssertEqualObjects(keychain.accessGroup, @"27AEDK3C9F.shared");
 }
 
 - (void)testInitializerWithServer
@@ -485,7 +485,7 @@
 - (void)testErrorHandling
 {
     {
-        UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithService:@"Twitter" accessGroup:@"12ABCD3E4F.shared"];
+        UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithService:@"Twitter" accessGroup:@"27AEDK3C9F.shared"];
         
         NSError *error = nil;
         BOOL succeeded = [keychain removeAllItemsWithError:&error];
@@ -794,24 +794,24 @@
 
 - (void)testSetStringWithServiceAndAccessGroupClassMethod
 {
-    UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithService:@"Twitter" accessGroup:@"12ABCD3E4F.shared"];
+    UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithService:@"Twitter" accessGroup:@"27AEDK3C9F.shared"];
     [store removeAllItems];
     
-    [UICKeyChainStore setString:@"kishikawakatsumi" forKey:@"username" service:@"Twitter" accessGroup:@"12ABCD3E4F.shared"];
-    [UICKeyChainStore setString:@"password1234" forKey:@"password" service:@"Twitter" accessGroup:@"12ABCD3E4F.shared"];
-    XCTAssertEqualObjects([UICKeyChainStore stringForKey:@"username" service:@"Twitter" accessGroup:@"12ABCD3E4F.shared"], @"kishikawakatsumi", @"stored username");
-    XCTAssertEqualObjects([UICKeyChainStore stringForKey:@"password" service:@"Twitter" accessGroup:@"12ABCD3E4F.shared"], @"password1234", @"stored password");
+    [UICKeyChainStore setString:@"kishikawakatsumi" forKey:@"username" service:@"Twitter" accessGroup:@"27AEDK3C9F.shared"];
+    [UICKeyChainStore setString:@"password1234" forKey:@"password" service:@"Twitter" accessGroup:@"27AEDK3C9F.shared"];
+    XCTAssertEqualObjects([UICKeyChainStore stringForKey:@"username" service:@"Twitter" accessGroup:@"27AEDK3C9F.shared"], @"kishikawakatsumi", @"stored username");
+    XCTAssertEqualObjects([UICKeyChainStore stringForKey:@"password" service:@"Twitter" accessGroup:@"27AEDK3C9F.shared"], @"password1234", @"stored password");
     XCTAssertEqualObjects([store stringForKey:@"username"], @"kishikawakatsumi", @"stored username");
     XCTAssertEqualObjects([store stringForKey:@"password"], @"password1234", @"stored password");
     
-    [UICKeyChainStore removeItemForKey:@"username" service:@"Twitter" accessGroup:@"12ABCD3E4F.shared"];
-    XCTAssertNil([UICKeyChainStore stringForKey:@"username" service:@"Twitter" accessGroup:@"12ABCD3E4F.shared"], @"removed username");
+    [UICKeyChainStore removeItemForKey:@"username" service:@"Twitter" accessGroup:@"27AEDK3C9F.shared"];
+    XCTAssertNil([UICKeyChainStore stringForKey:@"username" service:@"Twitter" accessGroup:@"27AEDK3C9F.shared"], @"removed username");
     XCTAssertEqualObjects([UICKeyChainStore stringForKey:@"password" service:@"Twitter"], @"password1234", @"left password");
     XCTAssertEqualObjects([store stringForKey:@"password"], @"password1234", @"left password");
     
-    [UICKeyChainStore removeItemForKey:@"password" service:@"Twitter" accessGroup:@"12ABCD3E4F.shared"];
-    XCTAssertNil([UICKeyChainStore stringForKey:@"username" service:@"Twitter" accessGroup:@"12ABCD3E4F.shared"], @"removed username");
-    XCTAssertNil([UICKeyChainStore stringForKey:@"password" service:@"Twitter" accessGroup:@"12ABCD3E4F.shared"], @"removed password");
+    [UICKeyChainStore removeItemForKey:@"password" service:@"Twitter" accessGroup:@"27AEDK3C9F.shared"];
+    XCTAssertNil([UICKeyChainStore stringForKey:@"username" service:@"Twitter" accessGroup:@"27AEDK3C9F.shared"], @"removed username");
+    XCTAssertNil([UICKeyChainStore stringForKey:@"password" service:@"Twitter" accessGroup:@"27AEDK3C9F.shared"], @"removed password");
     XCTAssertNil([store stringForKey:@"username"], @"removed username");
     XCTAssertNil([store stringForKey:@"password"], @"removed password");
 }
@@ -1000,27 +1000,27 @@
     NSData *passwordData = [@"password1234" dataUsingEncoding:NSUTF8StringEncoding];
     
     NSError *error = nil;
-    [UICKeyChainStore setData:usernameData forKey:@"username" service:@"Twitter" accessGroup:@"12ABCD3E4F.shared" error:&error];
+    [UICKeyChainStore setData:usernameData forKey:@"username" service:@"Twitter" accessGroup:@"27AEDK3C9F.shared" error:&error];
     XCTAssertNil(error, @"no error");
-    [UICKeyChainStore setData:passwordData forKey:@"password" service:@"Twitter" accessGroup:@"12ABCD3E4F.shared" error:&error];
+    [UICKeyChainStore setData:passwordData forKey:@"password" service:@"Twitter" accessGroup:@"27AEDK3C9F.shared" error:&error];
     XCTAssertNil(error, @"no error");
-    XCTAssertEqualObjects([UICKeyChainStore dataForKey:@"username" service:@"Twitter" accessGroup:@"12ABCD3E4F.shared" error:&error], usernameData, @"stored username");
+    XCTAssertEqualObjects([UICKeyChainStore dataForKey:@"username" service:@"Twitter" accessGroup:@"27AEDK3C9F.shared" error:&error], usernameData, @"stored username");
     XCTAssertNil(error, @"no error");
-    XCTAssertEqualObjects([UICKeyChainStore dataForKey:@"password" service:@"Twitter" accessGroup:@"12ABCD3E4F.shared" error:&error], passwordData, @"stored password");
-    XCTAssertNil(error, @"no error");
-    
-    [UICKeyChainStore removeItemForKey:@"username" service:@"Twitter" accessGroup:@"12ABCD3E4F.shared" error:&error];
-    XCTAssertNil(error, @"no error");
-    XCTAssertNil([UICKeyChainStore dataForKey:@"username" service:@"Twitter" accessGroup:@"12ABCD3E4F.shared" error:&error], @"removed username");
-    XCTAssertNil(error, @"no error");
-    XCTAssertEqualObjects([UICKeyChainStore dataForKey:@"password" service:@"Twitter" accessGroup:@"12ABCD3E4F.shared" error:&error], passwordData, @"left password");
+    XCTAssertEqualObjects([UICKeyChainStore dataForKey:@"password" service:@"Twitter" accessGroup:@"27AEDK3C9F.shared" error:&error], passwordData, @"stored password");
     XCTAssertNil(error, @"no error");
     
-    [UICKeyChainStore removeItemForKey:@"password" service:@"Twitter" accessGroup:@"12ABCD3E4F.shared" error:&error];
+    [UICKeyChainStore removeItemForKey:@"username" service:@"Twitter" accessGroup:@"27AEDK3C9F.shared" error:&error];
     XCTAssertNil(error, @"no error");
-    XCTAssertNil([UICKeyChainStore dataForKey:@"username" service:@"Twitter" accessGroup:@"12ABCD3E4F.shared" error:&error], @"removed username");
+    XCTAssertNil([UICKeyChainStore dataForKey:@"username" service:@"Twitter" accessGroup:@"27AEDK3C9F.shared" error:&error], @"removed username");
     XCTAssertNil(error, @"no error");
-    XCTAssertNil([UICKeyChainStore dataForKey:@"password" service:@"Twitter" accessGroup:@"12ABCD3E4F.shared" error:&error], @"removed password");
+    XCTAssertEqualObjects([UICKeyChainStore dataForKey:@"password" service:@"Twitter" accessGroup:@"27AEDK3C9F.shared" error:&error], passwordData, @"left password");
+    XCTAssertNil(error, @"no error");
+    
+    [UICKeyChainStore removeItemForKey:@"password" service:@"Twitter" accessGroup:@"27AEDK3C9F.shared" error:&error];
+    XCTAssertNil(error, @"no error");
+    XCTAssertNil([UICKeyChainStore dataForKey:@"username" service:@"Twitter" accessGroup:@"27AEDK3C9F.shared" error:&error], @"removed username");
+    XCTAssertNil(error, @"no error");
+    XCTAssertNil([UICKeyChainStore dataForKey:@"password" service:@"Twitter" accessGroup:@"27AEDK3C9F.shared" error:&error], @"removed password");
     XCTAssertNil(error, @"no error");
 }
 
