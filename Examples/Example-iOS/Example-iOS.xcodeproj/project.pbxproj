@@ -7,71 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		141851491BD2668E005DF9AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 141851481BD2668E005DF9AB /* LaunchScreen.storyboard */; settings = {ASSET_TAGS = (); }; };
+		141851491BD2668E005DF9AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 141851481BD2668E005DF9AB /* LaunchScreen.storyboard */; };
 		145BF3FA1A66C24500D01D0D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 145BF3F91A66C24500D01D0D /* main.m */; };
 		145BF3FD1A66C24500D01D0D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 145BF3FC1A66C24500D01D0D /* AppDelegate.m */; };
 		145BF4001A66C24500D01D0D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 145BF3FF1A66C24500D01D0D /* ViewController.m */; };
 		145BF4051A66C24500D01D0D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 145BF4041A66C24500D01D0D /* Images.xcassets */; };
-		145BF43A1A66C46400D01D0D /* UICKeyChainStore.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 145BF4291A66C32F00D01D0D /* UICKeyChainStore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		147FA7E71ACECFE3008EEC3B /* libUICKeyChainStore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 145BF4311A66C32F00D01D0D /* libUICKeyChainStore.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		145BF4281A66C32F00D01D0D /* PBXContainerItemProxy */ = {
+		149AE0E31D8C532F00DC7F6E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 145BF41D1A66C32F00D01D0D /* UICKeyChainStore.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 14A59C9D1A62CF6E006561CC;
-			remoteInfo = "UICKeyChainStore-iOS";
+			remoteGlobalIDString = 14796A501C1CD9A500169D09;
+			remoteInfo = UICKeyChainStore;
 		};
-		145BF42A1A66C32F00D01D0D /* PBXContainerItemProxy */ = {
+		149AE0E51D8C532F00DC7F6E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 145BF41D1A66C32F00D01D0D /* UICKeyChainStore.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 14A59CA81A62CF6E006561CC;
-			remoteInfo = "UICKeyChainStore-iOSTests";
+			remoteGlobalIDString = 14796A691C1CD9C900169D09;
+			remoteInfo = libUICKeyChainStore;
 		};
-		145BF42C1A66C32F00D01D0D /* PBXContainerItemProxy */ = {
+		149AE0E71D8C532F00DC7F6E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 145BF41D1A66C32F00D01D0D /* UICKeyChainStore.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 14A59CBE1A62D3A1006561CC;
-			remoteInfo = "UICKeyChainStore-Mac";
-		};
-		145BF42E1A66C32F00D01D0D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 145BF41D1A66C32F00D01D0D /* UICKeyChainStore.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 14A59CC81A62D3A2006561CC;
-			remoteInfo = "UICKeyChainStore-MacTests";
-		};
-		145BF4301A66C32F00D01D0D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 145BF41D1A66C32F00D01D0D /* UICKeyChainStore.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 14A59CFE1A62F336006561CC;
-			remoteInfo = "libUICKeyChainStore-iOS";
-		};
-		145BF4321A66C32F00D01D0D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 145BF41D1A66C32F00D01D0D /* UICKeyChainStore.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 14A59D081A62F336006561CC;
-			remoteInfo = "libUICKeyChainStore-iOSTests";
-		};
-		145BF4341A66C32F00D01D0D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 145BF41D1A66C32F00D01D0D /* UICKeyChainStore.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 14A59D1C1A62F4DA006561CC;
-			remoteInfo = "libUICKeyChainStore-Mac";
-		};
-		145BF4361A66C32F00D01D0D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 145BF41D1A66C32F00D01D0D /* UICKeyChainStore.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 14A59D261A62F4DA006561CC;
-			remoteInfo = "libUICKeyChainStore-MacTests";
+			remoteGlobalIDString = 14796A5F1C1CD9B500169D09;
+			remoteInfo = UICKeyChainStoreTests;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -82,7 +45,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				145BF43A1A66C46400D01D0D /* UICKeyChainStore.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,7 +68,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				147FA7E71ACECFE3008EEC3B /* libUICKeyChainStore.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,14 +117,9 @@
 		145BF41E1A66C32F00D01D0D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				145BF4291A66C32F00D01D0D /* UICKeyChainStore.framework */,
-				145BF42B1A66C32F00D01D0D /* UICKeyChainStore-iOSTests.xctest */,
-				145BF42D1A66C32F00D01D0D /* UICKeyChainStore.framework */,
-				145BF42F1A66C32F00D01D0D /* UICKeyChainStore-MacTests.xctest */,
-				145BF4311A66C32F00D01D0D /* libUICKeyChainStore.a */,
-				145BF4331A66C32F00D01D0D /* libUICKeyChainStore-iOSTests.xctest */,
-				145BF4351A66C32F00D01D0D /* libUICKeyChainStore.a */,
-				145BF4371A66C32F00D01D0D /* libUICKeyChainStore-MacTests.xctest */,
+				149AE0E41D8C532F00DC7F6E /* UICKeyChainStore.framework */,
+				149AE0E61D8C532F00DC7F6E /* libUICKeyChainStore.a */,
+				149AE0E81D8C532F00DC7F6E /* UICKeyChainStoreTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -195,7 +151,7 @@
 		145BF3EC1A66C24500D01D0D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "kishikawa katsumi";
 				TargetAttributes = {
 					145BF3F31A66C24500D01D0D = {
@@ -228,60 +184,25 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		145BF4291A66C32F00D01D0D /* UICKeyChainStore.framework */ = {
+		149AE0E41D8C532F00DC7F6E /* UICKeyChainStore.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = UICKeyChainStore.framework;
-			remoteRef = 145BF4281A66C32F00D01D0D /* PBXContainerItemProxy */;
+			remoteRef = 149AE0E31D8C532F00DC7F6E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		145BF42B1A66C32F00D01D0D /* UICKeyChainStore-iOSTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "UICKeyChainStore-iOSTests.xctest";
-			remoteRef = 145BF42A1A66C32F00D01D0D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		145BF42D1A66C32F00D01D0D /* UICKeyChainStore.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = UICKeyChainStore.framework;
-			remoteRef = 145BF42C1A66C32F00D01D0D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		145BF42F1A66C32F00D01D0D /* UICKeyChainStore-MacTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "UICKeyChainStore-MacTests.xctest";
-			remoteRef = 145BF42E1A66C32F00D01D0D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		145BF4311A66C32F00D01D0D /* libUICKeyChainStore.a */ = {
+		149AE0E61D8C532F00DC7F6E /* libUICKeyChainStore.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libUICKeyChainStore.a;
-			remoteRef = 145BF4301A66C32F00D01D0D /* PBXContainerItemProxy */;
+			remoteRef = 149AE0E51D8C532F00DC7F6E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		145BF4331A66C32F00D01D0D /* libUICKeyChainStore-iOSTests.xctest */ = {
+		149AE0E81D8C532F00DC7F6E /* UICKeyChainStoreTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = "libUICKeyChainStore-iOSTests.xctest";
-			remoteRef = 145BF4321A66C32F00D01D0D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		145BF4351A66C32F00D01D0D /* libUICKeyChainStore.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libUICKeyChainStore.a;
-			remoteRef = 145BF4341A66C32F00D01D0D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		145BF4371A66C32F00D01D0D /* libUICKeyChainStore-MacTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "libUICKeyChainStore-MacTests.xctest";
-			remoteRef = 145BF4361A66C32F00D01D0D /* PBXContainerItemProxy */;
+			path = UICKeyChainStoreTests.xctest;
+			remoteRef = 149AE0E71D8C532F00DC7F6E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -325,8 +246,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -335,6 +258,7 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -367,8 +291,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -376,6 +302,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
