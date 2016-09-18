@@ -13,7 +13,18 @@
 		14796A571C1CD9B500169D09 /* UICKeyChainStoreForwardCompatibilityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACDC2881A931CE900C7A63A /* UICKeyChainStoreForwardCompatibilityTests.m */; };
 		14796A581C1CD9B500169D09 /* UICv1KeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACDC27E1A931BCE00C7A63A /* UICv1KeyChainStore.m */; };
 		14796A631C1CD9C900169D09 /* UICKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A59CD71A62D4C3006561CC /* UICKeyChainStore.m */; };
+		65C106FE1D5A636C005137AD /* libUICKeyChainStore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14796A691C1CD9C900169D09 /* libUICKeyChainStore.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		65C106FC1D5A6367005137AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 14A59C941A62CF6E006561CC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 14796A611C1CD9C900169D09;
+			remoteInfo = libUICKeyChainStore;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		14796A651C1CD9C900169D09 /* CopyFiles */ = {
@@ -59,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65C106FE1D5A636C005137AD /* libUICKeyChainStore.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,6 +206,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				65C106FD1D5A6367005137AD /* PBXTargetDependency */,
 			);
 			name = UICKeyChainStoreTests;
 			productName = UICKeyChainStoreTests;
@@ -290,6 +303,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		65C106FD1D5A6367005137AD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 14796A611C1CD9C900169D09 /* libUICKeyChainStore */;
+			targetProxy = 65C106FC1D5A6367005137AD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		14796A4E1C1CD9A500169D09 /* Debug */ = {
