@@ -14,30 +14,6 @@
 		145BF4051A66C24500D01D0D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 145BF4041A66C24500D01D0D /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		149AE0E31D8C532F00DC7F6E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 145BF41D1A66C32F00D01D0D /* UICKeyChainStore.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 14796A501C1CD9A500169D09;
-			remoteInfo = UICKeyChainStore;
-		};
-		149AE0E51D8C532F00DC7F6E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 145BF41D1A66C32F00D01D0D /* UICKeyChainStore.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 14796A691C1CD9C900169D09;
-			remoteInfo = libUICKeyChainStore;
-		};
-		149AE0E71D8C532F00DC7F6E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 145BF41D1A66C32F00D01D0D /* UICKeyChainStore.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 14796A5F1C1CD9B500169D09;
-			remoteInfo = UICKeyChainStoreTests;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		145BF4391A66C45000D01D0D /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -60,7 +36,7 @@
 		145BF3FE1A66C24500D01D0D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		145BF3FF1A66C24500D01D0D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		145BF4041A66C24500D01D0D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		145BF41D1A66C32F00D01D0D /* UICKeyChainStore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = UICKeyChainStore.xcodeproj; path = ../../Lib/UICKeyChainStore.xcodeproj; sourceTree = "<group>"; };
+		14F2A0081D8F2927000B135F /* Example-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Example-iOS.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +55,6 @@
 			children = (
 				145BF3F61A66C24500D01D0D /* Example-iOS */,
 				145BF3F51A66C24500D01D0D /* Products */,
-				145BF41D1A66C32F00D01D0D /* UICKeyChainStore.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,19 +84,10 @@
 			isa = PBXGroup;
 			children = (
 				145BF3F81A66C24500D01D0D /* Info.plist */,
+				14F2A0081D8F2927000B135F /* Example-iOS.entitlements */,
 				145BF3F91A66C24500D01D0D /* main.m */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		145BF41E1A66C32F00D01D0D /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				149AE0E41D8C532F00DC7F6E /* UICKeyChainStore.framework */,
-				149AE0E61D8C532F00DC7F6E /* libUICKeyChainStore.a */,
-				149AE0E81D8C532F00DC7F6E /* UICKeyChainStoreTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,42 +136,12 @@
 			mainGroup = 145BF3EB1A66C24500D01D0D;
 			productRefGroup = 145BF3F51A66C24500D01D0D /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 145BF41E1A66C32F00D01D0D /* Products */;
-					ProjectRef = 145BF41D1A66C32F00D01D0D /* UICKeyChainStore.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				145BF3F31A66C24500D01D0D /* Example-iOS */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		149AE0E41D8C532F00DC7F6E /* UICKeyChainStore.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = UICKeyChainStore.framework;
-			remoteRef = 149AE0E31D8C532F00DC7F6E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		149AE0E61D8C532F00DC7F6E /* libUICKeyChainStore.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libUICKeyChainStore.a;
-			remoteRef = 149AE0E51D8C532F00DC7F6E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		149AE0E81D8C532F00DC7F6E /* UICKeyChainStoreTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = UICKeyChainStoreTests.xctest;
-			remoteRef = 149AE0E71D8C532F00DC7F6E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		145BF3F21A66C24500D01D0D /* Resources */ = {
@@ -320,6 +256,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Example-iOS/Example-iOS.entitlements";
 				INFOPLIST_FILE = "Example-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kishikawakatsumi.$(PRODUCT_NAME:rfc1034identifier)";
@@ -331,6 +268,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Example-iOS/Example-iOS.entitlements";
 				INFOPLIST_FILE = "Example-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kishikawakatsumi.$(PRODUCT_NAME:rfc1034identifier)";
