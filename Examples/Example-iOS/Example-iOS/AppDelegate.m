@@ -18,7 +18,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     UICKeyChainStore *keychainStore = [UICKeyChainStore keyChainStore];
     keychainStore[@"password"] = @"abcd1234";
-    
+
+    NSLog(@"%@", keychainStore[@"password"]);
+
     return YES;
 }
 

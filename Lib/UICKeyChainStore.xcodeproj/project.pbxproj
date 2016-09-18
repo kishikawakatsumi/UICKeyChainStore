@@ -13,6 +13,8 @@
 		14796A571C1CD9B500169D09 /* UICKeyChainStoreForwardCompatibilityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACDC2881A931CE900C7A63A /* UICKeyChainStoreForwardCompatibilityTests.m */; };
 		14796A581C1CD9B500169D09 /* UICv1KeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACDC27E1A931BCE00C7A63A /* UICv1KeyChainStore.m */; };
 		14796A631C1CD9C900169D09 /* UICKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A59CD71A62D4C3006561CC /* UICKeyChainStore.m */; };
+		148993CA1D8F24DB000132F7 /* UICKeyChainStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14796A501C1CD9A500169D09 /* UICKeyChainStore.framework */; };
+		148993D31D8F2515000132F7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 148993D21D8F2515000132F7 /* main.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,10 +35,15 @@
 		143BF2901C1CD598002BE6B3 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Release.xcconfig; path = Configurations/Release.xcconfig; sourceTree = "<group>"; };
 		143BF2911C1CD598002BE6B3 /* Tests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Tests.xcconfig; path = Configurations/Tests.xcconfig; sourceTree = "<group>"; };
 		143BF2921C1CD598002BE6B3 /* UICKeyChainStore.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = UICKeyChainStore.xcconfig; path = Configurations/UICKeyChainStore.xcconfig; sourceTree = "<group>"; };
+		1478088D1D8F285E007FA638 /* TestHost.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TestHost.entitlements; sourceTree = "<group>"; };
 		14796A501C1CD9A500169D09 /* UICKeyChainStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UICKeyChainStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		14796A5F1C1CD9B500169D09 /* UICKeyChainStoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UICKeyChainStoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		14796A691C1CD9C900169D09 /* libUICKeyChainStore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libUICKeyChainStore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		14796A791C1CDB8A00169D09 /* libUICKeyChainStore.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = libUICKeyChainStore.xcconfig; path = Configurations/libUICKeyChainStore.xcconfig; sourceTree = "<group>"; };
+		148993CF1D8F2515000132F7 /* TestHost.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestHost.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		148993D21D8F2515000132F7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		148993E21D8F2515000132F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		148993E61D8F25A3000132F7 /* TestHost.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = TestHost.xcconfig; sourceTree = "<group>"; };
 		14A59CA11A62CF6E006561CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14A59CA21A62CF6E006561CC /* UICKeyChainStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UICKeyChainStore.h; sourceTree = "<group>"; };
 		14A59CAE1A62CF6E006561CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -59,10 +66,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				148993CA1D8F24DB000132F7 /* UICKeyChainStore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		14796A641C1CD9C900169D09 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		148993CC1D8F2515000132F7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -81,8 +96,19 @@
 				143BF2921C1CD598002BE6B3 /* UICKeyChainStore.xcconfig */,
 				14796A791C1CDB8A00169D09 /* libUICKeyChainStore.xcconfig */,
 				143BF2911C1CD598002BE6B3 /* Tests.xcconfig */,
+				148993E61D8F25A3000132F7 /* TestHost.xcconfig */,
 			);
 			name = Configurations;
+			sourceTree = "<group>";
+		};
+		148993D01D8F2515000132F7 /* TestHost */ = {
+			isa = PBXGroup;
+			children = (
+				148993D21D8F2515000132F7 /* main.m */,
+				148993E21D8F2515000132F7 /* Info.plist */,
+				1478088D1D8F285E007FA638 /* TestHost.entitlements */,
+			);
+			path = TestHost;
 			sourceTree = "<group>";
 		};
 		14A59C931A62CF6E006561CC = {
@@ -91,6 +117,7 @@
 				14A59C9F1A62CF6E006561CC /* UICKeyChainStore */,
 				14A59CAC1A62CF6E006561CC /* UICKeyChainStoreTests */,
 				143BF28D1C1CD57C002BE6B3 /* Configurations */,
+				148993D01D8F2515000132F7 /* TestHost */,
 				14A59C9E1A62CF6E006561CC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -101,6 +128,7 @@
 				14796A501C1CD9A500169D09 /* UICKeyChainStore.framework */,
 				14796A5F1C1CD9B500169D09 /* UICKeyChainStoreTests.xctest */,
 				14796A691C1CD9C900169D09 /* libUICKeyChainStore.a */,
+				148993CF1D8F2515000132F7 /* TestHost.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -217,6 +245,23 @@
 			productReference = 14796A691C1CD9C900169D09 /* libUICKeyChainStore.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		148993CE1D8F2515000132F7 /* TestHost */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 148993E31D8F2515000132F7 /* Build configuration list for PBXNativeTarget "TestHost" */;
+			buildPhases = (
+				148993CB1D8F2515000132F7 /* Sources */,
+				148993CC1D8F2515000132F7 /* Frameworks */,
+				148993CD1D8F2515000132F7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TestHost;
+			productName = TestHost;
+			productReference = 148993CF1D8F2515000132F7 /* TestHost.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -225,6 +270,13 @@
 			attributes = {
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "kishikawa katsumi";
+				TargetAttributes = {
+					148993CE1D8F2515000132F7 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 27AEDK3C9F;
+						ProvisioningStyle = Automatic;
+					};
+				};
 			};
 			buildConfigurationList = 14A59C971A62CF6E006561CC /* Build configuration list for PBXProject "UICKeyChainStore" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -232,6 +284,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 14A59C931A62CF6E006561CC;
 			productRefGroup = 14A59C9E1A62CF6E006561CC /* Products */;
@@ -241,6 +294,7 @@
 				14796A461C1CD9A500169D09 /* UICKeyChainStore */,
 				14796A611C1CD9C900169D09 /* libUICKeyChainStore */,
 				14796A521C1CD9B500169D09 /* UICKeyChainStoreTests */,
+				148993CE1D8F2515000132F7 /* TestHost */,
 			);
 		};
 /* End PBXProject section */
@@ -254,6 +308,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		14796A5B1C1CD9B500169D09 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		148993CD1D8F2515000132F7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -286,6 +347,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				14796A631C1CD9C900169D09 /* UICKeyChainStore.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		148993CB1D8F2515000132F7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				148993D31D8F2515000132F7 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +403,20 @@
 			};
 			name = Release;
 		};
+		148993E41D8F2515000132F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 148993E61D8F25A3000132F7 /* TestHost.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		148993E51D8F2515000132F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 148993E61D8F25A3000132F7 /* TestHost.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
 		14A59CB11A62CF6E006561CC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 143BF28F1C1CD598002BE6B3 /* Debug.xcconfig */;
@@ -374,6 +457,15 @@
 			buildConfigurations = (
 				14796A671C1CD9C900169D09 /* Debug */,
 				14796A681C1CD9C900169D09 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		148993E31D8F2515000132F7 /* Build configuration list for PBXNativeTarget "TestHost" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				148993E41D8F2515000132F7 /* Debug */,
+				148993E51D8F2515000132F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -1,0 +1,34 @@
+SUPPORTED_PLATFORMS = macosx iphoneos iphonesimulator appletvos appletvsimulator;
+TARGETED_DEVICE_FAMILY = 1,2,3;
+
+COMBINE_HIDPI_IMAGES = YES;
+COPY_PHASE_STRIP = NO;
+INFOPLIST_FILE = TestHost/Info.plist;
+PRODUCT_NAME = $(TARGET_NAME);
+CLANG_MODULES_AUTOLINK = NO;
+ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+
+PRODUCT_BUNDLE_IDENTIFIER = com.kishikawakatsumi.KeychainAccess.TestHost;
+
+CODE_SIGN_ENTITLEMENTS = TestHost/TestHost.entitlements;
+PROVISIONING_PROFILE_SPECIFIER[sdk=iphone*] = iOS Development;
+
+CODE_SIGN_IDENTITY[sdk=macosx*] = Developer ID Application
+PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*] = KeychainAccess Tests
+OTHER_CODE_SIGN_FLAGS[sdk=macosx*] = --deep;
+
+DEVELOPMENT_TEAM = 27AEDK3C9F;
+
+OTHER_LDFLAGS[sdk=iphone*] = -framework UIKit;
+OTHER_LDFLAGS[sdk=appletv*] = -framework UIKit;
+OTHER_LDFLAGS[sdk=macosx*] = -framework Cocoa;
+
+PRINCIPAL_CLASS[sdk=iphone*] = UIApplication;
+PRINCIPAL_CLASS[sdk=appletv*] = UIApplication;
+PRINCIPAL_CLASS[sdk=macosx*] = NSApplication;
+
+LD_RUNPATH_SEARCH_PATHS[sdk=iphone*] = $(inherited) @executable_path/Frameworks @loader_path/Frameworks;
+LD_RUNPATH_SEARCH_PATHS[sdk=watch*] = $(inherited) @executable_path/Frameworks @loader_path/Frameworks;
+LD_RUNPATH_SEARCH_PATHS[sdk=appletv*] = $(inherited) @executable_path/Frameworks @loader_path/Frameworks;
+LD_RUNPATH_SEARCH_PATHS[sdk=macosx*] = $(inherited) @executable_path/../Frameworks @loader_path/../Frameworks;
