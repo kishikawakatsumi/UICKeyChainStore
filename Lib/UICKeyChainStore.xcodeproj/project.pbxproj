@@ -43,12 +43,12 @@
 		148993CF1D8F2515000132F7 /* TestHost.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestHost.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		148993D21D8F2515000132F7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		148993E21D8F2515000132F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		148993E61D8F25A3000132F7 /* TestHost.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = TestHost.xcconfig; sourceTree = "<group>"; };
 		14A59CA11A62CF6E006561CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14A59CA21A62CF6E006561CC /* UICKeyChainStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UICKeyChainStore.h; sourceTree = "<group>"; };
 		14A59CAE1A62CF6E006561CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14A59CAF1A62CF6E006561CC /* UICKeyChainStoreTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UICKeyChainStoreTests.m; sourceTree = "<group>"; };
 		14A59CD71A62D4C3006561CC /* UICKeyChainStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICKeyChainStore.m; sourceTree = "<group>"; };
+		14F2A00B1D8F31A3000B135F /* TestHost.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = TestHost.xcconfig; path = Configurations/TestHost.xcconfig; sourceTree = "<group>"; };
 		3ACDC27D1A931BCE00C7A63A /* UICv1KeyChainStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICv1KeyChainStore.h; sourceTree = "<group>"; };
 		3ACDC27E1A931BCE00C7A63A /* UICv1KeyChainStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICv1KeyChainStore.m; sourceTree = "<group>"; };
 		3ACDC2881A931CE900C7A63A /* UICKeyChainStoreForwardCompatibilityTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICKeyChainStoreForwardCompatibilityTests.m; sourceTree = "<group>"; };
@@ -96,7 +96,7 @@
 				143BF2921C1CD598002BE6B3 /* UICKeyChainStore.xcconfig */,
 				14796A791C1CDB8A00169D09 /* libUICKeyChainStore.xcconfig */,
 				143BF2911C1CD598002BE6B3 /* Tests.xcconfig */,
-				148993E61D8F25A3000132F7 /* TestHost.xcconfig */,
+				14F2A00B1D8F31A3000B135F /* TestHost.xcconfig */,
 			);
 			name = Configurations;
 			sourceTree = "<group>";
@@ -271,10 +271,18 @@
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "kishikawa katsumi";
 				TargetAttributes = {
+					14796A461C1CD9A500169D09 = {
+						ProvisioningStyle = Automatic;
+					};
 					148993CE1D8F2515000132F7 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 27AEDK3C9F;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -405,14 +413,14 @@
 		};
 		148993E41D8F2515000132F7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 148993E61D8F25A3000132F7 /* TestHost.xcconfig */;
+			baseConfigurationReference = 14F2A00B1D8F31A3000B135F /* TestHost.xcconfig */;
 			buildSettings = {
 			};
 			name = Debug;
 		};
 		148993E51D8F2515000132F7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 148993E61D8F25A3000132F7 /* TestHost.xcconfig */;
+			baseConfigurationReference = 14F2A00B1D8F31A3000B135F /* TestHost.xcconfig */;
 			buildSettings = {
 			};
 			name = Release;

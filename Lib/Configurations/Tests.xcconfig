@@ -1,7 +1,6 @@
 COMBINE_HIDPI_IMAGES = YES
 FRAMEWORK_SEARCH_PATHS = $(inherited)
 INFOPLIST_FILE = UICKeyChainStoreTests/Info.plist
-LD_RUNPATH_SEARCH_PATHS = $(inherited) @executable_path/Frameworks @loader_path/Frameworks
 PRODUCT_BUNDLE_IDENTIFIER = com.kishikawakatsumi.$(PRODUCT_NAME:rfc1034identifier)
 PRODUCT_NAME = $(TARGET_NAME)
 

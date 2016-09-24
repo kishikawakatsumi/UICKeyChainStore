@@ -1,16 +1,95 @@
 language: objective-c
-osx_image: xcode7.1
 cache:
   directories:
     - Lib/vendor/bundle
 install:
   - (cd Lib && bundle install --path=vendor/bundle --binstubs=vendor/bin)
+before_script:
+  - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in ./Lib/Certificates/ios_developer.p12.enc -d -a -out ./Lib/Certificates/ios_developer.p12 || true
+  - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in ./Lib/Certificates/developer_id_app.p12.enc -d -a -out ./Lib/Certificates/developer_id_app.p12 || true
+  - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in ./Lib/Certificates/iOS_Development.mobileprovision.enc -d -a -out ./Lib/Certificates/iOS_Development.mobileprovision || true
+  - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in ./Lib/Certificates/tvOS_Development.mobileprovision.enc -d -a -out ./Lib/Certificates/tvOS_Development.mobileprovision || true
+  - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in ./Lib/Certificates/KeychainAccess_Tests.provisionprofile.enc -d -a -out ./Lib/Certificates/KeychainAccess_Tests.provisionprofile || true
+  - ./Lib/Scripts/add_key.sh || true
 script:
-  - "(cd Lib && bundle exec rake build test:iphonesimulator test:appletvsimulator test:macosx coverage:coveralls)"
+  - '(cd Lib && bundle exec rake $ACTION)'
 branches:
   only:
     - master
+matrix:
+  include:
+    - osx_image: xcode8
+      env: ACTION=build
+    - osx_image: xcode8
+      env: ACTION='test:iphonesimulator:debug coverage:coveralls'
+    - osx_image: xcode8
+      env: ACTION='test:iphonesimulator:release coverage:coveralls'
+    - osx_image: xcode8
+      env: ACTION='test:appletvsimulator:debug coverage:coveralls'
+    - osx_image: xcode8
+      env: ACTION='test:appletvsimulator:release coverage:coveralls'
+    - osx_image: xcode8
+      env: ACTION='test:macosx coverage:coveralls'
+      
+    - osx_image: xcode7.3
+      env: ACTION=build
+    - osx_image: xcode7.3
+      env: ACTION='test:iphonesimulator:debug coverage:coveralls'
+    - osx_image: xcode7.3
+      env: ACTION='test:iphonesimulator:release coverage:coveralls'
+    - osx_image: xcode7.3
+      env: ACTION='test:appletvsimulator:debug coverage:coveralls'
+    - osx_image: xcode7.3
+      env: ACTION='test:appletvsimulator:release coverage:coveralls'
+    - osx_image: xcode7.3
+      env: ACTION='test:macosx coverage:coveralls'
+      
+    - osx_image: xcode7.2
+      env: ACTION=build
+    - osx_image: xcode7.2
+      env: ACTION='test:iphonesimulator:debug coverage:coveralls'
+    - osx_image: xcode7.2
+      env: ACTION='test:iphonesimulator:release coverage:coveralls'
+    - osx_image: xcode7.2
+      env: ACTION='test:appletvsimulator:debug coverage:coveralls'
+    - osx_image: xcode7.2
+      env: ACTION='test:appletvsimulator:release coverage:coveralls'
+    - osx_image: xcode7.2
+      env: ACTION='test:macosx coverage:coveralls'
+      
+    - osx_image: xcode7.1
+      env: ACTION=build
+    - osx_image: xcode7.1
+      env: ACTION='test:iphonesimulator:debug coverage:coveralls'
+    - osx_image: xcode7.1
+      env: ACTION='test:iphonesimulator:release coverage:coveralls'
+    - osx_image: xcode7.1
+      env: ACTION='test:appletvsimulator:debug coverage:coveralls'
+    - osx_image: xcode7.1
+      env: ACTION='test:appletvsimulator:release coverage:coveralls'
+    - osx_image: xcode7.1
+      env: ACTION='test:macosx coverage:coveralls'
+      
+    - osx_image: xcode7
+      env: ACTION=build
+    - osx_image: xcode7
+      env: ACTION='test:iphonesimulator:debug coverage:coveralls'
+    - osx_image: xcode7
+      env: ACTION='test:iphonesimulator:release coverage:coveralls'
+    - osx_image: xcode7
+      env: ACTION='test:macosx coverage:coveralls'
+      
+    - osx_image: xcode6.4
+      env: ACTION=build
+    - osx_image: xcode6.4
+      env: ACTION='test:iphonesimulator:debug'
+    - osx_image: xcode6.4
+      env: ACTION='test:iphonesimulator:release'
+    - osx_image: xcode6.4
+      env: ACTION='test:macosx'
 env:
   global:
     - LANG=en_US.UTF-8
     - LC_ALL=en_US.UTF-8
+    - secure: Fw0I2kQLC6j5BxOw7thOuGwTS6B6thpyM2xdF06Turek8TRGyzjU+QGtH1fdhJd03sDaX7LJTwn3wE2ffMTyfy/7uXGNroHJVfBz4yGjEhvL3z93FLWrLrXQqh1s+apWCJcwuE7kVqDUsjg4/HkIBq3nnGhS/nzlYNxacVx01oI=
+    - secure: lKWscex7qoKykLXdWZ830mxvnIz27Vz9T4ryb6Ets8H9C58DEWWz/dNqNm8cYIWmTb+xcvPybDwKmggIEvCvumSwI6XtJMfJviQSWpdOg2vIS1LiiILgDLRmpHL8Eb+FXr8MY7PYYc6rnIYp4HvuovnAIgjqUtLZ+vPuL4KEUV4=

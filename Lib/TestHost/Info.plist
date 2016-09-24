@@ -28,5 +28,7 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>NSPrincipalClass</key>
+	<string>$(PRINCIPAL_CLASS)</string>
 </dict>
 </plist>
