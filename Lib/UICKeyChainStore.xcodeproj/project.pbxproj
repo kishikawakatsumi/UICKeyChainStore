@@ -373,7 +373,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 143BF2921C1CD598002BE6B3 /* UICKeyChainStore.xcconfig */;
 			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
 			};
 			name = Debug;
 		};
@@ -381,7 +380,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 143BF2921C1CD598002BE6B3 /* UICKeyChainStore.xcconfig */;
 			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
 			};
 			name = Release;
 		};
