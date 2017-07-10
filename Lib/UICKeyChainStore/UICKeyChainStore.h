@@ -103,7 +103,7 @@ typedef NS_ENUM(NSInteger, UICKeyChainStoreAuthenticationPolicy) {
     UICKeyChainStoreAuthenticationPolicyDevicePasscode = kSecAccessControlDevicePasscode,
     UICKeyChainStoreAuthenticationPolicyControlOr = kSecAccessControlOr,
     UICKeyChainStoreAuthenticationPolicyPrivateKeyUsage = kSecAccessControlPrivateKeyUsage,
-    UICKeyChainStoreAuthenticationPolicyApplicationPassword = kSecAccessControlApplicationPassword,
+    UICKeyChainStoreAuthenticationPolicyControlAnd = kSecAccessControlAnd,
 };
 
 @interface UICKeyChainStore : NSObject
