@@ -98,13 +98,13 @@ __OSX_AVAILABLE_STARTING(__MAC_10_9, __IPHONE_4_0);
 
 typedef NS_ENUM(NSInteger, UICKeyChainStoreAuthenticationPolicy) {
     UICKeyChainStoreAuthenticationPolicyUserPresence = kSecAccessControlUserPresence,
-    UICKeyChainStoreAuthenticationPolicyTouchIDAny = kSecAccessControlTouchIDAny,
-    UICKeyChainStoreAuthenticationPolicyTouchIDCurrentSet = kSecAccessControlTouchIDCurrentSet,
-    UICKeyChainStoreAuthenticationPolicyDevicePasscode = kSecAccessControlDevicePasscode,
-    UICKeyChainStoreAuthenticationPolicyControlOr = kSecAccessControlOr,
-    UICKeyChainStoreAuthenticationPolicyPrivateKeyUsage = kSecAccessControlPrivateKeyUsage,
-    UICKeyChainStoreAuthenticationPolicyControlAnd = kSecAccessControlAnd,
-};
+    UICKeyChainStoreAuthenticationPolicyTouchIDAny __OSX_AVAILABLE_STARTING(__MAC_10_12, __IPHONE_9_0) = kSecAccessControlTouchIDAny,
+    UICKeyChainStoreAuthenticationPolicyTouchIDCurrentSet __OSX_AVAILABLE_STARTING(__MAC_10_12, __IPHONE_9_0) = kSecAccessControlTouchIDCurrentSet,
+    UICKeyChainStoreAuthenticationPolicyDevicePasscode __OSX_AVAILABLE_STARTING(__MAC_10_12, __IPHONE_9_0) = kSecAccessControlDevicePasscode,
+    UICKeyChainStoreAuthenticationPolicyControlOr __OSX_AVAILABLE_STARTING(__MAC_10_12, __IPHONE_9_0) = kSecAccessControlOr,
+    UICKeyChainStoreAuthenticationPolicyPrivateKeyUsage __OSX_AVAILABLE_STARTING(__MAC_10_12, __IPHONE_9_0) = kSecAccessControlPrivateKeyUsage,
+    UICKeyChainStoreAuthenticationPolicyControlAnd __OSX_AVAILABLE_STARTING(__MAC_10_12, __IPHONE_9_0) = kSecAccessControlAnd,
+}__OSX_AVAILABLE_STARTING(__MAC_10_10, __IPHONE_8_0);
 
 @interface UICKeyChainStore : NSObject
 
