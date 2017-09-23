@@ -2,7 +2,57 @@ require 'xcjobs'
 
 xcode_version = `xcodebuild -version`.split("\n").first.scan(/\d+/).join('.')
 
-if xcode_version.start_with?('8.0')
+if xcode_version.start_with?('9.0')
+  def destinations(platform: 'iphonesimulator')
+    if platform == 'iphonesimulator'
+      [ 'name=iPhone 6s Plus,OS=11.0',
+        'name=iPhone SE,OS=11.0',
+        'name=iPhone 7,OS=11.0',
+        'name=iPhone 8,OS=11.0',
+        'name=iPhone X,OS=11.0',
+        'name=iPad Air 2,OS=11.0',
+        'name=iPad Pro (9.7-inch),OS=11.0',
+        'name=iPad Pro (12.9-inch),OS=11.0'
+      ]
+    elsif platform == 'watchsimulator'
+      [ 'name=Apple Watch - 38mm,OS=4.0',
+        'name=Apple Watch - 42mm,OS=4.0'
+      ]
+    elsif platform == 'appletvsimulator'
+      [ 'name=Apple TV 1080p,OS=11.0'
+      ]
+    else
+      [
+        'platform=OS X,arch=x86_64'
+      ]
+    end
+  end
+elsif xcode_version.start_with?('8.3')
+  def destinations(platform: 'iphonesimulator')
+    if platform == 'iphonesimulator'
+      [ 'name=iPhone 5,OS=10.3.1',
+        'name=iPhone 5s,OS=10.3.1',
+        'name=iPhone 6,OS=10.3.1',
+        'name=iPhone 6s Plus,OS=10.3.1',
+        'name=iPhone SE,OS=10.3.1',
+        'name=iPad Air 2,OS=10.3.1',
+        'name=iPad Pro (9.7-inch),OS=10.3.1',
+        'name=iPad Pro (12.9-inch),OS=10.3.1'
+      ]
+    elsif platform == 'watchsimulator'
+      [ 'name=Apple Watch - 38mm,OS=3.0',
+        'name=Apple Watch - 42mm,OS=3.0'
+      ]
+    elsif platform == 'appletvsimulator'
+      [ 'name=Apple TV 1080p,OS=10.0'
+      ]
+    else
+      [
+        'platform=OS X,arch=x86_64'
+      ]
+    end
+  end
+elsif xcode_version.start_with?('8.0')
   def destinations(platform: 'iphonesimulator')
     if platform == 'iphonesimulator'
       [ 'name=iPhone 5,OS=10.0',
@@ -22,7 +72,9 @@ if xcode_version.start_with?('8.0')
       [ 'name=Apple TV 1080p,OS=10.0'
       ]
     else
-      []
+      [
+        'platform=OS X,arch=x86_64'
+      ]
     end
   end
 elsif xcode_version.start_with?('7.3') || xcode_version.start_with?('7.2')
@@ -61,7 +113,9 @@ elsif xcode_version.start_with?('7.3') || xcode_version.start_with?('7.2')
         'name=Apple TV 1080p,OS=9.1',
       ]
     else
-      []
+      [
+        'platform=OS X,arch=x86_64'
+      ]
     end
   end
 elsif xcode_version.start_with?('7.1')
@@ -97,7 +151,9 @@ elsif xcode_version.start_with?('7.1')
       [ 'name=Apple TV 1080p,OS=9.0',
       ]
     else
-      []
+      [
+        'platform=OS X,arch=x86_64'
+      ]
     end
   end
 elsif xcode_version.start_with?('7.0')
@@ -127,7 +183,9 @@ elsif xcode_version.start_with?('7.0')
         'name=Apple Watch - 42mm,OS=2.0',
       ]
     else
-      []
+      [
+        'platform=OS X,arch=x86_64'
+      ]
     end
   end
 else
@@ -151,7 +209,9 @@ else
         'name=Apple Watch - 42mm,OS=2.0',
       ]
     else
-      []
+      [
+        'platform=OS X,arch=x86_64'
+      ]
     end
   end
 end
@@ -193,6 +253,7 @@ namespace :build do
         t.project = 'UICKeyChainStore'
         t.scheme = scheme
         t.sdk = platform
+        t.configuration = configuration
         if xcode_version.start_with?('8.0')
           if platform == 'iphonesimulator'
             t.add_destination('name=iPhone 6,OS=10.0')
@@ -210,8 +271,8 @@ namespace :build do
             t.add_destination('name=Apple TV 1080p,OS=9.1')
           end
         end
-        t.configuration = configuration
         t.build_dir = 'build'
+        t.hide_shell_script_environment = true
         t.formatter = 'xcpretty -c'
         if ENV['CI']
           t.add_build_setting('CODE_SIGN_IDENTITY', '')
@@ -224,37 +285,51 @@ end
 
 namespace :test do
   supportedPlatforms
-    .select { |platform| platform == 'macosx' || platform.end_with?('simulator') }.map do |platform|
+    .select { |platform| platform == 'macosx' || platform == 'iphonesimulator' || platform == 'appletvsimulator' }
+    .each do |platform|
       task platform do |t|
-        configurations
-          .map { |configuration| Rake::Task["test:#{platform}:#{configuration.downcase}"] }
-          .map(&:invoke)
+        configurations.each do |configuration|
+          destinations(platform: platform)
+            .map { |destination| Rake::Task["test:#{platform}:#{configuration.downcase}:#{destination}"] }
+            .map(&:invoke)
+        end
       end
     end
-end
-    
-namespace :test do
-  supportedPlatforms.product(configurations).each do |platform, configuration|
-    XCJobs::Test.new("#{platform}:#{configuration.downcase}") do |t|
-      t.project = 'UICKeyChainStore'
-      t.scheme = 'UICKeyChainStore'
-      t.sdk = platform
-      destinations(platform: platform).each do |destination|
-        t.add_destination(destination)
-      end
-      t.configuration = configuration
-      if xcode_version.to_i >= 7
-        t.coverage = true
-      end
-      t.build_dir = 'build'
-      t.formatter = 'xcpretty -c'
-    end
-  end
-  
-  task :carthage do
-    sh 'echo "github \"kishikawakatsumi/UICKeyChainStore\" \"${sha:-master}"\" > Cartfile'
-    sh 'carthage update --no-use-binaries'
-  end
 end
 
-XCJobs::Coverage::Coveralls.new()
+namespace :test do
+  supportedPlatforms
+    .select { |platform| platform == 'macosx' || platform == 'iphonesimulator' || platform == 'appletvsimulator' }
+    .product(configurations)
+    .each do |platform, configuration|
+      destinations(platform: platform).each do |destination|
+        XCJobs::Test.new("#{platform}:#{configuration.downcase}:#{destination}") do |t|
+          t.project = 'UICKeyChainStore'
+          t.scheme = 'UICKeyChainStore'
+          t.sdk = platform
+          t.configuration = configuration
+          t.add_destination(destination)
+          t.coverage = true
+          t.build_dir = 'build'
+          t.hide_shell_script_environment = true
+          t.after_action do
+            build_coverage_reports()
+            puts `curl -L https://codecov.io/bash | bash -s -- -f 'coverage.txt'`
+          end
+        end
+      end
+    end
+end
+
+def build_coverage_reports()
+  project_name = 'UICKeyChainStore'
+  profdata = Dir.glob(File.join('build', '/**/Coverage.profdata')).first
+  Dir.glob(File.join('build', "/**/#{project_name}")) do |target|
+    output = `xcrun llvm-cov report -instr-profile "#{profdata}" "#{target}" -arch=x86_64`
+    if $?.success?
+      puts output
+      `xcrun llvm-cov show -instr-profile "#{profdata}" "#{target}" -arch=x86_64 -use-color=0 > coverage.txt`
+      break
+    end
+  end
+end
