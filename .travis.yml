@@ -30,7 +30,7 @@ matrix:
       env: ACTION='test:appletvsimulator:release coverage:coveralls'
     - osx_image: xcode8
       env: ACTION='test:macosx coverage:coveralls'
-      
+
     - osx_image: xcode7.3
       env: ACTION=build
     - osx_image: xcode7.3
@@ -43,7 +43,7 @@ matrix:
       env: ACTION='test:appletvsimulator:release coverage:coveralls'
     - osx_image: xcode7.3
       env: ACTION='test:macosx coverage:coveralls'
-      
+
     - osx_image: xcode7.2
       env: ACTION=build
     - osx_image: xcode7.2
@@ -56,7 +56,7 @@ matrix:
       env: ACTION='test:appletvsimulator:release coverage:coveralls'
     - osx_image: xcode7.2
       env: ACTION='test:macosx coverage:coveralls'
-      
+
     - osx_image: xcode7.1
       env: ACTION=build
     - osx_image: xcode7.1
@@ -69,7 +69,7 @@ matrix:
       env: ACTION='test:appletvsimulator:release coverage:coveralls'
     - osx_image: xcode7.1
       env: ACTION='test:macosx coverage:coveralls'
-      
+
     - osx_image: xcode7
       env: ACTION=build
     - osx_image: xcode7
@@ -78,15 +78,6 @@ matrix:
       env: ACTION='test:iphonesimulator:release coverage:coveralls'
     - osx_image: xcode7
       env: ACTION='test:macosx coverage:coveralls'
-      
-    - osx_image: xcode6.4
-      env: ACTION=build
-    - osx_image: xcode6.4
-      env: ACTION='test:iphonesimulator:debug'
-    - osx_image: xcode6.4
-      env: ACTION='test:iphonesimulator:release'
-    - osx_image: xcode6.4
-      env: ACTION='test:macosx'
 env:
   global:
     - LANG=en_US.UTF-8

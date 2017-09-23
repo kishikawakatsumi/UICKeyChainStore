@@ -15,10 +15,10 @@ CODE_SIGN_ENTITLEMENTS = TestHost/TestHost.entitlements;
 PROVISIONING_PROFILE_SPECIFIER[sdk=iphone*] = iOS Development;
 
 CODE_SIGN_IDENTITY[sdk=iphoneos*] = iPhone Developer;
-CODE_SIGN_IDENTITY[sdk=macosx*] = Developer ID Application
+CODE_SIGN_IDENTITY[sdk=macosx*] = Developer ID Application;
 PROVISIONING_PROFILE[sdk=iphone*] = 1d02fe15-29e3-4be3-9b0c-1904a8f1d04c;
 PROVISIONING_PROFILE[sdk=macosx*] = 66f6a67f-a20f-46eb-b1b8-ab5d17fd8d0b;
-PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*] = KeychainAccess Tests
+PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*] = KeychainAccess Tests;
 OTHER_CODE_SIGN_FLAGS[sdk=macosx*] = --deep;
 
 DEVELOPMENT_TEAM = 27AEDK3C9F;
