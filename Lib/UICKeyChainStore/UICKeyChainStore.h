@@ -96,7 +96,7 @@ typedef NS_ENUM(NSInteger, UICKeyChainStoreAccessibility) {
 }
 __OSX_AVAILABLE_STARTING(__MAC_10_9, __IPHONE_4_0);
 
-typedef NS_ENUM(NSInteger, UICKeyChainStoreAuthenticationPolicy) {
+typedef NS_OPTIONS(NSUInteger, UICKeyChainStoreAuthenticationPolicy) {
     UICKeyChainStoreAuthenticationPolicyUserPresence = kSecAccessControlUserPresence,
     UICKeyChainStoreAuthenticationPolicyTouchIDAny __OSX_AVAILABLE_STARTING(__MAC_10_12, __IPHONE_9_0) = kSecAccessControlTouchIDAny,
     UICKeyChainStoreAuthenticationPolicyTouchIDCurrentSet __OSX_AVAILABLE_STARTING(__MAC_10_12, __IPHONE_9_0) = kSecAccessControlTouchIDCurrentSet,
@@ -104,7 +104,7 @@ typedef NS_ENUM(NSInteger, UICKeyChainStoreAuthenticationPolicy) {
     UICKeyChainStoreAuthenticationPolicyControlOr __OSX_AVAILABLE_STARTING(__MAC_10_12, __IPHONE_9_0) = kSecAccessControlOr,
     UICKeyChainStoreAuthenticationPolicyPrivateKeyUsage __OSX_AVAILABLE_STARTING(__MAC_10_12, __IPHONE_9_0) = kSecAccessControlPrivateKeyUsage,
     UICKeyChainStoreAuthenticationPolicyControlAnd __OSX_AVAILABLE_STARTING(__MAC_10_12, __IPHONE_9_0) = kSecAccessControlAnd,
-}__OSX_AVAILABLE_STARTING(__MAC_10_10, __IPHONE_8_0);
+} __OSX_AVAILABLE_STARTING(__MAC_10_10, __IPHONE_8_0);
 
 @interface UICKeyChainStore : NSObject
 
