@@ -274,6 +274,10 @@
 					14796A461C1CD9A500169D09 = {
 						ProvisioningStyle = Automatic;
 					};
+					14796A521C1CD9B500169D09 = {
+						DevelopmentTeam = 27AEDK3C9F;
+						ProvisioningStyle = Automatic;
+					};
 					148993CE1D8F2515000132F7 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 27AEDK3C9F;
