@@ -121,6 +121,7 @@ typedef NS_ENUM(unsigned long, UICKeyChainStoreAuthenticationPolicy) {
 @property (nonatomic) UICKeyChainStoreAccessibility accessibility;
 @property (nonatomic, readonly) UICKeyChainStoreAuthenticationPolicy authenticationPolicy
 __OSX_AVAILABLE_STARTING(__MAC_10_10, __IPHONE_8_0);
+@property (nonatomic) BOOL useAuthenticationUI;
 
 @property (nonatomic) BOOL synchronizable;
 
