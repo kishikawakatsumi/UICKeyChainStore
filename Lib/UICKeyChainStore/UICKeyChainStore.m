@@ -1339,28 +1339,6 @@ static NSString *_defaultService;
     }
 }
 
-- (CFOptionFlags)authenticationPolicyObject
-{
-    switch (_authenticationPolicy) {
-        case UICKeyChainStoreAuthenticationPolicyUserPresence:
-            return kSecAccessControlUserPresence;
-        case UICKeyChainStoreAuthenticationPolicyTouchIDAny:
-            return kSecAccessControlTouchIDAny;
-        case UICKeyChainStoreAuthenticationPolicyTouchIDCurrentSet:
-            return kSecAccessControlTouchIDCurrentSet;
-        case UICKeyChainStoreAuthenticationPolicyDevicePasscode:
-            return kSecAccessControlDevicePasscode;
-        case UICKeyChainStoreAuthenticationPolicyControlOr:
-            return kSecAccessControlOr;
-        case UICKeyChainStoreAuthenticationPolicyControlAnd:
-            return kSecAccessControlAnd;
-        case UICKeyChainStoreAuthenticationPolicyPrivateKeyUsage:
-            return kSecAccessControlPrivateKeyUsage;
-        default:
-            return 0;
-    }
-}
-
 + (NSError *)argumentError:(NSString *)message
 {
     NSError *error = [NSError errorWithDomain:UICKeyChainStoreErrorDomain code:UICKeyChainStoreErrorInvalidArguments userInfo:@{NSLocalizedDescriptionKey: message}];

@@ -97,13 +97,14 @@ typedef NS_ENUM(NSInteger, UICKeyChainStoreAccessibility) {
 __OSX_AVAILABLE_STARTING(__MAC_10_9, __IPHONE_4_0);
 
 typedef NS_ENUM(NSInteger, UICKeyChainStoreAuthenticationPolicy) {
-    UICKeyChainStoreAuthenticationPolicyUserPresence = kSecAccessControlUserPresence,
-    UICKeyChainStoreAuthenticationPolicyTouchIDAny __OSX_AVAILABLE_STARTING(__MAC_10_12, __IPHONE_9_0) = kSecAccessControlTouchIDAny,
-    UICKeyChainStoreAuthenticationPolicyTouchIDCurrentSet __OSX_AVAILABLE_STARTING(__MAC_10_12, __IPHONE_9_0) = kSecAccessControlTouchIDCurrentSet,
-    UICKeyChainStoreAuthenticationPolicyDevicePasscode __OSX_AVAILABLE_STARTING(__MAC_10_12, __IPHONE_9_0) = kSecAccessControlDevicePasscode,
-    UICKeyChainStoreAuthenticationPolicyControlOr __OSX_AVAILABLE_STARTING(__MAC_10_12, __IPHONE_9_0) = kSecAccessControlOr,
-    UICKeyChainStoreAuthenticationPolicyPrivateKeyUsage __OSX_AVAILABLE_STARTING(__MAC_10_12, __IPHONE_9_0) = kSecAccessControlPrivateKeyUsage,
-    UICKeyChainStoreAuthenticationPolicyControlAnd __OSX_AVAILABLE_STARTING(__MAC_10_12, __IPHONE_9_0) = kSecAccessControlAnd,
+    UICKeyChainStoreAuthenticationPolicyUserPresence = 1 << 0,
+    UICKeyChainStoreAuthenticationPolicyTouchIDAny __OSX_AVAILABLE_STARTING(__MAC_10_12_1, __IPHONE_9_0) = 1u << 1,
+    UICKeyChainStoreAuthenticationPolicyTouchIDCurrentSet __OSX_AVAILABLE_STARTING(__MAC_10_12_1, __IPHONE_9_0) = 1u << 3,
+    UICKeyChainStoreAuthenticationPolicyDevicePasscode __OSX_AVAILABLE_STARTING(__MAC_10_11, __IPHONE_9_0) = 1u << 4,
+    UICKeyChainStoreAuthenticationPolicyControlOr __OSX_AVAILABLE_STARTING(__MAC_10_12_1, __IPHONE_9_0) = 1u << 14,
+    UICKeyChainStoreAuthenticationPolicyControlAnd __OSX_AVAILABLE_STARTING(__MAC_10_12_1, __IPHONE_9_0) = 1u << 15,
+    UICKeyChainStoreAuthenticationPolicyPrivateKeyUsage __OSX_AVAILABLE_STARTING(__MAC_10_12_1, __IPHONE_9_0) = 1u << 30,
+    UICKeyChainStoreAuthenticationPolicyApplicationPassword __OSX_AVAILABLE_STARTING(__MAC_10_12_1, __IPHONE_9_0) = 1u << 31,
 }__OSX_AVAILABLE_STARTING(__MAC_10_10, __IPHONE_8_0);
 
 @interface UICKeyChainStore : NSObject
