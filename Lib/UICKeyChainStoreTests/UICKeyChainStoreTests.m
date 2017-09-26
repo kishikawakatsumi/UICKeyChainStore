@@ -14,7 +14,6 @@
 - (CFTypeRef)protocolTypeObject;
 - (CFTypeRef)authenticationTypeObject;
 - (CFTypeRef)accessibilityObject;
-- (CFOptionFlags)authenticationPolicyObject;
 
 @end
 
@@ -1609,42 +1608,6 @@
     
     keychain.accessibility = UICKeyChainStoreAccessibilityAlwaysThisDeviceOnly;
     XCTAssertEqualObjects([keychain accessibilityObject], (__bridge id)kSecAttrAccessibleAlwaysThisDeviceOnly);
-}
-
-- (void)testAuthenticationPolicy
-{
-    UICKeyChainStore *keychain;
-    
-    keychain = [UICKeyChainStore keyChainStoreWithService:@"Twitter"];
-    
-    #if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_8_0
-    
-    [keychain setAccessibility:UICKeyChainStoreAccessibilityWhenUnlockedThisDeviceOnly authenticationPolicy:UICKeyChainStoreAuthenticationPolicyUserPresence];
-    XCTAssertEqual([keychain authenticationPolicyObject], kSecAccessControlUserPresence);
-    
-    #endif
-    
-    #if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_9_0
-    
-    [keychain setAccessibility:UICKeyChainStoreAccessibilityWhenUnlockedThisDeviceOnly authenticationPolicy:UICKeyChainStoreAuthenticationPolicyTouchIDAny];
-    XCTAssertEqual([keychain authenticationPolicyObject], kSecAccessControlTouchIDAny);
-    
-    [keychain setAccessibility:UICKeyChainStoreAccessibilityWhenUnlockedThisDeviceOnly authenticationPolicy:UICKeyChainStoreAuthenticationPolicyTouchIDCurrentSet];
-    XCTAssertEqual([keychain authenticationPolicyObject], kSecAccessControlTouchIDCurrentSet);
-    
-    [keychain setAccessibility:UICKeyChainStoreAccessibilityWhenUnlockedThisDeviceOnly authenticationPolicy:UICKeyChainStoreAuthenticationPolicyDevicePasscode];
-    XCTAssertEqual([keychain authenticationPolicyObject],kSecAccessControlDevicePasscode);
-    
-    [keychain setAccessibility:UICKeyChainStoreAccessibilityWhenUnlockedThisDeviceOnly authenticationPolicy:UICKeyChainStoreAuthenticationPolicyControlAnd];
-    XCTAssertEqual([keychain authenticationPolicyObject],kSecAccessControlAnd);
-    
-    [keychain setAccessibility:UICKeyChainStoreAccessibilityWhenUnlockedThisDeviceOnly authenticationPolicy:UICKeyChainStoreAuthenticationPolicyControlOr];
-    XCTAssertEqual([keychain authenticationPolicyObject],kSecAccessControlOr);
-    
-    [keychain setAccessibility:UICKeyChainStoreAccessibilityWhenUnlockedThisDeviceOnly authenticationPolicy:UICKeyChainStoreAuthenticationPolicyPrivateKeyUsage];
-    XCTAssertEqual([keychain authenticationPolicyObject],kSecAccessControlPrivateKeyUsage);
-    
-    #endif
 }
 
 @end
