@@ -59,7 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				145BF3F61A66C24500D01D0D /* Example-iOS */,
-				148E865A1F75FEFD00A69105 /* UICKeyChainStore.framework */,
+				14C5DBC61F7820020021D0AD /* Frameworks */,
 				145BF3F51A66C24500D01D0D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -96,6 +96,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		14C5DBC61F7820020021D0AD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				148E865A1F75FEFD00A69105 /* UICKeyChainStore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -128,6 +136,7 @@
 				TargetAttributes = {
 					145BF3F31A66C24500D01D0D = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 27AEDK3C9F;
 					};
 				};
 			};
@@ -275,6 +284,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Example-iOS/Example-iOS.entitlements";
+				DEVELOPMENT_TEAM = 27AEDK3C9F;
 				INFOPLIST_FILE = "Example-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kishikawakatsumi.$(PRODUCT_NAME:rfc1034identifier)";
@@ -287,6 +297,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Example-iOS/Example-iOS.entitlements";
+				DEVELOPMENT_TEAM = 27AEDK3C9F;
 				INFOPLIST_FILE = "Example-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kishikawakatsumi.$(PRODUCT_NAME:rfc1034identifier)";
