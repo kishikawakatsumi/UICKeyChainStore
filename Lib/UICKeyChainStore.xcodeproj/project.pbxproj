@@ -268,7 +268,7 @@
 		14A59C941A62CF6E006561CC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "kishikawa katsumi";
 				TargetAttributes = {
 					14796A461C1CD9A500169D09 = {
@@ -405,6 +405,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 14796A791C1CDB8A00169D09 /* libUICKeyChainStore.xcconfig */;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 			};
 			name = Debug;
 		};
@@ -412,6 +413,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 14796A791C1CDB8A00169D09 /* libUICKeyChainStore.xcconfig */;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 			};
 			name = Release;
 		};
@@ -433,6 +435,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 143BF28F1C1CD598002BE6B3 /* Debug.xcconfig */;
 			buildSettings = {
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 			};
 			name = Debug;
 		};
@@ -440,6 +444,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 143BF2901C1CD598002BE6B3 /* Release.xcconfig */;
 			buildSettings = {
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 			};
 			name = Release;
 		};
