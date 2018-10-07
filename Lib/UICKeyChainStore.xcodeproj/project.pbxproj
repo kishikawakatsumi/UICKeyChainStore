@@ -17,6 +17,16 @@
 		148993D31D8F2515000132F7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 148993D21D8F2515000132F7 /* main.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		14021B942169FD00006AD6AE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 14A59C941A62CF6E006561CC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 148993CE1D8F2515000132F7;
+			remoteInfo = TestHost;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		14796A651C1CD9C900169D09 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -222,6 +232,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				14021B952169FD00006AD6AE /* PBXTargetDependency */,
 			);
 			name = UICKeyChainStoreTests;
 			productName = UICKeyChainStoreTests;
@@ -268,7 +279,7 @@
 		14A59C941A62CF6E006561CC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "kishikawa katsumi";
 				TargetAttributes = {
 					14796A461C1CD9A500169D09 = {
@@ -276,7 +287,6 @@
 					};
 					14796A521C1CD9B500169D09 = {
 						DevelopmentTeam = 27AEDK3C9F;
-						ProvisioningStyle = Automatic;
 					};
 					148993CE1D8F2515000132F7 = {
 						CreatedOnToolsVersion = 8.0;
@@ -371,6 +381,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		14021B952169FD00006AD6AE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 148993CE1D8F2515000132F7 /* TestHost */;
+			targetProxy = 14021B942169FD00006AD6AE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		14796A4E1C1CD9A500169D09 /* Debug */ = {
