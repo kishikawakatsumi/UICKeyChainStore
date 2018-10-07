@@ -2,7 +2,45 @@ require 'xcjobs'
 
 xcode_version = `xcodebuild -version`.split("\n").first.scan(/\d+/).join('.')
 
-if xcode_version.start_with?('9.0')
+if xcode_version.start_with?('10')
+  def destinations(platform: 'iphonesimulator')
+    if platform == 'iphonesimulator'
+      [ 'name=iPhone X,OS=12.0'
+      ]
+    elsif platform == 'watchsimulator'
+      [ 'name=Apple Watch Series 4 - 40mm,OS=5.0',
+        'name=Apple Watch Series 4 - 44mm,OS=5.0'
+      ]
+    elsif platform == 'appletvsimulator'
+      [ 'name=Apple TV 4K,OS=12.0'
+      ]
+    else
+      [
+        'platform=OS X,arch=x86_64'
+      ]
+    end
+  end
+elsif xcode_version.start_with?('9.4')
+  def destinations(platform: 'iphonesimulator')
+    if platform == 'iphonesimulator'
+      [ 'name=iPhone 7,OS=11.4',
+        'name=iPhone 8,OS=11.4',
+        'name=iPhone X,OS=11.4'
+      ]
+    elsif platform == 'watchsimulator'
+      [ 'name=Apple Watch - 38mm,OS=4.0',
+        'name=Apple Watch - 42mm,OS=4.0'
+      ]
+    elsif platform == 'appletvsimulator'
+      [ 'name=Apple TV 4K,OS=11.0'
+      ]
+    else
+      [
+        'platform=OS X,arch=x86_64'
+      ]
+    end
+  end
+elsif xcode_version.start_with?('9')
   def destinations(platform: 'iphonesimulator')
     if platform == 'iphonesimulator'
       [ 'name=iPhone 6s Plus,OS=11.0',
@@ -254,7 +292,31 @@ namespace :build do
         t.scheme = scheme
         t.sdk = platform
         t.configuration = configuration
-        if xcode_version.start_with?('8.0')
+        if xcode_version.start_with?('10')
+          if platform == 'iphonesimulator'
+            t.add_destination('name=iPhone X,OS=12.0')
+          elsif platform == 'watchsimulator'
+            t.add_destination('name=Apple Watch Series 4 - 44mm,OS=5.0')
+          elsif platform == 'appletvsimulator'
+            t.add_destination('name=Apple TV 4K,OS=12.0')
+          end
+        elsif xcode_version.start_with?('9.4')
+          if platform == 'iphonesimulator'
+            t.add_destination('name=iPhone 7,OS=11.4')
+          elsif platform == 'watchsimulator'
+            t.add_destination('name=Apple Watch - 42mm,OS=3.2')
+          elsif platform == 'appletvsimulator'
+            t.add_destination('name=Apple TV 4K,OS=11.0')
+          end
+        elsif xcode_version.start_with?('9.0')
+          if platform == 'iphonesimulator'
+            t.add_destination('name=iPhone 6,OS=11.0')
+          elsif platform == 'watchsimulator'
+            t.add_destination('name=Apple Watch - 42mm,OS=3.1')
+          elsif platform == 'appletvsimulator'
+            t.add_destination('name=Apple TV 1080p,OS=11.0')
+          end
+        elsif xcode_version.start_with?('8.0')
           if platform == 'iphonesimulator'
             t.add_destination('name=iPhone 6,OS=10.0')
           elsif platform == 'watchsimulator'
