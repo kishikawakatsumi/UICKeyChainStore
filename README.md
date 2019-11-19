@@ -511,6 +511,44 @@ OS X 10.7 or later
 
 ## Installation
 
+### Swift Package Manager
+
+UICKeyChainStore is now available through [Swift Package Manager](https://github.com/apple/swift-package-manager/).
+
+#### Xcode
+
+Select `File > Swift Packages > Add Package Dependency...`
+
+Type `https://github.com/kishikawakatsumi/UICKeyChainStore` then check the target that appears.
+
+#### CLI
+
+Create `Package.swift` file and define the dependency like this
+
+```swift
+// swift-tools-version:5.0
+import PackageDescription
+
+let package = Package(
+    name: "MyLibrary",
+    products: [
+        .library(name: "MyLibrary", targets: ["MyLibrary"]),
+    ],
+    dependencies: [
+        .package(url: "https://github.com/kishikawakatsumi/UICKeyChainStore.git", from: "2.1.2"),
+    ],
+    targets: [
+        .target(name: "MyLibrary", dependencies: ["UICKeyChainStore"]),
+    ]
+)
+```
+
+Then, type
+
+```shell
+$ swift build
+```
+
 ### CocoaPods
 
 UICKeyChainStore is available through [CocoaPods](http://cocoapods.org). To install
