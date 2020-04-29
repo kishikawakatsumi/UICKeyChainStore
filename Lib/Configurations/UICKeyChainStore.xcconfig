@@ -12,6 +12,8 @@ SKIP_INSTALL = YES;
 
 SUPPORTED_PLATFORMS = macosx iphoneos iphonesimulator watchos watchsimulator appletvos appletvsimulator;
 TARGETED_DEVICE_FAMILY = 1,2,3,4;
+SUPPORTS_MACCATALYST = YES;
+DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 
 ENABLE_BITCODE[sdk=iphone*] = YES;
 ENABLE_BITCODE[sdk=watch*] = YES;
