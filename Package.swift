@@ -11,6 +11,6 @@ let package = Package(
         .library(name: "UICKeyChainStore", targets: ["UICKeyChainStore"])
     ],
     targets: [
-        .target(name: "UICKeyChainStore", path: "Lib/UICKeyChainStore")
+        .target(name: "UICKeyChainStore", path: "Lib/UICKeyChainStore", publicHeadersPath: ".")
     ]
 )
