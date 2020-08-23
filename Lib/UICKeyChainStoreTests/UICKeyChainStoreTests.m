@@ -1379,8 +1379,9 @@
 - (void)testSetDataLabelAndComment
 {
     UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithService:@"Twitter"];
-    
-    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:@[@"Keychain"]];
+
+    NSError *error;
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:@[@"Keychain"] requiringSecureCoding:NO error:&error];
     [store setData:data forKey:@"data" label:@"Label" comment:@"Comment"];
     XCTAssertEqualObjects(data, [store dataForKey:@"data"]);
 }
@@ -1453,11 +1454,12 @@
 {
     UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithService:@"Twitter"];
     
-    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:@[@"Keychain"]];
-    
+    NSError *error;
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:@[@"Keychain"] requiringSecureCoding:NO error:&error];
+    XCTAssertNil(error);
+
     [store setData:data forKey:@"data"];
     
-    NSError *error = nil;
     NSString *s = [store stringForKey:@"data" error:&error];
     XCTAssertNil(s);
     XCTAssertNotNil(error);
@@ -1593,7 +1595,7 @@
     XCTAssertEqualObjects([keychain accessibilityObject], (__bridge id)kSecAttrAccessibleAfterFirstUnlock);
     
     keychain.accessibility = UICKeyChainStoreAccessibilityAlways;
-    XCTAssertEqualObjects([keychain accessibilityObject], (__bridge id)kSecAttrAccessibleAlways);
+    XCTAssertEqualObjects([keychain accessibilityObject], (__bridge id)kSecAttrAccessibleAfterFirstUnlock);
     
 #if TARGET_OS_IPHONE
     keychain.accessibility = UICKeyChainStoreAccessibilityWhenPasscodeSetThisDeviceOnly;
@@ -1607,7 +1609,7 @@
     XCTAssertEqualObjects([keychain accessibilityObject], (__bridge id)kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly);
     
     keychain.accessibility = UICKeyChainStoreAccessibilityAlwaysThisDeviceOnly;
-    XCTAssertEqualObjects([keychain accessibilityObject], (__bridge id)kSecAttrAccessibleAlwaysThisDeviceOnly);
+    XCTAssertEqualObjects([keychain accessibilityObject], (__bridge id)kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly);
 }
 
 @end
