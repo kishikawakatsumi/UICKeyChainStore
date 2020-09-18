@@ -279,7 +279,7 @@
 		14A59C941A62CF6E006561CC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1140;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "kishikawa katsumi";
 				TargetAttributes = {
 					14796A461C1CD9A500169D09 = {
@@ -423,7 +423,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 14796A791C1CDB8A00169D09 /* libUICKeyChainStore.xcconfig */;
 			buildSettings = {
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Debug;
 		};
@@ -431,7 +430,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 14796A791C1CDB8A00169D09 /* libUICKeyChainStore.xcconfig */;
 			buildSettings = {
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Release;
 		};
@@ -439,7 +437,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 14F2A00B1D8F31A3000B135F /* TestHost.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "-";
 			};
 			name = Debug;
 		};
@@ -447,7 +444,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 14F2A00B1D8F31A3000B135F /* TestHost.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "-";
 			};
 			name = Release;
 		};
@@ -455,9 +451,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 143BF28F1C1CD598002BE6B3 /* Debug.xcconfig */;
 			buildSettings = {
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Debug;
 		};
@@ -465,9 +458,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 143BF2901C1CD598002BE6B3 /* Release.xcconfig */;
 			buildSettings = {
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Release;
 		};

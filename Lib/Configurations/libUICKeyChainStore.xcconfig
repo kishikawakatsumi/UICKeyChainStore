@@ -15,7 +15,7 @@ SUPPORTED_PLATFORMS = macosx iphoneos iphonesimulator watchos watchsimulator app
 TARGETED_DEVICE_FAMILY = 1,2,3,4;
 
 MACOSX_DEPLOYMENT_TARGET = 10.6;
-IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 
 LD_RUNPATH_SEARCH_PATHS[sdk=macosx*] = $(inherited) @executable_path/../Frameworks @loader_path/../Frameworks;
 LD_RUNPATH_SEARCH_PATHS[sdk=iphone*] = $(inherited) @executable_path/Frameworks @loader_path/Frameworks;
