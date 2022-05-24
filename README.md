@@ -535,7 +535,7 @@ let package = Package(
         .library(name: "MyLibrary", targets: ["MyLibrary"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/kishikawakatsumi/UICKeyChainStore.git", from: "2.1.2"),
+        .package(url: "https://github.com/kishikawakatsumi/UICKeyChainStore.git", from: "2.2.1"),
     ],
     targets: [
         .target(name: "MyLibrary", dependencies: ["UICKeyChainStore"]),
