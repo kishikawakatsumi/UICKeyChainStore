@@ -799,7 +799,7 @@ static NSString *_defaultService;
     CFRelease(cfquery);
     
     if (status == errSecSuccess) {
-        NSArray *items = [self prettify:itemClassObject items:(__bridge NSArray *)result];
+        NSArray *items = [self prettify:itemClassObject items:(__bridge_transfer NSArray *)result];
         NSMutableArray *keys = [[NSMutableArray alloc] init];
         for (NSDictionary *item in items) {
             if (itemClassObject == kSecClassGenericPassword) {
@@ -839,7 +839,7 @@ static NSString *_defaultService;
     CFRelease(cfquery);
     
     if (status == errSecSuccess) {
-        return [self prettify:itemClassObject items:(__bridge NSArray *)result];
+        return [self prettify:itemClassObject items:(__bridge_transfer NSArray *)result];
     } else if (status == errSecItemNotFound) {
         return @[];
     }
@@ -1183,7 +1183,7 @@ static NSString *_defaultService;
             CFErrorRef securityError = NULL;
             SecAccessControlRef accessControl = SecAccessControlCreateWithFlags(kCFAllocatorDefault, accessibilityObject, (SecAccessControlCreateFlags)_authenticationPolicy, &securityError);
             if (securityError) {
-                NSError *e = (__bridge NSError *)securityError;
+                NSError *e = (__bridge_transfer NSError *)securityError;
                 NSLog(@"error: [%@] %@", @(e.code), e.localizedDescription);
                 if (error) {
                     *error = e;
