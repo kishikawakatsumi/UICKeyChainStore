@@ -453,7 +453,12 @@ static NSString *_defaultService;
     query[(__bridge __strong id)kSecReturnData] = (__bridge id)kCFBooleanTrue;
     
     query[(__bridge __strong id)kSecAttrAccount] = key;
-    
+
+    // Set the query to return a value that matches the synchronizable setting of this
+    // keychain. This means if two values exist, one in the cloud and one local, the returned
+    // value will be cloud version if synchronizable is true, or local if false
+    query[(__bridge __strong id)kSecAttrSynchronizable] = @(_synchronizable);
+
     CFTypeRef data = nil;
     OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, &data);
     
