@@ -20,8 +20,8 @@ Pod::Spec.new do |s|
   s.source                = { :git => "https://github.com/kishikawakatsumi/UICKeyChainStore.git", :tag => "v#{s.version}" }
   s.social_media_url      = "https://twitter.com/k_katsumi"
 
-  s.ios.deployment_target = "4.3"
-  s.osx.deployment_target = "10.7"
+  s.ios.deployment_target = "9.0"
+  s.osx.deployment_target = "10.11"
   s.watchos.deployment_target = '2.0'
   s.tvos.deployment_target = '9.0'
   s.requires_arc          = true
